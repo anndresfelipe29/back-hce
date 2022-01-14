@@ -1,0 +1,27 @@
+# documentación en: 
+# https://docs.github.com/es/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions
+# https://github.com/marketplace/actions/telegram-message-notify
+# https://github.com/appleboy/telegram-action/blob/master/entrypoint.sh
+name: bot telegram
+on: 
+  push:
+    branches:
+      - main
+      - master
+      - develop
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: envio de mensaje
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        # args: The ${{ github.event_name }} event triggered first step.
+        message: ${{github.sha}} => Hola, el usuario ${{ github.actor }} ha ejecutado una acción, en el repositorio ${{github.repository}} generando un ${{ github.event_name }} es el commit ${{github.run_number}}
