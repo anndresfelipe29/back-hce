@@ -28,6 +28,6 @@ contract MedicoService {
 
     function consultar(address direccion) public view returns (Medico) {
         
-        // TODO: usar PersonaDAO y usar método consultar
+        // TODO: usar PersonaDAO y usar método consultar asap
     }
 }
