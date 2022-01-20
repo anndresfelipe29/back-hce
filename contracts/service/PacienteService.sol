@@ -3,7 +3,12 @@ pragma solidity >=0.4.22 <0.9.0; // TODO: Ajustar la versión por consenso con J
 
 import "../persistence/PersonaDAO.sol";
 
+// TODO: quizá todos los métodos en lso service deban ser external (averiguar)
+// https://ethereum.stackexchange.com/questions/19380/external-vs-public-best-practices?answertab=active#tab-top
 contract PacienteService {
+
+    event Log(string data);
+
     address public creador;
     PersonaDAO private personaDao;
 
@@ -24,12 +29,20 @@ contract PacienteService {
     }
 
     // TODO: intentar dejarla como view
-    function consultar(address direccion) public returns (Paciente) {
+    // TODO: Cambiar a paciente
+    function consultar(address direccion) external returns (Persona) {
         // TODO: validar que sea paciente sino lanzar una excepcion
         // TODO: mejorar o completar la conversion del tipo padre al hijo,preguntas al profe que se puede hacer
-        Persona persona = personaDao.consultar(direccion);
-        Paciente paciente = new Paciente();
-        paciente.setPrimerApellido(persona.getPrimerApellido());
-        return paciente;
+        emit Log("entro a consultar");
+        try personaDao.consultar(direccion) returns (Persona persona) {
+            // Paciente paciente = new Paciente();
+            // paciente.setPrimerApellido(persona.getPrimerApellido()); // acá se rompe
+            emit Log("encontro la persona");
+            return persona;
+        } catch Error(string memory /*reason*/){
+            emit Log("se rompio por un revert o require");
+        }  catch (bytes memory /*lowLevelData*/){
+            emit Log("se rompio y ni idea porque ");
+        }      
     }
 }

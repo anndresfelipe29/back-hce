@@ -14,6 +14,7 @@ abstract contract Persona {
     // TipoIdentificacionStruct public tipoIdentificacion; // TODO: cambiar tipo por el de la estructura más adelante
     string private tipoIdentificacion;
     Usuario private accesoUsuario;
+    bool private isValue;
 
     /*
     // function registrar() public virtual returns(Persona); ejemplo de función abstracta
@@ -78,10 +79,19 @@ abstract contract Persona {
     function setTipoIdentificacion(string memory newMessage) public {
         tipoIdentificacion = newMessage;
     }
+
+    function getIsValue() public view returns (bool) {
+        return isValue;
+    }
+
+    function setIsValue(bool newMessage) public {
+        isValue = newMessage;
+    }
 }
 
+// TODO: intentar separar en otro documento
 contract Paciente is Persona {
-    address public creador;
+    // address public creador;
 
     // EstadoStruct private estado;
     uint256 private historiaClinicaId;
@@ -89,7 +99,7 @@ contract Paciente is Persona {
     // DatosPersonales private datosPersonales;
 
     constructor() public {
-        creador = msg.sender; // creador del contrato
+        // creador = msg.sender; // creador del contrato
     }
 }
 
