@@ -1,13 +1,13 @@
 pragma solidity >=0.4.22 <0.9.0; // TODO: Ajustar la versión por consenso con José
 
 contract Usuario {
-    address public creador;
+    //address public creador;
 
     address private direccion;
     string private rol; // TODO: Cambiar al tipo RolStruct
 
     constructor() public {
-        creador = msg.sender; // creador del contrato
+        //creador = msg.sender; // creador del contrato
     }
 
     function getDirecion() public view returns (address) {

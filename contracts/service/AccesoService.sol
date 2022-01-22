@@ -11,9 +11,10 @@ contract AccesoService {
     constructor() public {
         creador = msg.sender; // creador del contrato
         personaDao = new PersonaDAO(); //TODO: verificar si queda guardado el objeto o si hay mejor manera
+        // TODO: quiza deba aplicar singleton a los dao para no tener multiples listas con diferente información
     }
 
-    function login() public returns (Persona) {
+    function login() public returns (Persona.PersonaStruct memory) {
         address direccion = msg.sender;
         // TODO: buscar persona en arreglo
         return personaDao.consultar(direccion);

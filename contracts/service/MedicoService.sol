@@ -35,9 +35,9 @@ contract MedicoService {
     function consultar(address direccion) public returns (Medico) {
         // TODO: Validar que sea médico y sino lanzar excepción
         // TODO: mejorar o completar la conversion del tipo padre al hijo,preguntas al profe que se puede hacer
-        Persona persona = personaDao.consultar(direccion);
+        Persona.PersonaStruct memory persona = personaDao.consultar(direccion);
         Medico medico = new Medico();
-        medico.setPrimerApellido(persona.getPrimerApellido());
+        //medico.setPrimerApellido(persona.getPrimerApellido());
         return medico;
     }
 }

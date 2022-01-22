@@ -15,6 +15,7 @@ pacienteService.allEvents()
 PersonaDAO
 PersonaDAO.deployed().then(c => persona=c)
 persona.consultar(accounts[1])
+persona.guardar(accounts[1], {primerNombre: "pipe", segundoNombre: "felipe"})
 
 Debug
 - Para iniciar el debug usar

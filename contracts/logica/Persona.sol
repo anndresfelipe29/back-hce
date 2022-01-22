@@ -5,6 +5,18 @@ import "./Usuario.sol";
 // NOTE: se deja el abstrac contrac justo con sus hijos por cuestiones de ordenamiento de código solidity, antes decia "Definition of base has to precede definition of derived contract"
 
 abstract contract Persona {
+    struct PersonaStruct {
+        string primerNombre;
+        string segundoNombre;
+        string primerApellido;
+        string segundoApellido;
+        string identificacion;
+        // TipoIdentificacionStruct public tipoIdentificacion; // TODO: cambiar tipo por el de la estructura más adelante
+        string tipoIdentificacion;
+        Usuario accesoUsuario;
+        bool isValue;
+    }
+    /*
     // address public creador;
     string private primerNombre;
     string private segundoNombre;
@@ -15,7 +27,7 @@ abstract contract Persona {
     string private tipoIdentificacion;
     Usuario private accesoUsuario;
     bool private isValue;
-
+    */
     /*
     // function registrar() public virtual returns(Persona); ejemplo de función abstracta
     function registrar() public returns(bool){
@@ -23,6 +35,7 @@ abstract contract Persona {
         return true;
     }
 */
+    /*
     function getAccesoUsuario() public view returns (string memory) {
         return primerNombre;
     }
@@ -87,14 +100,18 @@ abstract contract Persona {
     function setIsValue(bool newMessage) public {
         isValue = newMessage;
     }
+    */
 }
 
 // TODO: intentar separar en otro documento
 contract Paciente is Persona {
     // address public creador;
+    struct MedicoStruct {
+        PersonaStruct persona;
+        uint256 historiaClinicaId;
+    }
 
     // EstadoStruct private estado;
-    uint256 private historiaClinicaId;
 
     // DatosPersonales private datosPersonales;
 
@@ -106,10 +123,14 @@ contract Paciente is Persona {
 contract Medico is Persona {
     address public creador;
 
+    struct MedicoStruct {
+        PersonaStruct persona;
+        string especialidad;
+        string usuario;
+        string contrasena;
+    }
+
     // EstadoStruct private estado;
-    string private especialidad;
-    string private usuario;
-    string private contrasena;
 
     struct PerfilMedicoSistemaExternoStruct {
         string primerNombre;
@@ -124,7 +145,7 @@ contract Medico is Persona {
         creador = msg.sender; // creador del contrato
     }
 
-    function login() public returns (Persona) {
+    function login() public view returns (Persona) {
         address direccion = msg.sender;
         // TODO: buscar persona en arreglo
     }
