@@ -2,7 +2,10 @@ pragma solidity >=0.4.22 <0.9.0; // TODO: Ajustar la versión por consenso con J
 
 contract Usuario {
     //address public creador;
-
+    struct UsuarioStruct {
+        address direccion;
+        string rol;
+    }
     address private direccion;
     string private rol; // TODO: Cambiar al tipo RolStruct
 
