@@ -15,8 +15,7 @@ pacienteService.allEvents()
 PersonaDAO
 PersonaDAO.deployed().then(c => persona=c)
 persona.consultar(accounts[1])
-persona.guardar(accounts[1], {primerNombre: "pipe", segundoNombre: "felipe"})
-
+persona.guardar(accounts[1], ["pipe", "felipe", "g","g","g","g", true])
 Debug
 - Para iniciar el debug usar
  truffle debug (+id de transaccion)  
@@ -40,3 +39,9 @@ Commands:
 (?) list existing watch expressions and breakpoints
 (v) print variables and values (`v [bui|glo|con|loc]*`)
 (:) evaluate expression - see `v`
+
+
+Test
+
+ejecutar test 
+truffle test ./test/PersonaDAO.test.js --show-events 

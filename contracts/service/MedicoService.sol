@@ -28,7 +28,7 @@ contract MedicoService {
     function registrar(address direccion, Medico medico) public {
         // TODO: redefinir, acá le pega a persona dao y usa el método guardar
         // TODO: poner excepcion en caso de error
-        personaDao.guardar(direccion, medico);
+        // personaDao.guardar(direccion, medico);
     }
 
     // TODO: intentar volverlo view despues

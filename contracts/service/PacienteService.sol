@@ -26,7 +26,7 @@ contract PacienteService {
     // TODO: buscar porque es uint256
     function registrar(address direccion, Paciente paciente) public {
         // TODO: poner excepcion en caso de error
-        personaDao.guardar(direccion, paciente);
+        // personaDao.guardar(direccion, paciente);
     }
 
     // TODO: intentar dejarla como view

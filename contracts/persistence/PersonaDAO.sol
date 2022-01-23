@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10; // TODO: Ajustar la versión por consenso con José
-
+//pragma abicoder v2
 import "../logica/Persona.sol";
 
 // import "../models/PersonaStruct.sol";
@@ -44,6 +44,7 @@ contract PersonaDAO {
     function guardar(address direccion, Persona.PersonaStruct memory persona) public {
         // TODO: quitar return en clase de enterprise architect
         // TODO: Validar, si falla poner excepción
+
         personas[direccion] = persona;
     }
 }

@@ -13,7 +13,7 @@ abstract contract Persona {
         string identificacion;
         // TipoIdentificacionStruct public tipoIdentificacion; // TODO: cambiar tipo por el de la estructura más adelante
         string tipoIdentificacion;
-        Usuario accesoUsuario;
+        // Usuario accesoUsuario;
         bool isValue;
     }
     /*
