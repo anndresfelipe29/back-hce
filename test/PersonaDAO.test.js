@@ -7,6 +7,20 @@ beforeEach(async () => {
 
 contract('PersonaDAO', accounts => {
     
+    it('Se consulta una persona que si existe', async () => {
+
+        try {
+            let persona = await instance.consultar(accounts[1]);
+            console.log("---");
+            console.log(persona);
+            console.log("---");
+
+        } catch (err) {
+            console.log(err.reason);
+            assert(true);
+        }
+    });  
+
     it('Se consulta una persona que no existe', async () => {
 
         try {

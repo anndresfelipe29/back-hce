@@ -1,14 +1,23 @@
-pragma solidity >=0.5.0 <0.9.0; // TODO: Ajustar la versión por consenso con José
+pragma solidity ^0.8.10; // TODO: Ajustar la versión por consenso con José
 
 import "./Usuario.sol";
 import "../models/PersonaStruct.sol";
+import "../persistence/PersonaDAO.sol";
 
-// NOTE: se deja el abstrac contrac justo con sus hijos por cuestiones de ordenamiento de código solidity, antes decia "Definition of base has to precede definition of derived contract"
-
-abstract contract Persona {
+// NOTE: se deja el abstrac contract justo con sus hijos por cuestiones de ordenamiento de código solidity, antes decia "Definition of base has to precede definition of derived contract"
+// TODO: verificar si se puede dejar como abstract
+contract Persona {
     event Log(string data);
 
-    // TODO: registrar la direccion del contrato personaDAO 
+    // TODO: evaluar cuales catch se usan y eliminar los que no se usan
+
+    // TODO: registrar la direccion del contrato personaDAO
+    PersonaDAO private personaDao;
+
+    constructor() public {
+        // TODO: fijar valor en nulo y cargar el objeto desde un método nuevo con la dirección del contrato desplegado
+        personaDao = new PersonaDAO(); //TODO: verificar si queda guardado el objeto o si hay mejor manera
+    }
 
     // function registrar() public virtual returns(Persona); ejemplo de función abstracta
     // function registrar() public virtual;
@@ -20,33 +29,38 @@ abstract contract Persona {
     {
         emit Log("entro a consultar");
         try personaDao.consultar(direccion) returns (
-            Persona.PersonaStruct memory persona
+            PersonaStruct memory persona
         ) {
-            // Paciente paciente = new Paciente();
-            // paciente.setPrimerApellido(persona.getPrimerApellido()); // acá se rompe
             emit Log("encontro la persona");
             return persona;
-        } catch Error(
-            string memory /*reason*/
-        ) {
+        } catch Error(string memory e) {
+            /*reason*/
             emit Log("se rompio por un revert o require");
-        } catch (
-            bytes memory /*lowLevelData*/
-        ) {
+            emit Log(e);
+        } catch (bytes memory) {
+            /*lowLevelData*/
             emit Log("se rompio y ni idea porque ");
         }
     }
 
     function guardar(address direccion, PersonaStruct memory persona) public {
-        // TODO: quitar return en clase de enterprise architect
         // TODO: Validar, si falla poner excepción
-        personas[direccion] = persona;
+        try personaDao.guardar(direccion, persona) {
+            emit Log("Se guarda la persona coreectamente");
+        } catch Error(string memory data) {
+            /*reason*/
+            emit Log("se rompio por un revert o require");
+            emit Log(data);
+        } catch (bytes memory) {
+            /*lowLevelData*/
+            emit Log("se rompio y ni idea porque ");
+        }
     }
 }
 
 // TODO: intentar separar en otro documento
 /*is Persona*/
-contract Paciente {
+contract Paciente is Persona {
     // address public creador;
     struct PacienteStruct {
         PersonaStruct persona;
@@ -63,7 +77,7 @@ contract Paciente {
 }
 
 /*is Persona*/
-contract Medico {
+contract Medico is Persona {
     address public creador;
 
     struct MedicoStruct {

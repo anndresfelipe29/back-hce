@@ -1,22 +1,29 @@
-Obtener cuentas en la red (en el nodo)
+# Comandos para interactuar con el contrato
 
+## Obtener cuentas en la red (en el nodo)
 const accounts = await web3.eth.getAccounts()
 
-Instanciar objetos de los contratos
+## Instanciar objetos de los contratos
 
 AccesoService.deployed().then(c => accesoService=c)
 MedicoService.deployed().then(c => medicoService=c)
 PacienteService.deployed().then(c => pacienteService=c)
 
-Paciente service
+### Paciente service
 pacienteService.consultar(accounts[1])
 pacienteService.allEvents()
 
-PersonaDAO
-PersonaDAO.deployed().then(c => persona=c)
+### PersonaDAO
+PersonaDAO.deployed().then(c => personaDao=c)
+personaDao.consultar(accounts[1])
+personaDao.guardar(accounts[1], ["pipe", "felipe", "g","g","g","g", true])
+
+### Persona
+Persona.deployed().then(c => persona=c)
 persona.consultar(accounts[1])
 persona.guardar(accounts[1], ["pipe", "felipe", "g","g","g","g", true])
-Debug
+
+## Truffle Debug
 - Para iniciar el debug usar
  truffle debug (+id de transaccion)  
  

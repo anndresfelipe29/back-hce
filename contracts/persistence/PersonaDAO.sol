@@ -31,11 +31,13 @@ contract PersonaDAO {
         return persona;
     }
 
-    function guardar(address direccion, PersonaStruct memory persona)
-        public
-    {
+    function guardar(address direccion, PersonaStruct memory persona) public {
         // TODO: quitar return en clase de enterprise architect
         // TODO: Validar, si falla poner excepción
+        if (personas[direccion].isValue) {
+            emit Log("Ya existe uan persona registrada con ese address");
+            revert("Ya existe uan persona registrada con ese address");            
+        }
         personas[direccion] = persona;
     }
 

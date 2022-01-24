@@ -1,7 +1,7 @@
 pragma solidity >=0.4.22 <0.9.0; // TODO: Ajustar la versión por consenso con José
 
 import "../logica/Persona.sol";
-import "../persistence/PersonaDAO.sol";
+
 
 contract AccesoService {
     address public creador;
@@ -14,7 +14,7 @@ contract AccesoService {
         // TODO: quiza deba aplicar singleton a los dao para no tener multiples listas con diferente información
     }
 
-    function login() public returns (Persona.PersonaStruct memory) {
+    function login() public returns (PersonaStruct memory) {
         address direccion = msg.sender;
         // TODO: buscar persona en arreglo
         return personaDao.consultar(direccion);

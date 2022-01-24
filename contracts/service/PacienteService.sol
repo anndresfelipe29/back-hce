@@ -31,11 +31,11 @@ contract PacienteService {
 
     // TODO: intentar dejarla como view
     // TODO: Cambiar a paciente
-    function consultar(address direccion) external returns (Persona.PersonaStruct memory) {
+    function consultar(address direccion) external returns (PersonaStruct memory) {
         // TODO: validar que sea paciente sino lanzar una excepcion
         // TODO: mejorar o completar la conversion del tipo padre al hijo,preguntas al profe que se puede hacer
         emit Log("entro a consultar");
-        try personaDao.consultar(direccion) returns (Persona.PersonaStruct memory persona) {
+        try personaDao.consultar(direccion) returns (PersonaStruct memory persona) {
             // Paciente paciente = new Paciente();
             // paciente.setPrimerApellido(persona.getPrimerApellido()); // acá se rompe
             emit Log("encontro la persona");            
