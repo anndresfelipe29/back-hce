@@ -4,7 +4,6 @@ pragma solidity ^0.8.10; // TODO: Ajustar la versión por consenso con José
 import "../models/PersonaStruct.sol";
 
 contract PersonaDAO {
-    // Evento: envia una respuesta a un usuario, como un mensaje al parecer
     // event Log(address indexed user,  string data);
     event Log(string data);
 
@@ -41,5 +40,5 @@ contract PersonaDAO {
         personas[direccion] = persona;
     }
 
-    // TODO: agregar funci{on actualizar}
+    // TODO: agregar función actualizar}
 }

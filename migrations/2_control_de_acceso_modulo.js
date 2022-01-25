@@ -1,7 +1,7 @@
 // const PersonaStruct = artifacts.require("PersonaStruct");
 const Persona = artifacts.require("Persona");
-const Paciente = artifacts.require("Paciente");
-const Medico = artifacts.require("Medico");
+const Paciente = artifacts.require("./logica/Paciente.sol");
+const Medico = artifacts.require("./logica/Medico.sol");
 const Usuario = artifacts.require('./logica/Usuario.sol');
 const PersonaDAO = artifacts.require("PersonaDAO");
 const AccesoService = artifacts.require("AccesoService");
@@ -18,7 +18,4 @@ module.exports = function (deployer) {
     deployer.deploy(AccesoService);
     deployer.deploy(MedicoService);
     deployer.deploy(PacienteService);
-
-    
-  
 };

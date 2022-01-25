@@ -2,7 +2,7 @@
 pragma solidity >=0.4.22 <0.9.0; // TODO: Ajustar la versión por consenso con José
 
 import "../persistence/PersonaDAO.sol";
-import "../logica/Persona.sol";
+import "../logica/Paciente.sol";
 
 // TODO: quizá todos los métodos en lso service deban ser external (averiguar)
 // https://ethereum.stackexchange.com/questions/19380/external-vs-public-best-practices?answertab=active#tab-top

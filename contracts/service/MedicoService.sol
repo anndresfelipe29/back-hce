@@ -1,6 +1,6 @@
 pragma solidity ^0.8.10; // TODO: Ajustar la versión por consenso con José
 
-import "../logica/Persona.sol";
+import "../logica/Medico.sol";
 
 contract MedicoService {
     address public creador;
