@@ -19,10 +19,11 @@ personaDao.consultar(accounts[1])
 personaDao.guardar(accounts[1], ["pipe", "felipe", "g","g","g","g", true])
 
 ### Persona
-Persona.deployed().then(c => persona=c)
-persona.consultar(accounts[1])
-persona.guardar(accounts[1], ["pipe", "felipe", "g","g","g","g", true])
-
+- Persona.deployed().then(c => persona=c)
+- persona.consultar(accounts[1])
+- persona.guardar(accounts[1], ["pipe", "felipe", "g","g","g","g", true])
+- persona.setPersonaDAOAddress(accounts[0],{from: accounts[2]})
+- persona.PersonaDAOAddress.call()
 ## Truffle Debug
 - Para iniciar el debug usar
  truffle debug (+id de transaccion)  
