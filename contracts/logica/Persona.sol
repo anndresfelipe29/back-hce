@@ -18,8 +18,6 @@ contract Persona {
         propietario = msg.sender;
     }
 
-    function registrar(PersonaStruct memory persona) public {}
-
     // TODO: agregar modifier para retornar un revert más bonito, para cuando la direccion del dao sea invalida
     function consultar(address direccion)
         public
@@ -38,7 +36,7 @@ contract Persona {
         }
     }
 
-    function guardar(address direccion, PersonaStruct memory persona) public {
+    function registrar(address direccion, PersonaStruct memory persona) public {
         // TODO: Validar, si falla poner excepción
         try personaDao.guardar(direccion, persona) {
             emit Log("Se guarda la persona coreectamente");
@@ -63,11 +61,4 @@ contract Persona {
         _; // acá se ejecuta la función
     }
 
-    modifier daoNoEsNulo() {
-        require(
-            msg.sender == propietario,
-            "Esta funcion solo puede ser ejecutada por el creador del contrato"
-        );
-        _; // acá se ejecuta la función
-    }
 }

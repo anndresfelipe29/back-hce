@@ -2,6 +2,7 @@
 pragma solidity ^0.8.10;
 
 import "../logica/Usuario.sol";
+import "../models/structsGenerales/TipoIdentificacionStruct.sol";
 
 struct PersonaStruct {
     string primerNombre;
@@ -9,7 +10,7 @@ struct PersonaStruct {
     string primerApellido;
     string segundoApellido;
     string identificacion;
-    // TipoIdentificacionStruct public tipoIdentificacion; // TODO: cambiar tipo por el de la estructura más adelante
+    // TipoIdentificacionStruct tipoIdentificacion; // TODO: cambiar tipo por el de la estructura más adelante
     string tipoIdentificacion;
     // Usuario accesoUsuario;
     bool isValue;

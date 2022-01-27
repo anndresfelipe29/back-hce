@@ -16,14 +16,24 @@ pacienteService.allEvents()
 ### PersonaDAO
 PersonaDAO.deployed().then(c => personaDao=c)
 personaDao.consultar(accounts[1])
-personaDao.guardar(accounts[1], ["pipe", "felipe", "g","g","g","g", true])
+personaDao.guardar(accounts[1], ["primerN", "segundoNombre", "g","g","g","g", true])
+
+personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",{"nombre", "descripcion", true}, true])
+
+### tener en cuenta en una estructura interna se debe poner al parecer todo en comillas
+personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true]
+
+
+
 
 ### Persona
 - Persona.deployed().then(c => persona=c)
 - persona.consultar(accounts[1])
-- persona.guardar(accounts[1], ["pipe", "felipe", "g","g","g","g", true])
+- persona.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", true], true])
 - persona.setPersonaDAOAddress(accounts[0],{from: accounts[2]})
 - persona.PersonaDAOAddress.call()
+
+
 ## Truffle Debug
 - Para iniciar el debug usar
  truffle debug (+id de transaccion)  

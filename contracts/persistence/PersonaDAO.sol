@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10; // TODO: Ajustar la versión por consenso con José
+pragma solidity ^0.8.10; 
 // import "../logica/Persona.sol";
 import "../models/PersonaStruct.sol";
 

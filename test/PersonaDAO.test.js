@@ -35,7 +35,7 @@ contract('PersonaDAO', accounts => {
         }
     });    
     
-    it('Se registra persona', async () => {
+    /*it('Se registra persona', async () => {
         const personaStruct = { 
             primerNombre: "pipe", 
             segundoNombre: "felipe",
@@ -48,6 +48,26 @@ contract('PersonaDAO', accounts => {
         console.log(personaStruct)
         console.log(personaStruct.primerNombre)
         const data = ["pipe", "felipe", "g","g","g","g", true]
+        await instance.guardar(accounts[1], data).then(function(events){
+            console.log(events)
+        })
+
+    });
+    */
+
+    it('Se registra persona', async () => {
+        const personaStruct = { 
+            primerNombre: "pipe", 
+            segundoNombre: "felipe",
+            primerApellido: "g",
+            segundoApellido: "sd",
+            identificacion: "123",
+            tipoIdentificacion: "cc"
+        };
+        //const personaStruct = Object.create(json)
+        console.log(personaStruct)
+        console.log(personaStruct.primerNombre)
+        const data = ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", true], true]
         await instance.guardar(accounts[1], data).then(function(events){
             console.log(events)
         })
