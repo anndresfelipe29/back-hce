@@ -21,18 +21,28 @@ personaDao.guardar(accounts[1], ["primerN", "segundoNombre", "g","g","g","g", tr
 personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",{"nombre", "descripcion", true}, true])
 
 ### tener en cuenta en una estructura interna se debe poner al parecer todo en comillas
-personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true]
+personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
 
 
 
 
 ### Persona
 - Persona.deployed().then(c => persona=c)
+
 - persona.consultar(accounts[1])
-- persona.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", true], true])
-- persona.setPersonaDAOAddress(accounts[0],{from: accounts[2]})
+
+- persona.registrar(accounts[2], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
+
+- persona.setPersonaDAOAddress('0xEf1E6643162E2D9254E3804aE8f861Eb0B7bDd8b',{from: accounts[0]})
+
 - persona.PersonaDAOAddress.call()
 
+### Acceso service
+- AccesoService.deployed().then(c => acceso=c)
+
+- acceso.setPersonaAddress('0x772D573714a0DF55b56386D4323B7464011DE802',{from: accounts[0]})
+
+- acceso.login({from: accounts[1]})
 
 ## Truffle Debug
 - Para iniciar el debug usar

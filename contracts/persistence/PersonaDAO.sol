@@ -3,6 +3,7 @@ pragma solidity ^0.8.10;
 // import "../logica/Persona.sol";
 import "../models/PersonaStruct.sol";
 
+// TODO: hacer un name resgistry para validar que solo los contratos del proyecto y el propietario puedan acceder a las funciones
 contract PersonaDAO {
     // event Log(address indexed user,  string data);
     event Log(string data);
@@ -12,12 +13,13 @@ contract PersonaDAO {
     mapping(address => PersonaStruct) public personas; // TODO: Dejar como private
 
     // TODO: convertir en singleton
-    constructor() public {
+    constructor() {
         creador = msg.sender; // creador del contrato
     }
 
-    function consultar(address direccion)
-        public
+     // TODO: si no es external fallan los try catch, investigar al respecto
+    function consultar(address direccion) 
+        external
         returns (PersonaStruct memory)
     {
         emit Log("entro a consultar");
@@ -34,11 +36,11 @@ contract PersonaDAO {
         // TODO: quitar return en clase de enterprise architect
         // TODO: Validar, si falla poner excepción
         if (personas[direccion].isValue) {
-            emit Log("Ya existe uan persona registrada con ese address");
+            emit Log("Ya existe una persona registrada con ese address");
             revert("Ya existe uan persona registrada con ese address");            
         }
         personas[direccion] = persona;
     }
 
-    // TODO: agregar función actualizar}
+    // TODO: agregar función actualizar
 }

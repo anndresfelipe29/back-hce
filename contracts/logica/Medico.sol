@@ -5,7 +5,8 @@ import "./Usuario.sol";
 import "../models/PersonaStruct.sol";
 import "../persistence/PersonaDAO.sol";
 
-contract Medico is Persona {
+// TODO: cambiar el diagrama, no puede heredar pero si puede usar o componerse de persona
+contract Medico {
     address public creador;
 
     struct MedicoStruct {
@@ -26,7 +27,7 @@ contract Medico is Persona {
         string especialidad;
     }
 
-    constructor() public {
+    constructor() {
         creador = msg.sender; // creador del contrato
     }
 

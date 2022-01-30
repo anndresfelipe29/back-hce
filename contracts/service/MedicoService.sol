@@ -6,7 +6,7 @@ contract MedicoService {
     address public creador;
     PersonaDAO private personaDao;
 
-    constructor() public {
+    constructor() {
         creador = msg.sender; // creador del contrato
         personaDao = new PersonaDAO(); //TODO: verificar si queda guardado el objeto o si hay mejor manera
     }

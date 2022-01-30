@@ -11,7 +11,7 @@ contract PacienteDAO {
     mapping(address => PersonaStruct) public pacientes; // TODO: Dejar como private
 
     // TODO: convertir en singleton
-    constructor() public {
+    constructor() {
         creador = msg.sender; // creador del contrato
     }
 

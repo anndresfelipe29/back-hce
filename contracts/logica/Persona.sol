@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
 import "./Usuario.sol";
@@ -8,19 +9,19 @@ import "../persistence/PersonaDAO.sol";
 // TODO: verificar si se puede dejar como abstract
 contract Persona {
     event Log(string data);
-    address public propietario;
+    address public creador;
     address public PersonaDAOAddress;
 
     // TODO: registrar la direccion del contrato personaDAO
     PersonaDAO private personaDao;
 
-    constructor() public {
-        propietario = msg.sender;
+    constructor() {
+        creador = msg.sender;
     }
 
     // TODO: agregar modifier para retornar un revert más bonito, para cuando la direccion del dao sea invalida
     function consultar(address direccion)
-        public
+        external
         returns (PersonaStruct memory)
     {
         emit Log("entro a consultar");
@@ -28,18 +29,18 @@ contract Persona {
             PersonaStruct memory persona
         ) {
             emit Log("encontro la persona");
+            // TODO: validar si esta activa
             return persona;
         } catch Error(string memory e) {
-            /*reason*/
-            emit Log("se rompio por un revert o require");
             emit Log(e);
+            emit Log("se rompio por un revert o require"); // TODO: ver si puedo obtener info de e y reusarla
+            revert("No existe ese paciente");
         }
     }
 
     function registrar(address direccion, PersonaStruct memory persona) public {
-        // TODO: Validar, si falla poner excepción
         try personaDao.guardar(direccion, persona) {
-            emit Log("Se guarda la persona coreectamente");
+            emit Log("Se guarda la persona correctamente");
         } catch Error(string memory data) {
             /*reason*/
             emit Log("se rompio por un revert o require");
@@ -55,10 +56,9 @@ contract Persona {
     modifier esPropietario() {
         // NOTE: Los string no pueden llevar acentos, encontrar una forma de usarlos
         require(
-            msg.sender == propietario,
+            msg.sender == creador,
             "Esta funcion solo puede ser ejecutada por el creador del contrato"
         );
         _; // acá se ejecuta la función
     }
-
 }
