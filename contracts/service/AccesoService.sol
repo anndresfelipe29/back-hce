@@ -37,7 +37,7 @@ contract AccesoService {
     }
     */
 
-function setPersonaAddress(address direccion) public esPropietario {
+function setContratoPersonaAddress(address direccion) public esPropietario {
         ContratoPersonaAddress = direccion;
         contratoPersona = Persona(ContratoPersonaAddress);
     }

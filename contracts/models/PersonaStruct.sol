@@ -10,8 +10,7 @@ struct PersonaStruct {
     string primerApellido;
     string segundoApellido;
     string identificacion;
-    TipoIdentificacionStruct tipoIdentificacion; // TODO: cambiar tipo por el de la estructura más adelante
-    // string tipoIdentificacion;
-    // Usuario accesoUsuario;
+    TipoIdentificacionStruct tipoIdentificacion; 
+    // Usuario accesoUsuario; // TODO: Activar
     bool isValue;
 }

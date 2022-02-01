@@ -48,7 +48,7 @@ contract Persona {
         }
     }
 
-    function setPersonaDAOAddress(address direccion) public esPropietario {
+    function setContratoPersonaDAOAddress(address direccion) public esPropietario {
         PersonaDAOAddress = direccion;
         personaDao = PersonaDAO(PersonaDAOAddress);
     }

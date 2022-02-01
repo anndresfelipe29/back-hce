@@ -10,11 +10,10 @@ contract PersonaDAO {
 
     address public creador;
 
-    mapping(address => PersonaStruct) public personas; // TODO: Dejar como private
+    mapping(address => PersonaStruct) private personas; // TODO: Dejar como private
 
-    // TODO: convertir en singleton
     constructor() {
-        creador = msg.sender; // creador del contrato
+        creador = msg.sender;
     }
 
      // TODO: si no es external fallan los try catch, investigar al respecto
