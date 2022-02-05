@@ -75,7 +75,7 @@ contract Paciente {
     }
     function setContratoPacienteDAOAddress(address direccion) public esPropietario {
         ContratoPacienteDAOAddress = direccion;
-        contratoPacienteDAO = PacienteDAO(ContratoPersonaAddress);
+        contratoPacienteDAO = PacienteDAO(ContratoPacienteDAOAddress);
     }
 
     modifier esPropietario() {

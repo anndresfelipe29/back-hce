@@ -17,7 +17,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -30,7 +31,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -49,7 +51,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"funcionId\",\"type\":\"uint256\"}],\"name\":\"buscarPermisosDeRol\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"creador\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"login\",\"outputs\":[{\"internalType\":\"contract Persona\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/logica/Medico.sol\":\"Medico\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/logica/Medico.sol\":{\"keccak256\":\"0xf792ebb4789dffb43ae94706db583dc69fbcc1042a049240453c4f5df6f9f41d\",\"urls\":[\"bzz-raw://7e3f1c2811190f153006f40e58a9395b12b2d19e41e28be5fdd2b9ee6eaec92f\",\"dweb:/ipfs/QmV8zG1GTSkZ7rbTAhPLdRnMWQzWnDdRYhciSDRReUbMAv\"]},\"project:/contracts/logica/Persona.sol\":{\"keccak256\":\"0x713478ac35668a14e55865416e38dc46e3545ac3c42ce2b7c55f222a458f27dc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://acc742da91f044a0e99769ab7dbf57beb0ad1f32fc2cc4da8ca54aa35c5ae38f\",\"dweb:/ipfs/QmURY44kcc57REaVC34NPBBUE8eAGc8PQR8hXkewUCJhe8\"]},\"project:/contracts/logica/Usuario.sol\":{\"keccak256\":\"0xbbd6be741317b26168adfca97e1fa98e571de8bfeaf8b61e8730cab95adaefcf\",\"urls\":[\"bzz-raw://e252b3e3cfc39cf4e8a334ee869eb66b003a80a5f2a322520abc03d39f2fed25\",\"dweb:/ipfs/QmfNJaS1JvWbMbnfqTv9bYTVaVkAVhcu76MCRxBUf2WTNc\"]},\"project:/contracts/models/PersonaStruct.sol\":{\"keccak256\":\"0x051bcc0f44770781071713252dd375ba2e462019a8cd4a665e088c54b3457f18\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b5547e95b365c5067e401bfa535fd4f41adcead43c37153a3b18203c485be789\",\"dweb:/ipfs/QmPUaBhi4XZgFZ5L9xTHsyR49S5SJWbRpci5VcvMb9irBK\"]},\"project:/contracts/models/structsGenerales/TipoIdentificacionStruct.sol\":{\"keccak256\":\"0x771acb2d2dfc2d7a8612dfb55b21df7566c71824dcc527d05e1c13bd5572de8d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://40bb1cb1872e7ec0066adb2fbae8315292cdc72d6520558664217982e05a0336\",\"dweb:/ipfs/QmbbLfaPmQTdxcyhRcuT98h5KWr3vmfBuf4fs9LujanXt5\"]},\"project:/contracts/persistence/PersonaDAO.sol\":{\"keccak256\":\"0x58ee8202effe7e4b40641f8ba095da3400dad1877cf87029845ceae32f5301ef\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5bec444cd221e16a9db76e3561f6d29332fb74c3e572b0ae1b190852b5fc6d4f\",\"dweb:/ipfs/Qmaxqjx7gNyiYGZC7bTLjYyJxexKvaHBvzpVFyBookZ1wW\"]}},\"version\":1}",
@@ -3152,12 +3155,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xFd930a076DEA7dC2cd7bffd8996b3fB8FcDbcC35",
-      "transactionHash": "0x4d69283f4a5123203db74a2709d2d3d22079a721af3dec0f5d7a61768c80394e"
+      "address": "0xb9ecDF96a6b1BD0D7f1744F04b265A57B9171A1b",
+      "transactionHash": "0x8480e3034e4189999495983827b687f667500fc39b5034d8013e849ccdd2f978"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-01T03:44:37.902Z",
+  "updatedAt": "2022-02-05T00:12:00.290Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

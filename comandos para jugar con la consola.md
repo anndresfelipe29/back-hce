@@ -9,33 +9,53 @@ AccesoService.deployed().then(c => accesoService=c)
 MedicoService.deployed().then(c => medicoService=c)
 PacienteService.deployed().then(c => pacienteService=c)
 
-### Paciente service
-pacienteService.consultar(accounts[1])
-pacienteService.allEvents()
+
 
 ### PersonaDAO
-PersonaDAO.deployed().then(c => personaDao=c)
-personaDao.consultar(accounts[1])
-personaDao.guardar(accounts[1], ["primerN", "segundoNombre", "g","g","g","g", true])
+- PersonaDAO.deployed().then(c => personaDao=c)
 
-personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",{"nombre", "descripcion", true}, true])
+- personaDao.consultar(accounts[1])
 
-### tener en cuenta en una estructura interna se debe poner al parecer todo en comillas
-personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
+#### tener en cuenta en una estructura interna se debe poner al parecer todo en comillas
+- personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
 
-
+## PacienteDAO
+PacienteDAO.deployed().then(c => pacienteDao=c)
+pacienteDao.consultar(accounts[2])
+pacienteDao.guardar(accounts[2], ["estado", "datosPersonales", true])
 
 
 ### Persona
 - Persona.deployed().then(c => persona=c)
 
+- persona.setContratoPersonaDAOAddress('0x1fA113630905BDF594FA6470f17e35B122BEFca3',{from: accounts[0]})
+
 - persona.consultar(accounts[1])
 
 - persona.registrar(accounts[2], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
 
-- persona.setPersonaDAOAddress('0xEf1E6643162E2D9254E3804aE8f861Eb0B7bDd8b',{from: accounts[0]})
+- persona.PersonaDAOAddress.call()
+
+### Paciente
+- Paciente.deployed().then(c => paciente=c)
+
+- paciente.setContratoPersonaAddress('0x83795A61A2ec6414CAAb94bEc37304f0a950076f',{from: accounts[0]})
+
+- paciente.setContratoPacienteDAOAddress('0x3b2A1b78ce08C77e8868F58bE0F5ED18A6663B3f',{from: accounts[0]})
+
+- paciente.consultar(accounts[2])
+
+- paciente.consultarPaciente(accounts[2])
+
+- paciente.consultarPersona(accounts[2])
+
+- paciente.registrar(accounts[2], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
 
 - persona.PersonaDAOAddress.call()
+
+### Paciente service
+pacienteService.consultar(accounts[1])
+pacienteService.allEvents()
 
 ### Acceso service
 - AccesoService.deployed().then(c => acceso=c)
@@ -73,3 +93,10 @@ Test
 
 ejecutar test 
 truffle test ./test/PersonaDAO.test.js --show-events 
+
+Migraciones 
+Parra correr una migracion específica
+$ truffle migrate -f 1 --to 1
+$ truffle migrate -f 5 --to 5
+
+truffle migrate -f 3 --to 3 --reset  
