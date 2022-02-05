@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-import "../logica/Usuario.sol";
+// import "../logica/Usuario.sol";
 
 struct PacienteStruct {
     string estado; // debe ser un id

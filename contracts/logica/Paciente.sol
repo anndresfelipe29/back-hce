@@ -24,6 +24,15 @@ contract Paciente {
         creador = msg.sender; // creador del contrato
     }
 
+    // TODO: poner modificador para que solo lo pueda ejecutar el service y 
+    // en el service que solo lo ejecute un médico
+    function cambiarEstado(address direccion, string memory estadoId) public {
+        PacienteStruct memory paciente = consultarPaciente(direccion);
+        // TODO: validar si el estado existe 
+        paciente.estado = estadoId;
+        registrar(direccion, paciente);        
+    }
+
     function consultar(address direccion)
         public
         returns (PersonaPacienteStruct memory pacienteInfo)
@@ -77,6 +86,17 @@ contract Paciente {
         ContratoPacienteDAOAddress = direccion;
         contratoPacienteDAO = PacienteDAO(ContratoPacienteDAOAddress);
     }
+
+    function registrar(address direccion, PacienteStruct memory paciente) public {
+        try contratoPacienteDAO.guardar(direccion, paciente) {
+            emit Log("Se guarda la informacion de paciente correctamente correctamente");
+        } catch Error(string memory data) {
+            /*reason*/
+            emit Log("se rompio por un revert o require");
+            emit Log(data);
+        }
+    }
+
 
     modifier esPropietario() {
         require(

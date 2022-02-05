@@ -49,7 +49,7 @@ pacienteDao.guardar(accounts[2], ["estado", "datosPersonales", true])
 
 - paciente.consultarPersona(accounts[2])
 
-- paciente.registrar(accounts[2], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
+- paciente.registrar(accounts[2], ["estado", "datosPersonales", true])
 
 - persona.PersonaDAOAddress.call()
 

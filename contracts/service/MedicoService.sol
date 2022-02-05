@@ -1,7 +1,7 @@
 pragma solidity ^0.8.10; // TODO: Ajustar la versión por consenso con José
 
 import "../logica/Medico.sol";
-
+import "../models/MedicoStruct.sol";
 contract MedicoService {
     address public creador;
     PersonaDAO private personaDao;
@@ -25,18 +25,18 @@ contract MedicoService {
     */
 
     // TODO: buscar porque es uint256
-    function registrar(address direccion, Medico.MedicoStruct memory medico ) public {
+    function registrar(address direccion, MedicoStruct memory medico ) public {
         // TODO: redefinir, acá le pega a persona dao y usa el método guardar
         // TODO: poner excepcion en caso de error
         // personaDao.guardar(direccion, medico);
     }
 
     // TODO: intentar volverlo view despues
-    function consultar(address direccion) public returns (Medico.MedicoStruct memory) {
+    function consultar(address direccion) public returns (MedicoStruct memory) {
         // TODO: Validar que sea médico y sino lanzar excepción
         // TODO: mejorar o completar la conversion del tipo padre al hijo,preguntas al profe que se puede hacer
         // PersonaStruct memory persona = personaDao.consultar(direccion);
-        Medico.MedicoStruct memory medico;
+        MedicoStruct memory medico;
         //medico.setPrimerApellido(persona.getPrimerApellido());
         return medico;
     }
