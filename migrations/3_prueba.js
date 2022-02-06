@@ -4,6 +4,6 @@ const PacienteDAO = artifacts.require("PacienteDAO");
 
 module.exports = function (deployer) {
     // deployer.deploy(PersonaStruct);
-    deployer.deploy(PacienteDAO);
+    //deployer.deploy(PacienteService);
 
 };

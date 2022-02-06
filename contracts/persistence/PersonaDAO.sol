@@ -41,5 +41,15 @@ contract PersonaDAO {
         personas[direccion] = persona;
     }
 
+    function actualizar(address direccion, PersonaStruct memory persona) public {
+        // TODO: quitar return en clase de enterprise architect
+        // TODO: Validar, si falla poner excepción
+        if (!personas[direccion].isValue) {
+            emit Log("No existe una persona registrada con ese address");
+            revert("No existe una persona registrada con ese address");            
+        }
+        personas[direccion] = persona;
+    }
+
     // TODO: agregar función actualizar
 }

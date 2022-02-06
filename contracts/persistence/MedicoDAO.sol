@@ -30,4 +30,12 @@ contract MedicoDAO {
         }
         medicos[direccion] = medico;
     }
+
+    function actualizar(address direccion, MedicoStruct memory medico) public {
+        if (!medicos[direccion].isValue) {
+            emit Log("No existe un medico registrado con ese address");
+            revert("No existe un medico registrado con ese address");
+        }
+        medicos[direccion] = medico;
+    }
 }

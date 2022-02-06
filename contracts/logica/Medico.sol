@@ -90,6 +90,18 @@ contract Medico {
         }
     }
 
+    function verificarExistenciaEnSistemaExterno(address direccion) public returns (bool) {
+        /* TODO: Consultar info del medico (usuario y contraseña)
+        *  despues se hace con oraculos una consulta
+        */
+        return true;
+    }
+
+    /*function buscarPerfilMedicoSistemaExterno(address direccion) public returns (PerfilMedicoSistemaExternoStruct memory){
+        // TODO: tambien con oraculo
+    }*/
+
+
     function setContratoPersonaAddress(address direccion) public esPropietario {
         ContratoPersonaAddress = direccion;
         contratoPersona = Persona(ContratoPersonaAddress);

@@ -34,4 +34,12 @@ contract PacienteDAO {
         }
         pacientes[direccion] = paciente;
     }
+
+    function actualizar(address direccion, PacienteStruct memory paciente) public {
+        if (!pacientes[direccion].isValue) {
+            emit Log("No existe un paciente registrado con ese address");
+            revert("No existe una paciente registrado con ese address");
+        }
+        pacientes[direccion] = paciente;
+    }
 }
