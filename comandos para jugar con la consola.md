@@ -28,20 +28,22 @@ pacienteDao.guardar(accounts[2], ["estado", "datosPersonales", true])
 ### Persona
 - Persona.deployed().then(c => persona=c)
 
-- persona.setContratoPersonaDAOAddress('0x1fA113630905BDF594FA6470f17e35B122BEFca3',{from: accounts[0]})
+- persona.setContratoPersonaDAOAddress('0xa0c8D1705Fe1bc91e4Dcac2F75F773890192005F',{from: accounts[0]})
 
 - persona.consultar(accounts[1])
 
-- persona.registrar(accounts[2], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
+- persona.registrar(accounts[2], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"],2 , true])
+
+persona.registrar(accounts[5], ["medico", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"],1 , true])
 
 - persona.PersonaDAOAddress.call()
 
 ### Paciente
 - Paciente.deployed().then(c => paciente=c)
 
-- paciente.setContratoPersonaAddress('0x83795A61A2ec6414CAAb94bEc37304f0a950076f',{from: accounts[0]})
+- paciente.setContratoPersonaAddress('0x1b66Fb1b2ED7A3eaDC47df1DCDcEb02a25949603',{from: accounts[0]})
 
-- paciente.setContratoPacienteDAOAddress('0x3b2A1b78ce08C77e8868F58bE0F5ED18A6663B3f',{from: accounts[0]})
+- paciente.setContratoPacienteDAOAddress('0xD88770c0591a9EB4EccDdd964702FFF5989f1041',{from: accounts[0]})
 
 - paciente.consultar(accounts[2])
 
@@ -56,23 +58,47 @@ pacienteDao.guardar(accounts[2], ["estado", "datosPersonales", true])
 ### Paciente service
 - PacienteService.deployed().then(c => pacienteService=c)
 
-- pacienteService.setContratoAccesoService('0x7edcDDeD0a30F517047fB8F4142920A229aB41aB' ,{from: accounts[0]})
+- pacienteService.setContratoAccesoService('0xA48De5150840B7Ec867e6Fe4AEB370708E7f732C' ,{from: accounts[0]})
 
-- pacienteService.setContratoPaciente('0x335a7044C75a05F0aD0e301e090E78a5Cc7ca402' ,{from: accounts[0]})
+- pacienteService.setContratoPaciente('0xd9eED7a547E8d1F91420448792165034A04A5137' ,{from: accounts[0]})
 
 - pacienteService.selfDestruct({from: accounts[0]})
 
-- pacienteService.consultar(accounts[1])
+- pacienteService.consultar(accounts[2],{from: accounts[5]})
+
+- pacienteService.registrar([["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"],2 , true], ["estado", "datosPersonales", "true"]],{from: accounts[6]})
 
 - pacienteService.allEvents()
 
+[
+    [
+        "paciente", 
+        "felipe", 
+        "primerApellidoUser3",
+        "segundoApellido",
+        "identificacion",
+    [
+        "nombre", 
+        "descripcion", 
+        "true"
+    ],
+    2 ,
+    true
+    ], 
+    [
+        "estado", 
+        "datosPersonales", 
+        "true"
+        ] 
+]
 
 ### Acceso service
 - AccesoService.deployed().then(c => acceso=c)
 
-- acceso.setPersonaAddress('0x772D573714a0DF55b56386D4323B7464011DE802',{from: accounts[0]})
+- acceso.setContratoPersonaAddress('0x1b66Fb1b2ED7A3eaDC47df1DCDcEb02a25949603',{from: accounts[0]})
 
 - acceso.login({from: accounts[1]})
+- acceso.consultarRol(accounts[5], {from: accounts[2]})
 
 ## Truffle Debug
 - Para iniciar el debug usar
