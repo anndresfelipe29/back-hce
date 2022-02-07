@@ -54,8 +54,18 @@ pacienteDao.guardar(accounts[2], ["estado", "datosPersonales", true])
 - persona.PersonaDAOAddress.call()
 
 ### Paciente service
-pacienteService.consultar(accounts[1])
-pacienteService.allEvents()
+- PacienteService.deployed().then(c => pacienteService=c)
+
+- pacienteService.setContratoAccesoService('0x7edcDDeD0a30F517047fB8F4142920A229aB41aB' ,{from: accounts[0]})
+
+- pacienteService.setContratoPaciente('0x335a7044C75a05F0aD0e301e090E78a5Cc7ca402' ,{from: accounts[0]})
+
+- pacienteService.selfDestruct({from: accounts[0]})
+
+- pacienteService.consultar(accounts[1])
+
+- pacienteService.allEvents()
+
 
 ### Acceso service
 - AccesoService.deployed().then(c => acceso=c)

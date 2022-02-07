@@ -25,7 +25,8 @@ contract Persona {
         returns (PersonaStruct memory)
     {
         emit Log("entro a consultar");
-        try personaDao.consultar(direccion) returns (
+        return personaDao.consultar(direccion);
+        /*try personaDao.consultar(direccion) returns (
             PersonaStruct memory persona
         ) {
             emit Log("encontro la persona");
@@ -35,17 +36,18 @@ contract Persona {
             emit Log(e);
             emit Log("se rompio por un revert o require"); // TODO: ver si puedo obtener info de e y reusarla
             revert("No existe ese paciente");
-        }
+        }*/
     }
 
     function registrar(address direccion, PersonaStruct memory persona) public {
-        try personaDao.guardar(direccion, persona) {
+        personaDao.guardar(direccion, persona);
+        /*try personaDao.guardar(direccion, persona) {
             emit Log("Se guarda la persona correctamente");
         } catch Error(string memory data) {
             /*reason*/
-            emit Log("se rompio por un revert o require");
+           /* emit Log("se rompio por un revert o require");
             emit Log(data);
-        }
+        }*/
     }
 
     function setContratoPersonaDAOAddress(address direccion) public esPropietario {
@@ -60,5 +62,9 @@ contract Persona {
             "Esta funcion solo puede ser ejecutada por el creador del contrato"
         );
         _; // acá se ejecuta la función
+    }
+
+    function selfDestruct() public esPropietario {
+        selfdestruct(payable(creador));
     }
 }

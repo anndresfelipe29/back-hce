@@ -29,6 +29,11 @@ contract AccesoService {
         }
     }
 
+    function consultarRol(address direccionUsuario) public returns (uint256) {
+        PersonaStruct memory response = contratoPersona.consultar(direccionUsuario);
+        return response.rolId;
+    }
+
     /*
     // TODO: buscar porque es uint256
     function buscarPermisosDeRol(uint256 funcionId) public view returns(bool){
@@ -48,5 +53,9 @@ function setContratoPersonaAddress(address direccion) public esPropietario {
             "Esta funcion solo puede ser ejecutada por el creador del contrato"
         );
         _; // acá se ejecuta la función
+    }
+
+    function selfDestruct() public esPropietario {
+        selfdestruct(payable(creador));
     }
 }

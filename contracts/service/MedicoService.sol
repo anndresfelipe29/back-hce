@@ -40,4 +40,16 @@ contract MedicoService {
         //medico.setPrimerApellido(persona.getPrimerApellido());
         return medico;
     }
+
+    modifier esPropietario() {
+        require(
+            msg.sender == creador,
+            "Esta funcion solo puede ser ejecutada por el creador del contrato"
+        );
+        _; // acá se ejecuta la función
+    }
+
+    function selfDestruct() public esPropietario {
+        selfdestruct(payable(creador));
+    }
 }

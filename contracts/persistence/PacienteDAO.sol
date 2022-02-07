@@ -42,4 +42,17 @@ contract PacienteDAO {
         }
         pacientes[direccion] = paciente;
     }
+
+    modifier esPropietario() {
+        // NOTE: Los string no pueden llevar acentos, encontrar una forma de usarlos
+        require(
+            msg.sender == creador,
+            "Esta funcion solo puede ser ejecutada por el creador del contrato"
+        );
+        _; // acá se ejecuta la función
+    }
+
+    function selfDestruct() public esPropietario {
+        selfdestruct(payable(creador));
+    }
 }

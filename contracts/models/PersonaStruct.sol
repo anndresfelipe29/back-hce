@@ -10,7 +10,7 @@ struct PersonaStruct {
     string primerApellido;
     string segundoApellido;
     string identificacion;
-    TipoIdentificacionStruct tipoIdentificacion; 
-    // Usuario accesoUsuario; // TODO: Activar
+    TipoIdentificacionStruct tipoIdentificacionId;
+    uint256 rolId;
     bool isValue;
 }

@@ -24,13 +24,13 @@ contract Paciente {
         creador = msg.sender; // creador del contrato
     }
 
-    // TODO: poner modificador para que solo lo pueda ejecutar el service y 
+    // TODO: poner modificador para que solo lo pueda ejecutar el service y
     // en el service que solo lo ejecute un médico
     function cambiarEstado(address direccion, string memory estadoId) public {
         PacienteStruct memory paciente = consultarPaciente(direccion);
-        // TODO: validar si el estado existe 
+        // TODO: validar si el estado existe
         paciente.estado = estadoId;
-        registrar(direccion, paciente);        
+        actualizar(direccion, paciente);
     }
 
     function consultar(address direccion)
@@ -78,25 +78,50 @@ contract Paciente {
         }
     }
 
+    // TODO: validar que pasa si falla el registro de persona
+    // TODO: que pasa si falla guardar paciente?
+    function registrar(
+        address direccion,
+        PersonaPacienteStruct memory personaPaciente
+    ) public {
+        contratoPersona.registrar(direccion, personaPaciente.persona);
+        contratoPacienteDAO.guardar(direccion, personaPaciente.paciente);
+        /*try contratoPacienteDAO.guardar(direccion, personaPaciente.paciente) {
+            emit Log("Se guarda la informacion de paciente correctamente");
+        } catch Error(string memory data) {
+            /*reason*/
+        /*
+            emit Log("se rompio por un revert o require");
+            emit Log(data);
+        }*/
+    }
+
+    function actualizar(address direccion, PacienteStruct memory paciente)
+        public
+    {
+        contratoPacienteDAO.actualizar(direccion, paciente);
+        /*
+        try contratoPacienteDAO.actualizar(direccion, paciente) {
+            emit Log("Se guarda la informacion de paciente correctamente");
+        } catch Error(string memory data) {
+            /*reason*/
+        /*  emit Log("se rompio por un revert o require");
+            emit Log(data);
+        }*/
+    }
+
     function setContratoPersonaAddress(address direccion) public esPropietario {
         ContratoPersonaAddress = direccion;
         contratoPersona = Persona(ContratoPersonaAddress);
     }
-    function setContratoPacienteDAOAddress(address direccion) public esPropietario {
+
+    function setContratoPacienteDAOAddress(address direccion)
+        public
+        esPropietario
+    {
         ContratoPacienteDAOAddress = direccion;
         contratoPacienteDAO = PacienteDAO(ContratoPacienteDAOAddress);
     }
-
-    function registrar(address direccion, PacienteStruct memory paciente) public {
-        try contratoPacienteDAO.guardar(direccion, paciente) {
-            emit Log("Se guarda la informacion de paciente correctamente correctamente");
-        } catch Error(string memory data) {
-            /*reason*/
-            emit Log("se rompio por un revert o require");
-            emit Log(data);
-        }
-    }
-
 
     modifier esPropietario() {
         require(
@@ -104,5 +129,9 @@ contract Paciente {
             "Esta funcion solo puede ser ejecutada por el creador del contrato"
         );
         _; // acá se ejecuta la función
+    }
+
+    function selfDestruct() public esPropietario {
+        selfdestruct(payable(creador));
     }
 }

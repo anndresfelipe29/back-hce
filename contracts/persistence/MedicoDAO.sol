@@ -6,6 +6,7 @@ import "../models/MedicoStruct.sol";
 contract MedicoDAO {
     event Log(string data);
     address public creador;
+    
     mapping(address => MedicoStruct) private medicos;
 
     constructor() {
@@ -37,5 +38,18 @@ contract MedicoDAO {
             revert("No existe un medico registrado con ese address");
         }
         medicos[direccion] = medico;
+    }
+
+    modifier esPropietario() {
+        // NOTE: Los string no pueden llevar acentos, encontrar una forma de usarlos
+        require(
+            msg.sender == creador,
+            "Esta funcion solo puede ser ejecutada por el creador del contrato"
+        );
+        _; // acá se ejecuta la función
+    }
+
+    function selfDestruct() public esPropietario {
+        selfdestruct(payable(creador));
     }
 }

@@ -123,4 +123,8 @@ contract Medico {
         );
         _; // acá se ejecuta la función
     }
+
+    function selfDestruct() public esPropietario {
+        selfdestruct(payable(creador));
+    }
 }

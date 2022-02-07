@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10; 
+pragma solidity ^0.8.10;
 // import "../logica/Persona.sol";
 import "../models/PersonaStruct.sol";
 
@@ -16,8 +16,8 @@ contract PersonaDAO {
         creador = msg.sender;
     }
 
-     // TODO: si no es external fallan los try catch, investigar al respecto
-    function consultar(address direccion) 
+    // TODO: si no es external fallan los try catch, investigar al respecto
+    function consultar(address direccion)
         external
         returns (PersonaStruct memory)
     {
@@ -36,20 +36,35 @@ contract PersonaDAO {
         // TODO: Validar, si falla poner excepción
         if (personas[direccion].isValue) {
             emit Log("Ya existe una persona registrada con ese address");
-            revert("Ya existe uan persona registrada con ese address");            
+            revert("Ya existe uan persona registrada con ese address");
         }
         personas[direccion] = persona;
     }
 
-    function actualizar(address direccion, PersonaStruct memory persona) public {
+    function actualizar(address direccion, PersonaStruct memory persona)
+        public
+    {
         // TODO: quitar return en clase de enterprise architect
         // TODO: Validar, si falla poner excepción
         if (!personas[direccion].isValue) {
             emit Log("No existe una persona registrada con ese address");
-            revert("No existe una persona registrada con ese address");            
+            revert("No existe una persona registrada con ese address");
         }
         personas[direccion] = persona;
     }
-
+    
     // TODO: agregar función actualizar
+
+    modifier esPropietario() {
+        // NOTE: Los string no pueden llevar acentos, encontrar una forma de usarlos
+        require(
+            msg.sender == creador,
+            "Esta funcion solo puede ser ejecutada por el creador del contrato"
+        );
+        _; // acá se ejecuta la función
+    }
+
+    function selfDestruct() public esPropietario {
+        selfdestruct(payable(creador));
+    }
 }

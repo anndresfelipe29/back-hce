@@ -11,6 +11,8 @@ contract PacienteService {
     event Log(string data);
 
     address public creador;
+    address public ContratoAccesoServiceAddress;
+    address public ContratoPacienteAddress;
     AccesoService private contratoAccesoService;
     Paciente private contratoPaciente;
 
@@ -18,16 +20,22 @@ contract PacienteService {
         creador = msg.sender; // creador del contrato
     }
 
-    // TODO: validar que sea un medico
-    function cambiarEstado(address direccion, string estado) public esMedico returns (bool) {
-        // TODO: buscar persona en arreglo
-        Paciente.PersonaPacienteStruct pacienteInfo =contratoPaciente.consultar(direccion);
+    function cambiarEstado(address direccion, string memory estado)
+        public
+        esMedico
+        returns (bool)
+    {
+        // TODO: quiza controllar el error acá
+        Paciente.PersonaPacienteStruct memory pacienteInfo = contratoPaciente
+            .consultar(direccion);
         pacienteInfo.paciente.estado = estado;
-        contratoPaciente.registrar(direccion, pacienteInfo.paciente);
+        contratoPaciente.actualizar(direccion, pacienteInfo.paciente);
     }
 
-    // TODO: buscar porque es uint256
-    function registrar(address direccion, Paciente paciente) public {
+    function registrar(Paciente.PersonaPacienteStruct memory personaPaciente)
+        public
+    {
+        contratoPaciente.registrar(msg.sender, personaPaciente);
         // TODO: poner excepcion en caso de error
         // personaDao.guardar(direccion, paciente);
     }
@@ -37,13 +45,14 @@ contract PacienteService {
     // TODO: validar si consulta su propia informacion o es medico
     function consultar(address direccion)
         external
-        returns (PersonaStruct memory)
+        esPropioOMedico(direccion)
+        returns (Paciente.PersonaPacienteStruct memory)
     {
         // TODO: validar que sea paciente sino lanzar una excepcion
         // TODO: mejorar o completar la conversion del tipo padre al hijo,preguntas al profe que se puede hacer
         emit Log("entro a consultar");
-        try personaDao.consultar(direccion) returns (
-            PersonaStruct memory persona
+        try contratoPaciente.consultar(direccion) returns (
+            Paciente.PersonaPacienteStruct memory persona
         ) {
             // Paciente paciente = new Paciente();
             // paciente.setPrimerApellido(persona.getPrimerApellido()); // acá se rompe
@@ -52,12 +61,33 @@ contract PacienteService {
         } catch Error(
             string memory /*reason*/
         ) {
-            emit Log("se rompio por un revert o require");
+            emit Log("Error interno: se rompio por un revert o require");
         } catch (
             bytes memory /*lowLevelData*/
         ) {
             emit Log("se rompio y ni idea porque ");
         }
+    }
+
+    function setContratoAccesoService(address direccion) public esPropietario {
+        ContratoAccesoServiceAddress = direccion;
+        contratoAccesoService = AccesoService(ContratoAccesoServiceAddress);
+    }
+
+    function setContratoPaciente(address direccion) public esPropietario {
+        ContratoPacienteAddress = direccion;
+        contratoPaciente = Paciente(ContratoPacienteAddress);
+    }
+
+    modifier esPropioOMedico(address direccion) {
+        if (!(msg.sender == direccion)) {
+            uint256 rolId = contratoAccesoService.consultarRol(msg.sender);
+            require(
+                rolId == 1,
+                "Esta funcion solo puede ser ejecutada por un medico"
+            );
+        }
+        _;
     }
 
     modifier esMedico() {
@@ -76,5 +106,9 @@ contract PacienteService {
             "Esta funcion solo puede ser ejecutada por el creador del contrato"
         );
         _; // acá se ejecuta la función
+    }
+
+    function selfDestruct() public esPropietario {
+        selfdestruct(payable(creador));
     }
 }
