@@ -16,8 +16,26 @@ PacienteService.deployed().then(c => pacienteService=c)
 
 - personaDao.consultar(accounts[1])
 
+
 #### tener en cuenta en una estructura interna se debe poner al parecer todo en comillas
 - personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
+
+
+### PersonaRepository
+- PersonaRepository.deployed().then(c => persona=c)
+
+- persona.consultar(accounts[1])
+
+- persona.guardar(accounts[1], personaVo.address)
+- personaVo.isValue.call()
+
+### PersonaVO
+PersonaVO.deployed().then(c => personaVo=c)
+personaVo.setPrimerNombre("Felipe")
+personaVo.setSegundoNombre("pruebita")
+personaVo.setIsValue(true)
+personaVo.getPrimerNombre()
+personaVo.getIsValue()
 
 ## PacienteDAO
 PacienteDAO.deployed().then(c => pacienteDao=c)

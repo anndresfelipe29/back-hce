@@ -81,6 +81,7 @@ contract PacienteService {
 
     modifier esPropioOMedico(address direccion) {
         if (!(msg.sender == direccion)) {
+            // TODO: agregar try catch para decir que no corresponde la identidad cundo falla consultar rol
             uint256 rolId = contratoAccesoService.consultarRol(msg.sender);
             require(
                 rolId == 1,

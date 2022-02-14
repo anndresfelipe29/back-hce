@@ -2,30 +2,27 @@
 pragma solidity ^0.8.10;
 // import "../logica/Persona.sol";
 //import "../models/PersonaStruct.sol";
-import "../models/PersonaStruct.sol";
+import "../models/PersonaVO.sol";
 
 // TODO: hacer un name resgistry para validar que solo los contratos del proyecto y el propietario puedan acceder a las funciones
-contract PersonaDAO {
+contract PersonaRepository {
     // event Log(address indexed user,  string data);
     event Log(string data);
 
     address public creador;
 
     // mapping(address => PersonaStruct) private personas; // TODO: Dejar como private
-    mapping(address => PersonaStruct) private personas; // TODO: Dejar como private
+    mapping(address => PersonaVO) private personas; // TODO: Dejar como private
 
     constructor() {
         creador = msg.sender;
     }
 
     // TODO: si no es external fallan los try catch, investigar al respecto
-    function consultar(address direccion)
-        external
-        returns (PersonaStruct memory)
-    {
+    function consultar(address direccion) external returns (PersonaVO) {
         emit Log("entro a consultar");
-        PersonaStruct memory persona = personas[direccion];
-        if (!persona.isValue) {
+        PersonaVO persona = personas[direccion];
+        if (!persona.getIsValue()) {
             emit Log("no existe el usuario");
             revert("No existe ese paciente");
         }
@@ -33,28 +30,28 @@ contract PersonaDAO {
         return persona;
     }
 
-    function guardar(address direccion, PersonaStruct memory persona) public {
+    function guardar(address direccion, PersonaVO persona) public {
         // TODO: quitar return en clase de enterprise architect
         // TODO: Validar, si falla poner excepción
-        if (personas[direccion].isValue) {
+        /*if (personas[direccion].getIsValue()) {
             emit Log("Ya existe una persona registrada con ese address");
             revert("Ya existe uan persona registrada con ese address");
-        }
+        }*/
+        string memory nombre = persona.getPrimerNombre();
+        bool estado = persona.getIsValue();
         personas[direccion] = persona;
     }
 
-    function actualizar(address direccion, PersonaStruct memory persona)
-        public
-    {
+    function actualizar(address direccion, PersonaVO persona) public {
         // TODO: quitar return en clase de enterprise architect
         // TODO: Validar, si falla poner excepción
-        if (!personas[direccion].isValue) {
+        if (!personas[direccion].getIsValue()) {
             emit Log("No existe una persona registrada con ese address");
             revert("No existe una persona registrada con ese address");
         }
         personas[direccion] = persona;
     }
-    
+
     // TODO: agregar función actualizar
 
     modifier esPropietario() {
