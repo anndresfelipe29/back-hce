@@ -154,3 +154,9 @@ $ truffle migrate -f 1 --to 1
 $ truffle migrate -f 5 --to 5
 
 truffle migrate -f 3 --to 3 --reset  
+
+instancia especifica
+let specificInstance = await MetaCoin.at("0x1234...");
+await PersonaVO.at("0x934F8fe5625207274A5fE8F17fD0E26b1A960745")
+PersonaVO.at("0xf3400fa1a4C4C71b743512404Ce6a88BC61eFdCd").then(c=> j=c)
+persona.consultar.call(accounts[1])

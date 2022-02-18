@@ -22,24 +22,28 @@ contract PersonaRepository {
     function consultar(address direccion) external returns (PersonaVO) {
         emit Log("entro a consultar");
         PersonaVO persona = personas[direccion];
-        if (!persona.getIsValue()) {
+        address prueba = address(persona);
+        if (address(persona)==address(0)) {
             emit Log("no existe el usuario");
             revert("No existe ese paciente");
         }
         emit Log("usuario valido");
+        string memory nombre = persona.getPrimerNombre();
+        string memory nombre2 = persona.getSegundoNombre();
         return persona;
     }
 
-    function guardar(address direccion, PersonaVO persona) public {
+    function guardar(address direccion, PersonaVO _persona) public {
         // TODO: quitar return en clase de enterprise architect
         // TODO: Validar, si falla poner excepción
-        /*if (personas[direccion].getIsValue()) {
+        PersonaVO persona = personas[direccion];
+        if (address(personas[direccion]) != address(0)) {
             emit Log("Ya existe una persona registrada con ese address");
             revert("Ya existe uan persona registrada con ese address");
-        }*/
-        string memory nombre = persona.getPrimerNombre();
-        bool estado = persona.getIsValue();
-        personas[direccion] = persona;
+        }
+        string memory nombre = _persona.getPrimerNombre();
+        bool estado = _persona.getIsValue();
+        personas[direccion] = _persona;
     }
 
     function actualizar(address direccion, PersonaVO persona) public {

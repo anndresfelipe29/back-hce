@@ -5,7 +5,7 @@ beforeEach(async () => {
     instance = await PersonaDAO.new()
 });
 
-contract('PersonaDAO', accounts => {
+contract('PersonaRepository', accounts => {
     
     it('Se consulta una persona que si existe', async () => {
 
