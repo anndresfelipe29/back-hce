@@ -1,7 +1,7 @@
 pragma solidity ^0.8.10; // TODO: Ajustar la versión por consenso con José
 
 import "../logica/Medico.sol";
-import "../models/MedicoStruct.sol";
+//import "../models/MedicoStruct.sol";
 contract MedicoService {
     address public creador;
     PersonaDAO private personaDao;

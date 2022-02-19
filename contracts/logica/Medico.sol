@@ -1,26 +1,23 @@
 pragma solidity ^0.8.10;
 
-import "./Persona.sol";
-// import "./Usuario.sol";
-import "../models/PersonaStruct.sol";
-import "../models/MedicoStruct.sol";
-import "../persistence/MedicoDAO.sol";
+import "../models/MedicoVO.sol";
+import "../persistence/MedicoMapper.sol";
 
 // TODO: cambiar el diagrama, no puede heredar pero si puede usar o componerse de persona
 contract Medico {
     // TODO: consumir este evento desde una clase heredada o algo así
     event Log(string data);
     address public creador;
-    address public ContratoMedicoDAOAddress;
-    address public ContratoPersonaAddress;
+    address public medicoMapperAddress;
+    //address public ContratoPersonaAddress;
 
-    MedicoDAO private contratoMedicoDAO;
-    Persona private contratoPersona;
+    MedicoMapperInterface private medicoMapper; //
+    //Persona private contratoPersona;
 
-    struct PersonaMedicoStruct {
+    /*struct PersonaMedicoStruct {
         PersonaStruct persona;
         MedicoStruct medico;
-    }
+    }*/
 
     struct PerfilMedicoSistemaExternoStruct {
         string primerNombre;
@@ -37,20 +34,11 @@ contract Medico {
 
     function consultar(address direccion)
         public
-        returns (PersonaMedicoStruct memory medicoInfo)
+        returns (MedicoVO)
     {
         emit Log("entro a consultar");
-        medicoInfo.medico = consultarMedico(direccion);
-        medicoInfo.persona = consultarPersona(direccion);
-    }
-
-    function consultarMedico(address direccion)
-        public
-        returns (MedicoStruct memory)
-    {
-        emit Log("entro a consultar Paciente");
-        try contratoMedicoDAO.consultar(direccion) returns (
-            MedicoStruct memory response
+        try medicoMapper.consultar(direccion) returns (
+            MedicoVO response
         ) {
             emit Log("encontro el medico");
             return response;
@@ -62,9 +50,9 @@ contract Medico {
         }
     }
 
-    function consultarPersona(address direccion)
+    /*function consultarPersona(address direccion)
         public
-        returns (PersonaStruct memory)
+        returns (MedicoVO memory)
     {
         emit Log("entro a consultar");
         try contratoPersona.consultar(direccion) returns (
@@ -74,14 +62,14 @@ contract Medico {
             return response;
         } catch Error(string memory e) {
             /*reason*/
-            emit Log("se rompio por un revert o require");
+            /*emit Log("se rompio por un revert o require");
             emit Log(e);
             revert("No existe ese paciente");
         }
-    }
+    }*/
 
-    function registrar(address direccion, MedicoStruct memory medico) public {
-        try contratoMedicoDAO.guardar(direccion, medico) {
+    function registrar(address direccion, MedicoVO medico) public {
+        try medicoMapper.guardar(direccion, medico) {
             emit Log("Se guarda la informacion del medico correctamente");
         } catch Error(string memory data) {
             /*reason*/
@@ -90,10 +78,13 @@ contract Medico {
         }
     }
 
-    function verificarExistenciaEnSistemaExterno(address direccion) public returns (bool) {
+    function verificarExistenciaEnSistemaExterno(address direccion)
+        public
+        returns (bool)
+    {
         /* TODO: Consultar info del medico (usuario y contraseña)
-        *  despues se hace con oraculos una consulta
-        */
+         *  despues se hace con oraculos una consulta
+         */
         return true;
     }
 
@@ -101,18 +92,17 @@ contract Medico {
         // TODO: tambien con oraculo
     }*/
 
-
-    function setContratoPersonaAddress(address direccion) public esPropietario {
+    /*function setContratoPersonaAddress(address direccion) public esPropietario {
         ContratoPersonaAddress = direccion;
         contratoPersona = Persona(ContratoPersonaAddress);
-    }
+    }*/ 
 
-    function setContratoPacienteDAOAddress(address direccion)
+    function setContratoPacienteDAOAddress(address _medicoMapperAddress)
         public
         esPropietario
     {
-        ContratoMedicoDAOAddress = direccion;
-        contratoMedicoDAO = MedicoDAO(ContratoMedicoDAOAddress);
+        medicoMapperAddress = _medicoMapperAddress;
+        medicoMapper = MedicoMapper(medicoMapperAddress); // TODO: quizá es mejor recibir el objeto como contrato
     }
 
     // TODO: poner en clase generica y reusarlo

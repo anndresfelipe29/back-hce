@@ -1,40 +1,37 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-import "../models/MedicoStruct.sol";
+import "../models/MedicoVO.sol";
+import "./MedicoMapperInterface.sol";
 
-contract MedicoDAO {
-    event Log(string data);
+contract MedicoMapper is MedicoMapperInterface {
     address public creador;
-    
-    mapping(address => MedicoStruct) private medicos;
+
+    mapping(address => MedicoVO) private medicos;
 
     constructor() {
         creador = msg.sender;
     }
 
-    function consultar(address direccion) public returns (MedicoStruct memory) {
+    function consultar(address direccion) public returns (MedicoVO) {
         emit Log("entro a consultar");
-        MedicoStruct memory medico = medicos[direccion];
-        if (!medico.isValue) {
-            emit Log("no existe el medico");
+        MedicoVO medico = medicos[direccion];
+        if (address(medico) == address(0)) {
             revert("No existe ese medico");
         }
         emit Log("Medico valido");
         return medico;
     }
 
-    function guardar(address direccion, MedicoStruct memory medico) public {
-        if (medicos[direccion].isValue) {
-            emit Log("Ya existe un medico registrado con ese address");
+    function guardar(address direccion, MedicoVO medico) public {
+        if (address(medicos[direccion]) != address(0)) {
             revert("Ya existe un medico registrado con ese address");
         }
         medicos[direccion] = medico;
     }
 
-    function actualizar(address direccion, MedicoStruct memory medico) public {
-        if (!medicos[direccion].isValue) {
-            emit Log("No existe un medico registrado con ese address");
+    function actualizar(address direccion, MedicoVO medico) public {
+        if (address(medicos[direccion]) == address(0)) {
             revert("No existe un medico registrado con ese address");
         }
         medicos[direccion] = medico;

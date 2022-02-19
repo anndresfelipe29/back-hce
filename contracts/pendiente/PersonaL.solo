@@ -7,7 +7,7 @@ import "../persistence/PersonaDAO.sol";
 
 // NOTE: se deja el abstrac contract justo con sus hijos por cuestiones de ordenamiento de código solidity, antes decia "Definition of base has to precede definition of derived contract"
 // TODO: verificar si se puede dejar como abstract
-contract Persona {
+contract PersonaL {
     event Log(string data);
     address public creador;
     address public PersonaDAOAddress;
