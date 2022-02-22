@@ -2,8 +2,8 @@
 pragma solidity ^0.8.10;
 
 //import "./Persona.sol";
-import "../models/PacienteStruct.sol";
-import "../persistence/PacienteDAO.sol";
+import "../models/PacienteVO.sol";
+import "../persistence/PacienteMapper.sol";
 
 // TODO: cambiar el diagrama, no puede heredar pero si puede usar o componerse de persona
 contract Paciente {

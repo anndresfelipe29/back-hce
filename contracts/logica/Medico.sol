@@ -9,15 +9,9 @@ contract Medico {
     event Log(string data);
     address public creador;
     address public medicoMapperAddress;
-    //address public ContratoPersonaAddress;
 
     MedicoMapperInterface private medicoMapper; //
-    //Persona private contratoPersona;
-
-    /*struct PersonaMedicoStruct {
-        PersonaStruct persona;
-        MedicoStruct medico;
-    }*/
+  
 
     struct PerfilMedicoSistemaExternoStruct {
         string primerNombre;

@@ -11,31 +11,20 @@ before(async () => {
     await pacienteVO.setEstadoId("23")
 });
 
-contract('PacienteRepository', accounts => {
+contract('PacienteMapper', accounts => {
 
     it('Se consulta un paciente que no existe', async () => {
-
         try {
-            let paciente = await instance.consultar(accounts[1]);
-            console.log("---");
-            console.log(paciente);
-            console.log("---");
-
+            let paciente = await instance.consultar(accounts[2]);
         } catch (err) {
-            console.log(err.reason);
+            console.log(err.data);            
             assert(true);
         }
     });
 
     it('Se registra persona', async () => {
         // Given
-
-        /*
-        const nombre = await pacienteVO.getPrimerNombre();
-        console.log(nombre);
-        console.log("---");
-        */
-        //when
+        // when
         await instance.guardar(accounts[1], pacienteVO.address)
         /*.then(function(events){
             console.log(events)
