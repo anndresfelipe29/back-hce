@@ -4,7 +4,7 @@ import "../logica/Medico.sol";
 //import "../models/MedicoStruct.sol";
 contract MedicoService {
     address public creador;
-    PersonaDAO private personaDao;
+    //PersonaDAO private personaDao;
 
     constructor() {
         creador = msg.sender; // creador del contrato

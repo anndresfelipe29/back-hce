@@ -13,13 +13,14 @@ contract PacienteMapper is PacienteMapperInterface {
         creador = msg.sender;
     }
 
-    function consultar(address direccion) public returns (PacienteVO) {
-        emit Log("entro a consultar");
+    function consultar(address direccion) external view returns (PacienteVO) {
+        //emit Log("entro a consultar");
         PacienteVO paciente = pacientes[direccion];
         if (address(paciente) == address(0)) {
             revert("No existe ese paciente");
         }
-        emit Log("Paciente valido");
+        // emit Log("Paciente valido");
+        //emit Log(paciente);
         return paciente;
     }
 
