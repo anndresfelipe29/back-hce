@@ -147,6 +147,9 @@ Test
 
 ejecutar test 
 truffle test ./test/PersonaDAO.test.js --show-events 
+truffle test ./test/PacienteMapper.test.js --show-events
+truffle test ./test/MedicoMapper.test.js --show-events
+
 
 Migraciones 
 Parra correr una migracion específica
