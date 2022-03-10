@@ -1,0 +1,35 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.10;
+// import "../logica/Persona.sol";
+// import "../models/RolVO.sol";
+// import "./RolMapperInterface.sol";
+
+abstract contract RegistroMedico {
+    uint256 private codPrestadorServicioDeSalud;
+    uint256 private fechaRegistro;
+    uint256 private tipoRegistroMedico;
+
+    function getCodPrestadorServicioDeSalud() external view returns (uint256){
+        return codPrestadorServicioDeSalud;
+    }
+
+    function getFechaRegistro() public view returns (uint256){
+        return fechaRegistro;
+    }
+
+    function getTipoRegistroMedico() public view returns (uint256){
+        return tipoRegistroMedico;
+    }
+
+    function setCodPrestadorServicioDeSalud(uint256 _codPrestadorServicioDeSalud) public{
+        codPrestadorServicioDeSalud = _codPrestadorServicioDeSalud;
+    }
+
+    function setFechaRegistro(uint256 _fechaRegistro) public{
+        fechaRegistro = _fechaRegistro;
+    }
+
+    function setTipoRegistroMedico(uint256 _tipoRegistroMedico) public{
+        tipoRegistroMedico = _tipoRegistroMedico;
+    }    
+}

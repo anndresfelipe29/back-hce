@@ -1,11 +1,11 @@
-pragma solidity >=0.4.22 <0.9.0; // TODO: Ajustar la versión por consenso con José
+pragma solidity ^0.8.10;
 
-contract Usuario {
+contract Usuario { 
     //address public creador;
-    struct UsuarioStruct {
+    /*struct UsuarioStruct {
         address direccion;
         string rol;
-    }
+    }*/
     address private direccion;
     string private rol; // TODO: Cambiar al tipo RolStruct
 
