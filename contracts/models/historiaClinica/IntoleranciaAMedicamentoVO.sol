@@ -1,0 +1,45 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.10;
+
+import "../../logica/RegistroMedico.sol";
+
+
+contract IntoleranciaAMedicamentoVO is RegistroMedico {
+    struct IntoleranciaAMedicamentoStruct {
+        string descripcionMedicamento; // Quizá deba existir una lista de enfermedades en una nueva tabla
+        string comentarios;        
+    }
+
+    IntoleranciaAMedicamentoStruct private intoleranciaAMedicamentoStruct;
+
+    function getDescripcionMedicamento() public view returns (string memory) {
+        return intoleranciaAMedicamentoStruct.descripcionMedicamento;
+    }
+
+    function getComentarios() public view returns (string memory) {
+        return intoleranciaAMedicamentoStruct.comentarios;
+    }
+
+    
+    function getIntoleranciaAMedicamentoStruct()
+        public
+        view
+        returns (IntoleranciaAMedicamentoStruct memory)
+    {
+        return intoleranciaAMedicamentoStruct;
+    }
+
+    function setIntoleranciaAMedicamentoStruct(
+        IntoleranciaAMedicamentoStruct memory _intoleranciaAMedicamentoStruct
+    ) public {
+        intoleranciaAMedicamentoStruct = _intoleranciaAMedicamentoStruct;
+    }
+
+    function setDescripcionMedicamento(string memory _descripcionMedicamento) public {
+        intoleranciaAMedicamentoStruct.descripcionMedicamento = _descripcionMedicamento;
+    }
+
+    function setComentarios(string memory _comentarios) public {
+        intoleranciaAMedicamentoStruct.comentarios = _comentarios;
+    }
+}

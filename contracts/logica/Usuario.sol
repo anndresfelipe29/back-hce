@@ -1,6 +1,6 @@
 pragma solidity ^0.8.10;
 
-contract Usuario { 
+contract Usuario {
     //address public creador;
     /*struct UsuarioStruct {
         address direccion;
@@ -9,7 +9,7 @@ contract Usuario {
     address private direccion;
     string private rol; // TODO: Cambiar al tipo RolStruct
 
-    constructor() public {
+    constructor() {
         //creador = msg.sender; // creador del contrato
     }
 
