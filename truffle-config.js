@@ -43,9 +43,11 @@ module.exports = {
     //
     development: {
       host: 'localhost',
-      port: 7545,
+      // port: 7545,
+      port: 8545,
       network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
-      gas: 5000000,   //limite de gas
+      // gasPrice: 1
+      //gas: 5000000,   //limite de gas
       // from: "0xC2e5c0E064783e47D220142bd418857D7B01aFf3"
     }
     // development: {

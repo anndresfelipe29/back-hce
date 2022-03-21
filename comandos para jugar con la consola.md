@@ -3,6 +3,11 @@
 ## Obtener cuentas en la red (en el nodo)
 const accounts = await web3.eth.getAccounts()
 
+web3.eth.getBlockNumber()
+instance.sendCoin(accounts[1], 10, {from: accounts[0]})
+
+web3.eth.getBalance(accounts[0])
+
 ## Instanciar objetos de los contratos
 
 AccesoService.deployed().then(c => accesoService=c)
@@ -11,7 +16,7 @@ PacienteService.deployed().then(c => pacienteService=c)
 
 
 
-### PersonaDAO
+### PersonaDAO  (ya no se usa)
 - PersonaDAO.deployed().then(c => personaDao=c)
 
 - personaDao.consultar(accounts[1])
@@ -21,7 +26,7 @@ PacienteService.deployed().then(c => pacienteService=c)
 - personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
 
 
-### PersonaRepository
+### PersonaRepository (ya no se usa)
 - PersonaRepository.deployed().then(c => persona=c)
 
 - persona.consultar(accounts[1])
@@ -29,7 +34,7 @@ PacienteService.deployed().then(c => pacienteService=c)
 - persona.guardar(accounts[1], personaVo.address)
 - personaVo.isValue.call()
 
-### PersonaVO
+### PersonaVO (ya no se usa)
 PersonaVO.deployed().then(c => personaVo=c)
 personaVo.setPrimerNombre("Felipe")
 personaVo.setSegundoNombre("pruebita")
@@ -110,13 +115,68 @@ persona.registrar(accounts[5], ["medico", "felipe", "primerApellido","segundoApe
         ] 
 ]
 
-### Acceso service
-- AccesoService.deployed().then(c => acceso=c)
+# Comandos actualizados
+### PacienteVO (Al parecer los VO no requieren desplegarse)
+UsuarioVO.new().then(c => usuarioVO=c)
+UsuarioVO.at("0xE262A13960fa754cC79cFF1176Ce466F9682a8Ef").then(c=> j=c)
 
-- acceso.setContratoPersonaAddress('0x1b66Fb1b2ED7A3eaDC47df1DCDcEb02a25949603',{from: accounts[0]})
+usuarioVO.setDireccion(accounts[2])
+usuarioVO.setRolId(0)
+usuarioVO.setEstaActivo(true)
+usuarioVO.getRolId()
 
-- acceso.login({from: accounts[1]})
-- acceso.consultarRol(accounts[5], {from: accounts[2]})
+usuarioVO.setDireccion(accounts[1])
+usuarioVO.setRolId(1)
+usuarioVO.setEstaActivo(true)
+
+### UsuarioMapper
+- UsuarioMapper.deployed().then(c => usuarioMapper=c)
+
+
+- usuarioMapper.consultar(accounts[2])
+- usuarioMapper.guardar(accounts[2], usuarioVO.address)
+
+### PermisoRolMapper
+- PermisoRolMapper.deployed().then(c => permisoRol=c)
+
+- permisoRol.consultar(1,1)
+- permisoRol.guardar(1, 1, true)
+- permisoRol.guardar(0, 0, true)
+
+
+### Acceso 
+- Acceso.deployed().then(c => acceso=c)
+
+- acceso.setUsuarioMapper(usuarioMapper.address)
+- acceso.setPermisoRolMapper(permisoRol.address)
+
+- acceso.login({from: accounts[2]}) 
+- acceso.login.call({from: accounts[2]})
+
+- acceso.usuarioEsMedico.call(accounts[2]) 
+- acceso.usuarioEsPaciente.call(accounts[2]) 
+
+- acceso.buscarPermisoDeRol.call(accounts[2],1) 
+
+## PacienteMapper
+- PacienteMapper.deployed().then(c => pacienteMapper=c)
+- pacienteMapper.consultar(accounts[2])
+- pacienteMapper.guardar(accounts[2], pacienteVO.address)
+- personaVo.isValue.call()
+
+### PacienteVO (Al parecer los VO no requieren desplegarse)
+PacienteVO.new().then(c => pacienteVO=c)
+
+pacienteVO.setPrimerNombre("Felipe")
+pacienteVO.setSegundoNombre("pruebita")
+pacienteVO.setIsValue(true)
+pacienteVO.getPrimerNombre()
+pacienteVO.getIsValue()
+
+PacienteVO.deployed().then(c => pacienteVO=c)
+pacienteVO.address
+PacienteVO.at("0xC1aae6fc90CC58861A6777da0bd4117b081666a9").then(c=> j=c)
+
 
 ## Truffle Debug
 - Para iniciar el debug usar
@@ -163,3 +223,15 @@ let specificInstance = await MetaCoin.at("0x1234...");
 await PersonaVO.at("0x934F8fe5625207274A5fE8F17fD0E26b1A960745")
 PersonaVO.at("0xf3400fa1a4C4C71b743512404Ce6a88BC61eFdCd").then(c=> j=c)
 persona.consultar.call(accounts[1])
+
+
+
+# Correr ganache-cli 
+
+ganache-cli  --chain.allowUnlimitedContractSize --logging.debug  --database.dbPath /home/felipe/Documentos/Blockchain/codigo/ganache/data --miner.defaultGasPrice 1 --mnemonic "ten snow frozen rough palace sudden depart basic regret garment coconut cat" --defaultBalanceEther 9000000000000000000000
+
+# Este si funciona
+ganache-cli  --logging.debug --mnemonic "ten snow frozen rough palace sudden depart basic regret garment coconut cat" --database.dbPath /home/felipe/Documentos/Blockchain/codigo/ganache/data
+
+
+ganache-cli  --logging.debug

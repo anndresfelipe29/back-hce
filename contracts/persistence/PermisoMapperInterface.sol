@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 
 import "../models/RolVO.sol";
 
-interface RolMapperInterface {
+interface PermisoMapperInterface {
     event Log(string data);
 
     function consultar(uint256 _id) external returns (RolVO);

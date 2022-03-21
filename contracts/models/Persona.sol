@@ -11,7 +11,6 @@ abstract contract Persona {
     string private segundoApellido;
     string private identificacion;
     uint256 private tipoIdentificacionId;
-    //uint256 private rolId;
     bool private isValue;
 
     function getPrimerNombre() public view returns (string memory) {
@@ -22,6 +21,14 @@ abstract contract Persona {
         return segundoNombre;
     }
 
+    function getPrimerApellido() public view returns (string memory) {
+        return primerApellido;
+    }
+
+    function getSegundoApellido() public view returns (string memory) {
+        return segundoApellido;
+    }
+
     function getIdentificacion() public view returns (string memory) {
         return identificacion;
     }
@@ -29,10 +36,6 @@ abstract contract Persona {
     function getTipoIdentificacionId() public view returns (uint256) {
         return tipoIdentificacionId;
     }
-
-    /*function getRolId() public view returns (uint256) {
-        return rolId;
-    }*/
 
     function getIsValue() public view returns (bool) {
         return isValue;
@@ -46,6 +49,14 @@ abstract contract Persona {
         segundoNombre = _segundoNombre;
     }
 
+    function setPrimerApellido(string memory _primerApellido) public {
+        primerApellido = _primerApellido;
+    }
+
+    function setSegundoApellido(string memory _segundoApellido) public {
+        segundoApellido = _segundoApellido;
+    }
+
     function setIdentificacion(string memory _identificacion) public {
         identificacion = _identificacion;
     }
@@ -54,7 +65,7 @@ abstract contract Persona {
         tipoIdentificacionId = _tipoIdentificacionId;
     }
 
-    /*function setRolId(uint256 _rolId) public {
-        rolId = _rolId;
-    }*/
+    function setIsValue(bool _isValue) public {
+        isValue = _isValue;
+    }
 }

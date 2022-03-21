@@ -7,7 +7,7 @@ import "./PermisoRolMapperInterface.sol";
 contract PermisoRolMapper is PermisoRolMapperInterface {
     address public creador;
     /**
-     * llave permisoId+RolId -> nool
+     * mapping(permisoId => mapping(rol => value))
      */
     mapping(uint256 => mapping(uint256 => bool)) private permisoRol;
 

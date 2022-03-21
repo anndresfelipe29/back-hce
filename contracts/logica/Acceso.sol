@@ -8,7 +8,7 @@ import "../persistence/PermisoRolMapper.sol";
 import "../persistence/RolMapper.sol";
 import "../persistence/UsuarioMapper.sol";
 
-contract Usuario {
+contract Acceso {
     address public creador;
     address public usuarioMapperAddress;
     address public permisoRolMapperAddress;
