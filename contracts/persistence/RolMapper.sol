@@ -7,15 +7,15 @@ import "./RolMapperInterface.sol";
 contract RolMapper is RolMapperInterface {
     address public creador;
 
-    mapping(address => RolVO) private roles;
+    mapping(uint256 => RolVO) private roles;
 
     constructor() {
         creador = msg.sender;
     }
 
-    function consultar(address direccion) external view returns (RolVO) {
+    function consultar(uint256 _id) external view returns (RolVO) {
         //emit Log("entro a consultar");
-        RolVO rolVO = roles[direccion];
+        RolVO rolVO = roles[_id];
         if (address(rolVO) == address(0)) {
             revert("No existe ese usuario");
         }
@@ -24,19 +24,19 @@ contract RolMapper is RolMapperInterface {
         return rolVO;
     }
 
-    function guardar(address direccion, RolVO _rol) public {
-        if (address(roles[direccion]) != address(0)) {
+    function guardar(uint256 _id, RolVO _rol) public {
+        if (address(roles[_id]) != address(0)) {
             emit Log("Ya existe un rol registrado con ese address");
             revert("Ya existe un rol registrado con ese address");
         }
-        roles[direccion] = _rol;
+        roles[_id] = _rol;
     }
 
-    function actualizar(address direccion, RolVO rol) public {
-        if (address(roles[direccion]) == address(0)) {
+    function actualizar(uint256 _id, RolVO rol) public {
+        if (address(roles[_id]) == address(0)) {
             revert("No existe un rol registrado con ese address");
         }
-        roles[direccion] = rol;
+        roles[_id] = rol;
     }
 
     modifier esPropietario() {

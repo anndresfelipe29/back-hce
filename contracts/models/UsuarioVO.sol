@@ -13,6 +13,10 @@ contract UsuarioVO {
         return direccion;
     }
 
+    /**
+    * 0. paciente
+    * 1. médico
+     */
     function getRolId() public view returns (uint256) {
         return rolId;
     }

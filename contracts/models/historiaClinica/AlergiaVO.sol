@@ -12,6 +12,10 @@ contract AlergiaVO is RegistroMedico {
 
     AlergiaStruct private alergiaStruct;
 
+    constructor() {
+        creador = msg.sender;
+    }
+
     function getDescripcionSustancia() public view returns (string memory) {
         return alergiaStruct.descripcionSustancia;
     }
@@ -24,7 +28,8 @@ contract AlergiaVO is RegistroMedico {
         alergiaStruct = _alergiaStruct;
     }
 
-    function setDescripcionSustancia(string memory _descripcionSustancia) public {
+    function setDescripcionSustancia(string memory _descripcionSustancia) public{
         alergiaStruct.descripcionSustancia = _descripcionSustancia;
     }
+    
 }

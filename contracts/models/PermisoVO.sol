@@ -1,13 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-contract RolVO {
+contract PermisoVO {
     
     event Log(string data);
+    uint256 id;
     string private nombre;
     string private descripcion;
-    uint256[] private permisos;  // TODO: esto se va
+    // mapping(uint256 => bool) private accesoPorRol;
+    uint256 rolesRegistrados;    
     bool private estaActivo;
+
+    
 
     function getNombre() public view returns (string memory) {
         return nombre;
@@ -17,9 +21,14 @@ contract RolVO {
         return descripcion;
     }
 
-    function getPermisos() public view returns (uint256[] memory) {
-        return permisos;
+    function getAccesoPorRol(uint256 _rolId) public view returns (bool) {
+        return accesoPorRol[_rolId];
     }
+
+    function getAllAccesoPorRol() public view returns (bool) {
+        return accesoPorRol[_rolId];
+    }
+
 
     function getEstaActivo() public view returns (bool) {
         return estaActivo;
@@ -33,8 +42,8 @@ contract RolVO {
         descripcion = _descripcion;
     }
 
-    function setPermisos(uint256[] memory _permisos) public {
-        permisos = _permisos;
+    function setAccesoPorRol(uint256 _rolId) public {
+        accesoPorRol = _accesoPorRol;
     }
 
     function setEstaActivo(bool _estaActivo) public {
