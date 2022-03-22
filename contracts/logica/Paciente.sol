@@ -4,24 +4,31 @@ pragma solidity ^0.8.10;
 //import "./Persona.sol";
 import "../models/PacienteVO.sol";
 import "../persistence/PacienteMapper.sol";
+import "./Acceso.sol";
 
 contract Paciente {
     event Log(string data);
     address public creador;
     address public pacienteMapperAddress;
+    address public accesoAddress;
 
     PacienteMapper private pacienteMapper;
+    Acceso private acceso;
 
     constructor() {
         creador = msg.sender; // creador del contrato
     }
 
-    function consultar(address direccion) public returns (PacienteVO) {
-        if (direccion != msg.sender){
+    function consultar(address direccion)
+        public
+        tieneAcceso(0)
+        returns (PacienteVO)
+    {
+        /*if (direccion != msg.sender) {
             // si alguien diferente al propietario de la historia la consulta se debe validar quien es
             // validar quien consulta
             revert("No tiene permisos de consulta");
-        } 
+        }*/
         emit Log("entro a consultar Paciente");
         return pacienteMapper.consultar(direccion);
         /* try  returns (PacienteVO response){
@@ -37,8 +44,11 @@ contract Paciente {
 
     // TODO: validar que pasa si falla el registro de persona
     // TODO: que pasa si falla guardar paciente?
-    function registrar(address direccion, PacienteVO paciente) public {
-        if (direccion != msg.sender){            
+    function registrar(address direccion, PacienteVO paciente)
+        public
+        tieneAcceso(1)
+    {
+        if (direccion != msg.sender) {
             revert("Un paciente se debe registrar a si mismo");
         }
         pacienteMapper.guardar(direccion, paciente);
@@ -49,8 +59,11 @@ contract Paciente {
         }*/
     }
 
-    function actualizar(address direccion, PacienteVO paciente) public {
-        if (direccion != msg.sender){
+    function actualizar(address direccion, PacienteVO paciente)
+        public
+        tieneAcceso(2)
+    {
+        if (direccion != msg.sender) {
             // si alguien diferente al propietario de la historia la consulta se debe validar quien es
             // validar quien consulta
             revert("No tiene permisos de actualizar");
@@ -68,9 +81,11 @@ contract Paciente {
 
     // TODO: poner modificador para que solo lo pueda ejecutar el service y
     // en el service que solo lo ejecute un médico
-    function cambiarEstado(address _direccion, uint256 _estadoId) public {
-
-        if (_direccion != msg.sender){
+    function cambiarEstado(address _direccion, uint256 _estadoId)
+        public
+        tieneAcceso(3)
+    {
+        if (_direccion != msg.sender) {
             // si alguien diferente al propietario de la historia la consulta se debe validar quien es
             // validar quien consulta
             revert("No tiene permisos de actualizar");
@@ -80,12 +95,17 @@ contract Paciente {
         actualizar(_direccion, paciente);
     }
 
-    function setPacienteMapperAddress(address _pacienteMapperAddress)
+    function setPacienteMapper(address _pacienteMapperAddress)
         public
         esPropietario
     {
         pacienteMapperAddress = _pacienteMapperAddress;
         pacienteMapper = PacienteMapper(_pacienteMapperAddress);
+    }
+
+    function setAcceso(address _accesoAddress) public esPropietario {
+        accesoAddress = _accesoAddress;
+        acceso = Acceso(_accesoAddress);
     }
 
     modifier esPropietario() {
@@ -98,5 +118,11 @@ contract Paciente {
 
     function selfDestruct() public esPropietario {
         selfdestruct(payable(creador));
+    }
+
+    modifier tieneAcceso(uint256 permisoId) {
+        bool esAccesible = acceso.buscarPermisoDeRol(msg.sender, permisoId);
+        require(esAccesible, "El usuario no tiene acceso");
+        _; // acá se ejecuta la función
     }
 }

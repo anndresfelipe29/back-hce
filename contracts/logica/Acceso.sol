@@ -26,43 +26,55 @@ contract Acceso {
     }
 
     function login() public returns (UsuarioVO) {
-        address direccion = msg.sender;          
-        return traerUsuarioActivo(direccion); 
+        address direccion = msg.sender;
+        return traerUsuarioActivo(direccion);
     }
 
-    function traerUsuarioActivo(address _direccion) public returns (UsuarioVO) {       
+    function traerUsuarioActivo(address _direccion) public returns (UsuarioVO) {
         UsuarioVO usuario = usuarioMapper.consultar(_direccion);
-        if( !usuario.getEstaActivo()){
+        if (!usuario.getEstaActivo()) {
             revert("Usuario inactivo");
         }
         return usuario;
     }
 
     function usuarioEsMedico(address _direccion) public returns (bool) {
-        UsuarioVO usuario = traerUsuarioActivo(_direccion);  
-        if (usuario.getRolId() == rolMedico){
+        UsuarioVO usuario = traerUsuarioActivo(_direccion);
+        if (usuario.getRolId() == rolMedico) {
             return true;
         }
         return false;
     }
 
     function usuarioEsPaciente(address _direccion) public returns (bool) {
-        UsuarioVO usuario = traerUsuarioActivo(_direccion);  
-        if (usuario.getRolId() == rolPaciente){
+        UsuarioVO usuario = traerUsuarioActivo(_direccion);
+        if (usuario.getRolId() == rolPaciente) {
             return true;
         }
         return false;
     }
 
     // TODO: Quizá cambiar el nombre por otro que describa mejor que valida que un usuario tenga un permiso especifico
-    function buscarPermisoDeRol(address _direccion, uint256 permisoId) public returns (bool){
-        UsuarioVO usuario = traerUsuarioActivo(_direccion); 
-        uint256 rolId = usuario.getRolId();
-        // RolVO rol= rolMapper.consultar(rolId);
-        return permisoRolMapper.consultar(permisoId, rolId);      
+    function buscarPermisoDeRol(address _direccion, uint256 permisoId)
+        public
+        returns (bool)
+    {
+        try usuarioMapper.consultar(_direccion) returns (UsuarioVO usuario) {
+            if (!usuario.getEstaActivo()) {
+                return false;
+            }
+            uint256 rolId = usuario.getRolId();
+            // RolVO rol= rolMapper.consultar(rolId);
+            return permisoRolMapper.consultar(permisoId, rolId);
+        } catch Error(string memory e) {
+            return false;
+        }
     }
 
-    function setPermisoRolMapper(address _permisoRolMapperAddress) public esPropietario {
+    function setPermisoRolMapper(address _permisoRolMapperAddress)
+        public
+        esPropietario
+    {
         permisoRolMapperAddress = _permisoRolMapperAddress;
         permisoRolMapper = PermisoRolMapper(_permisoRolMapperAddress);
     }
@@ -72,7 +84,10 @@ contract Acceso {
         rolMapper = RolMapper(_rolMapperAddress);
     }*/
 
-    function setUsuarioMapper(address _usuarioMapperAddress) public esPropietario {
+    function setUsuarioMapper(address _usuarioMapperAddress)
+        public
+        esPropietario
+    {
         usuarioMapperAddress = _usuarioMapperAddress;
         usuarioMapper = UsuarioMapper(_usuarioMapperAddress);
     }
