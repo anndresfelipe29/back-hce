@@ -2,18 +2,19 @@
 pragma solidity ^0.8.10;
 
 import "./Persona.sol";
+import "./VOGenerales/EstadoVO.sol";
 
 // NOTE: se deja el abstrac contract justo con sus hijos por cuestiones de ordenamiento de código solidity, antes decia "Definition of base has to precede definition of derived contract"
 // TODO: verificar si se puede dejar como abstract
 contract MedicoVO is Persona {
     //
-    uint256 private estadoId;
+    EstadoVO private estado;
     uint256 private especialidadId;
     string private usuario;
     string private contrasena;
 
-    function getEstadoId() public view returns (uint256) {
-        return estadoId;
+    function getEstado() public view returns (EstadoVO) {
+        return estado;
     }
 
     function getEspecialidadId() public view returns (uint256) {
@@ -28,8 +29,8 @@ contract MedicoVO is Persona {
         return contrasena;
     }
 
-    function setEstadoId(uint256 _estadoId) public {
-        estadoId = _estadoId;
+    function setEstado(EstadoVO _estado) public {
+        estado = _estado;
     }
 
     function setEspecialidadId(uint256 _especialidadId) public {

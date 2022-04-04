@@ -2,9 +2,9 @@
 pragma solidity ^0.8.10;
 // import "../logica/Persona.sol";
 import "../models/RolVO.sol";
-import "./PermisoRolMapperInterface.sol";
+import "./-PermisoRolMapperInterface.sol";
 
-contract PermisoRolMapper is PermisoRolMapperInterface {
+contract PermRolMapper is PermisoRolMapperInterface {
     address public creador;
     /**
      * mapping(permisoId => mapping(rol => value))

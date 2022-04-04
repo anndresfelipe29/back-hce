@@ -81,7 +81,7 @@ contract Paciente {
 
     // TODO: poner modificador para que solo lo pueda ejecutar el service y
     // en el service que solo lo ejecute un médico
-    function cambiarEstado(address _direccion, uint256 _estadoId)
+    function cambiarEstado(address _direccion, EstadoVO _estado)
         public
         tieneAcceso(3)
     {
@@ -91,7 +91,7 @@ contract Paciente {
             revert("No tiene permisos de actualizar");
         }
         PacienteVO paciente = consultar(_direccion);
-        paciente.setEstadoId(_estadoId);
+        paciente.setEstado(_estado);
         actualizar(_direccion, paciente);
     }
 

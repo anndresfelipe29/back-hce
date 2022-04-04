@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-import "../persistence/PermisoRolMapperInterface.sol";
+// import "../persistence/PermisoRolMapperInterface.sol";
 import "../persistence/RolMapperInterface.sol";
 import "../persistence/UsuarioMapperInterface.sol";
-import "../persistence/PermisoRolMapper.sol";
+// import "../persistence/PermisoRolMapper.sol";
 import "../persistence/RolMapper.sol";
 import "../persistence/UsuarioMapper.sol";
 
@@ -15,7 +15,7 @@ contract Acceso {
     // address public rolMapperAddress;
 
     UsuarioMapperInterface private usuarioMapper;
-    PermisoRolMapperInterface private permisoRolMapper;
+    RolMapperInterface private rolMapper;
     // RolMapperInterface private rolMapper;
 
     uint256 rolPaciente = 0;
@@ -64,33 +64,34 @@ contract Acceso {
                 return false;
             }
             uint256 rolId = usuario.getRolId();
-            // RolVO rol= rolMapper.consultar(rolId);
-            return permisoRolMapper.consultar(permisoId, rolId);
+            RolVO rol= rolMapper.consultar(rolId);
+            rol.getPermiso(permisoId);
+            return rol.getPermiso(permisoId);
         } catch Error(string memory e) {
             return false;
         }
     }
 
-    function setPermisoRolMapper(address _permisoRolMapperAddress)
+    /*function setPermisoRolMapper(address _permisoRolMapperAddress)
         public
         esPropietario
     {
         permisoRolMapperAddress = _permisoRolMapperAddress;
         permisoRolMapper = PermisoRolMapper(_permisoRolMapperAddress);
-    }
+    }*/
 
     /*function setRolMapper(address _rolMapperAddress) public esPropietario {
         rolMapperAddress = _rolMapperAddress;
         rolMapper = RolMapper(_rolMapperAddress);
     }*/
 
-    function setUsuarioMapper(address _usuarioMapperAddress)
+    /*function setUsuarioMapper(address _usuarioMapperAddress)
         public
         esPropietario
     {
         usuarioMapperAddress = _usuarioMapperAddress;
         usuarioMapper = UsuarioMapper(_usuarioMapperAddress);
-    }
+    }*/
 
     modifier esPropietario() {
         require(

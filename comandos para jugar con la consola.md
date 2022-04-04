@@ -182,14 +182,9 @@ PacienteVO.at("0xC1aae6fc90CC58861A6777da0bd4117b081666a9").then(c=> j=c)
 - Paciente.deployed().then(c => paciente=c)
 
 - paciente.setPacienteMapper(pacienteMapper.address)
+- paciente.setAcceso(acceso.address)
 
-- pacienteService.setContratoAccesoService('0xA48De5150840B7Ec867e6Fe4AEB370708E7f732C' ,{from: accounts[0]})
-
-- pacienteService.setContratoPaciente('0xd9eED7a547E8d1F91420448792165034A04A5137' ,{from: accounts[0]})
-
-- pacienteService.selfDestruct({from: accounts[0]})
-
-- pacienteService.consultar(accounts[2],{from: accounts[5]})
+- paciente.consultar(accounts[2],{from: accounts[5]})
 
 
 

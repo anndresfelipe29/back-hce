@@ -1,6 +1,6 @@
 ## tipos de catch solidity
 
-        try personaDao.consultar(direccion) returns (
+         personaDao.consultar(direccion) returns (
             PersonaStruct memory persona
         ) {
             emit Log("encontro la persona");

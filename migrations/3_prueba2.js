@@ -6,6 +6,7 @@
 // const PacienteVO = artifacts.require("PacienteVO");
 const Paciente = artifacts.require("Paciente");
 // const PermisoRolMapper = artifacts.require("PermisoRolMapper");
+const EstadoVO = artifacts.require("EstadoVO");
 
 module.exports = function (deployer) {
     // deployer.deploy(PersonaStruct);
@@ -14,6 +15,7 @@ module.exports = function (deployer) {
     // deployer.deploy(Acceso);
     // deployer.deploy(PacienteVO);
     deployer.deploy(Paciente);
+    deployer.deploy(EstadoVO);
     // deployer.deploy(PermisoRolMapper);
 
 };

@@ -1,18 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
+import "./VOGenerales/TipoIdentificacionVO.sol";
+
 // NOTE: se deja el abstrac contract justo con sus hijos por cuestiones de ordenamiento de código solidity, antes decia "Definition of base has to precede definition of derived contract"
 abstract contract Persona {
     event Log(string data);
 
+    address private id;
     string private primerNombre;
     string private segundoNombre;
     string private primerApellido;
     string private segundoApellido;
     string private identificacion;
-    uint256 private tipoIdentificacionId;
+    TipoIdentificacionVO private tipoIdentificacion;
     bool private isValue;
 
+    function getId() public view returns (address) {
+        return id;
+    }
+    
     function getPrimerNombre() public view returns (string memory) {
         return primerNombre;
     }
@@ -33,12 +40,16 @@ abstract contract Persona {
         return identificacion;
     }
 
-    function getTipoIdentificacionId() public view returns (uint256) {
-        return tipoIdentificacionId;
+    function getTipoIdentificacionId() public view returns (TipoIdentificacionVO) {
+        return tipoIdentificacion;
     }
 
     function getIsValue() public view returns (bool) {
         return isValue;
+    }
+
+    function setId(address _id) public {
+        id = _id;
     }
 
     function setPrimerNombre(string memory _primerNombre) public {
@@ -61,8 +72,8 @@ abstract contract Persona {
         identificacion = _identificacion;
     }
 
-    function setTipoIdentificacionId(uint256 _tipoIdentificacionId) public {
-        tipoIdentificacionId = _tipoIdentificacionId;
+    function setTipoIdentificacionId(TipoIdentificacionVO _tipoIdentificacion) public {
+        tipoIdentificacion = _tipoIdentificacion;
     }
 
     function setIsValue(bool _isValue) public {

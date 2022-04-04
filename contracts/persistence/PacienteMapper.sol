@@ -8,19 +8,17 @@ contract PacienteMapper is PacienteMapperInterface {
     address public creador;
 
     mapping(address => PacienteVO) private pacientes;
+    address[] private addressList; // NOTE Mapped Structs with Index
 
     constructor() {
         creador = msg.sender;
     }
 
     function consultar(address direccion) external view returns (PacienteVO) {
-        //emit Log("entro a consultar");
         PacienteVO paciente = pacientes[direccion];
         if (address(paciente) == address(0)) {
             revert("No existe ese paciente");
         }
-        // emit Log("Paciente valido");
-        //emit Log(paciente);
         return paciente;
     }
 
@@ -30,6 +28,7 @@ contract PacienteMapper is PacienteMapperInterface {
             revert("Ya existe un paciente registrado con ese address");
         }
         pacientes[direccion] = _paciente;
+        addressList.push(direccion);
     }
 
     function actualizar(address direccion, PacienteVO paciente) public {
@@ -37,6 +36,10 @@ contract PacienteMapper is PacienteMapperInterface {
             revert("No existe un paciente registrado con ese address");
         }
         pacientes[direccion] = paciente;
+    }
+
+    function size() external view returns(uint){
+        return addressList.length;
     }
 
     modifier esPropietario() {

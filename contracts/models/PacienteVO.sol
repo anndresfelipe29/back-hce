@@ -3,16 +3,17 @@ pragma solidity ^0.8.10;
 
 import "./Persona.sol";
 import "./structsGenerales/DatosPersonalesStruct.sol";
+import "./VOGenerales/EstadoVO.sol";
 
 contract PacienteVO is Persona {
     //
-    uint256 private estadoId;
+    EstadoVO private estado;
     DatosPersonalesStruct private datosPersonales;
 
     //uint256 private historiaClinicaId;  // TODO: sobra ya que hay un mapping que asocia una dirección con una historia clinica
 
-    function getEstadoId() public view returns (uint256) {
-        return estadoId;
+    function getEstado() public view returns (EstadoVO) {
+        return estado;
     }
 
     function getDatosPersonales()
@@ -29,7 +30,7 @@ contract PacienteVO is Persona {
         datosPersonales = _datosPersonales;
     }
 
-    function setEstadoId(uint256 _estadoId) public {
-        estadoId = _estadoId;
+    function setEstado(EstadoVO _estado) public {
+        estado = _estado;
     }
 }

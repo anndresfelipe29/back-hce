@@ -14,7 +14,6 @@ contract MedicoMapper is MedicoMapperInterface {
     }
 
     function consultar(address direccion) public returns (MedicoVO) {
-        emit Log("entro a consultar");
         MedicoVO medico = medicos[direccion];
         if (address(medico) == address(0)) {
             revert("No existe ese medico");
@@ -38,7 +37,6 @@ contract MedicoMapper is MedicoMapperInterface {
     }
 
     modifier esPropietario() {
-        // NOTE: Los string no pueden llevar acentos, encontrar una forma de usarlos
         require(
             msg.sender == creador,
             "Esta funcion solo puede ser ejecutada por el creador del contrato"
