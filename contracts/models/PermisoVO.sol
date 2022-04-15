@@ -6,9 +6,11 @@ contract PermisoVO {
     uint256 id;
     string private nombre;
     string private descripcion;
-    // mapping(uint256 => bool) private accesoPorRol;
-    uint256 rolesRegistrados;
     bool private estaActivo;
+
+    function getId() public view returns (uint256) {
+        return id;
+    }
 
     function getNombre() public view returns (string memory) {
         return nombre;
@@ -18,16 +20,12 @@ contract PermisoVO {
         return descripcion;
     }
 
-    /*function getAccesoPorRol(uint256 _rolId) public view returns (bool) {
-        return accesoPorRol[_rolId];
-    }
-
-    function getAllAccesoPorRol() public view returns (bool) {
-        return accesoPorRol[_rolId];
-    }*/
-
     function getEstaActivo() public view returns (bool) {
         return estaActivo;
+    }
+
+    function setId(uint256 _id) public {
+        id = _id;
     }
 
     function setNombre(string memory _nombre) public {
@@ -37,10 +35,6 @@ contract PermisoVO {
     function setDescripcion(string memory _descripcion) public {
         descripcion = _descripcion;
     }
-
-    /*function setAccesoPorRol(uint256 _rolId) public {
-        accesoPorRol = _accesoPorRol;
-    }*/
 
     function setEstaActivo(bool _estaActivo) public {
         estaActivo = _estaActivo;

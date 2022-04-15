@@ -40,7 +40,7 @@ contract Acceso {
 
     function usuarioEsMedico(address _direccion) public returns (bool) {
         UsuarioVO usuario = traerUsuarioActivo(_direccion);
-        if (usuario.getRolId() == rolMedico) {
+        if (usuario.getRol().getId() == rolMedico) {
             return true;
         }
         return false;
@@ -48,7 +48,7 @@ contract Acceso {
 
     function usuarioEsPaciente(address _direccion) public returns (bool) {
         UsuarioVO usuario = traerUsuarioActivo(_direccion);
-        if (usuario.getRolId() == rolPaciente) {
+        if (usuario.getRol().getId() == rolPaciente) {
             return true;
         }
         return false;
@@ -63,10 +63,10 @@ contract Acceso {
             if (!usuario.getEstaActivo()) {
                 return false;
             }
-            uint256 rolId = usuario.getRolId();
-            RolVO rol= rolMapper.consultar(rolId);
+            RolVO rol = usuario.getRol();
+            // RolVO rol= rolMapper.consultar(rolId);
             rol.getPermiso(permisoId);
-            return rol.getPermiso(permisoId);
+            return rol.getPermiso(permisoId).accesoPermitido;
         } catch Error(string memory e) {
             return false;
         }

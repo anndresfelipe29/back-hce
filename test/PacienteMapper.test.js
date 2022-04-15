@@ -1,6 +1,5 @@
 const PacienteMapper = artifacts.require('PacienteMapper');
 const PacienteVO = artifacts.require('PacienteVO')
-const MedicoVO = artifacts.require('MedicoVO')
 const EstadoVO = artifacts.require('EstadoVO')
 let instance;
 let pacienteVO;

@@ -58,7 +58,7 @@ contract('MedicoMapper', accounts => {
         try {
             await instance.actualizar(accounts[1], medicoVO.address)
             let medicoAddress = await instance.consultar.call(accounts[1])
-            let medico = await MedicoVO.at(medicoAddress)          
+            let medico = await MedicoVO.at(medicoAddress)               
             assert(medico, medicoVO);
         } catch (error) {
             assert.fail('Throw received');

@@ -187,6 +187,20 @@ PacienteVO.at("0xC1aae6fc90CC58861A6777da0bd4117b081666a9").then(c=> j=c)
 - paciente.consultar(accounts[2],{from: accounts[5]})
 
 
+### RolMapper
+- RolMapper.deployed().then(c =>rolMapper=c)
+- rolMapper.consultar(0)
+- rolMapper.guardar(0, rolVO.address)
+
+### RolVO
+RolVO.new().then(c => rolVO=c)
+rolVO.setId(0)
+rolVO.setNombre("ganster")
+rolVO.getPermisosSize()
+
+### PermisoMapper
+PermisoMapper.deployed().then(c =>permisoMapper=c)
+
 
 
 
