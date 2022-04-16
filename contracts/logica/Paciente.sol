@@ -9,49 +9,65 @@ import "./Acceso.sol";
 contract Paciente {
     event Log(string data);
     address public creador;
-    address public pacienteMapperAddress;
+    //address public pacienteMapperAddress;
     address public accesoAddress;
 
-    PacienteMapper private pacienteMapper;
+    PacienteMapperInterface private pacienteMapper;
+    RolMapperInterface private rolMapper;
+    UsuarioMapperInterface private usuarioMapper;
     Acceso private acceso;
+
+    //TODO Convertir eventualmente en un enum
+    uint256 rolPacienteId = 1;
 
     constructor() {
         creador = msg.sender; // creador del contrato
     }
 
+    // Puede el medico
     function consultar(address direccion)
         public
-        tieneAcceso(0)
+        tieneAcceso(1) 
         returns (PacienteVO)
     {
-        /*if (direccion != msg.sender) {
-            // si alguien diferente al propietario de la historia la consulta se debe validar quien es
-            // validar quien consulta
-            revert("No tiene permisos de consulta");
-        }*/
-        emit Log("entro a consultar Paciente");
+        emit Log("Entro a consultar Paciente");
         return pacienteMapper.consultar(direccion);
-        /* try  returns (PacienteVO response){
-            emit Log("encontro la Paciente");
-            return response;
-        } catch Error(string memory e) {
-            /*reason*/
-        /*emit Log("se rompio por un revert o require");
-            emit Log(e);
-            revert("No existe ese Paciente");
-        } */
+        
     }
 
+    // TODO Agregar a diagrama
+    // Solo lo puede usar el paciente
+    function miInformacion(address direccion)
+        public
+        tieneAcceso(2) 
+        returns (PacienteVO)
+    {
+        if (direccion != msg.sender) {
+            revert("Un paciente solo puede ver su propia informacion");
+        }
+        emit Log("Entro a consultar miInformacion paciente");
+        return pacienteMapper.consultar(direccion);
+        
+    }
+    
     // TODO: validar que pasa si falla el registro de persona
     // TODO: que pasa si falla guardar paciente?
     function registrar(address direccion, PacienteVO paciente)
         public
-        tieneAcceso(1)
+        tieneAcceso(2)
     {
         if (direccion != msg.sender) {
             revert("Un paciente se debe registrar a si mismo");
         }
+
+        RolVO rol = rolMapper.consultar(rolPacienteId);
+        UsuarioVO nuevoUsuario = new UsuarioVO(); 
+        nuevoUsuario.setDireccion(direccion);
+        nuevoUsuario.setRol(rol);
+        nuevoUsuario.setEstaActivo(true);
         pacienteMapper.guardar(direccion, paciente);
+        //usuarioMapper.guardar();
+        // registrar usuario
         /* try  {
             emit Log("Se guarda la informacion de paciente correctamente");
         } catch Error(string memory data) {
@@ -95,17 +111,37 @@ contract Paciente {
         actualizar(_direccion, paciente);
     }
 
-    function setPacienteMapper(address _pacienteMapperAddress)
+    function setPacienteMapper(PacienteMapperInterface _pacienteMapperAddress)
         public
         esPropietario
     {
-        pacienteMapperAddress = _pacienteMapperAddress;
-        pacienteMapper = PacienteMapper(_pacienteMapperAddress);
+        // pacienteMapperAddress = _pacienteMapperAddress;
+        // pacienteMapper = PacienteMapper(_pacienteMapperAddress);
+        pacienteMapper = _pacienteMapperAddress;
     }
 
-    function setAcceso(address _accesoAddress) public esPropietario {
-        accesoAddress = _accesoAddress;
-        acceso = Acceso(_accesoAddress);
+    function setRolMapper(RolMapperInterface _rolMapperAddress)
+        public
+        esPropietario
+    {
+        // pacienteMapperAddress = _pacienteMapperAddress;
+        // pacienteMapper = PacienteMapper(_pacienteMapperAddress);
+        rolMapper = _rolMapperAddress;
+    }
+
+    function setUsuarioMapper(UsuarioMapperInterface _usuarioMapperAddress)
+        public
+        esPropietario
+    {
+        // pacienteMapperAddress = _pacienteMapperAddress;
+        // pacienteMapper = PacienteMapper(_pacienteMapperAddress);
+        usuarioMapper = _usuarioMapperAddress;
+    }
+
+    function setAcceso(Acceso _accesoAddress) public esPropietario {
+        //accesoAddress = _accesoAddress;
+        //acceso = Acceso(_accesoAddress);
+        acceso = _accesoAddress;
     }
 
     modifier esPropietario() {
@@ -121,7 +157,7 @@ contract Paciente {
     }
 
     modifier tieneAcceso(uint256 permisoId) {
-        bool esAccesible = acceso.buscarPermisoDeRol(msg.sender, permisoId);
+        bool esAccesible = acceso.validarPermisoDeRol(msg.sender, permisoId);
         require(esAccesible, "El usuario no tiene acceso");
         _; // acá se ejecuta la función
     }

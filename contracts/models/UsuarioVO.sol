@@ -3,12 +3,11 @@ pragma solidity ^0.8.10;
 
 import "./RolVO.sol";
 
-// NOTE: se deja el abstrac contract justo con sus hijos por cuestiones de ordenamiento de código solidity, antes decia "Definition of base has to precede definition of derived contract"
 contract UsuarioVO {
     event Log(string data);
 
     address private direccion;
-    RolVO private rol;
+    RolVO private rol; // TODO dejar esto como array para que un usuario pueda ser médico y paciente al tiempo
     bool private estaActivo;
 
     function getDireccion() public view returns (address) {
