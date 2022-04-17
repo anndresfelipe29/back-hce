@@ -16,6 +16,7 @@ contract Paciente {
     RolMapperInterface private rolMapper;
     UsuarioMapperInterface private usuarioMapper;
     Acceso private acceso;
+    
 
     //TODO Convertir eventualmente en un enum
     uint256 rolPacienteId = 1;
@@ -37,24 +38,21 @@ contract Paciente {
 
     // TODO Agregar a diagrama
     // Solo lo puede usar el paciente
-    function miInformacion(address direccion)
+    function consultar()
         public
         tieneAcceso(2) 
         returns (PacienteVO)
     {
-        if (direccion != msg.sender) {
-            revert("Un paciente solo puede ver su propia informacion");
-        }
         emit Log("Entro a consultar miInformacion paciente");
-        return pacienteMapper.consultar(direccion);
+        return pacienteMapper.consultar(msg.sender);
         
     }
     
     // TODO: validar que pasa si falla el registro de persona
     // TODO: que pasa si falla guardar paciente?
+    //tieneAcceso(2)
     function registrar(address direccion, PacienteVO paciente)
         public
-        tieneAcceso(2)
     {
         if (direccion != msg.sender) {
             revert("Un paciente se debe registrar a si mismo");
@@ -65,50 +63,47 @@ contract Paciente {
         nuevoUsuario.setDireccion(direccion);
         nuevoUsuario.setRol(rol);
         nuevoUsuario.setEstaActivo(true);
+        usuarioMapper.guardar(direccion, nuevoUsuario);
         pacienteMapper.guardar(direccion, paciente);
-        //usuarioMapper.guardar();
+        // TODO Crear HC
         // registrar usuario
-        /* try  {
-            emit Log("Se guarda la informacion de paciente correctamente");
-        } catch Error(string memory data) {
-            revert("No existe ese medico");
-        }*/
+        
     }
-
+    /*
+    // TODO: Discutir si un médico debe actualizar al paciente (nombre y demas)
+    // TODO: Sollo se podria acceder con el acceso que da el paciente sobre su info
     function actualizar(address direccion, PacienteVO paciente)
         public
-        tieneAcceso(2)
+        tieneAcceso(3)
     {
         if (direccion != msg.sender) {
             // si alguien diferente al propietario de la historia la consulta se debe validar quien es
             // validar quien consulta
             revert("No tiene permisos de actualizar");
         }
+        // bloquear actualización de estado
         pacienteMapper.actualizar(direccion, paciente);
-        /*
-        try contratoPacienteDAO.actualizar(direccion, paciente) {
-            emit Log("Se guarda la informacion de paciente correctamente");
-        } catch Error(string memory data) {
-            /*reason*/
-        /*  emit Log("se rompio por un revert o require");
-            emit Log(data);
-        }*/
+    }
+    */
+
+    function actualizar(PacienteVO paciente)
+        public
+        tieneAcceso(3)
+    {
+        // bloquear actualización de estado
+        pacienteMapper.actualizar(msg.sender, paciente);
     }
 
     // TODO: poner modificador para que solo lo pueda ejecutar el service y
     // en el service que solo lo ejecute un médico
+    // TODO: Debe usar el permiso que da el paciente
     function cambiarEstado(address _direccion, EstadoVO _estado)
         public
-        tieneAcceso(3)
+        tieneAcceso(4)
     {
-        if (_direccion != msg.sender) {
-            // si alguien diferente al propietario de la historia la consulta se debe validar quien es
-            // validar quien consulta
-            revert("No tiene permisos de actualizar");
-        }
-        PacienteVO paciente = consultar(_direccion);
+        PacienteVO paciente = pacienteMapper.consultar(_direccion);
         paciente.setEstado(_estado);
-        actualizar(_direccion, paciente);
+        pacienteMapper.actualizar(_direccion, paciente);
     }
 
     function setPacienteMapper(PacienteMapperInterface _pacienteMapperAddress)
