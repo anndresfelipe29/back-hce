@@ -131,6 +131,7 @@ usuarioVO.setEstaActivo(true)
 
 ### UsuarioMapper
 - UsuarioMapper.deployed().then(c => usuarioMapper=c)
+- UsuarioMapper.at("0xfD36d95486f2AD968119202d2608aE8b81981D44").then(c => usuarioMapper=c)
 
 
 - usuarioMapper.consultar(accounts[2])

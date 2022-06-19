@@ -45,10 +45,10 @@ contract('PermisoMapper', accounts => {
             const idResponse = await permiso.getId();
             const nombreResponse = await permiso.getNombre();
             const permisosResponse = await permiso.getDescripcion();
-            console.log("--- "+idResponse);
+            /*console.log("--- "+idResponse);
             console.log(nombreResponse);
             console.log(permisosResponse);
-            /**/
+            */
             assert(permiso, permisoVO);
         } catch (error) {
             assert.fail('Throw received');

@@ -14,7 +14,9 @@ let estado;
 before(async () => {
 
     instance = await Acceso.new();
-    usuarioMapper = await UsuarioMapper.new();
+    //usuarioMapper = await UsuarioMapper.new();
+    usuarioMapper = await UsuarioMapper.at("0x176F0C5773688e8fAA9448f41eCd35d32C779a10");
+
 
     // Permisos
     permisoX = await PermisoVO.new();
@@ -118,7 +120,8 @@ contract('Acceso', accounts => {
     it('Login un usuario que existe', async () => {
         try {
             let usuarioAddress = await instance.login.call({ from: accounts[0] });
-            let usuario = await UsuarioVO.at(usuarioAddress);
+            // let usuario = await UsuarioVO.at(usuarioAddress);
+            console.log("Usuario: "+ usuarioAddress)
             // console.log("Address: "+ usuarioAddress);
             // console.log("usuario: " + usuario);
         } catch (error) {
@@ -136,15 +139,17 @@ contract('Acceso', accounts => {
             var boolResponse1 = await instance.validarPermisoDeRol.call(accounts[0], 1)
             var boolResponse2 = await instance.validarPermisoDeRol.call(accounts[0], 2)
             var boolResponse3 = await instance.validarPermisoDeRol.call(accounts[1], 2)
-            // console.log("Response 1: "+ boolResponse1);
-            // console.log("Response 2: "+ boolResponse2);
-            // console.log("Response 3: "+ boolResponse3);
+             console.log("Response 1: "+ boolResponse1);
+             console.log("Response 2: "+ boolResponse2);
+             console.log("Response 3: "+ boolResponse3);
 
             if (!boolResponse1 || boolResponse2 || !boolResponse3) {
+                 
                 assert.fail('wrong answer');
                 return;
             }
         } catch (error) {
+            console.log("Error:  "+ error.message)
             assert.fail('Throw received');
             return;
         }

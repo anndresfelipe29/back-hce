@@ -9,8 +9,6 @@ import "./Acceso.sol";
 contract Paciente {
     event Log(string data);
     address public creador;
-    //address public pacienteMapperAddress;
-    address public accesoAddress;
 
     PacienteMapperInterface private pacienteMapper;
     RolMapperInterface private rolMapper;
@@ -110,8 +108,6 @@ contract Paciente {
         public
         esPropietario
     {
-        // pacienteMapperAddress = _pacienteMapperAddress;
-        // pacienteMapper = PacienteMapper(_pacienteMapperAddress);
         pacienteMapper = _pacienteMapperAddress;
     }
 
@@ -119,8 +115,6 @@ contract Paciente {
         public
         esPropietario
     {
-        // pacienteMapperAddress = _pacienteMapperAddress;
-        // pacienteMapper = PacienteMapper(_pacienteMapperAddress);
         rolMapper = _rolMapperAddress;
     }
 
@@ -128,14 +122,10 @@ contract Paciente {
         public
         esPropietario
     {
-        // pacienteMapperAddress = _pacienteMapperAddress;
-        // pacienteMapper = PacienteMapper(_pacienteMapperAddress);
         usuarioMapper = _usuarioMapperAddress;
     }
 
     function setAcceso(Acceso _accesoAddress) public esPropietario {
-        //accesoAddress = _accesoAddress;
-        //acceso = Acceso(_accesoAddress);
         acceso = _accesoAddress;
     }
 

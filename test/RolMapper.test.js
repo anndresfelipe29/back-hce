@@ -83,11 +83,11 @@ contract('RolMapper', accounts => {
             const nombreResponse = await rol.getNombre();
             const permisosResponse = await rol.getPermisos();
             const permisosSizeResponse = await rol.getPermisosSize()
-            console.log("--- "+idResponse);
+            /*console.log("--- "+idResponse);
             console.log(nombreResponse);
             console.log(permisosResponse);
             console.log("Size "+permisosSizeResponse);
-            /**/
+            */
             assert(rol, rolVO);
         } catch (error) {
             assert.fail('Throw received');

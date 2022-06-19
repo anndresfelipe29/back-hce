@@ -10,6 +10,20 @@ contract UsuarioVO {
     RolVO private rol; // TODO dejar esto como array para que un usuario pueda ser médico y paciente al tiempo
     bool private estaActivo;
 
+    struct UsuarioVoStruct {
+        address direccion;
+        RolVO rol;
+        bool estaActivo;
+    }
+
+    function getUsuarioVOValue() public view returns (UsuarioVoStruct memory) {
+        return UsuarioVoStruct(
+            direccion,
+            rol,
+            estaActivo
+        );
+    }
+
     function getDireccion() public view returns (address) {
         return direccion;
     }
