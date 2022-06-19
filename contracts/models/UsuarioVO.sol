@@ -12,14 +12,14 @@ contract UsuarioVO {
 
     struct UsuarioVoStruct {
         address direccion;
-        RolVO rol;
+        RolVO.RolVoStruct rol;
         bool estaActivo;
     }
 
     function getUsuarioVOValue() public view returns (UsuarioVoStruct memory) {
         return UsuarioVoStruct(
             direccion,
-            rol,
+            rol.getRolVoValue(),
             estaActivo
         );
     }

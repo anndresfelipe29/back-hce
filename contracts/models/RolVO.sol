@@ -10,6 +10,12 @@ contract RolVO {
         bool accesoPermitido;
     }
 
+    struct RolVoStruct {
+        uint256 id;
+        string nombre;
+        string descripcion;
+    }
+
     event Log(string data);
 
     uint256 private id;
@@ -18,6 +24,14 @@ contract RolVO {
     mapping(uint256 => PermisoRol) private permisos; // TODO: Hacer mapper de permisos, para la info de estos
     uint256[] private idsList; // NOTE Mapped Structs with Index
     bool private estaActivo;
+
+    function getRolVoValue() public view returns (RolVoStruct memory) {
+        return RolVoStruct(
+            id,
+            nombre,
+            descripcion
+        );
+    }
 
     function getId() public view returns (uint256) {
         return id;
@@ -71,7 +85,11 @@ contract RolVO {
         descripcion = _descripcion;
     }
 
-    function setPermiso(uint256 _id, PermisoVO _permiso, bool _accesoPermitido) public {
+    function setPermiso(
+        uint256 _id,
+        PermisoVO _permiso,
+        bool _accesoPermitido
+    ) public {
         if (permisos[_id].id == 0) {
             idsList.push(_id);
         }
@@ -84,7 +102,6 @@ contract RolVO {
                 idsList.push(_permisos[i].id);
             }
             permisos[_permisos[i].id] = _permisos[i];
-            
         }
     }
 
