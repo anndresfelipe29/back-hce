@@ -16,10 +16,34 @@ abstract contract Persona {
     TipoIdentificacionVO private tipoIdentificacion;
     bool private isValue;
 
+    struct PersonaStruct {
+        address id;
+        string primerNombre;
+        string segundoNombre;
+        string primerApellido;
+        string segundoApellido;
+        string identificacion;
+        TipoIdentificacionVO.TipoIdentificacionVOStruct tipoIdentificacion;
+        bool isValue;
+    }
+
+    function getPersonaStructValue() public view returns (PersonaStruct memory) {
+        return PersonaStruct(
+            id,
+            primerNombre,
+            segundoNombre,
+            primerApellido,
+            segundoApellido,
+            identificacion,
+            tipoIdentificacion.getTipoIdentificacionVOValue(),
+            isValue
+        );
+    }
+
     function getId() public view returns (address) {
         return id;
     }
-    
+
     function getPrimerNombre() public view returns (string memory) {
         return primerNombre;
     }
@@ -40,7 +64,11 @@ abstract contract Persona {
         return identificacion;
     }
 
-    function getTipoIdentificacionId() public view returns (TipoIdentificacionVO) {
+    function getTipoIdentificacionId()
+        public
+        view
+        returns (TipoIdentificacionVO)
+    {
         return tipoIdentificacion;
     }
 
@@ -72,7 +100,9 @@ abstract contract Persona {
         identificacion = _identificacion;
     }
 
-    function setTipoIdentificacionId(TipoIdentificacionVO _tipoIdentificacion) public {
+    function setTipoIdentificacionId(TipoIdentificacionVO _tipoIdentificacion)
+        public
+    {
         tipoIdentificacion = _tipoIdentificacion;
     }
 

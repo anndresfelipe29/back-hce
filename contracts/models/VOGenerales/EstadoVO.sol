@@ -7,6 +7,22 @@ contract EstadoVO{
     string private descripcion;
     bool private estaActivo;
 
+    struct EstadoVOStruct {
+        uint256  id;
+        string  nombre;
+        string  descripcion;
+        bool  estaActivo;
+    }
+
+    function getEstadoVOValue() public view returns (EstadoVOStruct memory) {
+        return EstadoVOStruct(
+            id,
+            nombre,
+            descripcion,
+            estaActivo
+        );
+    }
+
     function getId() public view returns (uint256) {
         return id;
     }

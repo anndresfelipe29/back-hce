@@ -24,17 +24,9 @@ contract Medico {
         creador = msg.sender; // creador del contrato
     }
 
-    function consultar(address direccion) public returns (MedicoVO) {
+    function consultar(address direccion) public returns (MedicoVO.MedicoVOStruct memory) {
         emit Log("entro a consultar");
-        try medicoMapper.consultar(direccion) returns (MedicoVO response) {
-            emit Log("encontro el medico");
-            return response;
-        } catch Error(string memory e) {
-            /*reason*/
-            emit Log("se rompio por un revert o require");
-            emit Log(e);
-            revert("No existe ese medico");
-        }
+        return medicoMapper.consultar(direccion).getMedicoVOValue();
     }
 
     function registrar(address direccion, MedicoVO medico) public {

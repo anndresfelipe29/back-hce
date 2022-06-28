@@ -27,10 +27,10 @@ contract Paciente {
     function consultar(address direccion)
         public
         tieneAcceso(1) 
-        returns (PacienteVO)
+        returns (PacienteVO.PacienteVOStruct memory)
     {
         emit Log("Entro a consultar Paciente");
-        return pacienteMapper.consultar(direccion);
+        return pacienteMapper.consultar(direccion).getPacienteVOValue();
         
     }
 

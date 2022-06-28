@@ -15,7 +15,7 @@ before(async () => {
 
     instance = await Acceso.new();
     //usuarioMapper = await UsuarioMapper.new();
-    usuarioMapper = await UsuarioMapper.at("0x3920e4551C841DBf6083EBA139869bE330D48b7f");
+    usuarioMapper = await UsuarioMapper.at("0xCff3965fd0b45C848a2f5B00ddc18b7f982992fB");
 
 
     // Permisos

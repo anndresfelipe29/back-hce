@@ -1,11 +1,27 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-contract TipoIdentificacionVO{
+contract TipoIdentificacionVO {
     uint256 private id;
     string private nombre;
     string private descripcion;
     bool private estaActivo;
+
+    struct TipoIdentificacionVOStruct {
+        uint256 id;
+        string nombre;
+        string descripcion;
+        bool estaActivo;
+    }
+
+    function getTipoIdentificacionVOValue() public view returns (TipoIdentificacionVOStruct memory) {
+        return TipoIdentificacionVOStruct(
+            id, 
+            nombre, 
+            descripcion, 
+            estaActivo
+            );
+    }
 
     function getId() public view returns (uint256) {
         return id;

@@ -151,8 +151,8 @@ usuarioVO.setEstaActivo(true)
 - acceso.setUsuarioMapper(usuarioMapper.address)
 - acceso.setPermisoRolMapper(permisoRol.address)
 
-- acceso.login({from: accounts[2]}) 
-- acceso.login.call({from: accounts[2]})
+- acceso.login({from: accounts[0]}) 
+- acceso.login.call({from: accounts[0]})
 
 - acceso.usuarioEsMedico.call(accounts[2]) 
 - acceso.usuarioEsPaciente.call(accounts[2]) 
