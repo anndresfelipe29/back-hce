@@ -10,6 +10,9 @@ const Medico = artifacts.require("Medico");
 // const PermisoRolMapper = artifacts.require("PermisoRolMapper");
 const EstadoVO = artifacts.require("EstadoVO");
 const UsuarioMapper = artifacts.require("UsuarioMapper");
+const RolMapper = artifacts.require("RolMapper");
+const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO');
+
 
 module.exports = function (deployer) {
     // deployer.deploy(PersonaStruct);
@@ -22,6 +25,8 @@ module.exports = function (deployer) {
     deployer.deploy(Paciente);
     deployer.deploy(Medico);
     deployer.deploy(EstadoVO);
+    deployer.deploy(RolMapper);
+    deployer.deploy(TipoIdentificacionVO);
     // deployer.deploy(PermisoRolMapper);
 
 };

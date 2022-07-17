@@ -118,7 +118,7 @@ persona.registrar(accounts[5], ["medico", "felipe", "primerApellido","segundoApe
 # Comandos actualizados
 ### PacienteVO (Al parecer los VO no requieren desplegarse)
 UsuarioVO.new().then(c => usuarioVO=c)
-UsuarioVO.at("0xE262A13960fa754cC79cFF1176Ce466F9682a8Ef").then(c=> j=c)
+UsuarioVO.at("0x8c7cCb0B2fcC0a9F7c38B926886B04EAA1822A5D").then(c=> j=c)
 
 usuarioVO.setDireccion(accounts[2])
 usuarioVO.setRolId(0)
@@ -159,6 +159,8 @@ usuarioVO.setEstaActivo(true)
 
 - acceso.buscarPermisoDeRol.call(accounts[2],1) 
 
+- acceso.validarPermisoDeRol.call(accounts[2],2)
+
 ## PacienteMapper
 - PacienteMapper.deployed().then(c => pacienteMapper=c)
 - pacienteMapper.consultar(accounts[2])
@@ -176,34 +178,50 @@ pacienteVO.getIsValue()
 
 PacienteVO.deployed().then(c => pacienteVO=c)
 pacienteVO.address
-PacienteVO.at("0xC1aae6fc90CC58861A6777da0bd4117b081666a9").then(c=> j=c)
+PacienteVO.at("0xBA2e6d32b44FD7CE6fdEAcFE13cB6cf0C59629eb").then(c=> j=c)
 
 
 ### Paciente
 - Paciente.deployed().then(c => paciente=c)
 
 - paciente.setPacienteMapper(pacienteMapper.address)
+- paciente.setRolMapper(rolMapper.address)
+- paciente.setUsuarioMapper(usuarioMapper.address)
 - paciente.setAcceso(acceso.address)
 
-- paciente.consultar(accounts[2],{from: accounts[5]})
-
+- paciente.consultar(accounts[2],{from: accounts[2]})
+- paciente.consultar({from: accounts[2]})
+paciente.consultar(accounts[0], { from: accounts[2] })
+- paciente.registrarConStruct(accounts[4], values, {from: accounts[4] })
 
 ### RolMapper
 - RolMapper.deployed().then(c =>rolMapper=c)
 - rolMapper.consultar(0)
 - rolMapper.guardar(0, rolVO.address)
+- rolMapper.actualizar(1, rolVO.address)
 
 ### RolVO
 RolVO.new().then(c => rolVO=c)
+RolVO.at("0x09a2dD025F24501B4EB2e37d7eFdB5D0FADF0437").then(c => rolVO=c)
 rolVO.setId(0)
 rolVO.setNombre("ganster")
 rolVO.getPermisosSize()
+rolVO.getPermiso(2)
+rolVO.setPermiso(2, "0x9d9D6b97244ccD8dB22cc406048CfF35d6F59B12", true)
+
 
 ### PermisoMapper
 PermisoMapper.deployed().then(c =>permisoMapper=c)
 
+## TipoIdentificacionVO
 
+TipoIdentificacionVO.new().then(c => tipoIdentificacionVO=c)
+const accounts = await web3.eth.getAccounts()
 
+## EstadoVO
+
+EstadoVO.new().then(c => estadoVO=c)
+EstadoVO
 
 
 

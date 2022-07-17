@@ -23,6 +23,13 @@ contract TipoIdentificacionVO {
             );
     }
 
+    function setValuesOfTipoIdentificacionStruct(TipoIdentificacionVOStruct memory tipoIdentificacion) public{
+        id = tipoIdentificacion.id;
+        nombre = tipoIdentificacion.nombre;
+        descripcion = tipoIdentificacion.descripcion;
+        estaActivo = tipoIdentificacion.estaActivo;
+    }
+
     function getId() public view returns (uint256) {
         return id;
     }

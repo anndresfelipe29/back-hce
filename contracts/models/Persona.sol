@@ -23,7 +23,7 @@ abstract contract Persona {
         string primerApellido;
         string segundoApellido;
         string identificacion;
-        TipoIdentificacionVO.TipoIdentificacionVOStruct tipoIdentificacion;
+        address tipoIdentificacion; // TODO: Mejorar
         bool isValue;
     }
 
@@ -35,9 +35,21 @@ abstract contract Persona {
             primerApellido,
             segundoApellido,
             identificacion,
-            tipoIdentificacion.getTipoIdentificacionVOValue(),
+            address(tipoIdentificacion),
             isValue
         );
+    }
+
+    function setValuesOfPersonaStruct(PersonaStruct memory persona) public {
+        id = persona.id;
+        primerNombre = persona.primerNombre;
+        segundoNombre = persona.segundoNombre;
+        primerApellido = persona.primerApellido;
+        segundoApellido = persona.segundoApellido;
+        identificacion = persona.identificacion;
+        isValue = persona.isValue;
+        tipoIdentificacion= TipoIdentificacionVO(persona.tipoIdentificacion);
+
     }
 
     function getId() public view returns (address) {

@@ -23,6 +23,13 @@ contract EstadoVO{
         );
     }
 
+    function setValueOfEstadoVOStruct(EstadoVOStruct memory estadoVOStruct) public {
+        id = estadoVOStruct.id;
+        nombre = estadoVOStruct.nombre;
+        descripcion = estadoVOStruct.descripcion;
+        estaActivo = estadoVOStruct.estaActivo;
+    }
+
     function getId() public view returns (uint256) {
         return id;
     }

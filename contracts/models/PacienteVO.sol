@@ -15,16 +15,22 @@ contract PacienteVO is Persona {
     struct PacienteVOStruct {
         PersonaStruct persona;        
         DatosPersonalesStruct datosPersonales;
-        EstadoVO.EstadoVOStruct estado;
-        
+        address estado;        
     }
 
     function getPacienteVOValue() public view returns (PacienteVOStruct memory) {
         return PacienteVOStruct(
             getPersonaStructValue(),            
             datosPersonales,
-            estado.getEstadoVOValue()
+            address(estado)
         );
+    }
+
+    function setValuesOfPacienteVOStruct(PacienteVOStruct memory pacienteVOStruct) public {
+        setValuesOfPersonaStruct(pacienteVOStruct.persona);
+        datosPersonales =  pacienteVOStruct.datosPersonales;
+        estado = EstadoVO(pacienteVOStruct.estado);
+        //estado.setValueOfEstadoVOStruct(pacienteVOStruct.estado);
     }
 
     function getEstado() public view returns (EstadoVO) {

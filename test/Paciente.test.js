@@ -8,6 +8,8 @@ const UsuarioVO = artifacts.require('UsuarioVO');
 const EstadoVO = artifacts.require('EstadoVO');
 const Acceso = artifacts.require('Acceso');
 const Paciente = artifacts.require('Paciente');
+const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO');
+
 let instance;
 let pacienteVO;
 let estado;
@@ -65,7 +67,7 @@ before(async () => {
     await rolMedico.setPermisos(
         [
             [1, permisoX.address, true],
-            [2, permisoY.address, false],
+            [2, permisoY.address, true],
             [3, permisoZ.address, true],
             [4, permisoZ.address, true]
         ]
@@ -106,7 +108,7 @@ contract('Paciente', accounts => {
         }
         assert(true);
     });
-
+    
     it('Se consulta un paciente que no existe, desde una cuenta de médico', async () => {
         try {
             let pacienteAddress = await instance.consultar(accounts[0], { from: accounts[1] });
@@ -142,11 +144,34 @@ contract('Paciente', accounts => {
         await pacienteVO.setId(accounts[2]);
         await pacienteVO.setPrimerNombre("Andres");
         await pacienteVO.setSegundoNombre("pruebita");
+        await pacienteVO.setPrimerApellido("Gomez");
+        await pacienteVO.setSegundoApellido("Salinas");
         await pacienteVO.setIdentificacion("1111666123");
-        await pacienteVO.setEstado(estado.address)
+        await pacienteVO.setEstado(estado.address);
+        let tipoIdentificacionVO = await TipoIdentificacionVO.new();
+        await tipoIdentificacionVO.setId(1);
+        await tipoIdentificacionVO.setNombre("Cedula");
+        await pacienteVO.setTipoIdentificacionId(tipoIdentificacionVO.address);
         // when
         try {
             await instance.registrar(accounts[2], pacienteVO.address, { from: accounts[2] })
+        } catch (error) {
+            console.log(error.message);
+            assert.fail('Throw received');
+            return;
+        }
+        assert(true);
+    });
+    
+
+    it('Se registra persona con struct (la cuenta a registrar es la misma que hace la peticion)', async () => {
+        // Given
+        
+        let tipoIdentificacionVO = await TipoIdentificacionVO.new();
+        let estadoVO = await EstadoVO.new();
+        // when
+        try {
+            await instance.registrarConStruct(accounts[4], [[accounts[4], "Andres","struct", "Gomas", "test", "111111",tipoIdentificacionVO.address, "true"],[1, 1, 12, 25, "Bogota", "ocupacion","direccion","3150 000",1,2,3], estadoVO.address], { from: accounts[4] })
         } catch (error) {
             console.log(error.message);
             assert.fail('Throw received');
@@ -162,8 +187,15 @@ contract('Paciente', accounts => {
         await pacienteVO.setId(accounts[2]);
         await pacienteVO.setPrimerNombre("Andres");
         await pacienteVO.setSegundoNombre("pruebita");
+        await pacienteVO.setPrimerApellido("Gomez");
+        await pacienteVO.setSegundoApellido("Salinas");
         await pacienteVO.setIdentificacion("1111666123");
-        await pacienteVO.setEstado(estado.address)
+        await pacienteVO.setEstado(estado.address);
+        let tipoIdentificacionVO = await TipoIdentificacionVO.new();
+        await tipoIdentificacionVO.setId(1);
+        await tipoIdentificacionVO.setNombre("Cedula");
+        await pacienteVO.setTipoIdentificacionId(tipoIdentificacionVO.address);
+
         // when
         try {
             await instance.registrar(accounts[3], pacienteVO.address, { from: accounts[2] })
@@ -179,7 +211,7 @@ contract('Paciente', accounts => {
     it('Se consulta un paciente, desde la cuenta de un médico', async () => {
         try {
             let pacienteAddress = await instance.consultar.call(accounts[2], { from: accounts[1] });
-            let paciente = await PacienteVO.at(pacienteAddress);
+            // let paciente = await PacienteVO.at(pacienteAddress);
             // let nombre = await paciente.getPrimerNombre();
             // console.log("Address: "+ pacienteAddress);
             // console.log("paciente: " + paciente);
@@ -194,8 +226,10 @@ contract('Paciente', accounts => {
 
     it('Un paciente consulta su cuenta', async () => {
         try {
+            console.log("-------------------------")
             let pacienteAddress = await instance.consultar.call({ from: accounts[2] });
-            let paciente = await PacienteVO.at(pacienteAddress);
+            console.log("---------- debug: " + pacienteAddress);
+            // let paciente = await PacienteVO.at(pacienteAddress);
             // let nombre = await paciente.getPrimerNombre();
             // console.log("Address: "+ pacienteAddress);
             // console.log("paciente: " + paciente);
@@ -244,3 +278,7 @@ contract('Paciente', accounts => {
         assert(true);
     });
 });
+
+/*
+paciente.registrarConStruct(accounts[4], [[accounts[4], "Andres","struct", "Gomas", "test", "111111",tipoIdentificacionVO.address, "true"],[1, 1, 12, 25, "Bogota", "ocupacion","direccion","3150 000",1,2,3], estadoVO.address], { from: accounts[4] })
+*/

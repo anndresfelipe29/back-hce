@@ -46,8 +46,8 @@ module.exports = {
       port: 7545,
       //port: 8545,
       network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
-      // gasPrice: 1
-      //gas: 5000000,   //limite de gas
+      // gasPrice: 20,
+      // gas: 90000000,   //limite de gas
       // from: "0xC2e5c0E064783e47D220142bd418857D7B01aFf3"
     }
     // development: {
@@ -93,13 +93,13 @@ module.exports = {
     solc: {
       version: "0.8.11",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
+      settings: {          // See the solidity docs for advice about optimization and evmVersion
+        optimizer: { // TODO: Ques es?, como optimiza los contratos grandes?
+          enabled: true,
+         runs: 1000
+        },
       //  evmVersion: "byzantium"
-      // }
+      }
     }
   },
 

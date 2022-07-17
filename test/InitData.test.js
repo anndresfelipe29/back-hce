@@ -10,7 +10,7 @@ const EstadoVO = artifacts.require('EstadoVO');
 const PacienteVO = artifacts.require('PacienteVO');
 const PacienteMapper = artifacts.require('PacienteMapper');
 const Paciente = artifacts.require('Paciente');
-
+const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO');
 
 let instance;
 let usuarioVO;
@@ -24,12 +24,15 @@ let pacienteMapper
 before(async () => {
     const accounts = await web3.eth.getAccounts()
 
-    acceso = await Acceso.at("0xFb7AEC04d9f393d02d86179A514E3FcbC93881FE");
-    //usuarioMapper = await UsuarioMapper.new();
-    usuarioMapper = await UsuarioMapper.at("0xc9087934d9A9Cd019EC33eA1848EDe49c649D163");
-    rolMapper = await RolMapper.at("0x85A1e1439f1849331ebdcE851E663FB3a65E3616");
-    pacienteMapper = await PacienteMapper.at("0xd202dA95352CEE87d53Ae92b086F239902c19164");
-    paciente = await Paciente.at("0x37015cbfD13C75aBE796c25474E0568af5c33925");
+    //usuarioMapper = await UsuarioMapper.new();    
+    rolMapper = await RolMapper.at("0xb1E297fad1Ceca48b4081837ff62AE89e35734a8");
+    pacienteMapper = await PacienteMapper.at("0x1DEC2E864CFd0896f0691CA4bEB76fD2fcb2Ee2D");
+
+    usuarioMapper = await UsuarioMapper.at("0xC13DaF3906582eC37E9Ef0555daDd8658FB1101A");
+    acceso = await Acceso.at("0xAd3141ec08bcad91D40Fe708De5A03af1Bd9De56");
+    await acceso.setUsuarioMapper(usuarioMapper.address)
+
+    paciente = await Paciente.at("0x09Af5Dc276560EbCb28354Ede0D6B5aB9dEC41de");
 
     // Permisos
     permisoX = await PermisoVO.new();
@@ -55,7 +58,7 @@ before(async () => {
     await rolPaciente.setPermisos(
         [
             [1, permisoX.address, true],
-            [2, permisoY.address, false],
+            [2, permisoY.address, true],
             [3, permisoZ.address, false]
         ]
     );
@@ -73,9 +76,9 @@ before(async () => {
     );
 
     // Registro en rol mapper
-    /*await rolMapper.guardar(1, rolPaciente.address);
+    await rolMapper.guardar(1, rolPaciente.address);
     await rolMapper.guardar(2, rolMedico.address);
-    */
+   
 
 
     // Paciente
@@ -90,8 +93,14 @@ before(async () => {
     await pacienteVO.setId(accounts[2]);
     await pacienteVO.setPrimerNombre("Andres");
     await pacienteVO.setSegundoNombre("pruebita");
+    await pacienteVO.setPrimerApellido("Gomez");
+    await pacienteVO.setSegundoApellido("Salinas");
     await pacienteVO.setIdentificacion("1111666123");
     await pacienteVO.setEstado(estado.address);
+    let tipoIdentificacionVO = await TipoIdentificacionVO.new()
+    await tipoIdentificacionVO.setId(1);
+    await tipoIdentificacionVO.setNombre("Cedula");
+    await pacienteVO.setTipoIdentificacionId(tipoIdentificacionVO.address);
 
     await paciente.registrar(accounts[2], pacienteVO.address, { from: accounts[2] })
     
