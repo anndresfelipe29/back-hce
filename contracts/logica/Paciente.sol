@@ -15,31 +15,6 @@ contract Paciente {
     UsuarioMapperInterface private usuarioMapper;
     Acceso private acceso;
 
-    struct testStructure {
-        PacienteVO.PersonaStruct persona;
-        address id;
-        string primerNombre;
-        string segundoNombre;
-        string primerApellido;
-        string segundoApellido;
-        string identificacion;
-        TipoIdentificacionVO.TipoIdentificacionVOStruct tipoIdentificacion;
-        bool isValue;
-    }
-    struct testStructure2 {
-        uint256 sexoId;
-        uint256 estadoCivilId;
-        uint256 fechaNacimiento;
-        uint256 edad;
-        string ciudadResidencia;
-        string ocupacion;
-        string direccion;
-        string telefono;
-        uint256 aseguradoraId;
-        uint256 tipoVinculacionId;
-        uint256 acudienteId;
-    }
-
     //TODO Convertir eventualmente en un enum
     uint256 rolPacienteId = 1;
 

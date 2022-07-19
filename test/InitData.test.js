@@ -25,14 +25,14 @@ before(async () => {
     const accounts = await web3.eth.getAccounts()
 
     //usuarioMapper = await UsuarioMapper.new();    
-    rolMapper = await RolMapper.at("0xb1E297fad1Ceca48b4081837ff62AE89e35734a8");
-    pacienteMapper = await PacienteMapper.at("0x1DEC2E864CFd0896f0691CA4bEB76fD2fcb2Ee2D");
+    rolMapper = await RolMapper.at("0x1fa5430b62383d1B2D06c5a1364bF49C6bCbb104");
+    pacienteMapper = await PacienteMapper.at("0x0E64d151DF3d00c06637C7DC909e59FF82966813");
 
-    usuarioMapper = await UsuarioMapper.at("0xC13DaF3906582eC37E9Ef0555daDd8658FB1101A");
-    acceso = await Acceso.at("0xAd3141ec08bcad91D40Fe708De5A03af1Bd9De56");
+    usuarioMapper = await UsuarioMapper.at("0x5404172F6a48788F5E0Db4935568bfF2888da2A4");
+    acceso = await Acceso.at("0xeE5Bf4301eAf5f10314113F3eAA812705919a77E");
     await acceso.setUsuarioMapper(usuarioMapper.address)
 
-    paciente = await Paciente.at("0x09Af5Dc276560EbCb28354Ede0D6B5aB9dEC41de");
+    paciente = await Paciente.at("0x39E8C7bc796B6162C60b53747D4e36934fb007f7");
 
     // Permisos
     permisoX = await PermisoVO.new();
