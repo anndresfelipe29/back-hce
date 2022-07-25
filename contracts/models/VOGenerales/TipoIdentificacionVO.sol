@@ -54,6 +54,10 @@ contract TipoIdentificacionVO {
         descripcion = _descripcion;
     }
 
+    function setEstaActivo(bool _estaActivo) public {
+        estaActivo = _estaActivo;
+    }
+
     function setId(uint256 _id) public {
         id = _id;
     }

@@ -21,16 +21,14 @@ contract RolVO {
     uint256 private id;
     string private nombre;
     string private descripcion;
-    mapping(uint256 => PermisoRol) private permisos; // TODO: Hacer mapper de permisos, para la info de estos
-    uint256[] private idsList; // NOTE Mapped Structs with Index
     bool private estaActivo;
 
+
+    mapping(uint256 => PermisoRol) private permisos; // TODO: Hacer mapper de permisos, para la info de estos
+    uint256[] private idsList; // NOTE Mapped Structs with Index
+
     function getRolVoValue() public view returns (RolVoStruct memory) {
-        return RolVoStruct(
-            id,
-            nombre,
-            descripcion
-        );
+        return RolVoStruct(id, nombre, descripcion);
     }
 
     function getId() public view returns (uint256) {

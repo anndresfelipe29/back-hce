@@ -1,29 +1,30 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-contract TipoVinculacionVO{
+contract TipoVinculacionVO {
     uint256 private id;
     string private nombre;
     string private beneficios;
     bool private estaActivo;
 
     struct TipoVinculacionVOStruct {
-        uint256  id;
-        string  nombre;
-        string  beneficios; // Convertir a arreglo
-        bool  estaActivo;
+        uint256 id;
+        string nombre;
+        string beneficios; // Convertir a arreglo
+        bool estaActivo;
     }
 
-    function getTipoVinculacionVOValue() public view returns (TipoVinculacionVOStruct memory) {
-        return TipoVinculacionVOStruct(
-            id,
-            nombre,
-            beneficios,
-            estaActivo
-        );
+    function getTipoVinculacionVOValue()
+        public
+        view
+        returns (TipoVinculacionVOStruct memory)
+    {
+        return TipoVinculacionVOStruct(id, nombre, beneficios, estaActivo);
     }
 
-    function setValueOfTipoVinculacionVOStruct(TipoVinculacionVOStruct memory tipoVinculacionVOStruct) public {
+    function setValueOfTipoVinculacionVOStruct(
+        TipoVinculacionVOStruct memory tipoVinculacionVOStruct
+    ) public {
         id = tipoVinculacionVOStruct.id;
         nombre = tipoVinculacionVOStruct.nombre;
         beneficios = tipoVinculacionVOStruct.beneficios;
@@ -52,6 +53,10 @@ contract TipoVinculacionVO{
 
     function setBeneficios(string memory _beneficios) public {
         beneficios = _beneficios;
+    }
+
+    function setEstaActivo(bool _estaActivo) public {
+        estaActivo= _estaActivo;
     }
 
     function setId(uint256 _id) public {

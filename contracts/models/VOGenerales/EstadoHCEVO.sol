@@ -1,29 +1,30 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-contract EstadoHCEVO{
+contract EstadoHCEVO {
     uint256 private id;
     string private nombre;
     string private descripcion;
     bool private estaActivo;
 
     struct EstadoHCEVOStruct {
-        uint256  id;
-        string  nombre;
-        string  descripcion;
-        bool  estaActivo;
+        uint256 id;
+        string nombre;
+        string descripcion;
+        bool estaActivo;
     }
 
-    function getEstadoHCEVOValue() public view returns (EstadoHCEVOStruct memory) {
-        return EstadoHCEVOStruct(
-            id,
-            nombre,
-            descripcion,
-            estaActivo
-        );
+    function getEstadoHCEVOValue()
+        public
+        view
+        returns (EstadoHCEVOStruct memory)
+    {
+        return EstadoHCEVOStruct(id, nombre, descripcion, estaActivo);
     }
 
-    function setValueOfEstadoVOStruct(EstadoHCEVOStruct memory estadoHCEVOStruct) public {
+    function setValueOfEstadoVOStruct(
+        EstadoHCEVOStruct memory estadoHCEVOStruct
+    ) public {
         id = estadoHCEVOStruct.id;
         nombre = estadoHCEVOStruct.nombre;
         descripcion = estadoHCEVOStruct.descripcion;
@@ -52,6 +53,10 @@ contract EstadoHCEVO{
 
     function setDescripcion(string memory _descripcion) public {
         descripcion = _descripcion;
+    }
+    
+    function setEstaActivo(bool _estaActivo) public {
+        estaActivo= _estaActivo;
     }
 
     function setId(uint256 _id) public {

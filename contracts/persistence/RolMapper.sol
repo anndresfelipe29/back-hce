@@ -7,36 +7,41 @@ import "./RolMapperInterface.sol";
 contract RolMapper is RolMapperInterface {
     address public creador;
 
-    mapping(uint256 => RolVO) private roles;
+    mapping(address => RolVO) private roles;
+    address[] private rolAddressList; // NOTE Mapped Structs with Index
 
     constructor() {
         creador = msg.sender;
     }
 
     function consultar(uint256 _id) external view returns (RolVO) {
-        //emit Log("entro a consultar");
-        RolVO rolVO = roles[_id];
-        if (address(rolVO) == address(0)) {
-            revert("No existe ese usuario");
+        address direccion = rolAddressList[_id];
+        if (direccion == address(0)) {
+            revert("No existe ese rol");
         }
-        // emit Log("usuario valido");
-        //emit Log(usuario);
+        RolVO rolVO = roles[direccion];
         return rolVO;
     }
 
-    function guardar(uint256 _id, RolVO _rol) public {
-        if (address(roles[_id]) != address(0)) {
+    function guardar(RolVO _rol) external returns (uint256){
+        address direccion = address(_rol);
+        if (address(roles[direccion]) != address(0)) {
             emit Log("Ya existe un rol registrado con ese address");
             revert("Ya existe un rol registrado con ese address");
         }
-        roles[_id] = _rol;
+        uint256 id = rolAddressList.length;
+        _rol.setId(id);
+        rolAddressList.push(direccion);
+        roles[direccion] = _rol;
+        return id;
     }
 
-    function actualizar(uint256 _id, RolVO rol) public {
-        if (address(roles[_id]) == address(0)) {
+    function actualizar(uint256 _id, RolVO rol) external {
+        address direccion = rolAddressList[_id];
+        if (direccion == address(0)) {
             revert("No existe un rol registrado con ese address");
         }
-        roles[_id] = rol;
+        roles[direccion] = rol;
     }
 
     modifier esPropietario() {

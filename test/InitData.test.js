@@ -11,6 +11,8 @@ const PacienteVO = artifacts.require('PacienteVO');
 const PacienteMapper = artifacts.require('PacienteMapper');
 const Paciente = artifacts.require('Paciente');
 const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO');
+const DatosParametricosMapper = artifacts.require('DatosParametricosMapper')
+
 
 let instance;
 let usuarioVO;
@@ -18,21 +20,28 @@ let estado;
 let acceso;
 let paciente;
 let medico;
-let pacienteMapper
+let pacienteMapper;
+let datosParametricosMapper;
 
 // TODO: se supone que son pruebas unitarias, pero esta esta tiene pinta de integración, si algo hacer mocks despues para pulir
 before(async () => {
     const accounts = await web3.eth.getAccounts()
 
     //usuarioMapper = await UsuarioMapper.new();    
-    rolMapper = await RolMapper.at("0x1fa5430b62383d1B2D06c5a1364bF49C6bCbb104");
-    pacienteMapper = await PacienteMapper.at("0x0E64d151DF3d00c06637C7DC909e59FF82966813");
-
-    usuarioMapper = await UsuarioMapper.at("0x5404172F6a48788F5E0Db4935568bfF2888da2A4");
-    acceso = await Acceso.at("0xeE5Bf4301eAf5f10314113F3eAA812705919a77E");
+    rolMapper = await RolMapper.deployed();
+    pacienteMapper = await PacienteMapper.deployed();
+    datosParametricosMapper = await DatosParametricosMapper.deployed();
+    console.log("------------- " + rolMapper.address)
+    usuarioMapper = await UsuarioMapper.deployed();
+    acceso = await Acceso.deployed();
     await acceso.setUsuarioMapper(usuarioMapper.address)
 
-    paciente = await Paciente.at("0x39E8C7bc796B6162C60b53747D4e36934fb007f7");
+    // Paciente
+    paciente = await Paciente.deployed();
+    await paciente.setPacienteMapper(pacienteMapper.address)
+    await paciente.setRolMapper(rolMapper.address)
+    await paciente.setUsuarioMapper(usuarioMapper.address)
+    await paciente.setAcceso(acceso.address)
 
     // Permisos
     permisoX = await PermisoVO.new();
@@ -76,17 +85,26 @@ before(async () => {
     );
 
     // Registro en rol mapper
-    await rolMapper.guardar(1, rolPaciente.address);
-    await rolMapper.guardar(2, rolMedico.address);
-   
+    await rolMapper.guardar(rolPaciente.address);
+    await rolMapper.guardar(rolMedico.address);
 
+    let cedulaTipoIdentificacionVO = await TipoIdentificacionVO.new()
+    await cedulaTipoIdentificacionVO.setId(1);
+    await cedulaTipoIdentificacionVO.setNombre("Cedula");
+    await cedulaTipoIdentificacionVO.setDescripcion("Cedula descripcion");
+    await cedulaTipoIdentificacionVO.setEstaActivo(true);
 
-    // Paciente
-    await paciente.setPacienteMapper(pacienteMapper.address)
-    await paciente.setRolMapper(rolMapper.address)
-    await paciente.setUsuarioMapper(usuarioMapper.address)
-    await paciente.setAcceso(acceso.address)
+    let tarjetaIdentidadTipoIdentificacionVO = await TipoIdentificacionVO.new()
+    await tarjetaIdentidadTipoIdentificacionVO.setId(2);
+    await tarjetaIdentidadTipoIdentificacionVO.setNombre("Tarjeta de identidad");
+    await tarjetaIdentidadTipoIdentificacionVO.setDescripcion("Tarjeta de identidad descripcion");
+    await tarjetaIdentidadTipoIdentificacionVO.setEstaActivo(true);
 
+    let cedulaid = await datosParametricosMapper.guardarTipoIdentificacionVO.call(cedulaTipoIdentificacionVO.address);
+    let tarjetaIdentidadId =await datosParametricosMapper.guardarTipoIdentificacionVO.call(tarjetaIdentidadTipoIdentificacionVO.address);
+    console.log("Cedula: " + cedulaid)
+    console.log("Tarjeta de identidad: " + tarjetaIdentidadId)
+/*
     // Se registra paciente
     pacienteVO = await PacienteVO.new();
     estado = await EstadoVO.new();
@@ -97,15 +115,13 @@ before(async () => {
     await pacienteVO.setSegundoApellido("Salinas");
     await pacienteVO.setIdentificacion("1111666123");
     await pacienteVO.setEstado(estado.address);
-    let tipoIdentificacionVO = await TipoIdentificacionVO.new()
-    await tipoIdentificacionVO.setId(1);
-    await tipoIdentificacionVO.setNombre("Cedula");
-    await pacienteVO.setTipoIdentificacionId(tipoIdentificacionVO.address);
+    
+    await pacienteVO.setTipoIdentificacionId(cedulaTipoIdentificacionVO.address);
 
     await paciente.registrar(accounts[2], pacienteVO.address, { from: accounts[2] })
     
     // Medico
-    
+ */   
 
 });
 

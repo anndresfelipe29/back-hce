@@ -5,6 +5,8 @@ pragma solidity ^0.8.10;
 import "../models/PacienteVO.sol";
 import "../persistence/PacienteMapper.sol";
 import "./Acceso.sol";
+import "../persistence/DatosParametricosMapper.sol";
+import "../persistence/DatosParametricosMapperInterface.sol";
 
 contract Paciente {
     event Log(string data);
@@ -13,6 +15,7 @@ contract Paciente {
     PacienteMapperInterface private pacienteMapper;
     RolMapperInterface private rolMapper;
     UsuarioMapperInterface private usuarioMapper;
+    DatosParametricosMapperInterface private datosParametricosMapper;
     Acceso private acceso;
 
     //TODO Convertir eventualmente en un enum
@@ -69,8 +72,20 @@ contract Paciente {
         PacienteVO.PacienteVOStruct memory pacienteVOStruct
     ) public {
         PacienteVO pacienteVO = new PacienteVO();
-        pacienteVO.setValuesOfPacienteVOStruct(pacienteVOStruct);
-        registrar(direccion, pacienteVO);        
+        EstadoVO estadoVO = datosParametricosMapper.consultarEstadoVO(
+            pacienteVOStruct.estadoId
+        );
+        TipoIdentificacionVO _tipoIdentificacionVO = datosParametricosMapper
+            .consultarTipoIdentificacionVO(
+                pacienteVOStruct.persona.tipoIdentificacion
+            );
+
+        pacienteVO.setValuesOfPacienteVOStruct(
+            pacienteVOStruct,
+            estadoVO,
+            _tipoIdentificacionVO
+        );
+        registrar(direccion, pacienteVO);
     }
 
     /*
@@ -126,6 +141,12 @@ contract Paciente {
         esPropietario
     {
         usuarioMapper = _usuarioMapperAddress;
+    }
+
+    function setdatosParametricosMapper(
+        DatosParametricosMapperInterface _datosParametricosMapperAddress
+    ) public esPropietario {
+        datosParametricosMapper = _datosParametricosMapperAddress;
     }
 
     function setAcceso(Acceso _accesoAddress) public esPropietario {

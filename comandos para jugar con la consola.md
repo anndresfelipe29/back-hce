@@ -180,6 +180,10 @@ PacienteVO.deployed().then(c => pacienteVO=c)
 pacienteVO.address
 PacienteVO.at("0xBA2e6d32b44FD7CE6fdEAcFE13cB6cf0C59629eb").then(c=> j=c)
 
+require('./initial.js')
+exec ./initial.js
+
+truffle exec ./initial.js
 
 ### Paciente
 - Paciente.deployed().then(c => paciente=c)
@@ -198,12 +202,14 @@ paciente.consultar(accounts[0], { from: accounts[2] })
 - RolMapper.deployed().then(c =>rolMapper=c)
 - rolMapper.consultar(0)
 - rolMapper.guardar(0, rolVO.address)
+rolMapper.guardar(rolVO.address)
 - rolMapper.actualizar(1, rolVO.address)
 
 ### RolVO
 RolVO.new().then(c => rolVO=c)
-RolVO.at("0x09a2dD025F24501B4EB2e37d7eFdB5D0FADF0437").then(c => rolVO=c)
-rolVO.setId(0)
+RolVO.at("0xbb17Ff027510c12C0a5cdBB3fA06743797Ce5b5e").then(c => rolVO=c)
+rolVO.setId(5)
+rolVO.getId()
 rolVO.setNombre("ganster")
 rolVO.getPermisosSize()
 rolVO.getPermiso(2)
@@ -223,8 +229,20 @@ const accounts = await web3.eth.getAccounts()
 EstadoVO.new().then(c => estadoVO=c)
 EstadoVO
 
+# DatosParametricosMapper
 
+DatosParametricosMapper.new().then(c => datosParametricosMapper=c)
+DatosParametricosMapper.deployed().then(c => datosParametricosMapper=c)
 
+datosParametricosMapper.consultarTipoIdentificacionVO.call(0)
+datosParametricosMapper.guardarTipoIdentificacionVO.call(tipoIdentificacionVO.address)
+
+datosParametricosMapper.guardarTipoIdentificacionVO.call('0x89B1CD2119A91Ebbc6a29e19a5dcc36A4f795044')
+
+datosParametricosMapper.tipoIdentificacionAddressList
+datosParametricosMapper.tipoIdentificacionAddressList.length
+
+datosParametricosMapper.registros.call()
 
 
 ## Truffle Debug
@@ -282,5 +300,8 @@ ganache-cli  --chain.allowUnlimitedContractSize --logging.debug  --database.dbPa
 # Este si funciona
 ganache-cli  --logging.debug --mnemonic "ten snow frozen rough palace sudden depart basic regret garment coconut cat" --database.dbPath /home/felipe/Documentos/Blockchain/codigo/ganache/data
 
-
+# ganache 
 ganache-cli  --logging.debug
+
+# Ejecutar scripts
+ truffle exec ./initial.js

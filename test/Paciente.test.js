@@ -9,12 +9,14 @@ const EstadoVO = artifacts.require('EstadoVO');
 const Acceso = artifacts.require('Acceso');
 const Paciente = artifacts.require('Paciente');
 const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO');
+const DatosParametricosMapper = artifacts.require('DatosParametricosMapper')
 
 let instance;
 let pacienteVO;
 let estado;
 let acceso;
 let usuarioMapper;
+let datosParametricosMapper;
 
 before(async () => {
     instance = await Paciente.new();
@@ -22,6 +24,7 @@ before(async () => {
     rolMapper = await RolMapper.new();
     pacienteMapper = await PacienteMapper.new();
     acceso = await Acceso.new();
+    datosParametricosMapper = await DatosParametricosMapper.new();
 
     await acceso.setUsuarioMapper(usuarioMapper.address);
 
@@ -72,8 +75,8 @@ before(async () => {
             [4, permisoZ.address, true]
         ]
     );
-    await rolMapper.guardar(1, rolPaciente.address);
-    await rolMapper.guardar(2, rolPaciente.address);
+    await rolMapper.guardar(rolPaciente.address);
+    await rolMapper.guardar(rolPaciente.address);
 
     // Usuario
     usuarioPaciente = await UsuarioVO.new();

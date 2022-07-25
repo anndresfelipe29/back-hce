@@ -13,23 +13,32 @@ contract PacienteVO is Persona {
     //uint256 private historiaClinicaId;  // TODO: sobra ya que hay un mapping que asocia una dirección con una historia clinica
 
     struct PacienteVOStruct {
-        PersonaStruct persona;        
+        PersonaStruct persona;
         DatosPersonalesStruct datosPersonales;
-        address estado;        
+        uint256 estadoId;
     }
 
-    function getPacienteVOValue() public view returns (PacienteVOStruct memory) {
-        return PacienteVOStruct(
-            getPersonaStructValue(),            
-            datosPersonales,
-            address(estado)
-        );
+    function getPacienteVOValue()
+        public
+        view
+        returns (PacienteVOStruct memory)
+    {
+        return
+            PacienteVOStruct(
+                getPersonaStructValue(),
+                datosPersonales,
+                estado.getId()
+            );
     }
 
-    function setValuesOfPacienteVOStruct(PacienteVOStruct memory pacienteVOStruct) public {
-        setValuesOfPersonaStruct(pacienteVOStruct.persona);
-        datosPersonales =  pacienteVOStruct.datosPersonales;
-        estado = EstadoVO(pacienteVOStruct.estado);
+    function setValuesOfPacienteVOStruct(
+        PacienteVOStruct memory _pacienteVOStruct,
+        EstadoVO _estadoVO,
+        TipoIdentificacionVO _tipoIdentificacionVO
+    ) public {
+        setValuesOfPersonaStruct(_pacienteVOStruct.persona,  _tipoIdentificacionVO);
+        datosPersonales = _pacienteVOStruct.datosPersonales;
+        estado = _estadoVO;
         //estado.setValueOfEstadoVOStruct(pacienteVOStruct.estado);
     }
 

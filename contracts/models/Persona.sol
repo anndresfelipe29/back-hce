@@ -23,7 +23,8 @@ abstract contract Persona {
         string primerApellido;
         string segundoApellido;
         string identificacion;
-        address tipoIdentificacion; // TODO: Mejorar
+        // address tipoIdentificacion; // TODO: Mejorar
+        uint256 tipoIdentificacion;
         bool isValue;
     }
 
@@ -35,20 +36,21 @@ abstract contract Persona {
             primerApellido,
             segundoApellido,
             identificacion,
-            address(tipoIdentificacion),
+            tipoIdentificacion.getId(),
+            // address(tipoIdentificacion),
             isValue
         );
     }
 
-    function setValuesOfPersonaStruct(PersonaStruct memory persona) public {
-        id = persona.id;
-        primerNombre = persona.primerNombre;
-        segundoNombre = persona.segundoNombre;
-        primerApellido = persona.primerApellido;
-        segundoApellido = persona.segundoApellido;
-        identificacion = persona.identificacion;
-        isValue = persona.isValue;
-        tipoIdentificacion= TipoIdentificacionVO(persona.tipoIdentificacion);
+    function setValuesOfPersonaStruct(PersonaStruct memory _persona, TipoIdentificacionVO _tipoIdentificacionVO) public {
+        id = _persona.id;
+        primerNombre = _persona.primerNombre;
+        segundoNombre = _persona.segundoNombre;
+        primerApellido = _persona.primerApellido;
+        segundoApellido = _persona.segundoApellido;
+        identificacion = _persona.identificacion;
+        isValue = _persona.isValue;
+        tipoIdentificacion= _tipoIdentificacionVO;
 
     }
 
@@ -121,4 +123,6 @@ abstract contract Persona {
     function setIsValue(bool _isValue) public {
         isValue = _isValue;
     }
+
+
 }

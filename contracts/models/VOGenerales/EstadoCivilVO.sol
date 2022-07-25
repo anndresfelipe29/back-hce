@@ -5,7 +5,6 @@ contract EstadoCivilVO{ // Actualizar el diagrma de clases
     uint256 private id;
     string private nombre;
     string private descripcion;
-    
 
     struct EstadoCivilVOStruct {
         uint256  id;

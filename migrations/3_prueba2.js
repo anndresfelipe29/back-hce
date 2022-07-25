@@ -12,6 +12,7 @@ const EstadoVO = artifacts.require("EstadoVO");
 const UsuarioMapper = artifacts.require("UsuarioMapper");
 const RolMapper = artifacts.require("RolMapper");
 const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO');
+const DatosParametricosMapper = artifacts.require('DatosParametricosMapper');
 
 
 module.exports = function (deployer) {
@@ -27,6 +28,7 @@ module.exports = function (deployer) {
     deployer.deploy(EstadoVO);
     deployer.deploy(RolMapper);
     deployer.deploy(TipoIdentificacionVO);
+    deployer.deploy(DatosParametricosMapper);
     // deployer.deploy(PermisoRolMapper);
 
 };
