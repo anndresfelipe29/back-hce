@@ -20,11 +20,11 @@ let datosParametricosMapper;
 
 before(async () => {
     instance = await Paciente.new();
-    usuarioMapper = await UsuarioMapper.new();
-    rolMapper = await RolMapper.new();
     pacienteMapper = await PacienteMapper.new();
-    acceso = await Acceso.new();
+    rolMapper = await RolMapper.new();
+    usuarioMapper = await UsuarioMapper.new();
     datosParametricosMapper = await DatosParametricosMapper.new();
+    acceso = await Acceso.new();
 
     await acceso.setUsuarioMapper(usuarioMapper.address);
 
@@ -76,7 +76,7 @@ before(async () => {
         ]
     );
     await rolMapper.guardar(rolPaciente.address);
-    await rolMapper.guardar(rolPaciente.address);
+    await rolMapper.guardar(rolMedico.address);
 
     // Usuario
     usuarioPaciente = await UsuarioVO.new();
@@ -93,6 +93,27 @@ before(async () => {
     await usuarioMapper.guardar(accounts[0], usuarioPaciente.address)
     await usuarioMapper.guardar(accounts[1], usuarioMedico.address)
 
+    // datos parametricos
+
+    let cedulaTipoIdentificacionVO = await TipoIdentificacionVO.new()
+    // await cedulaTipoIdentificacionVO.setId(1)
+    await cedulaTipoIdentificacionVO.setNombre("Cedula")
+    await cedulaTipoIdentificacionVO.setDescripcion("Cedula descripcion")
+    await cedulaTipoIdentificacionVO.setEstaActivo(true)
+
+    let tarjetaIdentidadTipoIdentificacionVO = await TipoIdentificacionVO.new()
+    // await tarjetaIdentidadTipoIdentificacionVO.setId(2)
+    await tarjetaIdentidadTipoIdentificacionVO.setNombre("Tarjeta de identidad")
+    await tarjetaIdentidadTipoIdentificacionVO.setDescripcion("Tarjeta de identidad descripcion")
+    await tarjetaIdentidadTipoIdentificacionVO.setEstaActivo(true)
+
+    await datosParametricosMapper.guardarTipoIdentificacionVO(cedulaTipoIdentificacionVO.address)
+    await datosParametricosMapper.guardarTipoIdentificacionVO(tarjetaIdentidadTipoIdentificacionVO.address)
+    let cedulaid = await cedulaTipoIdentificacionVO.getId()
+    let tarjetaIdentidadId = await tarjetaIdentidadTipoIdentificacionVO.getId()
+    console.log("Cedula: " + cedulaid + "-> " + cedulaTipoIdentificacionVO.address)
+    console.log("Tarjeta de identidad id: " + tarjetaIdentidadId + "-> " + tarjetaIdentidadTipoIdentificacionVO.address)
+
 
 });
 
@@ -104,6 +125,7 @@ contract('Paciente', accounts => {
             await instance.setRolMapper(rolMapper.address)
             await instance.setUsuarioMapper(usuarioMapper.address)
             await instance.setAcceso(acceso.address)
+            await instance.setdatosParametricosMapper(datosParametricosMapper.address)
         } catch (error) {
             console.log("error correcto: " + error.message);
             assert.fail('Throw received');
@@ -111,7 +133,7 @@ contract('Paciente', accounts => {
         }
         assert(true);
     });
-    
+
     it('Se consulta un paciente que no existe, desde una cuenta de médico', async () => {
         try {
             let pacienteAddress = await instance.consultar(accounts[0], { from: accounts[1] });
@@ -165,16 +187,16 @@ contract('Paciente', accounts => {
         }
         assert(true);
     });
-    
+
 
     it('Se registra persona con struct (la cuenta a registrar es la misma que hace la peticion)', async () => {
         // Given
-        
+
         let tipoIdentificacionVO = await TipoIdentificacionVO.new();
         let estadoVO = await EstadoVO.new();
         // when
         try {
-            await instance.registrarConStruct(accounts[4], [[accounts[4], "Andres","struct", "Gomas", "test", "111111",tipoIdentificacionVO.address, "true"],[1, 1, 12, 25, "Bogota", "ocupacion","direccion","3150 000",1,2,3], estadoVO.address], { from: accounts[4] })
+            await instance.registrarConStruct(accounts[4], [[accounts[4], "Andres", "struct", "Gomas", "test", "111111", 0, "true"], [0, 0, 0, 25, "Bogota", "ocupacion", "direccion", "3150 000", 0, 0, 0], 0], { from: accounts[4] })
         } catch (error) {
             console.log(error.message);
             assert.fail('Throw received');

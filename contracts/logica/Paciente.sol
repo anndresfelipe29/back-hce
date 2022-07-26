@@ -19,7 +19,7 @@ contract Paciente {
     Acceso private acceso;
 
     //TODO Convertir eventualmente en un enum
-    uint256 rolPacienteId = 1;
+    uint256 rolPacienteId = 0;
 
     constructor() {
         creador = msg.sender; // creador del contrato

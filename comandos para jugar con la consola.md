@@ -198,6 +198,8 @@ truffle exec ./initial.js
 paciente.consultar(accounts[0], { from: accounts[2] })
 - paciente.registrarConStruct(accounts[4], values, {from: accounts[4] })
 
+- paciente.registrarConStruct(accounts[4], [[accounts[4], "Andres","struct", "Gomas", "test", "111111",0, "true"],[0, 0, 0, 25, "Bogota", "ocupacion","direccion","3150 000",0,0,0], 0], { from: accounts[4] })
+
 ### RolMapper
 - RolMapper.deployed().then(c =>rolMapper=c)
 - rolMapper.consultar(0)
@@ -237,12 +239,15 @@ DatosParametricosMapper.deployed().then(c => datosParametricosMapper=c)
 datosParametricosMapper.consultarTipoIdentificacionVO.call(0)
 datosParametricosMapper.guardarTipoIdentificacionVO.call(tipoIdentificacionVO.address)
 
-datosParametricosMapper.guardarTipoIdentificacionVO.call('0x89B1CD2119A91Ebbc6a29e19a5dcc36A4f795044')
+datosParametricosMapper.consultarEstadoVO(0)
+datosParametricosMapper.guardarEstadoVO(estadoVO.address)
 
 datosParametricosMapper.tipoIdentificacionAddressList
 datosParametricosMapper.tipoIdentificacionAddressList.length
 
 datosParametricosMapper.registros.call()
+
+datosParametricosMapper.consultarTipoIdentificacionVO(0)
 
 
 ## Truffle Debug
