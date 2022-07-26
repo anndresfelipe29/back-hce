@@ -6,6 +6,7 @@ Back end solidity para DAPP de historias clínicas
 - Instala ganache CLI y ejecuta:
     ganache-cli  --logging.debug -p 7545 -g 20  
 - Despliege de contratos con:
+    truffle compile
     truffle migrate -f 3 --to 3 
 - Carga de datos iniciales e interconexión de contratos:
     truffle exec ./initial.js    
