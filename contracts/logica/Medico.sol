@@ -103,10 +103,16 @@ contract Medico {
         medicoMapper = _medicoMapper;
     }
 
-    function setdatosParametricosMapper(
+    function setDatosParametricosMapper(
         DatosParametricosMapperInterface _datosParametricosMapperAddress
     ) public esPropietario {
         datosParametricosMapper = _datosParametricosMapperAddress;
+    }
+
+        function setMedicoOraculo(
+        MedicoOraculo _medicoOraculo
+    ) public esPropietario {
+        medicoOraculo = _medicoOraculo;
     }
 
     // TODO: poner en clase generica y reusarlo

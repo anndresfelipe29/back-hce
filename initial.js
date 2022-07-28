@@ -49,7 +49,7 @@ module.exports = async function (callback) {
     await paciente.setRolMapper(rolMapper.address)
     await paciente.setUsuarioMapper(usuarioMapper.address)
     await paciente.setAcceso(acceso.address)
-    await paciente.setdatosParametricosMapper(datosParametricosMapper.address)
+    await paciente.setDatosParametricosMapper(datosParametricosMapper.address)
 
     // Permisos
     permisoX = await PermisoVO.new()
