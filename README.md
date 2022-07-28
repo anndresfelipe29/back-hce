@@ -4,22 +4,27 @@ Back end solidity para DAPP de historias clínicas
 ## Ejecución en local
 
 - Instala ganache CLI y ejecuta:
-    ganache-cli  --logging.debug -p 7545 -g 20  
+
+    ganache-cli -p 7545 -g 20  
+
 - Despliege de contratos con:
+    
     truffle compile
+
     truffle migrate -f 3 --to 3 
 - Carga de datos iniciales e interconexión de contratos:
+
     truffle exec ./initial.js    
 
 Private Keys
 ==================
-(0) 0xba5f6c512adebd9f3addc614a328e85dcec0347553e26f2bac32e8efedf3d43a
-(1) 0x9428fb9d56809bd150a2aeaa738ec01440f6d2646df19dcfdd85613e90911430
-(2) 0xedc822e0472a1ea690495f1df258827c85375e616a87fff98bc4976e1f538779
-(3) 0xdca22aaeab3e634ccb81b7cb902264a2a598cacaeaf42e7390f14057b183b037
-(4) 0x0ba1a671c7ff9c5c1a6d0c3b083c92703387fc47b729ea349d3a1a983146a76a
-(5) 0x17c51c4f5586201c3b692e38dd8ba6f42c7cfb38552f39d956bdead0abe52579
-(6) 0xb5287b67f1be4ec00d4a6208bb4f3ff956a6975adc6f29ad0d50c32c97acf441
-(7) 0x3a7b73b5c3d4923a7b146eedd0a6bb303056bfcb834919f6451000071ba8cdc8
-(8) 0x705c1e3e4245afe8e3673fe418f4ef9f3c81995f13d31213cd95efda46b9a9c3
-(9) 0x16cfff8c2759ba956b0940122ea9a03404b2907522e13c8a0e72cbf906e54d95
+(0) 0xb4dc20d945faa255a781a822832d0f99af1228c3e3da1cf2a612ce7d827adf34
+(1) 0x91398a856dd1eb7292d80107ae44352f3d5cd345d5a04521cd92ebbbe5ab03aa
+(2) 0x45829ae938b5845a2e19b9f87dcac29683ca24aeca739e359a2c1a2c4ecd62d9
+(3) 0xc11668fce01df2ea6daf10cbf73d76084a36ea40812f11f4f14524d8c5ff9f1f
+(4) 0xc1118b11e0cd6d2cd69816a854068a6700a6d63db0cbf7537c70d38749818ec6
+(5) 0xaaa2d111b303b5ab11caa05f15f38aa1b74b335a4e76ab36dadfcb671249db8b
+(6) 0xe1a102466388dbccc4b329a7d2a5830e0278d9908c1d8f1fd8f54c49f8ebf26a
+(7) 0x4b24273812b8160a834de07b149990f3d3f3dec527867e6c5d512bdce756822b
+(8) 0x208d2eee54e60f2df3f40c00e89eaa0f413143af72c7d79c38f353019e0a0eff
+(9) 0x64c61b7c50ee05379080a33c25d7ebc85b5e14b8978107032bbe65faea8ad11b
