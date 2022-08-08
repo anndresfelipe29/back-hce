@@ -23,11 +23,6 @@ contract Acceso {
         return buscarUsuarioActivo(direccion).getUsuarioVOValue();
     }
 
-    /*function login() public returns (UsuarioVO) {
-        address direccion = msg.sender;
-        return buscarUsuarioActivo(direccion);
-    }*/
-
     // TODO Actualizar nombre y atributos de clase (eliminar registrar de deagrama de clases en la clase acceso)
     function buscarUsuarioActivo(address _direccion)
         public

@@ -2,17 +2,18 @@
 // const PacienteDAO = artifacts.require("PacienteDAO");
 // const PacienteService = artifacts.require("PacienteService");
 const PacienteMapper = artifacts.require("PacienteMapper");
-const MedicoMapper = artifacts.require("PacienteMapper");
-const Acceso = artifacts.require("Acceso");
-// const PacienteVO = artifacts.require("PacienteVO");
 const Paciente = artifacts.require("Paciente");
+// const PacienteVO = artifacts.require("PacienteVO");
+const MedicoMapper = artifacts.require("MedicoMapper");
 const Medico = artifacts.require("Medico");
+const Acceso = artifacts.require("Acceso");
 // const PermisoRolMapper = artifacts.require("PermisoRolMapper");
 const EstadoVO = artifacts.require("EstadoVO");
 const UsuarioMapper = artifacts.require("UsuarioMapper");
 const RolMapper = artifacts.require("RolMapper");
 const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO');
 const DatosParametricosMapper = artifacts.require('DatosParametricosMapper');
+const MedicoOraculo = artifacts.require('MedicoOraculo')
 
 
 module.exports = function (deployer) {
@@ -29,6 +30,7 @@ module.exports = function (deployer) {
     deployer.deploy(RolMapper);
     deployer.deploy(TipoIdentificacionVO);
     deployer.deploy(DatosParametricosMapper);
+    deployer.deploy(MedicoOraculo);
     // deployer.deploy(PermisoRolMapper);
 
 };

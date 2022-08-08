@@ -5,6 +5,7 @@ import "../persistence/MedicoMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
 import "../persistence/DatosParametricosMapperInterface.sol";
 import "./sistemaExterno/MedicoOraculo.sol";
+import "./Acceso.sol";
 
 contract Medico {
     // TODO: consumir este evento desde una clase heredada o algo así
@@ -15,9 +16,14 @@ contract Medico {
     MedicoMapperInterface private medicoMapper;
     DatosParametricosMapperInterface private datosParametricosMapper;
     MedicoOraculo private medicoOraculo;
+    RolMapperInterface private rolMapper;
+    UsuarioMapperInterface private usuarioMapper;
+
+    //TODO Convertir eventualmente en un enum
+    uint256 rolMedicoId = 1;
 
     constructor() {
-        creador = msg.sender; // creador del contrato
+        creador = msg.sender;
     }
 
     function consultar(address direccion)
@@ -29,6 +35,12 @@ contract Medico {
     }
 
     function registrar(address direccion, MedicoVO medico) public {
+        RolVO rol = rolMapper.consultar(rolMedicoId);
+        UsuarioVO nuevoUsuario = new UsuarioVO();
+        nuevoUsuario.setDireccion(direccion);
+        nuevoUsuario.setRol(rol);
+        nuevoUsuario.setEstaActivo(true);
+        usuarioMapper.guardar(direccion, nuevoUsuario);
         try medicoMapper.guardar(direccion, medico) {
             emit Log("Se guarda la informacion del medico correctamente");
         } catch Error(string memory data) {
@@ -82,15 +94,16 @@ contract Medico {
         }*/
     }
 
-    function verificarExistenciaEnSistemaExterno(address direccion)
+    /*function verificarExistenciaEnSistemaExterno(address direccion)
         public
         returns (bool)
     {
         /* TODO: Consultar info del medico (usuario y contraseña)
          *  despues se hace con oraculos una consulta
          */
+    /*
         return true;
-    }
+    }*/
 
     /*function buscarPerfilMedicoSistemaExterno(address direccion) public returns (PerfilMedicoSistemaExternoStruct memory){
         // TODO: tambien con oraculo
@@ -109,10 +122,25 @@ contract Medico {
         datosParametricosMapper = _datosParametricosMapperAddress;
     }
 
-        function setMedicoOraculo(
-        MedicoOraculo _medicoOraculo
-    ) public esPropietario {
+    function setMedicoOraculo(MedicoOraculo _medicoOraculo)
+        public
+        esPropietario
+    {
         medicoOraculo = _medicoOraculo;
+    }
+
+        function setRolMapper(RolMapperInterface _rolMapperAddress)
+        public
+        esPropietario
+    {
+        rolMapper = _rolMapperAddress;
+    }
+
+    function setUsuarioMapper(UsuarioMapperInterface _usuarioMapperAddress)
+        public
+        esPropietario
+    {
+        usuarioMapper = _usuarioMapperAddress;
     }
 
     // TODO: poner en clase generica y reusarlo

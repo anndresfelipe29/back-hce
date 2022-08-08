@@ -116,7 +116,7 @@ persona.registrar(accounts[5], ["medico", "felipe", "primerApellido","segundoApe
 ]
 
 # Comandos actualizados
-### PacienteVO (Al parecer los VO no requieren desplegarse)
+### UsuarioVO (Al parecer los VO no requieren desplegarse)
 UsuarioVO.new().then(c => usuarioVO=c)
 UsuarioVO.at("0x8c7cCb0B2fcC0a9F7c38B926886B04EAA1822A5D").then(c=> j=c)
 
@@ -199,6 +199,10 @@ paciente.consultar(accounts[0], { from: accounts[2] })
 - paciente.registrarConStruct(accounts[4], values, {from: accounts[4] })
 
 - paciente.registrarConStruct(accounts[4], [[accounts[4], "Andres","struct", "Gomas", "test", "111111",0, "true"],[0, 0, 0, 25, "Bogota", "ocupacion","direccion","3150 000",0,0,0], 0], { from: accounts[4] })
+
+### Médico
+- Medico.deployed().then(c => medico=c)
+- medico.registrarConStruct(accounts[4], [[accounts[4], "Andres","struct", "Gomas", "test", "111111",0, "true"], 1,0], "usuario", "contrasena", { from: accounts[4] })
 
 ### RolMapper
 - RolMapper.deployed().then(c =>rolMapper=c)

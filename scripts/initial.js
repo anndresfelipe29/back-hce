@@ -1,9 +1,20 @@
 const PermisoMapper = artifacts.require('PermisoMapper')
 const PermisoVO = artifacts.require("PermisoVO")
+
 const RolMapper = artifacts.require('RolMapper')
 const RolVO = artifacts.require('RolVO')
+
 const UsuarioMapper = artifacts.require('UsuarioMapper')
 const UsuarioVO = artifacts.require('UsuarioVO')
+
+const PacienteMapper = artifacts.require('PacienteMapper')
+const Paciente = artifacts.require('Paciente')
+const PacienteVO = artifacts.require('PacienteVO')
+
+const Medico = artifacts.require('Medico')
+const MedicoMapper = artifacts.require('MedicoMapper')
+const MedicoOraculo = artifacts.require('MedicoOraculo')
+
 const Acceso = artifacts.require('Acceso')
 
 const EstadoVO = artifacts.require('EstadoVO')
@@ -11,33 +22,31 @@ const EstadoCivilVO = artifacts.require('EstadoCivilVO')
 const AseguradoraVO = artifacts.require('AseguradoraVO')
 const TipoVinculacionVO = artifacts.require('TipoVinculacionVO')
 const EstadoHCEVO = artifacts.require('EstadoHCEVO')
-const PacienteVO = artifacts.require('PacienteVO')
-const PacienteMapper = artifacts.require('PacienteMapper')
-const Paciente = artifacts.require('Paciente')
 const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO')
 const DatosParametricosMapper = artifacts.require('DatosParametricosMapper')
 
 
 module.exports = async function (callback) {
 
-    let instance
+    // let instance
     let usuarioVO
     let estado
     let acceso
     let paciente
-    let medico
     let pacienteMapper
+    let medico
+    let medicoMapper
+    let medicoOraculo
     let datosParametricosMapper
     let rolMapper
-
-
-
 
     const accounts = await web3.eth.getAccounts()
 
     //usuarioMapper = await UsuarioMapper.new()    
     rolMapper = await RolMapper.deployed()
     pacienteMapper = await PacienteMapper.deployed()
+    medicoMapper = await MedicoMapper.deployed()
+    medicoOraculo = await MedicoOraculo.deployed()
     datosParametricosMapper = await DatosParametricosMapper.deployed()
     usuarioMapper = await UsuarioMapper.deployed()
     acceso = await Acceso.deployed()
@@ -50,6 +59,14 @@ module.exports = async function (callback) {
     await paciente.setUsuarioMapper(usuarioMapper.address)
     await paciente.setAcceso(acceso.address)
     await paciente.setDatosParametricosMapper(datosParametricosMapper.address)
+
+    // Médico
+    medico = await Medico.deployed()
+    await medico.setRolMapper(rolMapper.address)
+    await medico.setUsuarioMapper(usuarioMapper.address)
+    await medico.setMedicoMapper(medicoMapper.address)
+    await medico.setDatosParametricosMapper(datosParametricosMapper.address)
+    await medico.setMedicoOraculo(medicoOraculo.address)
 
     // Permisos
     permisoX = await PermisoVO.new()
