@@ -143,7 +143,7 @@ contract Paciente {
         usuarioMapper = _usuarioMapperAddress;
     }
 
-    function setdatosParametricosMapper(
+    function setDatosParametricosMapper(
         DatosParametricosMapperInterface _datosParametricosMapperAddress
     ) public esPropietario {
         datosParametricosMapper = _datosParametricosMapperAddress;

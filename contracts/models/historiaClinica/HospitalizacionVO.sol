@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-import "../../logica/RegistroMedico.sol";
+import "./RegistroMedico.sol";
 import "../structsGenerales/IncapacidadStruct.sol";
 
 contract HospitalizacionVO is RegistroMedico {

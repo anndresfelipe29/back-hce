@@ -14,17 +14,27 @@ Back end solidity para DAPP de historias clínicas
     truffle migrate -f 3 --to 3 
 - Carga de datos iniciales e interconexión de contratos:
 
-    truffle exec ./initial.js    
+    truffle exec ./scripts/initial.js 
+
+- Carga de usuarios por defecto
+    Cuenta 8 paciente
+    Cuenta 9 médico
+
+    truffle exec ./scripts/usuariosDefault.js 
+
+const accounts = await web3.eth.getAccounts() 
+
+million benefit runway donor there gold cause ensure account decorate venture wonder
 
 Private Keys
 ==================
-(0) 0xb4dc20d945faa255a781a822832d0f99af1228c3e3da1cf2a612ce7d827adf34
-(1) 0x91398a856dd1eb7292d80107ae44352f3d5cd345d5a04521cd92ebbbe5ab03aa
-(2) 0x45829ae938b5845a2e19b9f87dcac29683ca24aeca739e359a2c1a2c4ecd62d9
-(3) 0xc11668fce01df2ea6daf10cbf73d76084a36ea40812f11f4f14524d8c5ff9f1f
-(4) 0xc1118b11e0cd6d2cd69816a854068a6700a6d63db0cbf7537c70d38749818ec6
-(5) 0xaaa2d111b303b5ab11caa05f15f38aa1b74b335a4e76ab36dadfcb671249db8b
-(6) 0xe1a102466388dbccc4b329a7d2a5830e0278d9908c1d8f1fd8f54c49f8ebf26a
-(7) 0x4b24273812b8160a834de07b149990f3d3f3dec527867e6c5d512bdce756822b
-(8) 0x208d2eee54e60f2df3f40c00e89eaa0f413143af72c7d79c38f353019e0a0eff
-(9) 0x64c61b7c50ee05379080a33c25d7ebc85b5e14b8978107032bbe65faea8ad11b
+(0) 0xdd81776ca106df5a0490b88adfa1da8b4b7e0b45c104943538fec8e15b9b6db0
+(1) 0x6e751f789f503952d3bf2bacbeabbcd1318490226b8a7b683b27d0cef45d1dee
+(2) 0x46628cff6a0789faae8561fa886eabdfc93646f4e6c7dbce9e0969751df60ca4
+(3) 0x7ae5d7d980662326ff2390390b0052525580e9eb3a02883b27468fa7dbc8a9ae
+(4) 0x42a48d4ed3946aef2cd345f47b0e731f0091dd1dc154440352c3d2ff3656db0a
+(5) 0x4fb45ab6e8143d5c6d73225ea5d585de9a7ac7de1dc542aa5b4abcad43f08915
+(6) 0x3e383e3333f5ed1309411195bde49dfc73d096c88c4e37ff7648faf17704a7e2
+(7) 0xa50355320691ef76241f2c044f09aa457a90f4e49379001d76d29ddca65403d3
+(8) 0x058c7c4994b5acfa5eea23e4002fcfb4db67012416c1f7fbc3fe460e63642a4e
+(9) 0x45211b9b06ce9e6d6eb31ceef3b71f59ad6f63576a75666f6de5328faeaa4d7f

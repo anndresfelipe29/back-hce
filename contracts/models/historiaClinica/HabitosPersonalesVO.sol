@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-import "../../logica/RegistroMedico.sol";
+import "./RegistroMedico.sol";
 
 contract HabitosPersonalesVO is RegistroMedico {
     struct HabitosPersonalesStruct {

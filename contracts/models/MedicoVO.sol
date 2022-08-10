@@ -12,20 +12,38 @@ contract MedicoVO is Persona {
     uint256 private especialidadId;
     string private usuario;
     string private contrasena;
+    string private entidadId;
 
     struct MedicoVOStruct {
         PersonaStruct persona;
         uint256 especialidadId;
-        EstadoVO.EstadoVOStruct estado;
-        
+        uint256 estadoId;
+        // EstadoVO.EstadoVOStruct estado;
     }
 
-    function getMedicoVOValue() public view returns (MedicoVOStruct memory){
-        return MedicoVOStruct(
-            getPersonaStructValue(),
-            especialidadId,
-            estado.getEstadoVOValue()
-        );
+    function getMedicoVOValue() public view returns (MedicoVOStruct memory) {
+        return
+            MedicoVOStruct(
+                getPersonaStructValue(),
+                especialidadId,
+                estado.getId()
+            );
+    }
+
+    function setValuesOfMedicoVOStruct(
+        MedicoVOStruct memory _medicoVOStruct,
+        EstadoVO _estadoVO,
+        TipoIdentificacionVO _tipoIdentificacionVO,
+        string memory _usuario,
+        string memory _contrasena
+    ) public {
+        setValuesOfPersonaStruct(
+            _medicoVOStruct.persona,
+            _tipoIdentificacionVO
+        );        
+        estado = _estadoVO;
+        usuario = _usuario;
+        contrasena = _contrasena;
     }
 
     function getEstado() public view returns (EstadoVO) {

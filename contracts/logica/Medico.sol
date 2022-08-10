@@ -2,6 +2,10 @@ pragma solidity ^0.8.10;
 
 import "../models/MedicoVO.sol";
 import "../persistence/MedicoMapper.sol";
+import "../persistence/DatosParametricosMapper.sol";
+import "../persistence/DatosParametricosMapperInterface.sol";
+import "./sistemaExterno/MedicoOraculo.sol";
+import "./Acceso.sol";
 
 contract Medico {
     // TODO: consumir este evento desde una clase heredada o algo así
@@ -10,26 +14,33 @@ contract Medico {
     address public medicoMapperAddress;
 
     MedicoMapperInterface private medicoMapper;
+    DatosParametricosMapperInterface private datosParametricosMapper;
+    MedicoOraculo private medicoOraculo;
+    RolMapperInterface private rolMapper;
+    UsuarioMapperInterface private usuarioMapper;
 
-    struct PerfilMedicoSistemaExternoStruct {
-        string primerNombre;
-        string segundoNombre;
-        string primerApellido;
-        string segundoApellido;
-        string identificacion; // TODO: agregar tipo de identificacion
-        string especialidad;
-    }
+    //TODO Convertir eventualmente en un enum
+    uint256 rolMedicoId = 1;
 
     constructor() {
-        creador = msg.sender; // creador del contrato
+        creador = msg.sender;
     }
 
-    function consultar(address direccion) public returns (MedicoVO.MedicoVOStruct memory) {
+    function consultar(address direccion)
+        public
+        returns (MedicoVO.MedicoVOStruct memory)
+    {
         emit Log("entro a consultar");
         return medicoMapper.consultar(direccion).getMedicoVOValue();
     }
 
     function registrar(address direccion, MedicoVO medico) public {
+        RolVO rol = rolMapper.consultar(rolMedicoId);
+        UsuarioVO nuevoUsuario = new UsuarioVO();
+        nuevoUsuario.setDireccion(direccion);
+        nuevoUsuario.setRol(rol);
+        nuevoUsuario.setEstaActivo(true);
+        usuarioMapper.guardar(direccion, nuevoUsuario);
         try medicoMapper.guardar(direccion, medico) {
             emit Log("Se guarda la informacion del medico correctamente");
         } catch Error(string memory data) {
@@ -37,6 +48,38 @@ contract Medico {
             emit Log("se rompio por un revert o require");
             emit Log(data);
         }
+    }
+
+    function registrarConStruct(
+        address direccion,
+        MedicoVO.MedicoVOStruct memory medicoVOStruct,
+        string memory _usuario,
+        string memory _contrasena // TODO: Recibir encryptada
+    ) public {
+        bool medicoValido = medicoOraculo.verificarExistenciaEnSistemaExterno(
+            _usuario,
+            _contrasena
+        );
+        if (!medicoValido) {
+            revert("No existe ese medico para el estado");
+        }
+        MedicoVO medicoVO = new MedicoVO();
+        EstadoVO estadoVO = datosParametricosMapper.consultarEstadoVO(
+            medicoVOStruct.estadoId
+        );
+        TipoIdentificacionVO _tipoIdentificacionVO = datosParametricosMapper
+            .consultarTipoIdentificacionVO(
+                medicoVOStruct.persona.tipoIdentificacion
+            );
+
+        medicoVO.setValuesOfMedicoVOStruct(
+            medicoVOStruct,
+            estadoVO,
+            _tipoIdentificacionVO,
+            _usuario,
+            _contrasena
+        );
+        registrar(direccion, medicoVO);
     }
 
     function actualizar(address direccion, MedicoVO medico) public {
@@ -51,26 +94,53 @@ contract Medico {
         }*/
     }
 
-    function verificarExistenciaEnSistemaExterno(address direccion)
+    /*function verificarExistenciaEnSistemaExterno(address direccion)
         public
         returns (bool)
     {
         /* TODO: Consultar info del medico (usuario y contraseña)
          *  despues se hace con oraculos una consulta
          */
+    /*
         return true;
-    }
+    }*/
 
     /*function buscarPerfilMedicoSistemaExterno(address direccion) public returns (PerfilMedicoSistemaExternoStruct memory){
         // TODO: tambien con oraculo
     }*/
 
-    function setContratoPacienteMapperAddress(address _medicoMapperAddress)
+    function setMedicoMapper(MedicoMapperInterface _medicoMapper)
         public
         esPropietario
     {
-        medicoMapperAddress = _medicoMapperAddress;
-        medicoMapper = MedicoMapper(medicoMapperAddress); // TODO: quizá es mejor recibir el objeto como contrato
+        medicoMapper = _medicoMapper;
+    }
+
+    function setDatosParametricosMapper(
+        DatosParametricosMapperInterface _datosParametricosMapperAddress
+    ) public esPropietario {
+        datosParametricosMapper = _datosParametricosMapperAddress;
+    }
+
+    function setMedicoOraculo(MedicoOraculo _medicoOraculo)
+        public
+        esPropietario
+    {
+        medicoOraculo = _medicoOraculo;
+    }
+
+        function setRolMapper(RolMapperInterface _rolMapperAddress)
+        public
+        esPropietario
+    {
+        rolMapper = _rolMapperAddress;
+    }
+
+    function setUsuarioMapper(UsuarioMapperInterface _usuarioMapperAddress)
+        public
+        esPropietario
+    {
+        usuarioMapper = _usuarioMapperAddress;
     }
 
     // TODO: poner en clase generica y reusarlo
