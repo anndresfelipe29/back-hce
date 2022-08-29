@@ -18,7 +18,7 @@ contract HistoriaClinicaVO {
         return historiaClinicaStruct.id;
     }
 
-    function getListaResgistros()
+    function getListaRegistros()
         public
         view
         returns (RegistroMedico[] memory)
@@ -34,10 +34,29 @@ contract HistoriaClinicaVO {
         historiaClinicaStruct.id = _id;
     }
 
-    function setListaResgistros(RegistroMedico[] memory _listaRegistros)
-        public
-    {
+    function setListaRegistros(RegistroMedico[] memory _listaRegistros) public {
         historiaClinicaStruct.listaRegistros = _listaRegistros;
+    }
+
+    function agregarRegistroMedico(RegistroMedico _registro) public {
+        uint256 totalRegistros = historiaClinicaStruct.listaRegistros.length;
+        _registro.setId(totalRegistros);
+        historiaClinicaStruct.listaRegistros.push(_registro);
+        // TODO: Puede registrarse aqui tambien para un mapper de registros médicos, lo que permitiria un analisis de todos los registros médicos
+    }
+
+    function eliminarRegistroMedico(uint256 index) external {
+        if (index >= historiaClinicaStruct.listaRegistros.length) return;
+
+        for (
+            uint256 i = index;
+            i < historiaClinicaStruct.listaRegistros.length - 1;
+            i++
+        ) {
+            historiaClinicaStruct.listaRegistros[i] = historiaClinicaStruct
+                .listaRegistros[i + 1];
+        }
+        historiaClinicaStruct.listaRegistros.pop();
     }
 
     function setEstado(EstadoHCEVO _estado) public {

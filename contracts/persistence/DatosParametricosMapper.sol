@@ -222,6 +222,12 @@ contract DatosParametricosMapper is DatosParametricosMapperInterface {
     }
 
     // TODO: EstadoHCEVO
+    /**
+        Los posibles estados son:
+         activo 0
+         inactivo 1
+         cerrado 2
+     */
     function consultarEstadoHCEVO(uint256 _id)
         external
         view

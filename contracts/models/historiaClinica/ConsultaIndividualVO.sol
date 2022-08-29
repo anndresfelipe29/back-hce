@@ -27,6 +27,22 @@ contract ConsultaIndividualVO is RegistroMedico {
 
     ConsultaIndividualStruct private consultaIndividualStruct;
 
+    function getConsultaIndividualStruct()
+        public
+        view
+        returns (ConsultaIndividualStruct memory)
+    {
+        return consultaIndividualStruct;
+    }
+
+    function setConsultaIndividualStruct(
+        ConsultaIndividualStruct memory _consultaIndividualStruct
+    ) public {
+        consultaIndividualStruct = _consultaIndividualStruct;
+    }
+
+
+
     function getFechaAtencion() public view returns (uint256) {
         return consultaIndividualStruct.fechaAtencion;
     }
@@ -87,19 +103,6 @@ contract ConsultaIndividualVO is RegistroMedico {
         return consultaIndividualStruct.incapacidad;
     }
 
-    function getConsultaIndividualStruct()
-        public
-        view
-        returns (ConsultaIndividualStruct memory)
-    {
-        return consultaIndividualStruct;
-    }
-
-    function setConsultaIndividualStruct(
-        ConsultaIndividualStruct memory _consultaIndividualStruct
-    ) public {
-        consultaIndividualStruct = _consultaIndividualStruct;
-    }
 
     function setFechaAtencion(uint256 _fechaAtencion) public {
         consultaIndividualStruct.fechaAtencion = _fechaAtencion;

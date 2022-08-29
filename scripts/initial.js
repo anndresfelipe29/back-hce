@@ -23,7 +23,10 @@ const AseguradoraVO = artifacts.require('AseguradoraVO')
 const TipoVinculacionVO = artifacts.require('TipoVinculacionVO')
 const EstadoHCEVO = artifacts.require('EstadoHCEVO')
 const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO')
+
 const DatosParametricosMapper = artifacts.require('DatosParametricosMapper')
+const HistoriaClinica = artifacts.require('HistoriaClinica')
+const HistoriaClinicaMapper = artifacts.require('HistoriaClinicaMapper')
 
 
 module.exports = async function (callback) {
@@ -38,6 +41,7 @@ module.exports = async function (callback) {
     let medicoMapper
     let medicoOraculo
     let datosParametricosMapper
+    let historiaClinicaMapper
     let rolMapper
 
     const accounts = await web3.eth.getAccounts()
@@ -50,6 +54,7 @@ module.exports = async function (callback) {
     datosParametricosMapper = await DatosParametricosMapper.deployed()
     usuarioMapper = await UsuarioMapper.deployed()
     acceso = await Acceso.deployed()
+    historiaClinicaMapper = await HistoriaClinicaMapper.deployed()
 
     await acceso.setUsuarioMapper(usuarioMapper.address)
     // Paciente
@@ -67,6 +72,11 @@ module.exports = async function (callback) {
     await medico.setMedicoMapper(medicoMapper.address)
     await medico.setDatosParametricosMapper(datosParametricosMapper.address)
     await medico.setMedicoOraculo(medicoOraculo.address)
+
+    // Historia clínica
+    historiaClinica = await HistoriaClinica.deployed()
+    await historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
+    await historiaClinica.setHistoriaClinicaMapper(historiaClinicaMapper.address)
 
     // Permisos
     permisoX = await PermisoVO.new()
@@ -117,6 +127,7 @@ module.exports = async function (callback) {
     console.log("rol paciente id: " + rolPacienteId)
     console.log("rol médico id: " + rolMedicoId)
 
+    // Carga de datos parametricos
     let cedulaTipoIdentificacionVO = await TipoIdentificacionVO.new()
     // await cedulaTipoIdentificacionVO.setId(1)
     await cedulaTipoIdentificacionVO.setNombre("Cedula")
@@ -197,7 +208,7 @@ module.exports = async function (callback) {
     await tipoVinculacionVOCotizante.setNombre("Compensar")
     await tipoVinculacionVOCotizante.setBeneficios("El edificio es bonito")
     await tipoVinculacionVOCotizante.setEstaActivo(true)
-    
+
     let tipoVinculacionVOBeneficiario = await TipoVinculacionVO.new()
     await tipoVinculacionVOBeneficiario.setNombre("Famisanar")
     await tipoVinculacionVOBeneficiario.setBeneficios("jajaja beneficio")
@@ -210,7 +221,7 @@ module.exports = async function (callback) {
     let tipoVinculacionVOBeneficiarioId = await tipoVinculacionVOBeneficiario.getId();
     console.log("Tipo de vinculación Cotizante: " + tipoVinculacionVOCotizanteId + "-> " + tipoVinculacionVOCotizante.address)
     console.log("Tipo de vinculación beneficiario: " + tipoVinculacionVOBeneficiarioId + "-> " + tipoVinculacionVOBeneficiario.address)
-    
+
     let estadoHCEVOActiva = await EstadoHCEVO.new()
     await estadoHCEVOActiva.setNombre("Activa")
     await estadoHCEVOActiva.setDescripcion("Estado HCE activa descripcion")
