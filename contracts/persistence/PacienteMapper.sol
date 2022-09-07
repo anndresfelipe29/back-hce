@@ -14,6 +14,16 @@ contract PacienteMapper is PacienteMapperInterface {
         creador = msg.sender;
     }
 
+    
+    function consultarPorId(uint256 id) external view returns (PacienteVO) {
+        address direccion = addressList[id];
+        if (direccion == address(0)) {
+            revert("No existe ese paciente");
+        }
+        PacienteVO paciente = pacientes[direccion];
+        return paciente;
+    }
+
     function consultar(address direccion) external view returns (PacienteVO) {
         PacienteVO paciente = pacientes[direccion];
         if (address(paciente) == address(0)) {
@@ -38,7 +48,7 @@ contract PacienteMapper is PacienteMapperInterface {
         pacientes[direccion] = paciente;
     }
 
-    function size() external view returns(uint){
+    function size() external view returns (uint256) {
         return addressList.length;
     }
 

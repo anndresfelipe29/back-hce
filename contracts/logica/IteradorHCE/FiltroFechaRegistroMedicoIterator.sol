@@ -35,9 +35,9 @@ contract FiltroFechaRegistroMedicoIterator  is RegistroMedicoIterator{
             return siguiente;
         } else {
             revert("No hay un siguiente");
-        }
-        
+        }        
     }
+    // Agregar un self destruct para matarlo al finalizar
 
     
 }

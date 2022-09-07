@@ -8,6 +8,8 @@ interface PacienteMapperInterface {
 
     function consultar(address direccion) external returns (PacienteVO);
 
+    function consultarPorId(uint256 id) external returns (PacienteVO);
+
     function guardar(address direccion, PacienteVO paciente) external;
 
     function actualizar(address direccion, PacienteVO paciente) external;

@@ -46,6 +46,16 @@ contract Paciente {
         return pacienteMapper.consultar(msg.sender).getPacienteVOValue();
     }
 
+    // TODO: Solo lo puede usar el medico
+    function consultarPorId(uint256 id)
+        public
+        tieneAcceso(2)
+        returns (PacienteVO.PacienteVOStruct memory)
+    {
+        emit Log("Entro a consultar miInformacion paciente");        
+        return pacienteMapper.consultarPorId(id).getPacienteVOValue();
+    }
+
     // TODO: validar que pasa si falla el registro de persona
     // TODO: que pasa si falla guardar paciente?
     //tieneAcceso(2)
