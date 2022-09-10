@@ -14,106 +14,8 @@ AccesoService.deployed().then(c => accesoService=c)
 MedicoService.deployed().then(c => medicoService=c)
 PacienteService.deployed().then(c => pacienteService=c)
 
-
-
-### PersonaDAO  (ya no se usa)
-- PersonaDAO.deployed().then(c => personaDao=c)
-
-- personaDao.consultar(accounts[1])
-
-
 #### tener en cuenta en una estructura interna se debe poner al parecer todo en comillas
 - personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
-
-
-### PersonaRepository (ya no se usa)
-- PersonaRepository.deployed().then(c => persona=c)
-
-- persona.consultar(accounts[1])
-
-- persona.guardar(accounts[1], personaVo.address)
-- personaVo.isValue.call()
-
-### PersonaVO (ya no se usa)
-PersonaVO.deployed().then(c => personaVo=c)
-personaVo.setPrimerNombre("Felipe")
-personaVo.setSegundoNombre("pruebita")
-personaVo.setIsValue(true)
-personaVo.getPrimerNombre()
-personaVo.getIsValue()
-
-## PacienteDAO
-PacienteDAO.deployed().then(c => pacienteDao=c)
-pacienteDao.consultar(accounts[2])
-pacienteDao.guardar(accounts[2], ["estado", "datosPersonales", true])
-
-
-### Persona
-- Persona.deployed().then(c => persona=c)
-
-- persona.setContratoPersonaDAOAddress('0xa0c8D1705Fe1bc91e4Dcac2F75F773890192005F',{from: accounts[0]})
-
-- persona.consultar(accounts[1])
-
-- persona.registrar(accounts[2], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"],2 , true])
-
-persona.registrar(accounts[5], ["medico", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"],1 , true])
-
-- persona.PersonaDAOAddress.call()
-
-### Paciente
-- Paciente.deployed().then(c => paciente=c)
-
-- paciente.setContratoPersonaAddress('0x1b66Fb1b2ED7A3eaDC47df1DCDcEb02a25949603',{from: accounts[0]})
-
-- paciente.setContratoPacienteDAOAddress('0xD88770c0591a9EB4EccDdd964702FFF5989f1041',{from: accounts[0]})
-
-- paciente.consultar(accounts[2])
-
-- paciente.consultarPaciente(accounts[2])
-
-- paciente.consultarPersona(accounts[2])
-
-- paciente.registrar(accounts[2], ["estado", "datosPersonales", true])
-
-- persona.PersonaDAOAddress.call()
-
-### Paciente service
-- PacienteService.deployed().then(c => pacienteService=c)
-
-- pacienteService.setContratoAccesoService('0xA48De5150840B7Ec867e6Fe4AEB370708E7f732C' ,{from: accounts[0]})
-
-- pacienteService.setContratoPaciente('0xd9eED7a547E8d1F91420448792165034A04A5137' ,{from: accounts[0]})
-
-- pacienteService.selfDestruct({from: accounts[0]})
-
-- pacienteService.consultar(accounts[2],{from: accounts[5]})
-
-- pacienteService.registrar([["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"],2 , true], ["estado", "datosPersonales", "true"]],{from: accounts[6]})
-
-- pacienteService.allEvents()
-
-[
-    [
-        "paciente", 
-        "felipe", 
-        "primerApellidoUser3",
-        "segundoApellido",
-        "identificacion",
-    [
-        "nombre", 
-        "descripcion", 
-        "true"
-    ],
-    2 ,
-    true
-    ], 
-    [
-        "estado", 
-        "datosPersonales", 
-        "true"
-        ] 
-]
 
 # Comandos actualizados
 ### UsuarioVO (Al parecer los VO no requieren desplegarse)
@@ -143,7 +45,6 @@ usuarioVO.setEstaActivo(true)
 - permisoRol.consultar(1,1)
 - permisoRol.guardar(1, 1, true)
 - permisoRol.guardar(0, 0, true)
-
 
 ### Acceso 
 - Acceso.deployed().then(c => acceso=c)
@@ -252,6 +153,26 @@ datosParametricosMapper.tipoIdentificacionAddressList.length
 datosParametricosMapper.registros.call()
 
 datosParametricosMapper.consultarTipoIdentificacionVO(0)
+
+
+# Historia clínica
+- HistoriaClinica.deployed().then(c => historiaClinica=c)
+
+- historiaClinica.setHistoriaClinicaMapper(historiaClinicaMapper.address)
+- historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
+- historiaClinica.inicializarHCE(accounts[0])
+- historiaClinica.registrosFiltradosPorFecha(accounts[0], 1)
+- historiaClinica.agregarRegistro(accounts[0], alergia.address)
+
+# Alergia VO
+- AlergiaVO.new().then(c => alergia=c)
+- AlergiaVO.at('0xaAC7b1761026D3C4E223B18Fb1985097B6E52f18').then(c => alergia2=c)
+- alergia2.getAlergiaStruct()
+- alergia2.getCodPrestadorServicioDeSalud()
+- alergia2.getFechaRegistro()
+- alergia2.
+
+web3.eth.getBlock(142).timestamp
 
 
 ## Truffle Debug

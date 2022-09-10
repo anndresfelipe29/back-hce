@@ -14,6 +14,8 @@ const RolMapper = artifacts.require("RolMapper");
 const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO');
 const DatosParametricosMapper = artifacts.require('DatosParametricosMapper');
 const MedicoOraculo = artifacts.require('MedicoOraculo')
+const HistoriaClinica = artifacts.require('HistoriaClinica')
+const HistoriaClinicaMapper =artifacts.require('HistoriaClinicaMapper')
 
 
 module.exports = function (deployer) {
@@ -31,6 +33,8 @@ module.exports = function (deployer) {
     deployer.deploy(TipoIdentificacionVO);
     deployer.deploy(DatosParametricosMapper);
     deployer.deploy(MedicoOraculo);
+    deployer.deploy(HistoriaClinicaMapper);
+    deployer.deploy(HistoriaClinica);
     // deployer.deploy(PermisoRolMapper);
 
 };

@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 import "../models/MedicoVO.sol";
 import "../persistence/MedicoMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
-import "../persistence/DatosParametricosMapperInterface.sol";
+
 import "./sistemaExterno/MedicoOraculo.sol";
 import "./Acceso.sol";
 

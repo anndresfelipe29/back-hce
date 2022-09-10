@@ -8,15 +8,17 @@ abstract contract RegistroMedico {
     address public creador;
 
     uint256 private id;
-    uint256 private codPrestadorServicioDeSalud;
+    address private codPrestadorServicioDeSalud;
     uint256 private fechaRegistro;
     uint256 private tipoRegistroMedico;
+
+
 
     function getId() external view returns (uint256){
         return id;
     }
 
-    function getCodPrestadorServicioDeSalud() external view returns (uint256){
+    function getCodPrestadorServicioDeSalud() external view returns (address){
         return codPrestadorServicioDeSalud;
     }
 
@@ -32,7 +34,7 @@ abstract contract RegistroMedico {
         id = _id;
     }
 
-    function setCodPrestadorServicioDeSalud(uint256 _codPrestadorServicioDeSalud) public{
+    function setCodPrestadorServicioDeSalud(address _codPrestadorServicioDeSalud) public{
         codPrestadorServicioDeSalud = _codPrestadorServicioDeSalud;
     }
 
