@@ -1,4 +1,4 @@
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 
 import "../models/historiaClinica/HistoriaClinicaVO.sol";
 import "../persistence/HistoriaClinicaMapper.sol";
@@ -13,6 +13,11 @@ contract HistoriaClinica {
 
     constructor() {
         creador = msg.sender;
+    }
+
+    // TODO: Actualizar en enterprise
+    function getHistoriaClinica(address direccion) public returns(HistoriaClinicaVO.HistoriaClinicaStruct  memory) { 
+        return historiaClinicaMapper.consultar(direccion).getHistoriaClinicaStruct();
     }
 
     function inicializarHCE(address direccionPaciente) public {

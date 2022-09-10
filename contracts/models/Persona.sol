@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 
 import "./VOGenerales/TipoIdentificacionVO.sol";
 
@@ -7,7 +7,8 @@ import "./VOGenerales/TipoIdentificacionVO.sol";
 abstract contract Persona {
     event Log(string data);
 
-    address private id;
+    address private direccion;
+    uint256 private id;
     string private primerNombre;
     string private segundoNombre;
     string private primerApellido;
@@ -17,7 +18,8 @@ abstract contract Persona {
     bool private isValue;
 
     struct PersonaStruct {
-        address id;
+        address direccion;
+        uint256 id;
         string primerNombre;
         string segundoNombre;
         string primerApellido;
@@ -28,8 +30,13 @@ abstract contract Persona {
         bool isValue;
     }
 
+    constructor() {
+        direccion = address(this);
+    }
+
     function getPersonaStructValue() public view returns (PersonaStruct memory) {
         return PersonaStruct(
+            direccion,
             id,
             primerNombre,
             segundoNombre,
@@ -54,7 +61,11 @@ abstract contract Persona {
 
     }
 
-    function getId() public view returns (address) {
+    function getDireccion() public view returns (address) {
+        return direccion;
+    }
+
+    function getId() public view returns (uint256) {
         return id;
     }
 
@@ -90,7 +101,11 @@ abstract contract Persona {
         return isValue;
     }
 
-    function setId(address _id) public {
+    function setDireccion(address _direccion) public {
+        direccion = _direccion;
+    }
+
+    function setId(uint256 _id) public {
         id = _id;
     }
 

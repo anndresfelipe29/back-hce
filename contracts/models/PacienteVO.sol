@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 
 import "./Persona.sol";
 import "./structsGenerales/DatosPersonalesStruct.sol";
@@ -11,6 +11,7 @@ contract PacienteVO is Persona {
     DatosPersonalesStruct private datosPersonales;
 
     //uint256 private historiaClinicaId;  // TODO: sobra ya que hay un mapping que asocia una dirección con una historia clinica
+    
 
     struct PacienteVOStruct {
         PersonaStruct persona;

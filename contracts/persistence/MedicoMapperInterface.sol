@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 
 import "../models/MedicoVO.sol";
 
@@ -8,7 +8,7 @@ interface MedicoMapperInterface {
 
     function consultar(address direccion) external returns (MedicoVO);
 
-    function guardar(address direccion, MedicoVO medico) external;
+    function guardar(address direccion, MedicoVO medico) external returns (uint256);
 
     function actualizar(address direccion, MedicoVO medico) external;
 

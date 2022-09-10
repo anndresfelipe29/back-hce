@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 // import "../logica/Persona.sol";
 import "../models/historiaClinica/HistoriaClinicaVO.sol";
 import "./HistoriaClinicaMapperInterface.sol";
