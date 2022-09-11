@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 
 //import "./Persona.sol";
 import "../models/PacienteVO.sol";
@@ -44,6 +44,16 @@ contract Paciente {
     {
         emit Log("Entro a consultar miInformacion paciente");
         return pacienteMapper.consultar(msg.sender).getPacienteVOValue();
+    }
+
+    // TODO: Solo lo puede usar el medico
+    function consultarPorId(uint256 id)
+        public
+        tieneAcceso(2)
+        returns (PacienteVO.PacienteVOStruct memory)
+    {
+        emit Log("Entro a consultar miInformacion paciente");        
+        return pacienteMapper.consultarPorId(id).getPacienteVOValue();
     }
 
     // TODO: validar que pasa si falla el registro de persona

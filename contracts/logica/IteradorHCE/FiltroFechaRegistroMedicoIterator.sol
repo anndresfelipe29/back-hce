@@ -1,4 +1,4 @@
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 
 import "./RegistroMedicoIterator.sol";
 import "../../models/historiaClinica/RegistroMedico.sol";
@@ -35,9 +35,9 @@ contract FiltroFechaRegistroMedicoIterator  is RegistroMedicoIterator{
             return siguiente;
         } else {
             revert("No hay un siguiente");
-        }
-        
+        }        
     }
+    // Agregar un self destruct para matarlo al finalizar
 
     
 }

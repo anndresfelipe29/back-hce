@@ -1,4 +1,4 @@
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 
 import "../models/MedicoVO.sol";
 import "../persistence/MedicoMapper.sol";

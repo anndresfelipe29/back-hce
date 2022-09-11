@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 // import "../logica/Persona.sol";
 import "../models/PacienteVO.sol";
 import "./PacienteMapperInterface.sol";
@@ -14,6 +14,16 @@ contract PacienteMapper is PacienteMapperInterface {
         creador = msg.sender;
     }
 
+    
+    function consultarPorId(uint256 id) external view returns (PacienteVO) {
+        address direccion = addressList[id];
+        if (direccion == address(0)) {
+            revert("No existe ese paciente");
+        }
+        PacienteVO paciente = pacientes[direccion];
+        return paciente;
+    }
+
     function consultar(address direccion) external view returns (PacienteVO) {
         PacienteVO paciente = pacientes[direccion];
         if (address(paciente) == address(0)) {
@@ -22,13 +32,16 @@ contract PacienteMapper is PacienteMapperInterface {
         return paciente;
     }
 
-    function guardar(address direccion, PacienteVO _paciente) public {
+    function guardar(address direccion, PacienteVO _paciente) public returns (uint256){
         if (address(pacientes[direccion]) != address(0)) {
             emit Log("Ya existe un paciente registrado con ese address");
             revert("Ya existe un paciente registrado con ese address");
         }
-        pacientes[direccion] = _paciente;
+        uint256 id = addressList.length;
+        _paciente.setId(id);
         addressList.push(direccion);
+        pacientes[direccion] = _paciente;
+        return id; 
     }
 
     function actualizar(address direccion, PacienteVO paciente) public {
@@ -38,7 +51,7 @@ contract PacienteMapper is PacienteMapperInterface {
         pacientes[direccion] = paciente;
     }
 
-    function size() external view returns(uint){
+    function size() external view returns (uint256) {
         return addressList.length;
     }
 

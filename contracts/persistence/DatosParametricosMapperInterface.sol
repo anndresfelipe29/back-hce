@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.17;
 
 import "../models/RolVO.sol";
 import "../models/VOGenerales/TipoIdentificacionVO.sol";

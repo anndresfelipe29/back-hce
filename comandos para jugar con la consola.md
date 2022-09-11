@@ -174,6 +174,16 @@ datosParametricosMapper.consultarTipoIdentificacionVO(0)
 
 web3.eth.getBlock(142).timestamp
 
+# AccesoHistoriaClinicaMapper
+const accounts = await web3.eth.getAccounts()
+- AccesoHistoriaClinicaMapper.deployed().then(c => ahc = c)
+- ahc.getPermisosDeAccesoPorHistoriaClinica(accounts[0])
+- ahc.esPermisoVigente(accounts[0], accounts[1])
+- ahc.getPermisos(accounts[0], accounts[1])
+- ahc.setPermiso.(accounts[0], accounts[1], permiso.address)
+
+# PermisoDeAccesoVO
+- PermisoDeAccesoVO.new().then(c => permiso = c)
 
 ## Truffle Debug
 - Para iniciar el debug usar
