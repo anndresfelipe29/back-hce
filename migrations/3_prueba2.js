@@ -16,7 +16,8 @@ const DatosParametricosMapper = artifacts.require('DatosParametricosMapper');
 const MedicoOraculo = artifacts.require('MedicoOraculo')
 const HistoriaClinica = artifacts.require('HistoriaClinica')
 const HistoriaClinicaMapper =artifacts.require('HistoriaClinicaMapper')
-
+const AccesoHistoriaClinicaMapper = artifacts.require('AccesoHistoriaClinicaMapper')
+const Utils = artifacts.require('Utils')
 
 module.exports = function (deployer) {
     // deployer.deploy(PersonaStruct);
@@ -35,6 +36,14 @@ module.exports = function (deployer) {
     deployer.deploy(MedicoOraculo);
     deployer.deploy(HistoriaClinicaMapper);
     deployer.deploy(HistoriaClinica);
+    /*
+     Así se usan librerias propias en contratos
+     https://blockheroes.dev/complex-migration/#:~:text=Migrate%20libraries%20(%2B%20interfaces)
+    */
+    deployer.deploy(Utils);
+    deployer.link(Utils, AccesoHistoriaClinicaMapper);
+    deployer.deploy(AccesoHistoriaClinicaMapper);
+    
     // deployer.deploy(PermisoRolMapper);
 
 };

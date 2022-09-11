@@ -14,7 +14,11 @@ contract HistoriaClinicaMapper is HistoriaClinicaMapperInterface {
         creador = msg.sender;
     }
 
-    function consultar(address direccion) external view returns (HistoriaClinicaVO) {
+    function consultar(address direccion)
+        external
+        view
+        returns (HistoriaClinicaVO)
+    {
         HistoriaClinicaVO historiasClinica = historiasClinicas[direccion];
         if (address(historiasClinica) == address(0)) {
             revert("No existe esa historia clinica");
@@ -22,23 +26,44 @@ contract HistoriaClinicaMapper is HistoriaClinicaMapperInterface {
         return historiasClinica;
     }
 
-    function guardar(address direccion, HistoriaClinicaVO _historiaClinicaVO) public {
+    function guardar(address direccion, HistoriaClinicaVO _historiaClinicaVO)
+        public
+    {
         if (address(historiasClinicas[direccion]) != address(0)) {
-            emit Log("Ya existe una historia clinica registrada con ese address");
+            emit Log(
+                "Ya existe una historia clinica registrada con ese address"
+            );
             revert("Ya existe una historia clinica registrada con ese address");
         }
         historiasClinicas[direccion] = _historiaClinicaVO;
         addressList.push(direccion);
     }
 
-    function actualizar(address direccion, HistoriaClinicaVO _historiaClinicaVO) public {
+    function actualizar(address direccion, HistoriaClinicaVO _historiaClinicaVO)
+        public
+    {
         if (address(historiasClinicas[direccion]) == address(0)) {
             revert("No existe una historia clinica registrada con ese address");
         }
         historiasClinicas[direccion] = _historiaClinicaVO;
     }
 
-    function size() external view returns(uint){
+    function getPropietarioHistoriaClinica(uint256 id)
+        external view
+        returns (address)
+    {
+        if (address(addressList[id]) == address(0)) {
+            revert("No existe esa historia clinica");
+        }
+        return addressList[id];
+    }
+
+    function getHistoriaClinicaId(address direccion) external view returns (uint256) {
+        HistoriaClinicaVO historiasClinica = this.consultar(direccion);
+        return historiasClinica.getId(); 
+    }
+
+    function size() external view returns (uint256) {
         return addressList.length;
     }
 

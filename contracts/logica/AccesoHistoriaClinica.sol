@@ -9,11 +9,15 @@ contract AccesoHistoriaClinica {
     function solicitarAccesoHistoriaClinica(
         address direccionPaciente,
         address direccionMedico
-    ) external returns (MedicoVO) {}
+    ) external returns (MedicoVO) {
+        return new MedicoVO();
+    }
 
     // TODO: Actualizar en enterprise
     // Lo hace el paciente
     function responderSolicitudDeAcceso(uint256 idSolicitud, bool respuesta)
         external
-        returns (uint256) {}
+        returns (uint256) {
+            return 1;
+        }
 }

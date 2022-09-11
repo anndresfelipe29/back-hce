@@ -19,119 +19,181 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
         creador = msg.sender;
     }
 
-    // Un medico verifica si tiene x HC en su lista (solo para uso interno)
-    function existeLlaveEnLista(string memory llave, string[] memory listDeLlaves)
-        internal
-        returns (bool)
-    {
-        for (uint256 i = listDeLlaves.length - 1; i >= 0; i--) {            
-            if(Utils.compareStrings(listDeLlaves[i], llave)){
-                return true;
-            }
-            return true;
-        }
-        return false;
-    }
-
     function setPermiso(
         address direccionPaciente,
         address direccionMedico,
         PermisoDeAccesoVO permiso
     ) external returns (uint256) {
         // https://dev.to/hannudaniel/concatenate-two-strings-on-the-blockchain-using-solidity-smart-contracts-new-feature-in-v0812-549g
-        string memory llave = crearLlave(
-            direccionPaciente,
-            direccionMedico
-        );
-
-        bool hayPermisoVigente = this.esPermisoVigente(
-            direccionPaciente,
-            direccionMedico
-        );
+        string memory llave = crearLlave(direccionPaciente, direccionMedico);
+        /*
+        bool hayPermisoVigente = this.esPermisoVigente(direccionPaciente, direccionMedico);
         if (hayPermisoVigente) {
             revert("Ya existe un permiso activo");
         }
+        */
+        PermisoDeAccesoVO[] storage permisos = permisosDeAccesoTemporal[llave];
 
-        PermisoDeAccesoVO[] storage permisos = permisosDeAccesoTemporal[llave] ;
+        if (permisos.length > 0) {
+            PermisoDeAccesoVO[]
+                memory permisosActivos = filtroPermisosDeAccesoActivos(
+                    permisos
+                );
+
+            if (permisosActivos.length > 0) {
+                revert("Ya existe un permiso activo");
+            }
+        }
+
         permisos.push(permiso);
-        
-        string[] storage listaDeLlavesHistoriaClinica = permisosDeAccesoHistoriaClinica[direccionPaciente];
-        if(!existeLlaveEnLista(llave, listaDeLlavesHistoriaClinica)) {
+
+        string[]
+            storage listaDeLlavesHistoriaClinica = permisosDeAccesoHistoriaClinica[
+                direccionPaciente
+            ];
+        if (!existeLlaveEnLista(llave, listaDeLlavesHistoriaClinica)) {
             listaDeLlavesHistoriaClinica.push(llave);
         }
-        string[] storage listaDeLlavesMedico = permisosDeAccesoMedico[direccionMedico];
-        if(!existeLlaveEnLista(llave, listaDeLlavesMedico)) {
+        string[] storage listaDeLlavesMedico = permisosDeAccesoMedico[
+            direccionMedico
+        ];
+        if (!existeLlaveEnLista(llave, listaDeLlavesMedico)) {
             listaDeLlavesMedico.push(llave);
-        }       
+        }
 
         uint256 id = indices.length;
         indices.push(llave);
         // TODO: Agregar id y llave al objeto
+
         return id;
+    }
+
+    function getPermisosDeAccesoActivosPorHistoriaClinica(address direccion)
+        external
+        view
+        returns (PermisoDeAccesoVO[] memory response)
+    {
+        PermisoDeAccesoVO[] memory permisosHistoriaClinica = this
+            .getPermisosDeAccesoPorHistoriaClinica(direccion);
+        return filtroPermisosDeAccesoActivos(permisosHistoriaClinica);
     }
 
     // MELA, probar
     function getPermisosDeAccesoPorHistoriaClinica(address direccion)
-        external
-        returns (PermisoDeAccesoVO[] memory response)
+        public
+        view
+        returns (PermisoDeAccesoVO[] memory)
     {
-        string[] storage listaDeLlaves = permisosDeAccesoHistoriaClinica[direccion];   
-        for (uint256 i = listaDeLlaves.length - 1; i >= 0; i--) {
-            string memory llave = listaDeLlaves[i];
-            PermisoDeAccesoVO[] historialDePermisos = permisosDeAccesoTemporal[llave];            
-            PermisoDeAccesoVO permisoMasReciente = historialDePermisos[historialDePermisos.length-1];
-            response.push( permisoMasReciente );
+        string[] storage listaDeLlaves = permisosDeAccesoHistoriaClinica[
+            direccion
+        ];
+        // TODO If y return si es 0
+        PermisoDeAccesoVO[] memory response = new PermisoDeAccesoVO[](
+            listaDeLlaves.length
+        );
+
+        for (uint256 i = listaDeLlaves.length; i > 0; i--) {
+            string memory llave = listaDeLlaves[i - 1];
+            PermisoDeAccesoVO[]
+                memory historialDePermisos = permisosDeAccesoTemporal[llave];
+            PermisoDeAccesoVO permisoMasReciente = historialDePermisos[
+                historialDePermisos.length - 1
+            ];
+            // ajustar orden del response descendente
+            response[i - 1] = permisoMasReciente;
         }
         return response;
     }
 
-        // TODO
-        function getPermisosDeAccesoActivos(address direccion)
-        external
-        returns (PermisoDeAccesoVO[] memory response)
-    {
-        string[] storage listaDeLlaves = permisosDeAccesoHistoriaClinica[direccion];   
-        for (uint256 i = listaDeLlaves.length - 1; i >= 0; i--) {
-            string memory llave = listaDeLlaves[i];
-            PermisoDeAccesoVO[] historialDePermisos = permisosDeAccesoTemporal[llave];
-            historialDePermisos[historialDePermisos.length-1];
-            if(esPermisoVigente(llave)) {
-                response.push( permiso )
-            }
-            
-            
-            
+    function esPermisoVigente(
+        address direccionPaciente,
+        address direccionMedico
+    ) external view returns (bool) {
+        string memory llave = crearLlave(direccionPaciente, direccionMedico);
+        PermisoDeAccesoVO[] storage permisos = permisosDeAccesoTemporal[llave];
+        PermisoDeAccesoVO[]
+            memory permisosActivos = filtroPermisosDeAccesoActivos(permisos);
+        if (permisosActivos.length > 0) {
             return true;
+        } else {
+            return false;
         }
-        return permisosDeAccesoHistoriaClinica[direccion];
     }
 
+    function getPermisosDeAccesoActivoPorMedico(address direccion)
+        external
+        view
+        returns (PermisoDeAccesoVO[] memory response)
+    {
+        PermisoDeAccesoVO[] memory permisosHistoriaClinica = this
+            .getPermisosDeAccesoPorHistoriaClinica(direccion);
+        return filtroPermisosDeAccesoActivos(permisosHistoriaClinica);
+    }
+
+    // TODO
     function getPermisosDeAccesoPorMedico(address direccion)
         external
+        view
         returns (PermisoDeAccesoVO[] memory)
     {
-        return permisosDeAccesoMedico[direccion];
+        string[] storage listaDeLlaves = permisosDeAccesoMedico[direccion];
+
+        PermisoDeAccesoVO[] memory response = new PermisoDeAccesoVO[](
+            listaDeLlaves.length
+        );
+
+        for (uint256 i = listaDeLlaves.length; i > 0; i--) {
+            string memory llave = listaDeLlaves[i - 1];
+            PermisoDeAccesoVO[]
+                memory historialDePermisos = permisosDeAccesoTemporal[llave];
+            PermisoDeAccesoVO permisoMasReciente = historialDePermisos[
+                historialDePermisos.length - 1
+            ];
+            response[i - 1] = permisoMasReciente;
+        }
+        return response;
     }
 
     function getPermisos(address direccionPaciente, address direccionMedico)
         external
+        view
         returns (PermisoDeAccesoVO[] memory)
     {
-        string memory llave = this.crearLlave(
-            direccionPaciente,
-            direccionMedico
-        );
+        string memory llave = crearLlave(direccionPaciente, direccionMedico);
         return permisosDeAccesoTemporal[llave];
     }
 
-    function esPermisoVigente(
-        string llave
-    ) external returns (bool) {
-        return true;
+    /* internal*/
+    function filtroPermisosDeAccesoActivos(PermisoDeAccesoVO[] memory permisos)
+        public
+        view
+        returns (PermisoDeAccesoVO[] memory)
+    {
+        uint256 size = 0;
+        for (uint256 i = 0; i < permisos.length; i++) {
+            if (permisos[i].getFechaExpiracion() > block.timestamp) {
+                size++;
+            }
+        }
+
+        if (size == 0) {
+            return new PermisoDeAccesoVO[](0);
+        }
+        PermisoDeAccesoVO[] memory response = new PermisoDeAccesoVO[](size);
+        uint256 index = 0;
+        for (uint256 i = 0; i < permisos.length; i++) {
+            if (permisos[i].getFechaExpiracion() > block.timestamp) {
+                response[index] = permisos[i];
+                index++;
+            }
+        }
+        return response;
     }
 
+    /* internal*/
     function crearLlave(address direccionPaciente, address direccionMedico)
-        internal
+        public
+        pure
         returns (string memory)
     {
         return
@@ -139,6 +201,19 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
                 string.concat(Strings.toHexString(direccionPaciente), "-"),
                 Strings.toHexString(direccionMedico)
             );
+    }
+
+    // Un medico verifica si tiene x HC en su lista (solo para uso interno)
+    function existeLlaveEnLista(
+        string memory llave,
+        string[] memory listDeLlaves
+    ) internal pure returns (bool) {
+        for (uint256 i = listDeLlaves.length; i > 0; i--) {
+            if (Utils.compareStrings(listDeLlaves[i - 1], llave)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     modifier esPropietario() {
@@ -152,5 +227,4 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
     function selfDestruct() public esPropietario {
         selfdestruct(payable(creador));
     }
-    
 }

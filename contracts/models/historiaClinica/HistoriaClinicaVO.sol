@@ -6,12 +6,12 @@ import "../VOGenerales/EstadoHCEVO.sol";
 //import "./structsGenerales/DatosPersonalesStruct.sol";
 
 contract HistoriaClinicaVO {
-    int256 private id;
+    uint256 private id;
     RegistroMedico[] private listaRegistros;
     EstadoHCEVO private estado;
 
     struct HistoriaClinicaStruct {
-        int256 id;
+        uint256 id;
         // RegistroMedico[] listaRegistros;
         uint256 estadoId;
     }
@@ -32,7 +32,7 @@ contract HistoriaClinicaVO {
         estado = estadoHCEVO;
     }
 
-    function getId() public view returns (int256) {
+    function getId() public view returns (uint256) {
         return id;
     }
 
@@ -44,7 +44,7 @@ contract HistoriaClinicaVO {
         return estado;
     }
 
-    function setId(int256 _id) public {
+    function setId(uint256 _id) public {
         id = _id;
     }
 

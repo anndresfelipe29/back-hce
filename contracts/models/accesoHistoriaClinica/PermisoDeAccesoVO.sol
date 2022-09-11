@@ -10,16 +10,16 @@ contract PermisoDeAccesoVO {
         int256 id;
         string llave;
         bool estaActivo;
-        int256 fechaSolicitud;
-        int256 fechaExpiracion;
+        uint256 fechaSolicitud;
+        uint256 fechaExpiracion;
     }
 
     // TODO: Actualizar en diagrama
     int256 private id;
     string private llave;
     bool private estaActivo;
-    int256 private fechaSolicitud;
-    int256 private fechaExpiracion;
+    uint256 private fechaSolicitud;
+    uint256 private fechaExpiracion;
 
     constructor() {
         creador = msg.sender;
@@ -51,11 +51,11 @@ contract PermisoDeAccesoVO {
         return estaActivo;
     }
 
-    function getFechaSolicitud() public view returns (int256) {
+    function getFechaSolicitud() public view returns (uint256) {
         return fechaSolicitud;
     }
 
-    function getFechaExpiracion() public view returns (int256) {
+    function getFechaExpiracion() public view returns (uint256) {
         return fechaExpiracion;
     }
 
@@ -67,11 +67,11 @@ contract PermisoDeAccesoVO {
         estaActivo = _estaActivo;
     }
 
-    function setFechaSolicitud(int256 _fechaSolicitud) public {
+    function setFechaSolicitud(uint256 _fechaSolicitud) public {
         fechaSolicitud = _fechaSolicitud;
     }
 
-    function setFechaExpiracion(int256 _fechaExpiracion) public {
+    function setFechaExpiracion(uint256 _fechaExpiracion) public {
         fechaExpiracion = _fechaExpiracion;
     }
 }

@@ -8,22 +8,34 @@ interface AccesoHistoriaClinicaMapperInterface {
 
     // TODO: Actualizar clase en enterprise architect
 
+    function getPermisosDeAccesoActivosPorHistoriaClinica(address direccion)
+        external
+        view
+        returns (PermisoDeAccesoVO[] memory response);
+
     function getPermisosDeAccesoPorHistoriaClinica(address direccion)
         external
+        view
         returns (PermisoDeAccesoVO[] memory);
+
+    function getPermisosDeAccesoActivoPorMedico(address direccion)
+        external
+        view
+        returns (PermisoDeAccesoVO[] memory response);
 
     function getPermisosDeAccesoPorMedico(address direccion)
         external
+        view
         returns (PermisoDeAccesoVO[] memory);
 
-    
     function esPermisoVigente(
         address direccionPaciente,
         address direccionMedico
-    ) external returns (bool);
+    ) external view returns (bool);
 
     function getPermisos(address direccionPaciente, address direccionMedico)
         external
+        view
         returns (PermisoDeAccesoVO[] memory);
 
     function setPermiso(
@@ -31,7 +43,6 @@ interface AccesoHistoriaClinicaMapperInterface {
         address direccionMedico,
         PermisoDeAccesoVO permiso
     ) external returns (uint256);
-
 
     function selfDestruct() external;
 }
