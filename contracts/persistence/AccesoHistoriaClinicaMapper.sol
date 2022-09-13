@@ -45,7 +45,7 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
             }
         }
 
-        permisos.push(permiso);
+        permisos.push(permiso);        
 
         string[]
             storage listaDeLlavesHistoriaClinica = permisosDeAccesoHistoriaClinica[
@@ -63,7 +63,10 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
 
         uint256 id = indices.length;
         indices.push(llave);
-        // TODO: Agregar id y llave al objeto
+        
+        permiso.setId(id);
+        permiso.setLlave(llave);
+
 
         return id;
     }

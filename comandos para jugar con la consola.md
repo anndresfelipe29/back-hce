@@ -178,12 +178,19 @@ web3.eth.getBlock(142).timestamp
 const accounts = await web3.eth.getAccounts()
 - AccesoHistoriaClinicaMapper.deployed().then(c => ahc = c)
 - ahc.getPermisosDeAccesoPorHistoriaClinica(accounts[0])
+- ahc.getPermisosDeAccesoActivoPorMedico(accounts[1])
+- ahc.getPermisosDeAccesoPorMedico(accounts[1])
 - ahc.esPermisoVigente(accounts[0], accounts[1])
 - ahc.getPermisos(accounts[0], accounts[1])
-- ahc.setPermiso.(accounts[0], accounts[1], permiso.address)
+- ahc.setPermiso(accounts[0], accounts[1], permiso.address)
+- ahc.filtroPermisosDeAccesoActivos([ permiso.address ])
+- ahc.crearLlave(accounts[0], accounts[1])
+
 
 # PermisoDeAccesoVO
 - PermisoDeAccesoVO.new().then(c => permiso = c)
+- permiso.setFechaExpiracion(1663869864)
+- permiso.getFechaExpiracion()
 
 ## Truffle Debug
 - Para iniciar el debug usar

@@ -7,17 +7,17 @@ contract PermisoDeAccesoVO {
     address public creador;
 
     struct PermisoDeAccesoStruct {
-        int256 id;
+        uint256 id;
         string llave;
-        bool estaActivo;
+        bool fueRespondido;
         uint256 fechaSolicitud;
         uint256 fechaExpiracion;
     }
 
     // TODO: Actualizar en diagrama
-    int256 private id;
+    uint256 private id;
     string private llave;
-    bool private estaActivo;
+    bool private fueRespondido;
     uint256 private fechaSolicitud;
     uint256 private fechaExpiracion;
 
@@ -29,7 +29,7 @@ contract PermisoDeAccesoVO {
         return PermisoDeAccesoStruct(
             id,
             llave,
-            estaActivo,
+            fueRespondido,
             fechaSolicitud,
             fechaExpiracion
         );
@@ -38,17 +38,22 @@ contract PermisoDeAccesoVO {
     function setPermisoDeAccesoStruct(PermisoDeAccesoStruct memory _permisoDeAccesoStruct) public {
         id = _permisoDeAccesoStruct.id;
         llave = _permisoDeAccesoStruct.llave;
-        estaActivo = _permisoDeAccesoStruct.estaActivo;
+        fueRespondido = _permisoDeAccesoStruct.fueRespondido;
         fechaSolicitud = _permisoDeAccesoStruct.fechaSolicitud;
         fechaExpiracion = _permisoDeAccesoStruct.fechaExpiracion;
     }
 
-    function getId() public view returns (int256) {
+    function getId() public view returns (uint256) {
         return id;
     }
 
-    function getEstaActivo() public view returns (bool) {
-        return estaActivo;
+    function getLlave() public view returns (string memory) {
+        return llave;
+    }
+
+
+    function getFueRespondido() public view returns (bool) {
+        return fueRespondido;
     }
 
     function getFechaSolicitud() public view returns (uint256) {
@@ -59,12 +64,16 @@ contract PermisoDeAccesoVO {
         return fechaExpiracion;
     }
 
-    function setId(int256 _id) public {
+    function setId(uint256 _id) public {
         id = _id;
     }
 
-    function setEstaActivo(bool _estaActivo) public {
-        estaActivo = _estaActivo;
+    function setLlave(string memory _llave) public {
+        llave = _llave;
+    }
+
+    function setFueRespondido(bool _fueRespondido) public {
+        fueRespondido = _fueRespondido;
     }
 
     function setFechaSolicitud(uint256 _fechaSolicitud) public {
