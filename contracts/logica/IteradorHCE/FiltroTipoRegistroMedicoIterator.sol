@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 import "./RegistroMedicoIterator.sol";
 import "../../models/historiaClinica/RegistroMedico.sol";
 
-contract FiltroFechaRegistroMedicoIterator  is RegistroMedicoIterator{
+contract FiltroTipoRegistroMedicoIterator  is RegistroMedicoIterator{
     /* TODO: Ajustar que las creaciones de estos objetos, pueden ser muy costosos 
      si quedan en storge
      */
@@ -16,11 +16,12 @@ contract FiltroFechaRegistroMedicoIterator  is RegistroMedicoIterator{
     }
 
     function getNext() public override returns(RegistroMedico) {
-        uint fechaActual = block.timestamp;
+        /**TODO: Ver como se puede cambiar o ajustar este parametro */
+        uint256 tipo = posicionActual;
         if(hasMore()){
             posicionActual = posicionActual + 1;
             RegistroMedico regMedico = todosLosRegistros[posicionActual];
-            if(regMedico.getFechaRegistro()==fechaActual){
+            if(regMedico.getTipoRegistroMedico()==tipo){
                 siguiente = todosLosRegistros[posicionActual];
             }
             return siguiente;
