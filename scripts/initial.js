@@ -116,7 +116,7 @@ module.exports = async function (callback) {
         [
             [1, permisoX.address, true],
             [2, permisoY.address, true],
-            [3, permisoZ.address, false]
+            [3, permisoZ.address, true]
         ]
     )
 
@@ -126,7 +126,7 @@ module.exports = async function (callback) {
     await rolMedico.setDescripcion("Para usuario medico")
     await rolMedico.setPermisos(
         [
-            [1, permisoX.address, false],
+            [1, permisoX.address, true],
             [2, permisoY.address, true],
             [3, permisoZ.address, true]
         ]

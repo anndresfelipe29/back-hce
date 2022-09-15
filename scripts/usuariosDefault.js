@@ -7,7 +7,7 @@ module.exports = async function (callback) {
     let medico
 
     const accounts = await web3.eth.getAccounts()
-
+    console.log(accounts[8])
     // Paciente
     paciente = await Paciente.deployed()
 

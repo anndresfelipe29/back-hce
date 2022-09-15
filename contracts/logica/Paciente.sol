@@ -26,9 +26,9 @@ contract Paciente {
     }
 
     // Puede el medico
+    // tieneAcceso(1)
     function consultar(address direccion)
-        public
-        tieneAcceso(1)
+        public        
         returns (PacienteVO.PacienteVOStruct memory)
     {
         emit Log("Entro a consultar Paciente");

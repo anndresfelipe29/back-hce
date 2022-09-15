@@ -31,7 +31,7 @@ abstract contract Persona {
     }
 
     constructor() {
-        direccion = address(this);
+        //direccion = address(this);
     }
 
     function getPersonaStructValue() public view returns (PersonaStruct memory) {
@@ -58,6 +58,7 @@ abstract contract Persona {
         identificacion = _persona.identificacion;
         isValue = _persona.isValue;
         tipoIdentificacion= _tipoIdentificacionVO;
+        direccion = _persona.direccion;
 
     }
 
