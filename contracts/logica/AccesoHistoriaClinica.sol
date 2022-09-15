@@ -1,6 +1,5 @@
 pragma solidity ^0.8.17;
 
-import "../models/MedicoVO.sol";
 import "../persistence/AccesoHistoriaClinicaMapper.sol";
 
 contract AccesoHistoriaClinica {
@@ -8,15 +7,17 @@ contract AccesoHistoriaClinica {
 
     AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
 
+    constructor() {
+        creador = msg.sender;
+    }
+
     // TODO: Actualizar en enterprise
     // Lo hace el paciente
     function responderSolicitudDeAcceso(address direccionMedico, bool acepta)
         external
     {
-        PermisoDeAccesoVO[] memory permisos = accesoHistoriaClinicaMapper.getPermisos(
-            msg.sender,
-            direccionMedico
-        );
+        PermisoDeAccesoVO[] memory permisos = accesoHistoriaClinicaMapper
+            .getPermisos(msg.sender, direccionMedico);
         PermisoDeAccesoVO permiso;
         uint256 fechaActual = block.timestamp;
         for (uint256 i = permisos.length; i > 0; i--) {
@@ -28,10 +29,12 @@ contract AccesoHistoriaClinica {
                     // TODO Descomentar
                     // permiso.setFechaExpiracion(fechaActual + 3 hours);
                     permiso.setFechaExpiracion(fechaActual + 3 minutes);
+                    return;
                 } else {
                     permiso.setFueRespondido(true);
                     permiso.setFechaSolicitud(fechaActual);
-                    permiso.setFechaExpiracion(0);                    
+                    permiso.setFechaExpiracion(0);
+                    return;
                 }
             }
         }
@@ -54,6 +57,8 @@ contract AccesoHistoriaClinica {
             );
     }
 
+    // TODO: hacer función que traiga permisos por aprobar
+
     // TODO: Actualizar en enterprise architect
     function esSolicitudVigente(
         address direccionPaciente,
@@ -66,7 +71,31 @@ contract AccesoHistoriaClinica {
             );
     }
 
-    function setaccesoHistoriaClinicaMapper(
+    function getPermisosDeAccesoActivosPorHistoriaClinica(
+        address direccionPaciente
+    ) public view returns(PermisoDeAccesoVO[] memory) {
+        return accesoHistoriaClinicaMapper.getPermisosDeAccesoActivosPorHistoriaClinica(direccionPaciente);
+    }
+
+    function getPermisosDeAccesoPorHistoriaClinica(
+        address direccionPaciente
+    ) public view returns(PermisoDeAccesoVO[] memory) {
+        return accesoHistoriaClinicaMapper.getPermisosDeAccesoPorHistoriaClinica(direccionPaciente);
+    }
+
+    function getPermisosDeAccesoActivosPorMedico(
+        address direccionMedico
+    ) public view returns(PermisoDeAccesoVO[] memory) {        
+        return accesoHistoriaClinicaMapper.getPermisosDeAccesoActivosPorMedico(direccionMedico);
+    }
+
+    function getPermisosDeAccesoPorMedico(
+        address direccionMedico
+    ) public view returns(PermisoDeAccesoVO[] memory) {
+        return accesoHistoriaClinicaMapper.getPermisosDeAccesoPorMedico(direccionMedico);
+    }
+
+    function setAccesoHistoriaClinicaMapper(
         AccesoHistoriaClinicaMapper _accesoHistoriaClinicaMapper
     ) public esPropietario {
         accesoHistoriaClinicaMapper = _accesoHistoriaClinicaMapper;

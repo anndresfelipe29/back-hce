@@ -9,6 +9,8 @@ contract PermisoDeAccesoVO {
     struct PermisoDeAccesoStruct {
         uint256 id;
         string llave;
+        address paciente;
+        address solicitante;
         bool fueRespondido;
         uint256 fechaSolicitud;
         uint256 fechaExpiracion;
@@ -17,6 +19,8 @@ contract PermisoDeAccesoVO {
     // TODO: Actualizar en diagrama
     uint256 private id;
     string private llave;
+    address private paciente;
+    address private solicitante;
     bool private fueRespondido;
     uint256 private fechaSolicitud;
     uint256 private fechaExpiracion;
@@ -25,17 +29,26 @@ contract PermisoDeAccesoVO {
         creador = msg.sender;
     }
 
-    function getPermisoDeAccesoStruct() public view returns (PermisoDeAccesoStruct memory) {
-        return PermisoDeAccesoStruct(
-            id,
-            llave,
-            fueRespondido,
-            fechaSolicitud,
-            fechaExpiracion
-        );
+    function getPermisoDeAccesoStruct()
+        public
+        view
+        returns (PermisoDeAccesoStruct memory)
+    {
+        return
+            PermisoDeAccesoStruct(
+                id,
+                llave,
+                paciente,
+                solicitante,
+                fueRespondido,
+                fechaSolicitud,
+                fechaExpiracion
+            );
     }
 
-    function setPermisoDeAccesoStruct(PermisoDeAccesoStruct memory _permisoDeAccesoStruct) public {
+    function setPermisoDeAccesoStruct(
+        PermisoDeAccesoStruct memory _permisoDeAccesoStruct
+    ) public {
         id = _permisoDeAccesoStruct.id;
         llave = _permisoDeAccesoStruct.llave;
         fueRespondido = _permisoDeAccesoStruct.fueRespondido;
@@ -51,6 +64,13 @@ contract PermisoDeAccesoVO {
         return llave;
     }
 
+    function getPaciente() public view returns (address) {
+        return paciente;
+    }
+
+    function getSolicitante() public view returns (address) {
+        return solicitante;
+    }
 
     function getFueRespondido() public view returns (bool) {
         return fueRespondido;
@@ -70,6 +90,14 @@ contract PermisoDeAccesoVO {
 
     function setLlave(string memory _llave) public {
         llave = _llave;
+    }
+
+    function setPaciente(address _paciente) public {
+        paciente = _paciente;
+    }
+
+    function setSolicitante(address _solicitante) public {
+        solicitante = _solicitante;
     }
 
     function setFueRespondido(bool _fueRespondido) public {

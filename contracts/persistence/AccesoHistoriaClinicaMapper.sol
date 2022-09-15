@@ -45,6 +45,11 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
             }
         }
 
+        // TODO: Validar si hay una solicitud en curso (Estado false)
+
+        permiso.setPaciente(direccionPaciente);
+        permiso.setSolicitante(direccionMedico);
+
         permisos.push(permiso);        
 
         string[]
@@ -123,7 +128,7 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
         }
     }
 
-    function getPermisosDeAccesoActivoPorMedico(address direccion)
+    function getPermisosDeAccesoActivosPorMedico(address direccion)
         external
         view
         returns (PermisoDeAccesoVO[] memory response)

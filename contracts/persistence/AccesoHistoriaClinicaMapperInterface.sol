@@ -18,7 +18,7 @@ interface AccesoHistoriaClinicaMapperInterface {
         view
         returns (PermisoDeAccesoVO[] memory);
 
-    function getPermisosDeAccesoActivoPorMedico(address direccion)
+    function getPermisosDeAccesoActivosPorMedico(address direccion)
         external
         view
         returns (PermisoDeAccesoVO[] memory response);

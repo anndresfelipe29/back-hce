@@ -17,6 +17,7 @@ const MedicoOraculo = artifacts.require('MedicoOraculo')
 const HistoriaClinica = artifacts.require('HistoriaClinica')
 const HistoriaClinicaMapper =artifacts.require('HistoriaClinicaMapper')
 const AccesoHistoriaClinicaMapper = artifacts.require('AccesoHistoriaClinicaMapper')
+const AccesoHistoriaClinica = artifacts.require('AccesoHistoriaClinica')
 const Utils = artifacts.require('Utils')
 
 module.exports = function (deployer) {
@@ -43,6 +44,7 @@ module.exports = function (deployer) {
     deployer.deploy(Utils);
     deployer.link(Utils, AccesoHistoriaClinicaMapper);
     deployer.deploy(AccesoHistoriaClinicaMapper);
+    deployer.deploy(AccesoHistoriaClinica);
     
     // deployer.deploy(PermisoRolMapper);
 

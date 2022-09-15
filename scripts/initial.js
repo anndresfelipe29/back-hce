@@ -17,6 +17,9 @@ const MedicoOraculo = artifacts.require('MedicoOraculo')
 
 const Acceso = artifacts.require('Acceso')
 
+const AccesoHistoriaClinica = artifacts.require('AccesoHistoriaClinica')
+const AccesoHistoriaClinicaMapper = artifacts.require('AccesoHistoriaClinicaMapper')
+
 const EstadoVO = artifacts.require('EstadoVO')
 const EstadoCivilVO = artifacts.require('EstadoCivilVO')
 const AseguradoraVO = artifacts.require('AseguradoraVO')
@@ -27,6 +30,7 @@ const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO')
 const DatosParametricosMapper = artifacts.require('DatosParametricosMapper')
 const HistoriaClinica = artifacts.require('HistoriaClinica')
 const HistoriaClinicaMapper = artifacts.require('HistoriaClinicaMapper')
+
 
 
 module.exports = async function (callback) {
@@ -43,10 +47,12 @@ module.exports = async function (callback) {
     let datosParametricosMapper
     let historiaClinicaMapper
     let rolMapper
+    let accesoHistoriaClinica
+    let accesoHistoriaClinicaMapper
 
     const accounts = await web3.eth.getAccounts()
 
-    //usuarioMapper = await UsuarioMapper.new()    
+    // Carga de mappers 
     rolMapper = await RolMapper.deployed()
     pacienteMapper = await PacienteMapper.deployed()
     medicoMapper = await MedicoMapper.deployed()
@@ -55,6 +61,8 @@ module.exports = async function (callback) {
     usuarioMapper = await UsuarioMapper.deployed()
     acceso = await Acceso.deployed()
     historiaClinicaMapper = await HistoriaClinicaMapper.deployed()
+    accesoHistoriaClinicaMapper = await AccesoHistoriaClinicaMapper.deployed()
+    
 
     await acceso.setUsuarioMapper(usuarioMapper.address)
     // Paciente
@@ -77,6 +85,11 @@ module.exports = async function (callback) {
     historiaClinica = await HistoriaClinica.deployed()
     await historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
     await historiaClinica.setHistoriaClinicaMapper(historiaClinicaMapper.address)
+
+    // accesoHistoriaClinica
+    accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()
+    await accesoHistoriaClinica.setAccesoHistoriaClinicaMapper(accesoHistoriaClinicaMapper.address)
+
 
     // Permisos
     permisoX = await PermisoVO.new()

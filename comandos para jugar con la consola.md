@@ -176,21 +176,35 @@ web3.eth.getBlock(142).timestamp
 
 # AccesoHistoriaClinicaMapper
 const accounts = await web3.eth.getAccounts()
-- AccesoHistoriaClinicaMapper.deployed().then(c => ahc = c)
+- AccesoHistoriaClinicaMapper.deployed().then(c => ahcm = c)
+- ahcm.getPermisosDeAccesoPorHistoriaClinica(accounts[0])
+- ahcm.getPermisosDeAccesoActivosPorHistoriaClinica(accounts[0])
+- ahcm.getPermisosDeAccesoActivosPorMedico(accounts[1])
+- ahcm.getPermisosDeAccesoPorMedico(accounts[1])
+- ahcm.esPermisoVigente(accounts[0], accounts[1])
+- ahcm.getPermisos(accounts[0], accounts[1])
+- ahcm.setPermiso(accounts[0], accounts[1], permiso.address)
+- ahcm.filtroPermisosDeAccesoActivos([ permiso.address ])
+- ahcm.crearLlave(accounts[0], accounts[1])
+
+# AccesoHistoriaClinica
+- 0 paciente 1 médico
+- AccesoHistoriaClinica.deployed().then(c => ahc = c)
+- ahc.responderSolicitudDeAcceso(accounts[1], true, {from: accounts[0]})
+- ahc.solicitarAccesoHistoriaClinica(accounts[0], {from: accounts[1]})
+- ahc.esSolicitudVigente(accounts[0], accounts[1])
+- ahc.getPermisosDeAccesoActivosPorHistoriaClinica(accounts[0])
 - ahc.getPermisosDeAccesoPorHistoriaClinica(accounts[0])
-- ahc.getPermisosDeAccesoActivoPorMedico(accounts[1])
+- ahc.getPermisosDeAccesoActivosPorMedico(accounts[1])
 - ahc.getPermisosDeAccesoPorMedico(accounts[1])
-- ahc.esPermisoVigente(accounts[0], accounts[1])
-- ahc.getPermisos(accounts[0], accounts[1])
-- ahc.setPermiso(accounts[0], accounts[1], permiso.address)
-- ahc.filtroPermisosDeAccesoActivos([ permiso.address ])
-- ahc.crearLlave(accounts[0], accounts[1])
 
 
 # PermisoDeAccesoVO
 - PermisoDeAccesoVO.new().then(c => permiso = c)
+- PermisoDeAccesoVO.at('0xF221428DC3818a805772f1528AB89ffbBDd11102').then(c => permiso = c)
 - permiso.setFechaExpiracion(1663869864)
 - permiso.getFechaExpiracion()
+- permiso.getId()
 
 ## Truffle Debug
 - Para iniciar el debug usar
