@@ -36,12 +36,18 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
 
         if (permisos.length > 0) {
             PermisoDeAccesoVO[]
-                memory permisosActivos = filtroPermisosDeAccesoActivos(
+                memory permisosinvalidos = filtroPermisosDeAccesoActivos(
                     permisos
                 );
 
-            if (permisosActivos.length > 0) {
+            if (permisosinvalidos.length > 0) {
                 revert("Ya existe un permiso activo");
+            }
+
+            permisosinvalidos = filtroPermisosDeAccesoPendientes(permisos);
+
+            if (permisosinvalidos.length > 0) {
+                revert("Ya existe un permiso pendiente de responder");
             }
         }
 
@@ -191,6 +197,33 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
         uint256 index = 0;
         for (uint256 i = 0; i < permisos.length; i++) {
             if (permisos[i].getFechaExpiracion() > block.timestamp) {
+                response[index] = permisos[i];
+                index++;
+            }
+        }
+        return response;
+    }
+
+        /* internal*/
+    function filtroPermisosDeAccesoPendientes(PermisoDeAccesoVO[] memory permisos)
+        public
+        view
+        returns (PermisoDeAccesoVO[] memory)
+    {
+        uint256 size = 0;
+        for (uint256 i = 0; i < permisos.length; i++) {
+            if (!permisos[i].getFueRespondido()) {
+                size++;
+            }
+        }
+
+        if (size == 0) {
+            return new PermisoDeAccesoVO[](0);
+        }
+        PermisoDeAccesoVO[] memory response = new PermisoDeAccesoVO[](size);
+        uint256 index = 0;
+        for (uint256 i = 0; i < permisos.length; i++) {
+            if (!permisos[i].getFueRespondido()) {
                 response[index] = permisos[i];
                 index++;
             }

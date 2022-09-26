@@ -28,7 +28,7 @@ contract AccesoHistoriaClinica {
                     permiso.setFechaSolicitud(fechaActual);
                     // TODO Descomentar
                     // permiso.setFechaExpiracion(fechaActual + 3 hours);
-                    permiso.setFechaExpiracion(fechaActual + 3 minutes);
+                    permiso.setFechaExpiracion(fechaActual + 30 minutes);
                     return;
                 } else {
                     permiso.setFueRespondido(true);
@@ -48,7 +48,7 @@ contract AccesoHistoriaClinica {
         returns (uint256)
     {
         PermisoDeAccesoVO permiso = new PermisoDeAccesoVO();
-        permiso.setFueRespondido(false);
+        permiso.setFueRespondido(false); // TODO: agregar aqui fecha de daolicitud en permiso
         return
             accesoHistoriaClinicaMapper.setPermiso(
                 direccionPaciente,
