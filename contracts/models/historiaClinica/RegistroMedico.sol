@@ -1,50 +1,70 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
+
 // import "../logica/Persona.sol";
 // import "../models/RolVO.sol";
 // import "./RolMapperInterface.sol";
+import "./enums/TipoRegistroEnum.sol";
 
 abstract contract RegistroMedico {
-    address public creador;
+    address public creador; // TODO: Ajustar quien es el creador o dueño
 
     uint256 private id;
     address private codPrestadorServicioDeSalud;
     uint256 private fechaRegistro;
-    uint256 private tipoRegistroMedico;
+    TipoRegistroMedico private tipoRegistroMedico;
 
+    struct RegistroMedicoStruct {
+        uint256 id;
+        address codPrestadorServicioDeSalud;
+        uint256 fechaRegistro;
+        TipoRegistroMedico tipoRegistroMedico;
+    }
 
+    function getRegistroMedico() public view returns(RegistroMedicoStruct memory){
+        return RegistroMedicoStruct(id, codPrestadorServicioDeSalud, fechaRegistro, tipoRegistroMedico);
+    }
 
-    function getId() external view returns (uint256){
+    function setRegistroMedico(RegistroMedicoStruct memory registro) public {
+        id = registro.id;
+        codPrestadorServicioDeSalud = registro.codPrestadorServicioDeSalud;
+        fechaRegistro = registro.fechaRegistro;
+        tipoRegistroMedico = registro.tipoRegistroMedico;
+    }
+
+    function getId() external view returns (uint256) {
         return id;
     }
 
-    function getCodPrestadorServicioDeSalud() external view returns (address){
+    function getCodPrestadorServicioDeSalud() external view returns (address) {
         return codPrestadorServicioDeSalud;
     }
 
-    function getFechaRegistro() public view returns (uint256){
+    function getFechaRegistro() public view returns (uint256) {
         return fechaRegistro;
     }
 
-    function getTipoRegistroMedico() public view returns (uint256){
+    function getTipoRegistroMedico() public view returns (TipoRegistroMedico) {
         return tipoRegistroMedico;
     }
 
-    function setId(uint256 _id) public{
+    function setId(uint256 _id) public {
         id = _id;
     }
 
-    function setCodPrestadorServicioDeSalud(address _codPrestadorServicioDeSalud) public{
+    function setCodPrestadorServicioDeSalud(
+        address _codPrestadorServicioDeSalud
+    ) public {
         codPrestadorServicioDeSalud = _codPrestadorServicioDeSalud;
     }
 
-    function setFechaRegistro(uint256 _fechaRegistro) public{
+    function setFechaRegistro(uint256 _fechaRegistro) public {
         fechaRegistro = _fechaRegistro;
     }
 
-    function setTipoRegistroMedico(uint256 _tipoRegistroMedico) public{
+    function setTipoRegistroMedico(TipoRegistroMedico _tipoRegistroMedico) public {
         tipoRegistroMedico = _tipoRegistroMedico;
-    }    
+    }
 
     modifier esPropietario() {
         require(

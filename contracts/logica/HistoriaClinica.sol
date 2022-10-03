@@ -1,8 +1,10 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
 import "../models/historiaClinica/HistoriaClinicaVO.sol";
 import "../persistence/HistoriaClinicaMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
+import "./IteradorHCE/FiltroTipoRegistroMedicoIterator.sol";
 
 // import "../persistence/HistoriaClinicaMapper.sol";
 
@@ -16,8 +18,14 @@ contract HistoriaClinica {
     }
 
     // TODO: Actualizar en enterprise
-    function getHistoriaClinica(address direccion) public returns(HistoriaClinicaVO.HistoriaClinicaStruct  memory) { 
-        return historiaClinicaMapper.consultar(direccion).getHistoriaClinicaStruct();
+    function getHistoriaClinica(address direccion)
+        public
+        returns (HistoriaClinicaVO.HistoriaClinicaStruct memory)
+    {
+        return
+            historiaClinicaMapper
+                .consultar(direccion)
+                .getHistoriaClinicaStruct();
     }
 
     function inicializarHCE(address direccionPaciente) public {
@@ -28,32 +36,86 @@ contract HistoriaClinica {
         historiaClinicaMapper.guardar(direccionPaciente, nuevaHistoriaClinica);
     }
 
-    function agregarRegistro(address direccionPaciente, RegistroMedico registroMedico) public {
+    function agregarRegistro(
+        address direccionPaciente,
+        RegistroMedico registroMedico
+    ) public {
         registroMedico.setCodPrestadorServicioDeSalud(msg.sender);
         registroMedico.setFechaRegistro(block.timestamp);
         // TODO: Setear el tipo de registro médico desde el front
         // TODO: Falta definir el id
-        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(direccionPaciente);
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
         historiaClinica.agregarRegistroMedico(registroMedico);
     }
 
-    function consultarRegistro(address direccionPaciente, uint256 idRegistro) public returns(RegistroMedico){
-        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(direccionPaciente);
+    function consultarRegistro(address direccionPaciente, uint256 idRegistro)
+        public
+        returns (RegistroMedico)
+    {
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
         return historiaClinica.getListaRegistros()[idRegistro];
     }
 
-    function eliminarRegistro(address direccionPaciente, uint256 idRegistro) public{
-        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(direccionPaciente);
+    function eliminarRegistro(address direccionPaciente, uint256 idRegistro)
+        public
+    {
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
         historiaClinica.eliminarRegistroMedico(idRegistro);
     }
 
-    function registrosFiltradosPorFecha(address direccionPaciente, uint256 idRegistro) public returns(RegistroMedico[] memory){
-        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(direccionPaciente);
+    function registrosFiltradosPorFecha(
+        address direccionPaciente,
+        uint256 idRegistro
+    ) public returns (RegistroMedico[] memory) {
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
         return historiaClinica.getListaRegistros();
     }
 
-    function registrosFiltradosPorTipo(address direccionPaciente, uint256 idRegistro) public{
-        
+    // TODO: Agregar modifier para saber si puede consultar o no
+    function registrosFiltradosPorTipo(
+        address direccionPaciente,
+        TipoRegistroMedico tipoRegistroMedico
+    ) public returns (RegistroMedico[] memory) {
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
+        RegistroMedico[] memory listaDeRegistros = historiaClinica
+            .getListaRegistros();
+
+        FiltroTipoRegistroMedicoIterator filtro = new FiltroTipoRegistroMedicoIterator(
+                listaDeRegistros,
+                tipoRegistroMedico
+            );
+
+        RegistroMedico[]
+            memory listaDeRegistrosFiltrados = new RegistroMedico[](
+                listaDeRegistros.length
+            );
+
+        bool hayMasRegistros = true;
+        uint256 posicion = 0;
+        while (hayMasRegistros) {
+            try filtro.getNext() returns (RegistroMedico registro) {
+                if (address(registro) == address(0)) {
+                    hayMasRegistros = false;
+                } else {
+                    listaDeRegistrosFiltrados[posicion] = registro;
+                    posicion = posicion + 1;
+                }
+            } catch Error(string memory e) {
+                hayMasRegistros = false;                
+            }
+        }
+        filtro.selfDestruct();
+        return listaDeRegistrosFiltrados;
     }
 
     // TODO: poner en clase generica y reusarlo
