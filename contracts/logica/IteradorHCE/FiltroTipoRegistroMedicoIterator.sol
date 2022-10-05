@@ -42,7 +42,7 @@ contract FiltroTipoRegistroMedicoIterator  is RegistroMedicoIterator{
     function getNext() public override returns(RegistroMedico) {        
         if(hasMore()){
             RegistroMedico registroMedico = todosLosRegistros[posicionSiguiente];
-            posicionActual = posicionSiguiente;         
+            posicionActual = posicionSiguiente + 1;         
             return registroMedico;
         } 
         revert("No hay un siguiente");
