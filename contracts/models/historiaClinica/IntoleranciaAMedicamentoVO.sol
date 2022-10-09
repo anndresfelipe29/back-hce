@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 import "./RegistroMedico.sol";
 
 
-contract IntoleranciaAMedicamentoVO is RegistroMedico {
+contract IntoleranciaAMedicamentoVO is RegistroMedico (TipoRegistroMedico.INTOLERACIAAMEDICAMENTOVO) {
     struct IntoleranciaAMedicamentoStruct {
         string descripcionMedicamento; // Quizá deba existir una lista de enfermedades en una nueva tabla
         string comentarios;        

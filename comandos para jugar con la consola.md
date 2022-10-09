@@ -156,6 +156,7 @@ datosParametricosMapper.consultarTipoIdentificacionVO(0)
 
 
 # Historia clínica
+- const accounts = await web3.eth.getAccounts()
 - HistoriaClinica.deployed().then(c => historiaClinica=c)
 
 - historiaClinica.setHistoriaClinicaMapper(historiaClinicaMapper.address)
@@ -163,6 +164,7 @@ datosParametricosMapper.consultarTipoIdentificacionVO(0)
 - historiaClinica.inicializarHCE(accounts[0])
 - historiaClinica.registrosFiltradosPorFecha(accounts[0], 1)
 - historiaClinica.agregarRegistro(accounts[0], alergia.address)
+- historiaClinica.registrosFiltradosPorTipo(accounts[8], 0)
 
 # Alergia VO
 - AlergiaVO.new().then(c => alergia=c)

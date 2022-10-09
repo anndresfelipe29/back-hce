@@ -5,7 +5,7 @@ import "./RegistroMedico.sol";
 
 //import "./structsGenerales/DatosPersonalesStruct.sol";
 
-contract AntecedentePatologicoFamiliarVO is RegistroMedico {
+contract AntecedentePatologicoFamiliarVO is RegistroMedico(TipoRegistroMedico.ANTECEDENTEPATOLOGICOFAMILIARVO) {
     struct AntecedentePatologicoFamiliarStruct {
         string parentesco;
         string enfermedad; // Quizá deba existir una lista de enfermedades en una nueva tabla

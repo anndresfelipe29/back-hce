@@ -21,6 +21,10 @@ abstract contract RegistroMedico {
         TipoRegistroMedico tipoRegistroMedico;
     }
 
+    constructor(TipoRegistroMedico _tipoRegistroMedico) {
+        tipoRegistroMedico = _tipoRegistroMedico;
+    }
+
     function getRegistroMedico() public view returns(RegistroMedicoStruct memory){
         return RegistroMedicoStruct(id, codPrestadorServicioDeSalud, fechaRegistro, tipoRegistroMedico);
     }

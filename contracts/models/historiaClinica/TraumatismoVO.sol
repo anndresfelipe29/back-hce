@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import "./RegistroMedico.sol";
 
-contract TraumatismoVO is RegistroMedico {
+contract TraumatismoVO is RegistroMedico (TipoRegistroMedico.TRAUMATISMOVO) {
     struct TraumatismoStruct {
         string descripcion;
         uint256 fechaAproximada;

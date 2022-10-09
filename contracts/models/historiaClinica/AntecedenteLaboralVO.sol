@@ -5,7 +5,7 @@ import "./RegistroMedico.sol";
 
 //import "./structsGenerales/DatosPersonalesStruct.sol";
 
-contract AntecedenteLaboralVO is RegistroMedico {
+contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTELABORALVO){
     struct AntecedenteLaboralStruct {
         string descripcionLabor;
         string actividadRealizada;

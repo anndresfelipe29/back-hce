@@ -8,7 +8,7 @@ import "../structsGenerales/ExploracionPorSistemasStruct.sol";
 
 //import "./structsGenerales/DatosPersonalesStruct.sol";
 
-contract ConsultaIndividualVO is RegistroMedico {
+contract ConsultaIndividualVO is RegistroMedico (TipoRegistroMedico.CONSULTAINDIVIDUALVO) {
     struct ConsultaIndividualStruct {
         uint256 fechaAtencion;
         bool consultaPrioritaria;

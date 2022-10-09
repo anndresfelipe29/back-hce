@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 import "./RegistroMedico.sol";
 import "../structsGenerales/ProcedimientosStruct.sol";
 
-contract ProcedimientoQuirurgicoVO is RegistroMedico {
+contract ProcedimientoQuirurgicoVO is RegistroMedico (TipoRegistroMedico.PROCEDIMIENTOQUIRURGICOVO) {
     struct ProcedimientoQuirurgicoStruct {
         uint ambitoProcedimiento;
         string complicacion;

@@ -5,7 +5,7 @@ import "./RegistroMedico.sol";
 
 //import "./structsGenerales/DatosPersonalesStruct.sol";
 
-contract AlergiaVO is RegistroMedico {
+contract AlergiaVO is RegistroMedico (TipoRegistroMedico.ALERGIAVO) {
     struct AlergiaStruct {
         string descripcionSustancia;
     }

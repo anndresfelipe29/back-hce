@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 import "./RegistroMedico.sol";
 
 
-contract InmunizacionVO is RegistroMedico {
+contract InmunizacionVO is RegistroMedico (TipoRegistroMedico.INMUNIZACIONVO) {
     struct InmunizacionStruct {
         VacunaStruct inmunizacion;
         uint256 fechaAplicacion;

@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 import "./RegistroMedico.sol";
 import "../structsGenerales/SexoStruct.sol";
 
-contract PartoVO is RegistroMedico {
+contract PartoVO is RegistroMedico (TipoRegistroMedico.PARTOVO) {
     struct PartoStruct {
         uint256 periodoGestacion;
         bool controlPrenatal;

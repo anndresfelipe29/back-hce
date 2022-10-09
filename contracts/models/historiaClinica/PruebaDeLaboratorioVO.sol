@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 import "./RegistroMedico.sol";
 import "../structsGenerales/ProcedimientosStruct.sol";
 
-contract PruebaDeLaboratorioVO is RegistroMedico {
+contract PruebaDeLaboratorioVO is RegistroMedico (TipoRegistroMedico.PRUEBADELABORATORIOVO) {
     struct PruebaDeLaboratorioStruct {
         uint256 ambitoProcedimiento;
         uint256 fecha;

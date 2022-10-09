@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 import "./RegistroMedico.sol";
 
 
-contract TransfusionVO is RegistroMedico {
+contract TransfusionVO is RegistroMedico (TipoRegistroMedico.TRANSFUSIONVO) {
     struct TransfusionStruct {
         uint cantidad;
         string reacciones;
