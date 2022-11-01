@@ -59,19 +59,23 @@ module.exports = async function (callback) {
     medicoOraculo = await MedicoOraculo.deployed()
     datosParametricosMapper = await DatosParametricosMapper.deployed()
     usuarioMapper = await UsuarioMapper.deployed()
-    acceso = await Acceso.deployed()
     historiaClinicaMapper = await HistoriaClinicaMapper.deployed()
     accesoHistoriaClinicaMapper = await AccesoHistoriaClinicaMapper.deployed()
-    
 
+    /*******************************************Inyección de dependencias************************************/
+
+    // Acceso
+    acceso = await Acceso.deployed()
     await acceso.setUsuarioMapper(usuarioMapper.address)
-    // Paciente
-    paciente = await Paciente.deployed()
-    await paciente.setPacienteMapper(pacienteMapper.address)
-    await paciente.setRolMapper(rolMapper.address)
-    await paciente.setUsuarioMapper(usuarioMapper.address)
-    await paciente.setAcceso(acceso.address)
-    await paciente.setDatosParametricosMapper(datosParametricosMapper.address)
+
+    // accesoHistoriaClinica
+    accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()
+    await accesoHistoriaClinica.setAccesoHistoriaClinicaMapper(accesoHistoriaClinicaMapper.address)
+
+    // Historia clínica
+    historiaClinica = await HistoriaClinica.deployed()
+    await historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
+    await historiaClinica.setHistoriaClinicaMapper(historiaClinicaMapper.address)
 
     // Médico
     medico = await Medico.deployed()
@@ -81,31 +85,45 @@ module.exports = async function (callback) {
     await medico.setDatosParametricosMapper(datosParametricosMapper.address)
     await medico.setMedicoOraculo(medicoOraculo.address)
 
-    // Historia clínica
-    historiaClinica = await HistoriaClinica.deployed()
-    await historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
-    await historiaClinica.setHistoriaClinicaMapper(historiaClinicaMapper.address)
+    // Paciente
+    paciente = await Paciente.deployed()
+    await paciente.setPacienteMapper(pacienteMapper.address)
+    await paciente.setRolMapper(rolMapper.address)
+    await paciente.setUsuarioMapper(usuarioMapper.address)
+    await paciente.setAcceso(acceso.address)
+    await paciente.setDatosParametricosMapper(datosParametricosMapper.address)
 
-    // accesoHistoriaClinica
-    accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()
-    await accesoHistoriaClinica.setAccesoHistoriaClinicaMapper(accesoHistoriaClinicaMapper.address)
 
+    /********************************************Carga de datos inicial********************************************/
 
     // Permisos
-    permisoX = await PermisoVO.new()
-    await permisoX.setId(1)
-    await permisoX.setNombre("acceso a x cosa")
-    await permisoX.setDescripcion("descripcion de x cosa")
+    paciente_consultar = await PermisoVO.new()
+    await paciente_consultar.setId(1)
+    await paciente_consultar.setNombre("Consultar Paciente")
+    await paciente_consultar.setDescripcion("Paciente.consultar: Permiso para consultar información de pacientes como medico, desde la clase paciente.")
 
-    permisoY = await PermisoVO.new()
-    await permisoY.setId(2)
-    await permisoY.setNombre("acceso a Y cosa")
-    await permisoY.setDescripcion("descripcion de Y cosa")
+    paciente_consultar2 = await PermisoVO.new()
+    await paciente_consultar2.setId(2)
+    await paciente_consultar2.setNombre("Consultar Paciente")
+    await paciente_consultar2.setDescripcion("Paciente.consultar: Permiso para que el paciente consulte su información.")
 
-    permisoZ = await PermisoVO.new()
-    await permisoZ.setId(3)
-    await permisoZ.setNombre("acceso a Z cosa")
-    await permisoZ.setDescripcion("descripcion de Z cosa")
+    paciente_consultarPorId = await PermisoVO.new()
+    await paciente_consultarPorId.setId(3)
+    await paciente_consultarPorId.setNombre("Consultar por Id")
+    await paciente_consultarPorId.setDescripcion("Paciente.consultarPorId: Permiso para que el medico busque a un usuario por id")
+
+    paciente_registrar = await PermisoVO.new()
+    await paciente_registrar.setId(4)
+    await paciente_registrar.setNombre("Registrar")
+    await paciente_registrar.setDescripcion("Paciente.registrar: Permiso para que un usuario nuevo se registre en la dapp")
+
+    paciente_cambiarEstado = await PermisoVO.new()
+    await paciente_consultarPorId.setId(5)
+    await paciente_consultarPorId.setNombre("Cambiar estado")
+    await paciente_consultarPorId.setDescripcion("Paciente.cambiarEstado: Permiso para que el medico o administrador cambie el estado de un paciente en el sistema")
+
+
+
 
     // Roles
     rolPaciente = await RolVO.new()
@@ -114,9 +132,12 @@ module.exports = async function (callback) {
     await rolPaciente.setDescripcion("Para usuario paciente")
     await rolPaciente.setPermisos(
         [
-            [1, permisoX.address, true],
-            [2, permisoY.address, true],
-            [3, permisoZ.address, true]
+            [1, paciente_consultar.address, false],
+            [2, paciente_consultar2.address, true],
+            [3, paciente_consultarPorId.address, true],
+            [4, paciente_registrar.address, false],
+            [5, paciente_cambiarEstado.address, true],
+            [6, cambiar________.address, true]
         ]
     )
 
@@ -139,6 +160,11 @@ module.exports = async function (callback) {
     let rolMedicoId = await rolMedico.getId()
     console.log("rol paciente id: " + rolPacienteId)
     console.log("rol médico id: " + rolMedicoId)
+
+
+
+
+
 
     // Carga de datos parametricos
     let cedulaTipoIdentificacionVO = await TipoIdentificacionVO.new()

@@ -6,6 +6,7 @@ import "../persistence/HistoriaClinicaMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
 import "./IteradorHCE/FiltroTipoRegistroMedicoIterator.sol";
 
+
 // import "../persistence/HistoriaClinicaMapper.sol";
 
 contract HistoriaClinica {

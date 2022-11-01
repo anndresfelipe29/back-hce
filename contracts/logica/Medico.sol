@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 import "../models/MedicoVO.sol";
 import "../persistence/MedicoMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
-
+import "../models/VOGenerales/enums/RolDeAccesoEnum.sol";
 import "./sistemaExterno/MedicoOraculo.sol";
 import "./Acceso.sol";
 
@@ -19,8 +19,6 @@ contract Medico {
     RolMapperInterface private rolMapper;
     UsuarioMapperInterface private usuarioMapper;
 
-    //TODO Convertir eventualmente en un enum
-    uint256 rolMedicoId = 1;
 
     constructor() {
         creador = msg.sender;
@@ -35,7 +33,7 @@ contract Medico {
     }
 
     function registrar(address direccion, MedicoVO medico) public {
-        RolVO rol = rolMapper.consultar(rolMedicoId);
+        RolVO rol = rolMapper.consultar(RolDeAccesoEnum.MEDICO);
         UsuarioVO nuevoUsuario = new UsuarioVO();
         nuevoUsuario.setDireccion(direccion);
         nuevoUsuario.setRol(rol);

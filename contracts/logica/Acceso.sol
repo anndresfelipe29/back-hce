@@ -12,8 +12,6 @@ contract Acceso {
 
     UsuarioMapperInterface private usuarioMapper;
 
-
-
     constructor() {
         creador = msg.sender;
     }
