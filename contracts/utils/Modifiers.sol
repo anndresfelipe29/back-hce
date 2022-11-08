@@ -10,7 +10,7 @@ contract Modifiers {
     modifier tieneAcceso(uint256 permisoId) {
         bool esAccesible = acceso.validarPermisoDeRol(msg.sender, permisoId);
         require(esAccesible, "El usuario no tiene acceso");
-        require(true, "El usuario no tiene acceso");
+        // require(true, "El usuario no tiene acceso");
         _; // acá se ejecuta la función
     }
 

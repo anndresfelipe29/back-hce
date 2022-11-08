@@ -6,7 +6,6 @@ import "../persistence/UsuarioMapperInterface.sol";
 import "../persistence/RolMapper.sol";
 import "../persistence/UsuarioMapper.sol";
 
-
 contract Acceso {
     address public creador;
 
@@ -45,6 +44,10 @@ contract Acceso {
             RolVO rol = usuario.getRol();
             return rol.getPermiso(permisoId).accesoPermitido;
         } catch Error(string memory e) {
+            /** Permisos especiales para usuarios nuevos */
+            if (permisoId == 4) {return true;}
+            if (permisoId == 8) {return true;}
+            // TODO: Pasar estos valores a un arreglo de permisos excepcionales que sea modificable
             return false;
         }
     }

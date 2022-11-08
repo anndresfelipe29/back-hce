@@ -105,7 +105,7 @@ contract Paciente is Modifiers {
     // TODO: Solo se podria acceder con el acceso que da el paciente sobre su info
     function actualizar(address direccion, PacienteVO paciente)
         public
-        tieneAcceso(3)
+        tieneAcceso(6)
     {
         if (direccion != msg.sender) {
             // si alguien diferente al propietario de la historia la consulta se debe validar quien es

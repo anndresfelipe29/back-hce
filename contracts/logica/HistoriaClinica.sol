@@ -5,12 +5,11 @@ import "../models/historiaClinica/HistoriaClinicaVO.sol";
 import "../persistence/HistoriaClinicaMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
 import "./IteradorHCE/FiltroTipoRegistroMedicoIterator.sol";
-
+import "../utils/Modifiers.sol";
 
 // import "../persistence/HistoriaClinicaMapper.sol";
 
-contract HistoriaClinica {
-    address public creador;
+contract HistoriaClinica is Modifiers {
     HistoriaClinicaMapperInterface private historiaClinicaMapper;
     DatosParametricosMapperInterface private datosParametricosMapper;
 
@@ -19,8 +18,10 @@ contract HistoriaClinica {
     }
 
     // TODO: Actualizar en enterprise
+    // TODO: Agregar validador de permiso por tiempo
     function getHistoriaClinica(address direccion)
         public
+        tieneAcceso(12)
         returns (HistoriaClinicaVO.HistoriaClinicaStruct memory)
     {
         return
@@ -29,7 +30,7 @@ contract HistoriaClinica {
                 .getHistoriaClinicaStruct();
     }
 
-    function inicializarHCE(address direccionPaciente) public {
+    function inicializarHCE(address direccionPaciente) public tieneAcceso(13) {
         HistoriaClinicaVO nuevaHistoriaClinica = new HistoriaClinicaVO();
         // Llamar un estado del mapper de estados, y guardarlo
         EstadoHCEVO estadoHCE = datosParametricosMapper.consultarEstadoHCEVO(0);
@@ -40,7 +41,7 @@ contract HistoriaClinica {
     function agregarRegistro(
         address direccionPaciente,
         RegistroMedico registroMedico
-    ) public {
+    ) public tieneAcceso(14) {
         registroMedico.setCodPrestadorServicioDeSalud(msg.sender);
         registroMedico.setFechaRegistro(block.timestamp);
         // TODO: Setear el tipo de registro médico desde el front
@@ -51,8 +52,10 @@ contract HistoriaClinica {
         historiaClinica.agregarRegistroMedico(registroMedico);
     }
 
+    // TODO: Agregar validador de permiso por tiempo
     function consultarRegistro(address direccionPaciente, uint256 idRegistro)
         public
+        tieneAcceso(15)
         returns (RegistroMedico)
     {
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
@@ -61,8 +64,10 @@ contract HistoriaClinica {
         return historiaClinica.getListaRegistros()[idRegistro];
     }
 
+    // TODO: Validar en enterprise architect
     function eliminarRegistro(address direccionPaciente, uint256 idRegistro)
         public
+        tieneAcceso(16)
     {
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
             direccionPaciente
@@ -73,7 +78,7 @@ contract HistoriaClinica {
     function registrosFiltradosPorFecha(
         address direccionPaciente,
         uint256 idRegistro
-    ) public returns (RegistroMedico[] memory) {
+    ) public tieneAcceso(17) returns (RegistroMedico[] memory) {
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
             direccionPaciente
         );
@@ -84,7 +89,7 @@ contract HistoriaClinica {
     function registrosFiltradosPorTipo(
         address direccionPaciente,
         TipoRegistroMedico tipoRegistroMedico
-    ) public returns (RegistroMedico[] memory) {
+    ) public tieneAcceso(18) returns (RegistroMedico[] memory) {
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
             direccionPaciente
         );
@@ -112,20 +117,11 @@ contract HistoriaClinica {
                     posicion = posicion + 1;
                 }
             } catch Error(string memory e) {
-                hayMasRegistros = false;                
+                hayMasRegistros = false;
             }
         }
         filtro.selfDestruct();
         return listaDeRegistrosFiltrados;
-    }
-
-    // TODO: poner en clase generica y reusarlo
-    modifier esPropietario() {
-        require(
-            msg.sender == creador,
-            "Esta funcion solo puede ser ejecutada por el creador del contrato"
-        );
-        _; // acá se ejecuta la función
     }
 
     function setHistoriaClinicaMapper(

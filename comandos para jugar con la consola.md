@@ -8,12 +8,6 @@ instance.sendCoin(accounts[1], 10, {from: accounts[0]})
 
 web3.eth.getBalance(accounts[0])
 
-## Instanciar objetos de los contratos
-
-AccesoService.deployed().then(c => accesoService=c)
-MedicoService.deployed().then(c => medicoService=c)
-PacienteService.deployed().then(c => pacienteService=c)
-
 #### tener en cuenta en una estructura interna se debe poner al parecer todo en comillas
 - personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
 
@@ -47,6 +41,7 @@ usuarioVO.setEstaActivo(true)
 - permisoRol.guardar(0, 0, true)
 
 ### Acceso 
+const accounts = await web3.eth.getAccounts()
 - Acceso.deployed().then(c => acceso=c)
 
 - acceso.setUsuarioMapper(usuarioMapper.address)
@@ -103,7 +98,9 @@ paciente.consultar(accounts[0], { from: accounts[2] })
 
 ### Médico
 - Medico.deployed().then(c => medico=c)
-- medico.registrarConStruct(accounts[4], [[accounts[4], "Andres","struct", "Gomas", "test", "111111",0, "true"], 1,0], "usuario", "contrasena", { from: accounts[4] })
+- medico.consultar(accounts[9], { from: accounts[8] })
+- medico.registrarConStruct(accounts[9], [[accounts[9], 0, "Andres","medico", "Gomas", "test", "111111",0, "true"], 1,0], "usuario", "contrasena", { from: accounts[9] })
+    
 
 ### RolMapper
 - RolMapper.deployed().then(c =>rolMapper=c)
@@ -197,8 +194,8 @@ const accounts = await web3.eth.getAccounts()
 - ahc.esSolicitudVigente(accounts[0], accounts[1])
 - ahc.getPermisosDeAccesoActivosPorHistoriaClinica(accounts[0])
 - ahc.getPermisosDeAccesoPorHistoriaClinica(accounts[0])
-- ahc.getPermisosDeAccesoActivosPorMedico(accounts[1])
-- ahc.getPermisosDeAccesoPorMedico(accounts[1])
+- ahc.getPermisosDeAccesoActivosPorMedico(accounts[9], {from: accounts[9]})
+- ahc.getPermisosDeAccesoPorMedico.call(accounts[9], {from: accounts[9]})
 
 
 # PermisoDeAccesoVO

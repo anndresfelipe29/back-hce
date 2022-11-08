@@ -1,9 +1,9 @@
 pragma solidity ^0.8.17;
 
 import "../persistence/AccesoHistoriaClinicaMapper.sol";
+import "../utils/Modifiers.sol";
 
-contract AccesoHistoriaClinica {
-    address public creador;
+contract AccesoHistoriaClinica is Modifiers {
 
     AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
 
@@ -15,6 +15,7 @@ contract AccesoHistoriaClinica {
     // Lo hace el paciente
     function responderSolicitudDeAcceso(address direccionMedico, bool acepta)
         external
+        tieneAcceso(19)
     {
         PermisoDeAccesoVO[] memory permisos = accesoHistoriaClinicaMapper
             .getPermisos(msg.sender, direccionMedico);
@@ -45,6 +46,7 @@ contract AccesoHistoriaClinica {
     // Lo hace el médico
     function solicitarAccesoHistoriaClinica(address direccionPaciente)
         external
+        tieneAcceso(20)
         returns (uint256)
     {
         PermisoDeAccesoVO permiso = new PermisoDeAccesoVO();
@@ -63,7 +65,7 @@ contract AccesoHistoriaClinica {
     function esSolicitudVigente(
         address direccionPaciente,
         address direccionMedico
-    ) external view returns (bool) {
+    ) external tieneAcceso(21) returns (bool) {
         return
             accesoHistoriaClinicaMapper.esPermisoVigente(
                 direccionPaciente,
@@ -73,25 +75,25 @@ contract AccesoHistoriaClinica {
 
     function getPermisosDeAccesoActivosPorHistoriaClinica(
         address direccionPaciente
-    ) public view returns(PermisoDeAccesoVO[] memory) {
+    ) public tieneAcceso(22) returns(PermisoDeAccesoVO[] memory) {
         return accesoHistoriaClinicaMapper.getPermisosDeAccesoActivosPorHistoriaClinica(direccionPaciente);
     }
 
     function getPermisosDeAccesoPorHistoriaClinica(
         address direccionPaciente
-    ) public view returns(PermisoDeAccesoVO[] memory) {
+    ) public tieneAcceso(23) returns(PermisoDeAccesoVO[] memory) {
         return accesoHistoriaClinicaMapper.getPermisosDeAccesoPorHistoriaClinica(direccionPaciente);
     }
 
     function getPermisosDeAccesoActivosPorMedico(
         address direccionMedico
-    ) public view returns(PermisoDeAccesoVO[] memory) {        
+    ) public tieneAcceso(24) returns(PermisoDeAccesoVO[] memory) {        
         return accesoHistoriaClinicaMapper.getPermisosDeAccesoActivosPorMedico(direccionMedico);
     }
 
     function getPermisosDeAccesoPorMedico(
         address direccionMedico
-    ) public view returns(PermisoDeAccesoVO[] memory) {
+    ) public tieneAcceso(25) returns(PermisoDeAccesoVO[] memory) {
         return accesoHistoriaClinicaMapper.getPermisosDeAccesoPorMedico(direccionMedico);
     }
 
@@ -101,21 +103,8 @@ contract AccesoHistoriaClinica {
         accesoHistoriaClinicaMapper = _accesoHistoriaClinicaMapper;
     }
 
-    modifier esPropietario() {
-        require(
-            msg.sender == creador,
-            "Esta funcion solo puede ser ejecutada por el creador del contrato"
-        );
-        _; // acá se ejecuta la función
-    }
-
     function selfDestruct() public esPropietario {
         selfdestruct(payable(creador));
     }
 
-    /*modifier tieneAcceso(uint256 permisoId) {
-        bool esAccesible = acceso.validarPermisoDeRol(msg.sender, permisoId);
-        require(esAccesible, "El usuario no tiene acceso");
-        _; // acá se ejecuta la función
-    }*/
 }
