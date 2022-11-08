@@ -4,13 +4,13 @@ pragma solidity ^0.8.17;
 import "./RegistroMedico.sol";
 import "../structsGenerales/IncapacidadStruct.sol";
 
-contract HospitalizacionVO is RegistroMedico {
+contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACIONVO) {
     struct HospitalizacionStruct {
         uint256 causaExterna;
         string diagnosticoIngreso;
         uint256 viaDeIngreso;
         uint256 fechaIngreso;
-        bool estadoSalida; // TODO quizá deba ser salidaVivo;
+        bool salidaVivo; 
         string diagnosticoEgreso; // TODO quizá deba ser diagnostico salida
         uint256 fechaEgreso;
         string complicacion;
@@ -35,8 +35,8 @@ contract HospitalizacionVO is RegistroMedico {
         return hospitalizacionStruct.fechaIngreso;
     }
 
-    function getEstadoSalida() public view returns (bool) {
-        return hospitalizacionStruct.estadoSalida;
+    function getSalidaVivo() public view returns (bool) {
+        return hospitalizacionStruct.salidaVivo;
     }
 
     function getDiagnosticoEgreso() public view returns (string memory) {
@@ -85,8 +85,8 @@ contract HospitalizacionVO is RegistroMedico {
         hospitalizacionStruct.fechaIngreso = _fechaIngreso;
     }
 
-    function setEstadoSalida(bool _estadoSalida) public {
-        hospitalizacionStruct.estadoSalida = _estadoSalida;
+    function setSalidaVivo(bool _salidaVivo) public {
+        hospitalizacionStruct.salidaVivo = _salidaVivo;
     }
 
     function setDiagnosticoEgreso(string memory _diagnosticoEgreso) public {

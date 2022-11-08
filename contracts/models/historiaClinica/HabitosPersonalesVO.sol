@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import "./RegistroMedico.sol";
 
-contract HabitosPersonalesVO is RegistroMedico {
+contract HabitosPersonalesVO is RegistroMedico (TipoRegistroMedico.HABITOSPERSONALESVO) {
     struct HabitosPersonalesStruct {
         string toxicomanias;
         uint256 lavadoDientes;

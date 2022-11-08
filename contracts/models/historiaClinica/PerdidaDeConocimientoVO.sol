@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import "./RegistroMedico.sol";
 
-contract PerdidaDeConocimientoVO is RegistroMedico {
+contract PerdidaDeConocimientoVO is RegistroMedico (TipoRegistroMedico.PERDIDADECONOCIMIENTOVO) {
     struct PerdidaDeConocimientoStruct {
         string descripcion;
         uint256 fechaAproximada;

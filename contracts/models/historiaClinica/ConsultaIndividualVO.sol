@@ -8,7 +8,7 @@ import "../structsGenerales/ExploracionPorSistemasStruct.sol";
 
 //import "./structsGenerales/DatosPersonalesStruct.sol";
 
-contract ConsultaIndividualVO is RegistroMedico {
+contract ConsultaIndividualVO is RegistroMedico (TipoRegistroMedico.CONSULTAINDIVIDUALVO) {
     struct ConsultaIndividualStruct {
         uint256 fechaAtencion;
         bool consultaPrioritaria;
@@ -19,7 +19,7 @@ contract ConsultaIndividualVO is RegistroMedico {
         ExploracionPorRegionesStruct exploracionPorRegiones;
         ExploracionPorSistemasStruct exploracionPorSistemas;
         uint256 codigoDiagnostico;
-        uint256 conducta;
+        string conducta; // TODO: Revisar conducto
         uint256 tipoDiagnostico;
         uint256 numeroConsultaDelAno;
         IncapacidadStruct incapacidad;
@@ -87,7 +87,7 @@ contract ConsultaIndividualVO is RegistroMedico {
         return consultaIndividualStruct.codigoDiagnostico;
     }
 
-    function getConducta() public view returns (uint256) {
+    function getConducta() public view returns (string memory) {
         return consultaIndividualStruct.conducta;
     }
 
@@ -146,12 +146,13 @@ contract ConsultaIndividualVO is RegistroMedico {
         consultaIndividualStruct.codigoDiagnostico = _codigoDiagnostico;
     }
 
-    function setConducta(uint256 _tipoDiagnostico) public {
-        consultaIndividualStruct.tipoDiagnostico = _tipoDiagnostico;
+    function setConducta(string memory _conducta) public {
+        consultaIndividualStruct.conducta = _conducta;
+        
     }
 
-    function setTipoDiagnostico(uint256 _conducta) public {
-        consultaIndividualStruct.conducta = _conducta;
+    function setTipoDiagnostico(uint256 _tipoDiagnostico) public {
+        consultaIndividualStruct.tipoDiagnostico = _tipoDiagnostico;
     }
 
     function setNumeroConsultaDelAno(uint256 _numeroConsultaDelAno) public {

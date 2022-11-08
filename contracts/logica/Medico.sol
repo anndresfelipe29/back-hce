@@ -3,14 +3,15 @@ pragma solidity ^0.8.17;
 import "../models/MedicoVO.sol";
 import "../persistence/MedicoMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
-
+import "../models/VOGenerales/enums/RolDeAccesoEnum.sol";
 import "./sistemaExterno/MedicoOraculo.sol";
 import "./Acceso.sol";
+import "../utils/Modifiers.sol";
 
-contract Medico {
+contract Medico is Modifiers {
     // TODO: consumir este evento desde una clase heredada o algo así
     event Log(string data);
-    address public creador;
+    //address public creador;
     address public medicoMapperAddress;
 
     MedicoMapperInterface private medicoMapper;
@@ -19,35 +20,41 @@ contract Medico {
     RolMapperInterface private rolMapper;
     UsuarioMapperInterface private usuarioMapper;
 
-    //TODO Convertir eventualmente en un enum
-    uint256 rolMedicoId = 1;
-
     constructor() {
         creador = msg.sender;
     }
 
     function consultar(address direccion)
         public
+        tieneAcceso(7)
         returns (MedicoVO.MedicoVOStruct memory)
     {
         emit Log("entro a consultar");
         return medicoMapper.consultar(direccion).getMedicoVOValue();
     }
 
-    function registrar(address direccion, MedicoVO medico) public {
-        RolVO rol = rolMapper.consultar(rolMedicoId);
+    function registrar(address direccion, MedicoVO medico)
+        public
+        tieneAcceso(4)
+    {
+        if (direccion != msg.sender) {
+            revert("Un paciente se debe registrar a si mismo");
+        }
+        RolVO rol = rolMapper.consultar(RolDeAccesoEnum.MEDICO);
         UsuarioVO nuevoUsuario = new UsuarioVO();
         nuevoUsuario.setDireccion(direccion);
         nuevoUsuario.setRol(rol);
         nuevoUsuario.setEstaActivo(true);
         usuarioMapper.guardar(direccion, nuevoUsuario);
-        try medicoMapper.guardar(direccion, medico) {
+        medicoMapper.guardar(direccion, medico);
+        /*try  {
             emit Log("Se guarda la informacion del medico correctamente");
         } catch Error(string memory data) {
             /*reason*/
+            /*
             emit Log("se rompio por un revert o require");
             emit Log(data);
-        }
+        }*/
     }
 
     function registrarConStruct(
@@ -82,7 +89,11 @@ contract Medico {
         registrar(direccion, medicoVO);
     }
 
-    function actualizar(address direccion, MedicoVO medico) public {
+    // TODO: Cambiar por struct
+    function actualizar(address direccion, MedicoVO medico)
+        public
+        tieneAcceso(9)
+    {
         medicoMapper.actualizar(direccion, medico);
         /*
         try contratoPacienteDAO.actualizar(direccion, paciente) {
@@ -96,6 +107,7 @@ contract Medico {
 
     /*function verificarExistenciaEnSistemaExterno(address direccion)
         public
+        tieneAcceso(10)
         returns (bool)
     {
         /* TODO: Consultar info del medico (usuario y contraseña)
@@ -105,7 +117,8 @@ contract Medico {
         return true;
     }*/
 
-    /*function buscarPerfilMedicoSistemaExterno(address direccion) public returns (PerfilMedicoSistemaExternoStruct memory){
+    /*function buscarPerfilMedicoSistemaExterno(address direccion) public 
+    tieneAcceso(11) returns (PerfilMedicoSistemaExternoStruct memory){
         // TODO: tambien con oraculo
     }*/
 
@@ -129,7 +142,7 @@ contract Medico {
         medicoOraculo = _medicoOraculo;
     }
 
-        function setRolMapper(RolMapperInterface _rolMapperAddress)
+    function setRolMapper(RolMapperInterface _rolMapperAddress)
         public
         esPropietario
     {
@@ -141,15 +154,6 @@ contract Medico {
         esPropietario
     {
         usuarioMapper = _usuarioMapperAddress;
-    }
-
-    // TODO: poner en clase generica y reusarlo
-    modifier esPropietario() {
-        require(
-            msg.sender == creador,
-            "Esta funcion solo puede ser ejecutada por el creador del contrato"
-        );
-        _; // acá se ejecuta la función
     }
 
     function selfDestruct() public esPropietario {

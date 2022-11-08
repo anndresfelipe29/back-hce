@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 import "./RegistroMedico.sol";
 import "../structsGenerales/IncapacidadStruct.sol";
 
-contract AtencionUrgenciasVO is RegistroMedico {
+contract AtencionUrgenciasVO is RegistroMedico(TipoRegistroMedico.ATENCIONURGENCIASVO) {
     struct AtencionUrgenciasStruct {
         uint256 fechaIngreso;
         uint256 fechaSalida;

@@ -1,13 +1,15 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
 import "../models/historiaClinica/HistoriaClinicaVO.sol";
 import "../persistence/HistoriaClinicaMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
+import "./IteradorHCE/FiltroTipoRegistroMedicoIterator.sol";
+import "../utils/Modifiers.sol";
 
 // import "../persistence/HistoriaClinicaMapper.sol";
 
-contract HistoriaClinica {
-    address public creador;
+contract HistoriaClinica is Modifiers {
     HistoriaClinicaMapperInterface private historiaClinicaMapper;
     DatosParametricosMapperInterface private datosParametricosMapper;
 
@@ -16,11 +18,19 @@ contract HistoriaClinica {
     }
 
     // TODO: Actualizar en enterprise
-    function getHistoriaClinica(address direccion) public returns(HistoriaClinicaVO.HistoriaClinicaStruct  memory) { 
-        return historiaClinicaMapper.consultar(direccion).getHistoriaClinicaStruct();
+    // TODO: Agregar validador de permiso por tiempo
+    function getHistoriaClinica(address direccion)
+        public
+        tieneAcceso(12)        
+        returns (HistoriaClinicaVO.HistoriaClinicaStruct memory)
+    {
+        return
+            historiaClinicaMapper
+                .consultar(direccion)
+                .getHistoriaClinicaStruct();
     }
 
-    function inicializarHCE(address direccionPaciente) public {
+    function inicializarHCE(address direccionPaciente) public tieneAcceso(13) {
         HistoriaClinicaVO nuevaHistoriaClinica = new HistoriaClinicaVO();
         // Llamar un estado del mapper de estados, y guardarlo
         EstadoHCEVO estadoHCE = datosParametricosMapper.consultarEstadoHCEVO(0);
@@ -28,41 +38,90 @@ contract HistoriaClinica {
         historiaClinicaMapper.guardar(direccionPaciente, nuevaHistoriaClinica);
     }
 
-    function agregarRegistro(address direccionPaciente, RegistroMedico registroMedico) public {
+    function agregarRegistro(
+        address direccionPaciente,
+        RegistroMedico registroMedico
+    ) public tieneAcceso(14) tienePermisoDeAccesoTemporal(direccionPaciente) {
         registroMedico.setCodPrestadorServicioDeSalud(msg.sender);
         registroMedico.setFechaRegistro(block.timestamp);
         // TODO: Setear el tipo de registro médico desde el front
         // TODO: Falta definir el id
-        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(direccionPaciente);
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
         historiaClinica.agregarRegistroMedico(registroMedico);
     }
 
-    function consultarRegistro(address direccionPaciente, uint256 idRegistro) public returns(RegistroMedico){
-        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(direccionPaciente);
+    // TODO: Agregar validador de permiso por tiempo
+    function consultarRegistro(address direccionPaciente, uint256 idRegistro)
+        public
+        tieneAcceso(15) tienePermisoDeAccesoTemporal(direccionPaciente)
+        returns (RegistroMedico)
+    {
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
         return historiaClinica.getListaRegistros()[idRegistro];
     }
 
-    function eliminarRegistro(address direccionPaciente, uint256 idRegistro) public{
-        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(direccionPaciente);
+    // TODO: Validar en enterprise architect
+    function eliminarRegistro(address direccionPaciente, uint256 idRegistro)
+        public
+        tieneAcceso(16) tienePermisoDeAccesoTemporal(direccionPaciente)
+    {
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
         historiaClinica.eliminarRegistroMedico(idRegistro);
     }
 
-    function registrosFiltradosPorFecha(address direccionPaciente, uint256 idRegistro) public returns(RegistroMedico[] memory){
-        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(direccionPaciente);
+    function registrosFiltradosPorFecha(
+        address direccionPaciente,
+        uint256 idRegistro
+    ) public tieneAcceso(17) tienePermisoDeAccesoTemporal(direccionPaciente) returns (RegistroMedico[] memory) {
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
         return historiaClinica.getListaRegistros();
     }
 
-    function registrosFiltradosPorTipo(address direccionPaciente, uint256 idRegistro) public{
-        
-    }
-
-    // TODO: poner en clase generica y reusarlo
-    modifier esPropietario() {
-        require(
-            msg.sender == creador,
-            "Esta funcion solo puede ser ejecutada por el creador del contrato"
+    // TODO: Agregar modifier para saber si puede consultar o no
+    function registrosFiltradosPorTipo(
+        address direccionPaciente,
+        TipoRegistroMedico tipoRegistroMedico
+    ) public tieneAcceso(18) tienePermisoDeAccesoTemporal(direccionPaciente) returns (RegistroMedico[] memory) {
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
         );
-        _; // acá se ejecuta la función
+        RegistroMedico[] memory listaDeRegistros = historiaClinica
+            .getListaRegistros();
+
+        FiltroTipoRegistroMedicoIterator filtro = new FiltroTipoRegistroMedicoIterator(
+                listaDeRegistros,
+                tipoRegistroMedico
+            );
+
+        RegistroMedico[]
+            memory listaDeRegistrosFiltrados = new RegistroMedico[](
+                listaDeRegistros.length
+            );
+
+        bool hayMasRegistros = true;
+        uint256 posicion = 0;
+        while (hayMasRegistros) {
+            try filtro.getNext() returns (RegistroMedico registro) {
+                if (address(registro) == address(0)) {
+                    hayMasRegistros = false;
+                } else {
+                    listaDeRegistrosFiltrados[posicion] = registro;
+                    posicion = posicion + 1;
+                }
+            } catch Error(string memory e) {
+                hayMasRegistros = false;
+            }
+        }
+        filtro.selfDestruct();
+        return listaDeRegistrosFiltrados;
     }
 
     function setHistoriaClinicaMapper(

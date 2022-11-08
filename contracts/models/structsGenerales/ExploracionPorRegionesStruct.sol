@@ -15,6 +15,6 @@ struct SignosVitalesStruct{
     uint256 frecuenciaCardiaca;
     uint256 frecuenciaRespiratoria;
     string tensionArterial;
-    uint peso; // TODO verificar como son los double y float aqui
+    uint peso;
     uint temperatura;
 }
