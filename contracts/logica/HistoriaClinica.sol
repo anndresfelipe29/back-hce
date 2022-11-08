@@ -21,7 +21,7 @@ contract HistoriaClinica is Modifiers {
     // TODO: Agregar validador de permiso por tiempo
     function getHistoriaClinica(address direccion)
         public
-        tieneAcceso(12)
+        tieneAcceso(12)        
         returns (HistoriaClinicaVO.HistoriaClinicaStruct memory)
     {
         return
@@ -41,7 +41,7 @@ contract HistoriaClinica is Modifiers {
     function agregarRegistro(
         address direccionPaciente,
         RegistroMedico registroMedico
-    ) public tieneAcceso(14) {
+    ) public tieneAcceso(14) tienePermisoDeAccesoTemporal(direccionPaciente) {
         registroMedico.setCodPrestadorServicioDeSalud(msg.sender);
         registroMedico.setFechaRegistro(block.timestamp);
         // TODO: Setear el tipo de registro médico desde el front
@@ -55,7 +55,7 @@ contract HistoriaClinica is Modifiers {
     // TODO: Agregar validador de permiso por tiempo
     function consultarRegistro(address direccionPaciente, uint256 idRegistro)
         public
-        tieneAcceso(15)
+        tieneAcceso(15) tienePermisoDeAccesoTemporal(direccionPaciente)
         returns (RegistroMedico)
     {
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
@@ -67,7 +67,7 @@ contract HistoriaClinica is Modifiers {
     // TODO: Validar en enterprise architect
     function eliminarRegistro(address direccionPaciente, uint256 idRegistro)
         public
-        tieneAcceso(16)
+        tieneAcceso(16) tienePermisoDeAccesoTemporal(direccionPaciente)
     {
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
             direccionPaciente
@@ -78,7 +78,7 @@ contract HistoriaClinica is Modifiers {
     function registrosFiltradosPorFecha(
         address direccionPaciente,
         uint256 idRegistro
-    ) public tieneAcceso(17) returns (RegistroMedico[] memory) {
+    ) public tieneAcceso(17) tienePermisoDeAccesoTemporal(direccionPaciente) returns (RegistroMedico[] memory) {
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
             direccionPaciente
         );
@@ -89,7 +89,7 @@ contract HistoriaClinica is Modifiers {
     function registrosFiltradosPorTipo(
         address direccionPaciente,
         TipoRegistroMedico tipoRegistroMedico
-    ) public tieneAcceso(18) returns (RegistroMedico[] memory) {
+    ) public tieneAcceso(18) tienePermisoDeAccesoTemporal(direccionPaciente) returns (RegistroMedico[] memory) {
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
             direccionPaciente
         );

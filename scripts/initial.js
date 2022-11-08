@@ -78,6 +78,7 @@ module.exports = async function (callback) {
     await historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
     await historiaClinica.setHistoriaClinicaMapper(historiaClinicaMapper.address)
     await historiaClinica.setAcceso(acceso.address)
+    await historiaClinica.setAccesoHistoriaClinica(accesoHistoriaClinica.address)
 
     // Médico
     medico = await Medico.deployed()
