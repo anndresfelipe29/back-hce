@@ -5,6 +5,9 @@ import "../utils/Modifiers.sol";
 
 contract AccesoHistoriaClinica is Modifiers {
 
+    event Log(string data);
+    event Notification(string data, address indexed notificado);
+
     AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
 
     constructor() {
@@ -24,6 +27,7 @@ contract AccesoHistoriaClinica is Modifiers {
         for (uint256 i = permisos.length; i > 0; i--) {
             permiso = permisos[i - 1];
             if (!permiso.getFueRespondido()) {
+                emit Log("La solicitud fue respondida");
                 if (acepta) {
                     permiso.setFueRespondido(true);
                     permiso.setFechaSolicitud(fechaActual);
@@ -51,6 +55,7 @@ contract AccesoHistoriaClinica is Modifiers {
     {
         PermisoDeAccesoVO permiso = new PermisoDeAccesoVO();
         permiso.setFueRespondido(false); // TODO: agregar aqui fecha de daolicitud en permiso
+        emit Notification("Se solicito un acceso", direccionPaciente);
         return
             accesoHistoriaClinicaMapper.setPermiso(
                 direccionPaciente,

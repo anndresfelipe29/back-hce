@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 import "../utils/Utils.sol";
 
 contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
+
     address public creador;
 
     // TODO: Actualizar clase en enterprise architect
@@ -78,7 +79,7 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
         permiso.setId(id);
         permiso.setLlave(llave);
 
-
+        emit Log("Se solicito un acceso");
         return id;
     }
 
