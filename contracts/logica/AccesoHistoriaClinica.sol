@@ -5,10 +5,10 @@ import "../utils/Modifiers.sol";
 
 contract AccesoHistoriaClinica is Modifiers {
 
+AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
+
     event Log(string data);
     event Notification(string data, address indexed notificado);
-
-    AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
 
     constructor() {
         creador = msg.sender;
@@ -70,7 +70,7 @@ contract AccesoHistoriaClinica is Modifiers {
     function esSolicitudVigente(
         address direccionPaciente,
         address direccionMedico
-    ) external tieneAcceso(21) returns (bool) {
+    ) external returns (bool) {
         return
             accesoHistoriaClinicaMapper.esPermisoVigente(
                 direccionPaciente,

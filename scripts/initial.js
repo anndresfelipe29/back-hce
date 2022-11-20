@@ -69,10 +69,10 @@ module.exports = async function (callback) {
     await acceso.setUsuarioMapper(usuarioMapper.address)
 
     // accesoHistoriaClinica
-    accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()
-    console.log("accesoHistoriaClinica: ", accesoHistoriaClinica.address)
+    accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()    
     await accesoHistoriaClinica.setAccesoHistoriaClinicaMapper(accesoHistoriaClinicaMapper.address)
     await accesoHistoriaClinica.setAcceso(acceso.address)
+    console.log("accesoHistoriaClinica: ", accesoHistoriaClinica.address)
 
     // Historia clínica
     historiaClinica = await HistoriaClinica.deployed()

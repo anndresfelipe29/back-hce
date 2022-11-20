@@ -14,12 +14,14 @@ web3.eth.getBalance(accounts[0])
 # Comandos actualizados
 ### UsuarioVO (Al parecer los VO no requieren desplegarse)
 UsuarioVO.new().then(c => usuarioVO=c)
-UsuarioVO.at("0x8c7cCb0B2fcC0a9F7c38B926886B04EAA1822A5D").then(c=> j=c)
+UsuarioVO.at("0xE79dBBBf9F62b81C8C5bFde87ad38224e2C91F6A").then(c=> usuarioVO=c)
+UsuarioVO.at(accounts[9]).then(c=> j=c)
 
 usuarioVO.setDireccion(accounts[2])
 usuarioVO.setRolId(0)
 usuarioVO.setEstaActivo(true)
-usuarioVO.getRolId()
+usuarioVO.getRol()
+usuarioVO.getUsuarioVOValue()
 
 usuarioVO.setDireccion(accounts[1])
 usuarioVO.setRolId(1)
@@ -30,7 +32,7 @@ usuarioVO.setEstaActivo(true)
 - UsuarioMapper.at("0xfD36d95486f2AD968119202d2608aE8b81981D44").then(c => usuarioMapper=c)
 
 
-- usuarioMapper.consultar(accounts[2])
+- usuarioMapper.consultar(accounts[9])
 - usuarioMapper.guardar(accounts[2], usuarioVO.address)
 
 ### PermisoRolMapper
@@ -50,12 +52,14 @@ const accounts = await web3.eth.getAccounts()
 - acceso.login({from: accounts[0]}) 
 - acceso.login.call({from: accounts[0]})
 
-- acceso.usuarioEsMedico.call(accounts[2]) 
+- acceso.usuarioEsMedico.call(accounts[9]) 
 - acceso.usuarioEsPaciente.call(accounts[2]) 
 
 - acceso.buscarPermisoDeRol.call(accounts[2],1) 
 
-- acceso.validarPermisoDeRol.call(accounts[2],2)
+- acceso.validarPermisoDeRol.call(accounts[9],21)
+
+
 
 ## PacienteMapper
 - PacienteMapper.deployed().then(c => pacienteMapper=c)
@@ -111,7 +115,7 @@ rolMapper.guardar(rolVO.address)
 
 ### RolVO
 RolVO.new().then(c => rolVO=c)
-RolVO.at("0xbb17Ff027510c12C0a5cdBB3fA06743797Ce5b5e").then(c => rolVO=c)
+RolVO.at("0x5FbcD1602c8da56F6eDCb185CbdF560f6a5080BF").then(c => rolVO=c)
 rolVO.setId(5)
 rolVO.getId()
 rolVO.setNombre("ganster")
@@ -160,7 +164,7 @@ datosParametricosMapper.consultarTipoIdentificacionVO(0)
 - historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
 - historiaClinica.inicializarHCE(accounts[0])
 - historiaClinica.registrosFiltradosPorFecha(accounts[0], 1)
-- historiaClinica.agregarRegistro(accounts[0], alergia.address)
+- historiaClinica.agregarRegistro(accounts[8], alergia.address, {from: accounts[9]})
 - historiaClinica.registrosFiltradosPorTipo(accounts[8], 0)
 
 # Alergia VO
@@ -197,10 +201,13 @@ const accounts = await web3.eth.getAccounts()
 - ahc.getPermisosDeAccesoActivosPorMedico(accounts[9], {from: accounts[9]})
 - ahc.getPermisosDeAccesoPorMedico.call(accounts[9], {from: accounts[9]})
 
+- ahc.esSolicitudVigente.call(accounts[8], accounts[9])
+- ahc.setAccesoHistoriaClinicaMapper("0xdcc85D7139741266B58853341af6B62a0D3B8dd4")
+- ahc.setAcceso("0xdcc85D7139741266B58853341af6B62a0D3B8dd4")
 
 # PermisoDeAccesoVO
 - PermisoDeAccesoVO.new().then(c => permiso = c)
-- PermisoDeAccesoVO.at('0xF221428DC3818a805772f1528AB89ffbBDd11102').then(c => permiso = c)
+- PermisoDeAccesoVO.at('0x6201629101b14Df46d2DC10A06599332AB850Ea4').then(c => permiso = c)
 - permiso.setFechaExpiracion(1663869864)
 - permiso.getFechaExpiracion()
 - permiso.getId()
