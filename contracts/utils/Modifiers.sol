@@ -3,6 +3,7 @@ pragma solidity 0.8.17;
 
 import "../logica/Acceso.sol";
 import "../logica/AccesoHistoriaClinica.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract Modifiers {
     address public creador;
@@ -11,7 +12,13 @@ contract Modifiers {
 
     modifier tieneAcceso(uint256 permisoId) {
         bool esAccesible = acceso.validarPermisoDeRol(msg.sender, permisoId);
-        require(esAccesible, "El usuario no tiene acceso");
+        require(
+            esAccesible,
+            string.concat(
+                "El usuario no tiene acceso por rol a la funcion: ",
+                Strings.toString(permisoId)
+            )
+        );
         // require(true, "El usuario no tiene acceso");
         _; // acá se ejecuta la función
     }
@@ -22,7 +29,7 @@ contract Modifiers {
                 direccionPaciente,
                 msg.sender
             );
-            require(esAccesible, "El usuario no tiene acceso");
+            require(esAccesible, "El usuario no tiene acceso temporal");
         }
 
         _; // acá se ejecuta la función
@@ -40,7 +47,18 @@ contract Modifiers {
         acceso = _accesoAddress;
     }
 
-    function setAccesoHistoriaClinica(AccesoHistoriaClinica _accesoHistoriaClinicaAddress) public esPropietario {
+    function setAccesoHistoriaClinica(
+        AccesoHistoriaClinica _accesoHistoriaClinicaAddress
+    ) public esPropietario {
         accesoHistoriaClinica = _accesoHistoriaClinicaAddress;
+    }
+
+    // TODO: Quitar
+    function getAcceso() public view returns (Acceso) {
+        return acceso;
+    }
+    // TODO: Quitar
+    function tieneAccesoFunc(uint256 permisoId) public returns (bool){
+        return acceso.validarPermisoDeRol(msg.sender, permisoId);
     }
 }
