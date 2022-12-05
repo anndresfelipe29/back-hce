@@ -19,5 +19,7 @@ module.exports = async function (callback) {
     
 
     console.log("Terminamos la carga de datos y conexión entre contratos")
+    console.log("usuarios disponibles:")
+    console.table(accounts)
     callback()
 }

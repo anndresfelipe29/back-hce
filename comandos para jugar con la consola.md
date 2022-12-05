@@ -165,7 +165,10 @@ datosParametricosMapper.consultarTipoIdentificacionVO(0)
 - historiaClinica.inicializarHCE(accounts[0])
 - historiaClinica.registrosFiltradosPorFecha(accounts[0], 1)
 - historiaClinica.agregarRegistro(accounts[8], alergia.address, {from: accounts[9]})
-- historiaClinica.registrosFiltradosPorTipo(accounts[8], 0)
+- historiaClinica.registrosFiltradosPorTipo(accounts[8], 0, {from: accounts[9]})
+
+- historiaClinica.getAcceso()
+- historiaClinica.tieneAccesoFunc(21, {from: accounts[9]})
 
 # Alergia VO
 - AlergiaVO.new().then(c => alergia=c)
@@ -201,9 +204,11 @@ const accounts = await web3.eth.getAccounts()
 - ahc.getPermisosDeAccesoActivosPorMedico(accounts[9], {from: accounts[9]})
 - ahc.getPermisosDeAccesoPorMedico.call(accounts[9], {from: accounts[9]})
 
-- ahc.esSolicitudVigente.call(accounts[8], accounts[9])
+- ahc.esSolicitudVigente.call(accounts[8], accounts[9], {from: accounts[9]})
 - ahc.setAccesoHistoriaClinicaMapper("0xdcc85D7139741266B58853341af6B62a0D3B8dd4")
 - ahc.setAcceso("0xdcc85D7139741266B58853341af6B62a0D3B8dd4")
+- ahc.getAcceso()
+- ahc.tieneAccesoFunc(21)
 
 # PermisoDeAccesoVO
 - PermisoDeAccesoVO.new().then(c => permiso = c)
