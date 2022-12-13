@@ -20,6 +20,7 @@ enum TipoRegistroMedico {
     PRUEBADELABORATORIOVO, // 14
     TRANSFUSIONVO, // 15
     TRAUMATISMOVO, // 16
-    GINECOBSTETRICIA //17
+    GINECOBSTETRICIA, //17
+    ANTICONCEPTIVO //18
     }
 // https://solidity-es.readthedocs.io/es/latest/types.html#enums:~:text=Los-,Enums,-son%20una%20manera
