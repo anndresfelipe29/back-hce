@@ -1,3 +1,5 @@
+const { open} = require('fs/promises');
+
 const PermisoMapper = artifacts.require('PermisoMapper')
 const PermisoVO = artifacts.require("PermisoVO")
 
@@ -31,10 +33,11 @@ const DatosParametricosMapper = artifacts.require('DatosParametricosMapper')
 const HistoriaClinica = artifacts.require('HistoriaClinica')
 const HistoriaClinicaMapper = artifacts.require('HistoriaClinicaMapper')
 
+const Oracle = artifacts.require('Oracle')
 
 
 module.exports = async function (callback) {
-
+    let direcciones = []
     // let instance
     let usuarioVO
     let estado
@@ -51,12 +54,14 @@ module.exports = async function (callback) {
     let accesoHistoriaClinicaMapper
 
     const accounts = await web3.eth.getAccounts()
-
+    oracle = await Oracle.deployed()
+    direcciones.push({contrato:'oracle',direccion: oracle.address})
     // Carga de mappers 
     rolMapper = await RolMapper.deployed()
     pacienteMapper = await PacienteMapper.deployed()
     medicoMapper = await MedicoMapper.deployed()
     medicoOraculo = await MedicoOraculo.deployed()
+    direcciones.push({contrato:'medicoOraculo',direccion: medicoOraculo.address})
     datosParametricosMapper = await DatosParametricosMapper.deployed()
     usuarioMapper = await UsuarioMapper.deployed()
     historiaClinicaMapper = await HistoriaClinicaMapper.deployed()
@@ -72,6 +77,7 @@ module.exports = async function (callback) {
     accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()    
     await accesoHistoriaClinica.setAccesoHistoriaClinicaMapper(accesoHistoriaClinicaMapper.address)
     await accesoHistoriaClinica.setAcceso(acceso.address)
+    direcciones.push({contrato:'accesoHistoriaClinica',direccion: accesoHistoriaClinica.address})
     console.log("accesoHistoriaClinica: ", accesoHistoriaClinica.address)
 
     // Historia clínica
@@ -432,7 +438,21 @@ module.exports = async function (callback) {
     console.log("Estado HCE inactivo Id: " + estadoHCEVOInactivaId + "-> " + estadoHCEVOInactiva.address)
     console.log("Estado HCE cerrada Id: " + estadoHCEVOCerradaId + "-> " + estadoHCEVOCerrada.address)
 
-
+    await writeToFile('build/contracts/extras/direcciones.json', direcciones)
+    console.log("=============Initial==================")
     console.log("Terminamos la carga de datos y conexión entre contratos")
     callback()
 }
+
+async function writeToFile(fileName, data) {
+    try {
+        console.log("============== Guardando direcciones relevantes =================")
+      // await writeFile(fileName, data);
+      const file = await open(fileName, 'w');
+      console.log(data)
+      await file.write(JSON.stringify(data));
+      console.log(`Wrote data to ${fileName}`);
+    } catch (error) {
+      console.error(`Got an error trying to write the file: ${error.message}`);
+    }
+  }

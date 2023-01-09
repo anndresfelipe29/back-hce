@@ -217,6 +217,10 @@ const accounts = await web3.eth.getAccounts()
 - permiso.getFechaExpiracion()
 - permiso.getId()
 
+# Oracle
+- Oracle.deployed().then(c => oracle = c)
+- oracle.createRequest("","")
+
 ## Truffle Debug
 - Para iniciar el debug usar
  truffle debug (+id de transaccion)  
@@ -277,3 +281,93 @@ ganache-cli  --logging.debug
 
 # Ejecutar scripts
  truffle exec ./initial.js
+
+#      truffle exec ./scripts/initial.js;
+#      truffle exec ./scripts/usuariosDefault.js;
+
+
+  ethereum_node:
+    # image: node:alpine
+    build: 
+      context: ./back
+      target: base
+    container_name: ${NODE}    
+    env_file: 
+      - .env
+    ports: 
+      - 7545:7545
+    networks:
+      - backend
+    command: sh -c "
+      ganache-cli  -h 0.0.0.0 -p 7545 --chainId 1337 -g 0 -m ${MNEMONIC};"
+
+
+  back:
+    build: 
+      context: ./back
+      target: base
+    depends_on:
+      - ethereum_node
+    container_name: ${API_NAME_BACK}
+    volumes:
+      - ../../back-hce:/back
+      - ../../front-hce-2022-07:/front
+    env_file: 
+      - .env      
+    working_dir: /back
+    networks:
+      - backend
+    command: sh -c "
+      echo ===========INICIANDO BACK-END===========;
+      echo ${MNEMONIC}      
+      sleep 8s;
+      truffle migrate -f 3 --to 3;
+      rm -r /front/src/assets/contracts;
+      mkdir /back/build/contracts/extras;
+      truffle exec ./scripts/initial.js;
+      truffle exec ./scripts/usuariosDefault.js;
+      cp -r -v /back/build/contracts /front/src/assets/contracts;"
+
+
+  front:
+    build: 
+      context: ./front
+      target: base    
+    container_name: ${API_NAME_FRONT}
+    depends_on:
+      - back
+    volumes:
+      - ../../front-hce-2022-07:/front
+    env_file: 
+      - .env  
+    working_dir: /front
+    ports: 
+      - 4200:4200
+    networks:
+      - backend
+    command: sh -c "
+      ls;
+      npm install;
+      sleep 30s;
+      echo ===========INICIANDO FRONT-END===========;
+      ng serve --host 0.0.0.0 --poll;"
+  
+
+  sistema-validador-externo:
+    image: node:19-alpine
+    container_name: ${API_NAME_VALIDADOR_EXTERNO}
+    volumes:
+      - ../../sistema-validacion-medico:/validador
+    env_file: 
+      - .env
+    working_dir: /validador
+    ports: 
+      - 3001:3001
+    networks:
+      - backend
+    command: sh -c "
+      ls;
+      npm install;
+      sleep 15s;
+      echo ===========INICIANDO VALIDADOR EXTERNO===========;
+      npm start;"
