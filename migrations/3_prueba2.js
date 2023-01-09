@@ -50,6 +50,6 @@ module.exports = function (deployer) {
     
     // deployer.deploy(PermisoRolMapper);
     // Agregar a otro migrate
+    deployer.link(Utils, Oracle);
     deployer.deploy(Oracle)
-
 };

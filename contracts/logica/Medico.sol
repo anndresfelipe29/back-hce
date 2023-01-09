@@ -5,7 +5,6 @@ import "../models/MedicoVO.sol";
 import "../persistence/MedicoMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
 import "../models/VOGenerales/enums/RolDeAccesoEnum.sol";
-import "./sistemaExterno/MedicoOraculo.sol";
 import "./Acceso.sol";
 import "../utils/Modifiers.sol";
 import "../oracles/Oracle.sol";
@@ -19,7 +18,7 @@ contract Medico is Modifiers {
 
     MedicoMapperInterface private medicoMapper;
     DatosParametricosMapperInterface private datosParametricosMapper;
-    MedicoOraculo private medicoOraculo;
+    // MedicoOraculo private medicoOraculo;
     RolMapperInterface private rolMapper;
     UsuarioMapperInterface private usuarioMapper;
 
@@ -39,8 +38,7 @@ contract Medico is Modifiers {
     }
 
     function registrar(address direccion, MedicoVO medico)
-        public
-        tieneAcceso(4)
+        public        
     {
         if (direccion != msg.sender) {
             revert("Un medico se debe registrar a si mismo");
@@ -52,6 +50,9 @@ contract Medico is Modifiers {
         nuevoUsuario.setEstaActivo(true);
         usuarioMapper.guardar(direccion, nuevoUsuario);
         medicoMapper.guardar(direccion, medico);
+        verificarExistenciaEnSistemaExterno(
+            direccion
+        );
     }
 
     function registrarConStruct(
@@ -59,17 +60,11 @@ contract Medico is Modifiers {
         MedicoVO.MedicoVOStruct memory medicoVOStruct,
         string memory _usuario,
         string memory _contrasena // TODO: Recibir encryptada
-    ) public {
-        bool medicoValido = medicoOraculo.verificarExistenciaEnSistemaExterno(
-            _usuario,
-            _contrasena
-        );
-        if (!medicoValido) {
-            revert("No existe ese medico para el estado");
-        }
+    ) public       
+    {        
         MedicoVO medicoVO = new MedicoVO();
         EstadoVO estadoVO = datosParametricosMapper.consultarEstadoVO(
-            medicoVOStruct.estadoId
+            2 // Medico en validación  TODO: convertir en enum
         );
         TipoIdentificacionVO _tipoIdentificacionVO = datosParametricosMapper
             .consultarTipoIdentificacionVO(
@@ -83,7 +78,7 @@ contract Medico is Modifiers {
             _usuario,
             _contrasena
         );
-        registrar(direccion, medicoVO);
+        registrar(direccion, medicoVO);        
     }
 
     // TODO: Cambiar por struct
@@ -102,10 +97,12 @@ contract Medico is Modifiers {
         }*/
     }
 
-    function verificarExistenciaEnSistemaExterno(address direccion)
-        public
-        tieneAcceso(10)        
+    function verificarExistenciaEnSistemaExterno(
+        address direccion
+        )
+        public                
     {
+        // tieneAcceso(10)
         /* TODO: Consultar info del medico (usuario y contraseña)
          *  despues se hace con oraculos una consulta
          */
@@ -173,12 +170,13 @@ contract Medico is Modifiers {
         datosParametricosMapper = _datosParametricosMapperAddress;
     }
 
-    function setMedicoOraculo(MedicoOraculo _medicoOraculo)
+    // Eliminar
+    /*function setMedicoOraculo(MedicoOraculo _medicoOraculo)
         public
         esPropietario
     {
         medicoOraculo = _medicoOraculo;
-    }
+    }*/
 
     function setRolMapper(RolMapperInterface _rolMapperAddress)
         public

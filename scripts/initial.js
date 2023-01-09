@@ -15,7 +15,7 @@ const PacienteVO = artifacts.require('PacienteVO')
 
 const Medico = artifacts.require('Medico')
 const MedicoMapper = artifacts.require('MedicoMapper')
-const MedicoOraculo = artifacts.require('MedicoOraculo')
+// const MedicoOraculo = artifacts.require('MedicoOraculo')
 
 const Acceso = artifacts.require('Acceso')
 
@@ -46,7 +46,7 @@ module.exports = async function (callback) {
     let pacienteMapper
     let medico
     let medicoMapper
-    let medicoOraculo
+//    let medicoOraculo
     let datosParametricosMapper
     let historiaClinicaMapper
     let rolMapper
@@ -54,20 +54,26 @@ module.exports = async function (callback) {
     let accesoHistoriaClinicaMapper
 
     const accounts = await web3.eth.getAccounts()
-    oracle = await Oracle.deployed()
-    direcciones.push({contrato:'oracle',direccion: oracle.address})
+    
     // Carga de mappers 
     rolMapper = await RolMapper.deployed()
     pacienteMapper = await PacienteMapper.deployed()
     medicoMapper = await MedicoMapper.deployed()
-    medicoOraculo = await MedicoOraculo.deployed()
-    direcciones.push({contrato:'medicoOraculo',direccion: medicoOraculo.address})
+    //medicoOraculo = await MedicoOraculo.deployed()
+    //direcciones.push({contrato:'medicoOraculo',direccion: medicoOraculo.address})
     datosParametricosMapper = await DatosParametricosMapper.deployed()
     usuarioMapper = await UsuarioMapper.deployed()
     historiaClinicaMapper = await HistoriaClinicaMapper.deployed()
     accesoHistoriaClinicaMapper = await AccesoHistoriaClinicaMapper.deployed()
 
+
     /*******************************************Inyección de dependencias************************************/
+
+    // Oraculo
+    oracle = await Oracle.deployed()
+    direcciones.push({contrato:'oracle',direccion: oracle.address})
+    await oracle.setMedicoMapper(medicoMapper.address)
+    await oracle.setDatosParametricosMapper(datosParametricosMapper.address)
 
     // Acceso
     acceso = await Acceso.deployed()
@@ -93,8 +99,9 @@ module.exports = async function (callback) {
     await medico.setUsuarioMapper(usuarioMapper.address)
     await medico.setMedicoMapper(medicoMapper.address)
     await medico.setDatosParametricosMapper(datosParametricosMapper.address)
-    await medico.setMedicoOraculo(medicoOraculo.address)
+    // await medico.setMedicoOraculo(medicoOraculo.address)
     await medico.setAcceso(acceso.address)
+    await medico.setOracle(oracle.address)
 
     // Paciente
     paciente = await Paciente.deployed()
@@ -337,23 +344,35 @@ module.exports = async function (callback) {
     console.log("Cedula: " + cedulaid + "-> " + cedulaTipoIdentificacionVO.address)
     console.log("Tarjeta de identidad id: " + tarjetaIdentidadId + "-> " + tarjetaIdentidadTipoIdentificacionVO.address)
 
+    let estadoVOInactivo = await EstadoVO.new()
+    await estadoVOInactivo.setNombre("Inactivo")
+    await estadoVOInactivo.setDescripcion("Estado persona inactiva descripcion")
+    await estadoVOInactivo.setEstaActivo(true)
+    console.log("EstadoVO en inactivo: " + estadoVOInactivo.address)
+    
     let estadoVOActivo = await EstadoVO.new()
     await estadoVOActivo.setNombre("Activo")
     await estadoVOActivo.setDescripcion("Estado persona activa descripcion")
     await estadoVOActivo.setEstaActivo(true)
     console.log("EstadoVO activo: " + estadoVOActivo.address)
 
-    let estadoVOInactivo = await EstadoVO.new()
-    await estadoVOInactivo.setNombre("Inactivo")
-    await estadoVOInactivo.setDescripcion("Estado persona inactiva descripcion")
-    await estadoVOInactivo.setEstaActivo(true)
+    let estadoVOValidacion = await EstadoVO.new()
+    await estadoVOValidacion.setNombre("En validacion")
+    await estadoVOValidacion.setDescripcion("Estado medico en validacion descripcion")
+    await estadoVOValidacion.setEstaActivo(true)
+    console.log("EstadoVO en validacion: " + estadoVOValidacion.address)
+
+
 
     await datosParametricosMapper.guardarEstadoVO(estadoVOActivo.address)
     await datosParametricosMapper.guardarEstadoVO(estadoVOInactivo.address)
+    await datosParametricosMapper.guardarEstadoVO(estadoVOValidacion.address)
     let estadoVOActivoId = await estadoVOActivo.getId();
     let estadoVOInactivoId = await estadoVOInactivo.getId();
+    let estadoVOValidacionId = await estadoVOValidacion.getId();
     console.log("Estado activo Id: " + estadoVOActivoId + "-> " + estadoVOActivo.address)
     console.log("Estado inactivo Id: " + estadoVOInactivoId + "-> " + estadoVOInactivo.address)
+    console.log("Estado validacion Id: " + estadoVOValidacionId + "-> " + estadoVOValidacionId.address)
 
     let estadoCivilSoltero = await EstadoCivilVO.new()
     await estadoCivilSoltero.setNombre("Soltero")
