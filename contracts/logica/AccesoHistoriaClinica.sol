@@ -1,11 +1,13 @@
 pragma solidity ^0.8.17;
 
 import "../persistence/AccesoHistoriaClinicaMapper.sol";
+import "../persistence/MedicoMapper.sol";
 import "../utils/Modifiers.sol";
 
 contract AccesoHistoriaClinica is Modifiers {
 
 AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
+MedicoMapperInterface private medicoMapper;
 
     event Log(string data);
     event Notification(string data, address indexed notificado);
@@ -53,6 +55,10 @@ AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
         tieneAcceso(20)
         returns (uint256)
     {
+        bool esMedicoActivo = esMedicoActivo(msg.sender);
+        if(!esMedicoActivo) {
+            revert("Medico no valido para solicitar accesos (validelo con el sistema externo)");
+        }
         PermisoDeAccesoVO permiso = new PermisoDeAccesoVO();
         permiso.setFueRespondido(false); // TODO: agregar aqui fecha de daolicitud en permiso
         emit Notification("Se solicito un acceso", direccionPaciente);
@@ -62,6 +68,17 @@ AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
                 msg.sender,
                 permiso
             );
+    }
+
+    // TODO: agregar a enterprise architect
+    function esMedicoActivo(address direccionMedico) public returns (bool) {
+        MedicoVO informacionMedico = medicoMapper.consultar(direccionMedico);
+
+        if(informacionMedico.getEstado().getId() == 1) {
+            // TODO: 1 es cuando un usuario esta activo
+            return true;
+        }
+        return false;
     }
 
     // TODO: hacer función que traiga permisos por aprobar
@@ -106,6 +123,12 @@ AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
         AccesoHistoriaClinicaMapper _accesoHistoriaClinicaMapper
     ) public esPropietario {
         accesoHistoriaClinicaMapper = _accesoHistoriaClinicaMapper;
+    }
+
+    function setMedicoMapper(MedicoMapperInterface _medicoMapper)
+        public esPropietario
+    {
+        medicoMapper = _medicoMapper;
     }
 
     function selfDestruct() public esPropietario {

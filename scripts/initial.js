@@ -82,6 +82,7 @@ module.exports = async function (callback) {
     // accesoHistoriaClinica
     accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()    
     await accesoHistoriaClinica.setAccesoHistoriaClinicaMapper(accesoHistoriaClinicaMapper.address)
+    await accesoHistoriaClinica.setMedicoMapper(medicoMapper.address)
     await accesoHistoriaClinica.setAcceso(acceso.address)
     direcciones.push({contrato:'accesoHistoriaClinica',direccion: accesoHistoriaClinica.address})
     console.log("accesoHistoriaClinica: ", accesoHistoriaClinica.address)

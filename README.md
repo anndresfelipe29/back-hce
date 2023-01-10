@@ -27,6 +27,10 @@ Back end solidity para DAPP de historias clínicas
 
 const accounts = await web3.eth.getAccounts() 
 
+Reiniciar nonce 
+
+https://blog.chronologic.network/how-to-change-and-reset-your-nonce-in-metamask-f7ca52f480e5
+
 million benefit runway donor there gold cause ensure account decorate venture wonder
 
 
