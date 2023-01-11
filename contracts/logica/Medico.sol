@@ -151,7 +151,7 @@ contract Medico is Modifiers {
          oraculo.createRequest(
             url,
             "GET", 
-            direccion, 
+            msg.sender, 
             PeticionExternaEnum.BUSCAR_MEDICO
             );
 

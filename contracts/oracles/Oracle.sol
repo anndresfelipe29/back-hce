@@ -41,7 +41,7 @@ contract Oracle is Modifiers {
         string urlToQuery,
         string attributeToFetch,
         string[] agreedValue,
-        address interested,
+        address indexed interested,
         PeticionExternaEnum cause
     );
 
