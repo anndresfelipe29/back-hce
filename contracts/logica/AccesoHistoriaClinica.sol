@@ -74,7 +74,7 @@ MedicoMapperInterface private medicoMapper;
     function esMedicoActivo(address direccionMedico) public returns (bool) {
         MedicoVO informacionMedico = medicoMapper.consultar(direccionMedico);
 
-        if(informacionMedico.getEstado().getId() == 1) {
+        if(informacionMedico.getEstado().getId() == 1) {            
             // TODO: 1 es cuando un usuario esta activo
             return true;
         }

@@ -30,7 +30,7 @@ contract HistoriaClinica is Modifiers {
                 .getHistoriaClinicaStruct();
     }
 
-    function inicializarHCE(address direccionPaciente) public tieneAcceso(13) esMedicoActivo() {
+    function inicializarHCE(address direccionPaciente) public tieneAcceso(13) esMedicoActivoModifier() {
         HistoriaClinicaVO nuevaHistoriaClinica = new HistoriaClinicaVO();
         // Llamar un estado del mapper de estados, y guardarlo
         EstadoHCEVO estadoHCE = datosParametricosMapper.consultarEstadoHCEVO(0);
