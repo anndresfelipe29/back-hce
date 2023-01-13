@@ -7,10 +7,13 @@ import "../persistence/PacienteMapper.sol";
 import "./Acceso.sol";
 import "../persistence/DatosParametricosMapper.sol";
 import "../persistence/DatosParametricosMapperInterface.sol";
+import "../models/VOGenerales/enums/RolDeAccesoEnum.sol";
+import "../utils/Modifiers.sol";
 
-contract Paciente {
+// TODO
+contract Paciente is Modifiers {
     event Log(string data);
-    address public creador;
+    //address public creador;
 
     PacienteMapperInterface private pacienteMapper;
     RolMapperInterface private rolMapper;
@@ -18,17 +21,14 @@ contract Paciente {
     DatosParametricosMapperInterface private datosParametricosMapper;
     Acceso private acceso;
 
-    //TODO Convertir eventualmente en un enum
-    uint256 rolPacienteId = 0;
-
     constructor() {
         creador = msg.sender; // creador del contrato
     }
 
-    // Puede el medico
-    // tieneAcceso(1)
+    // Solo lo puede usar el medico
     function consultar(address direccion)
-        public        
+        public
+        tieneAcceso(1)
         returns (PacienteVO.PacienteVOStruct memory)
     {
         emit Log("Entro a consultar Paciente");
@@ -46,25 +46,28 @@ contract Paciente {
         return pacienteMapper.consultar(msg.sender).getPacienteVOValue();
     }
 
-    // TODO: Solo lo puede usar el medico
+    // Solo lo puede usar el medico
     function consultarPorId(uint256 id)
         public
-        tieneAcceso(2)
+        tieneAcceso(3)
         returns (PacienteVO.PacienteVOStruct memory)
     {
-        emit Log("Entro a consultar miInformacion paciente");        
+        emit Log("Entro a consultar paciente como medico");
         return pacienteMapper.consultarPorId(id).getPacienteVOValue();
     }
 
     // TODO: validar que pasa si falla el registro de persona
     // TODO: que pasa si falla guardar paciente?
-    //tieneAcceso(2)
-    function registrar(address direccion, PacienteVO paciente) public {
+    // Solo lo puede usar el paciente (si aún no esta registrado)
+    function registrar(address direccion, PacienteVO paciente)
+        public
+        tieneAcceso(4)
+    {
         if (direccion != msg.sender) {
             revert("Un paciente se debe registrar a si mismo");
         }
 
-        RolVO rol = rolMapper.consultar(rolPacienteId);
+        RolVO rol = rolMapper.consultar(RolDeAccesoEnum.PACIENTE);
         UsuarioVO nuevoUsuario = new UsuarioVO();
         nuevoUsuario.setDireccion(direccion);
         nuevoUsuario.setRol(rol);
@@ -76,14 +79,13 @@ contract Paciente {
 
     // TODO: validar que pasa si falla el registro de persona
     // TODO: que pasa si falla guardar paciente?
-    //tieneAcceso(2)
     function registrarConStruct(
         address direccion,
         PacienteVO.PacienteVOStruct memory pacienteVOStruct
     ) public {
         PacienteVO pacienteVO = new PacienteVO();
         EstadoVO estadoVO = datosParametricosMapper.consultarEstadoVO(
-            pacienteVOStruct.estadoId
+            1
         );
         TipoIdentificacionVO _tipoIdentificacionVO = datosParametricosMapper
             .consultarTipoIdentificacionVO(
@@ -100,10 +102,10 @@ contract Paciente {
 
     /*
     // TODO: Discutir si un médico debe actualizar al paciente (nombre y demas)
-    // TODO: Sollo se podria acceder con el acceso que da el paciente sobre su info
+    // TODO: Solo se podria acceder con el acceso que da el paciente sobre su info
     function actualizar(address direccion, PacienteVO paciente)
         public
-        tieneAcceso(3)
+        tieneAcceso(6)
     {
         if (direccion != msg.sender) {
             // si alguien diferente al propietario de la historia la consulta se debe validar quien es
@@ -115,17 +117,16 @@ contract Paciente {
     }
     */
 
+    // TODO: Terminar esté método
     function actualizar(PacienteVO paciente) public tieneAcceso(3) {
         // bloquear actualización de estado
         pacienteMapper.actualizar(msg.sender, paciente);
     }
 
-    // TODO: poner modificador para que solo lo pueda ejecutar el service y
-    // en el service que solo lo ejecute un médico
-    // TODO: Debe usar el permiso que da el paciente
+    // Solo lo puede usar el medico
     function cambiarEstado(address _direccion, EstadoVO _estado)
         public
-        tieneAcceso(4)
+        tieneAcceso(5)
     {
         PacienteVO paciente = pacienteMapper.consultar(_direccion);
         paciente.setEstado(_estado);
@@ -159,10 +160,11 @@ contract Paciente {
         datosParametricosMapper = _datosParametricosMapperAddress;
     }
 
-    function setAcceso(Acceso _accesoAddress) public esPropietario {
+    /*function setAcceso(Acceso _accesoAddress) public esPropietario {
         acceso = _accesoAddress;
-    }
+    }*/
 
+    /*
     modifier esPropietario() {
         require(
             msg.sender == creador,
@@ -170,14 +172,16 @@ contract Paciente {
         );
         _; // acá se ejecuta la función
     }
+    */
 
     function selfDestruct() public esPropietario {
         selfdestruct(payable(creador));
     }
 
-    modifier tieneAcceso(uint256 permisoId) {
+    // TODO: Quitar
+    /* modifier tieneAcceso(uint256 permisoId) {
         bool esAccesible = acceso.validarPermisoDeRol(msg.sender, permisoId);
         require(esAccesible, "El usuario no tiene acceso");
         _; // acá se ejecuta la función
-    }
+    } */
 }

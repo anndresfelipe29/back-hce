@@ -90,10 +90,13 @@ contract RolVO {
     ) public {
         if (permisos[_id].id == 0) {
             idsList.push(_id);
+            permisos[_id] = PermisoRol(_id, _permiso, _accesoPermitido);
         }
-        permisos[_id] = PermisoRol(_id, _permiso, _accesoPermitido);
+        revert("Ya existe un permiso registrado para ese ID de metodo");
+        
     }
 
+    // TODO: Revisar lógica
     function setPermisos(PermisoRol[] memory _permisos) public {
         for (uint256 i = 0; i < _permisos.length; i++) {
             if (permisos[_permisos[i].id].id == 0) {

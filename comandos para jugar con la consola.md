@@ -8,24 +8,20 @@ instance.sendCoin(accounts[1], 10, {from: accounts[0]})
 
 web3.eth.getBalance(accounts[0])
 
-## Instanciar objetos de los contratos
-
-AccesoService.deployed().then(c => accesoService=c)
-MedicoService.deployed().then(c => medicoService=c)
-PacienteService.deployed().then(c => pacienteService=c)
-
 #### tener en cuenta en una estructura interna se debe poner al parecer todo en comillas
 - personaDao.guardar(accounts[1], ["pipe", "felipe", "primerApellido","segundoApellido","identificacion",["nombre", "descripcion", "true"], true])
 
 # Comandos actualizados
 ### UsuarioVO (Al parecer los VO no requieren desplegarse)
 UsuarioVO.new().then(c => usuarioVO=c)
-UsuarioVO.at("0x8c7cCb0B2fcC0a9F7c38B926886B04EAA1822A5D").then(c=> j=c)
+UsuarioVO.at("0xE79dBBBf9F62b81C8C5bFde87ad38224e2C91F6A").then(c=> usuarioVO=c)
+UsuarioVO.at(accounts[9]).then(c=> j=c)
 
 usuarioVO.setDireccion(accounts[2])
 usuarioVO.setRolId(0)
 usuarioVO.setEstaActivo(true)
-usuarioVO.getRolId()
+usuarioVO.getRol()
+usuarioVO.getUsuarioVOValue()
 
 usuarioVO.setDireccion(accounts[1])
 usuarioVO.setRolId(1)
@@ -36,7 +32,7 @@ usuarioVO.setEstaActivo(true)
 - UsuarioMapper.at("0xfD36d95486f2AD968119202d2608aE8b81981D44").then(c => usuarioMapper=c)
 
 
-- usuarioMapper.consultar(accounts[2])
+- usuarioMapper.consultar(accounts[9])
 - usuarioMapper.guardar(accounts[2], usuarioVO.address)
 
 ### PermisoRolMapper
@@ -47,6 +43,7 @@ usuarioVO.setEstaActivo(true)
 - permisoRol.guardar(0, 0, true)
 
 ### Acceso 
+const accounts = await web3.eth.getAccounts()
 - Acceso.deployed().then(c => acceso=c)
 
 - acceso.setUsuarioMapper(usuarioMapper.address)
@@ -55,12 +52,14 @@ usuarioVO.setEstaActivo(true)
 - acceso.login({from: accounts[0]}) 
 - acceso.login.call({from: accounts[0]})
 
-- acceso.usuarioEsMedico.call(accounts[2]) 
+- acceso.usuarioEsMedico.call(accounts[9]) 
 - acceso.usuarioEsPaciente.call(accounts[2]) 
 
 - acceso.buscarPermisoDeRol.call(accounts[2],1) 
 
-- acceso.validarPermisoDeRol.call(accounts[2],2)
+- acceso.validarPermisoDeRol.call(accounts[9],21)
+
+
 
 ## PacienteMapper
 - PacienteMapper.deployed().then(c => pacienteMapper=c)
@@ -103,7 +102,9 @@ paciente.consultar(accounts[0], { from: accounts[2] })
 
 ### Médico
 - Medico.deployed().then(c => medico=c)
-- medico.registrarConStruct(accounts[4], [[accounts[4], "Andres","struct", "Gomas", "test", "111111",0, "true"], 1,0], "usuario", "contrasena", { from: accounts[4] })
+- medico.consultar(accounts[9], { from: accounts[8] })
+- medico.registrarConStruct(accounts[9], [[accounts[9], 0, "Andres","medico", "Gomas", "test", "111111",0, "true"], 1,0], "usuario", "contrasena", { from: accounts[9] })
+    
 
 ### RolMapper
 - RolMapper.deployed().then(c =>rolMapper=c)
@@ -114,7 +115,7 @@ rolMapper.guardar(rolVO.address)
 
 ### RolVO
 RolVO.new().then(c => rolVO=c)
-RolVO.at("0xbb17Ff027510c12C0a5cdBB3fA06743797Ce5b5e").then(c => rolVO=c)
+RolVO.at("0x5FbcD1602c8da56F6eDCb185CbdF560f6a5080BF").then(c => rolVO=c)
 rolVO.setId(5)
 rolVO.getId()
 rolVO.setNombre("ganster")
@@ -163,8 +164,11 @@ datosParametricosMapper.consultarTipoIdentificacionVO(0)
 - historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
 - historiaClinica.inicializarHCE(accounts[0])
 - historiaClinica.registrosFiltradosPorFecha(accounts[0], 1)
-- historiaClinica.agregarRegistro(accounts[0], alergia.address)
-- historiaClinica.registrosFiltradosPorTipo(accounts[8], 0)
+- historiaClinica.agregarRegistro(accounts[8], alergia.address, {from: accounts[9]})
+- historiaClinica.registrosFiltradosPorTipo(accounts[8], 0, {from: accounts[9]})
+
+- historiaClinica.getAcceso()
+- historiaClinica.tieneAccesoFunc(21, {from: accounts[9]})
 
 # Alergia VO
 - AlergiaVO.new().then(c => alergia=c)
@@ -197,16 +201,25 @@ const accounts = await web3.eth.getAccounts()
 - ahc.esSolicitudVigente(accounts[0], accounts[1])
 - ahc.getPermisosDeAccesoActivosPorHistoriaClinica(accounts[0])
 - ahc.getPermisosDeAccesoPorHistoriaClinica(accounts[0])
-- ahc.getPermisosDeAccesoActivosPorMedico(accounts[1])
-- ahc.getPermisosDeAccesoPorMedico(accounts[1])
+- ahc.getPermisosDeAccesoActivosPorMedico(accounts[9], {from: accounts[9]})
+- ahc.getPermisosDeAccesoPorMedico.call(accounts[9], {from: accounts[9]})
 
+- ahc.esSolicitudVigente.call(accounts[8], accounts[9], {from: accounts[9]})
+- ahc.setAccesoHistoriaClinicaMapper("0xdcc85D7139741266B58853341af6B62a0D3B8dd4")
+- ahc.setAcceso("0xdcc85D7139741266B58853341af6B62a0D3B8dd4")
+- ahc.getAcceso()
+- ahc.tieneAccesoFunc(21)
 
 # PermisoDeAccesoVO
 - PermisoDeAccesoVO.new().then(c => permiso = c)
-- PermisoDeAccesoVO.at('0xF221428DC3818a805772f1528AB89ffbBDd11102').then(c => permiso = c)
+- PermisoDeAccesoVO.at('0x6201629101b14Df46d2DC10A06599332AB850Ea4').then(c => permiso = c)
 - permiso.setFechaExpiracion(1663869864)
 - permiso.getFechaExpiracion()
 - permiso.getId()
+
+# Oracle
+- Oracle.deployed().then(c => oracle = c)
+- oracle.createRequest("","")
 
 ## Truffle Debug
 - Para iniciar el debug usar
@@ -268,3 +281,93 @@ ganache-cli  --logging.debug
 
 # Ejecutar scripts
  truffle exec ./initial.js
+
+#      truffle exec ./scripts/initial.js;
+#      truffle exec ./scripts/usuariosDefault.js;
+
+
+  ethereum_node:
+    # image: node:alpine
+    build: 
+      context: ./back
+      target: base
+    container_name: ${NODE}    
+    env_file: 
+      - .env
+    ports: 
+      - 7545:7545
+    networks:
+      - backend
+    command: sh -c "
+      ganache-cli  -h 0.0.0.0 -p 7545 --chainId 1337 -g 0 -m ${MNEMONIC};"
+
+
+  back:
+    build: 
+      context: ./back
+      target: base
+    depends_on:
+      - ethereum_node
+    container_name: ${API_NAME_BACK}
+    volumes:
+      - ../../back-hce:/back
+      - ../../front-hce-2022-07:/front
+    env_file: 
+      - .env      
+    working_dir: /back
+    networks:
+      - backend
+    command: sh -c "
+      echo ===========INICIANDO BACK-END===========;
+      echo ${MNEMONIC}      
+      sleep 8s;
+      truffle migrate -f 3 --to 3;
+      rm -r /front/src/assets/contracts;
+      mkdir /back/build/contracts/extras;
+      truffle exec ./scripts/initial.js;
+      truffle exec ./scripts/usuariosDefault.js;
+      cp -r -v /back/build/contracts /front/src/assets/contracts;"
+
+
+  front:
+    build: 
+      context: ./front
+      target: base    
+    container_name: ${API_NAME_FRONT}
+    depends_on:
+      - back
+    volumes:
+      - ../../front-hce-2022-07:/front
+    env_file: 
+      - .env  
+    working_dir: /front
+    ports: 
+      - 4200:4200
+    networks:
+      - backend
+    command: sh -c "
+      ls;
+      npm install;
+      sleep 30s;
+      echo ===========INICIANDO FRONT-END===========;
+      ng serve --host 0.0.0.0 --poll;"
+  
+
+  sistema-validador-externo:
+    image: node:19-alpine
+    container_name: ${API_NAME_VALIDADOR_EXTERNO}
+    volumes:
+      - ../../sistema-validacion-medico:/validador
+    env_file: 
+      - .env
+    working_dir: /validador
+    ports: 
+      - 3001:3001
+    networks:
+      - backend
+    command: sh -c "
+      ls;
+      npm install;
+      sleep 15s;
+      echo ===========INICIANDO VALIDADOR EXTERNO===========;
+      npm start;"

@@ -4,6 +4,7 @@ pragma solidity ^0.8.17;
 import "../models/RolVO.sol";
 import "./RolMapperInterface.sol";
 
+
 contract RolMapper is RolMapperInterface {
     address public creador;
 
@@ -14,8 +15,8 @@ contract RolMapper is RolMapperInterface {
         creador = msg.sender;
     }
 
-    function consultar(uint256 _id) external view returns (RolVO) {
-        address direccion = rolAddressList[_id];
+    function consultar(RolDeAccesoEnum _id) external view returns (RolVO) {
+        address direccion = rolAddressList[uint(_id)];
         if (direccion == address(0)) {
             revert("No existe ese rol");
         }
@@ -36,8 +37,8 @@ contract RolMapper is RolMapperInterface {
         return id;
     }
 
-    function actualizar(uint256 _id, RolVO rol) external {
-        address direccion = rolAddressList[_id];
+    function actualizar(RolDeAccesoEnum _id, RolVO rol) external {
+        address direccion = rolAddressList[uint(_id)];
         if (direccion == address(0)) {
             revert("No existe un rol registrado con ese address");
         }

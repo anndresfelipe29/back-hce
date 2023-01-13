@@ -35,6 +35,7 @@ contract PermisoMapper is PermisoMapperInterface {
         return lista;
     }
 
+    // TODO: Revisar
     function guardar(uint256 _id, PermisoVO _permiso) public {
         if (address(permisos[_id]) != address(0)) {
             emit Log("Ya existe un permiso registrado con ese address");

@@ -1,26 +1,28 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
 import "../models/MedicoVO.sol";
 import "../persistence/MedicoMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
-
-import "./sistemaExterno/MedicoOraculo.sol";
+import "../models/VOGenerales/enums/RolDeAccesoEnum.sol";
 import "./Acceso.sol";
+import "../utils/Modifiers.sol";
+import "../oracles/Oracle.sol";
+import "../models/oracles/PeticionExternaEnum.sol";
 
-contract Medico {
+contract Medico is Modifiers {
     // TODO: consumir este evento desde una clase heredada o algo así
     event Log(string data);
-    address public creador;
+    //address public creador;
     address public medicoMapperAddress;
 
     MedicoMapperInterface private medicoMapper;
     DatosParametricosMapperInterface private datosParametricosMapper;
-    MedicoOraculo private medicoOraculo;
+    // MedicoOraculo private medicoOraculo;
     RolMapperInterface private rolMapper;
     UsuarioMapperInterface private usuarioMapper;
 
-    //TODO Convertir eventualmente en un enum
-    uint256 rolMedicoId = 1;
+    Oracle private oraculo;
 
     constructor() {
         creador = msg.sender;
@@ -28,26 +30,29 @@ contract Medico {
 
     function consultar(address direccion)
         public
+        tieneAcceso(7)
         returns (MedicoVO.MedicoVOStruct memory)
     {
         emit Log("entro a consultar");
         return medicoMapper.consultar(direccion).getMedicoVOValue();
     }
 
-    function registrar(address direccion, MedicoVO medico) public {
-        RolVO rol = rolMapper.consultar(rolMedicoId);
+    function registrar(address direccion, MedicoVO medico)
+        public        
+    {
+        if (direccion != msg.sender) {
+            revert("Un medico se debe registrar a si mismo");
+        }
+        RolVO rol = rolMapper.consultar(RolDeAccesoEnum.MEDICO);
         UsuarioVO nuevoUsuario = new UsuarioVO();
         nuevoUsuario.setDireccion(direccion);
         nuevoUsuario.setRol(rol);
         nuevoUsuario.setEstaActivo(true);
         usuarioMapper.guardar(direccion, nuevoUsuario);
-        try medicoMapper.guardar(direccion, medico) {
-            emit Log("Se guarda la informacion del medico correctamente");
-        } catch Error(string memory data) {
-            /*reason*/
-            emit Log("se rompio por un revert o require");
-            emit Log(data);
-        }
+        medicoMapper.guardar(direccion, medico);
+        verificarExistenciaEnSistemaExterno(
+            direccion
+        );
     }
 
     function registrarConStruct(
@@ -55,17 +60,11 @@ contract Medico {
         MedicoVO.MedicoVOStruct memory medicoVOStruct,
         string memory _usuario,
         string memory _contrasena // TODO: Recibir encryptada
-    ) public {
-        bool medicoValido = medicoOraculo.verificarExistenciaEnSistemaExterno(
-            _usuario,
-            _contrasena
-        );
-        if (!medicoValido) {
-            revert("No existe ese medico para el estado");
-        }
+    ) public       
+    {        
         MedicoVO medicoVO = new MedicoVO();
         EstadoVO estadoVO = datosParametricosMapper.consultarEstadoVO(
-            medicoVOStruct.estadoId
+            2 // Medico en validación  TODO: convertir en enum
         );
         TipoIdentificacionVO _tipoIdentificacionVO = datosParametricosMapper
             .consultarTipoIdentificacionVO(
@@ -79,10 +78,14 @@ contract Medico {
             _usuario,
             _contrasena
         );
-        registrar(direccion, medicoVO);
+        registrar(direccion, medicoVO);        
     }
 
-    function actualizar(address direccion, MedicoVO medico) public {
+    // TODO: Cambiar por struct
+    function actualizar(address direccion, MedicoVO medico)
+        public
+        tieneAcceso(9)
+    {
         medicoMapper.actualizar(direccion, medico);
         /*
         try contratoPacienteDAO.actualizar(direccion, paciente) {
@@ -94,20 +97,65 @@ contract Medico {
         }*/
     }
 
-    /*function verificarExistenciaEnSistemaExterno(address direccion)
-        public
-        returns (bool)
+    function verificarExistenciaEnSistemaExterno(
+        address direccion
+        )
+        public                
     {
+        // tieneAcceso(10)
         /* TODO: Consultar info del medico (usuario y contraseña)
          *  despues se hace con oraculos una consulta
          */
-    /*
-        return true;
-    }*/
 
-    /*function buscarPerfilMedicoSistemaExterno(address direccion) public returns (PerfilMedicoSistemaExternoStruct memory){
+         MedicoVO informacionMedico = medicoMapper.consultar(direccion);
+
+         string memory url = string.concat(
+            string.concat(
+                string.concat(
+                    "http://172.19.0.1:3001/validar-usuario?identificacion=",
+                    informacionMedico.getUsuario()
+                    ),
+            "&contrasena="
+            ),
+            informacionMedico.getContrasena());
+
+         
+         
+         oraculo.createRequest(
+            url,
+            "GET", 
+            direccion, 
+            PeticionExternaEnum.VALIDAR_MEDICO
+            );
+    }
+
+    function buscarPerfilMedicoSistemaExterno(address direccion) public 
+    tieneAcceso(11) {
         // TODO: tambien con oraculo
-    }*/
+        // returns (PerfilMedicoSistemaExternoStruct memory)
+
+         MedicoVO informacionMedico = medicoMapper.consultar(direccion);
+
+         string memory url = string.concat(
+            string.concat(
+                string.concat(
+                    "http://172.19.0.1:3001/buscar-usuario?identificacion=",
+                    informacionMedico.getUsuario()
+                    ),
+            "&contrasena="
+            ),
+            informacionMedico.getContrasena());
+
+         
+         
+         oraculo.createRequest(
+            url,
+            "GET", 
+            msg.sender, 
+            PeticionExternaEnum.BUSCAR_MEDICO
+            );
+
+    }
 
     function setMedicoMapper(MedicoMapperInterface _medicoMapper)
         public
@@ -122,14 +170,15 @@ contract Medico {
         datosParametricosMapper = _datosParametricosMapperAddress;
     }
 
-    function setMedicoOraculo(MedicoOraculo _medicoOraculo)
+    // Eliminar
+    /*function setMedicoOraculo(MedicoOraculo _medicoOraculo)
         public
         esPropietario
     {
         medicoOraculo = _medicoOraculo;
-    }
+    }*/
 
-        function setRolMapper(RolMapperInterface _rolMapperAddress)
+    function setRolMapper(RolMapperInterface _rolMapperAddress)
         public
         esPropietario
     {
@@ -143,13 +192,11 @@ contract Medico {
         usuarioMapper = _usuarioMapperAddress;
     }
 
-    // TODO: poner en clase generica y reusarlo
-    modifier esPropietario() {
-        require(
-            msg.sender == creador,
-            "Esta funcion solo puede ser ejecutada por el creador del contrato"
-        );
-        _; // acá se ejecuta la función
+    function setOracle(Oracle _oracleAddress)
+    public
+    esPropietario
+    {
+        oraculo = _oracleAddress;
     }
 
     function selfDestruct() public esPropietario {

@@ -20,6 +20,8 @@ const AccesoHistoriaClinicaMapper = artifacts.require('AccesoHistoriaClinicaMapp
 const AccesoHistoriaClinica = artifacts.require('AccesoHistoriaClinica')
 const Utils = artifacts.require('Utils')
 
+const Oracle = artifacts.require('Oracle')
+
 module.exports = function (deployer) {
     // deployer.deploy(PersonaStruct);
     // deployer.deploy(PacienteService);
@@ -47,5 +49,7 @@ module.exports = function (deployer) {
     deployer.deploy(AccesoHistoriaClinica);
     
     // deployer.deploy(PermisoRolMapper);
-
+    // Agregar a otro migrate
+    deployer.link(Utils, Oracle);
+    deployer.deploy(Oracle)
 };
