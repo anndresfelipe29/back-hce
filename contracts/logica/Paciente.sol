@@ -85,7 +85,7 @@ contract Paciente is Modifiers {
     ) public {
         PacienteVO pacienteVO = new PacienteVO();
         EstadoVO estadoVO = datosParametricosMapper.consultarEstadoVO(
-            pacienteVOStruct.estadoId
+            1
         );
         TipoIdentificacionVO _tipoIdentificacionVO = datosParametricosMapper
             .consultarTipoIdentificacionVO(

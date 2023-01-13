@@ -27,28 +27,48 @@ Back end solidity para DAPP de historias clínicas
 
 const accounts = await web3.eth.getAccounts() 
 
+Reiniciar nonce 
+
+https://blog.chronologic.network/how-to-change-and-reset-your-nonce-in-metamask-f7ca52f480e5
+
 million benefit runway donor there gold cause ensure account decorate venture wonder
 
 
-Private Keys
-==================
-(0) 0xd9f4a575b348f43c4e88758f8fdd562e4964e94f2a734be46f4c60c93da18a08
-(1) 0xa829c197f16fd682de2c6fd3ca54c3b744d192d3ea926ae7f11241b1940813d9
-(2) 0xc54bc0ca004fd8230299f3db61afac04abedb75cb026df62647f06153759b6a4
-(3) 0x901e1b5bc947debcf4d9fd3f138235cdc72db824bdf20786f12faa40017b4ba9
-(4) 0x6c263e25ab2280f4bbad3afbc4502d2e309b4d0aa40f08a1ba9378f6637ee104
-(5) 0xd51d5fe6d320bbfc4ee60d40eaf07ec1aee61b518e182edccb090f8d7a9857bf
-(6) 0xba069999a33f95b4b94fd2f174566d1659a555262e38c02f7220265d55e9f76b
-(7) 0x86155f7d25f7cd0a0941e6ea20ec10314c1dfa85143406528cabd5f67b0a7b90
-(8) 0xcbf5ea056f88df7658f7c86ba24162f31632805dec102354802eeb7dd10c3b19
-(9) 0x0a6e2d6d06ee7ab24aa5ce6b51dd4d30b452c05456e1b462631694c9400e1112
-
-HD Wallet
-==================
-Mnemonic:      nest mercy pudding cost lunch time lady void glance treat sentence follow
-Base HD Path:  m/44'/60'/0'/0/{account_index}
-
-
-Default Gas Price
-==================
-20
+nodo_ganache     | Available Accounts
+nodo_ganache     | ==================
+nodo_ganache     | (0) 0x8765983E2557FbD93d2Cc9cAFD0f3a5C25441cd1 (100 ETH)
+nodo_ganache     | (1) 0xe34B3beCf17BCDCDe971ccE1A11feE75a684ECdA (100 ETH)
+nodo_ganache     | (2) 0x419D98F84F5B39Ab5bd8c164b8AB78A0B08FDa67 (100 ETH)
+nodo_ganache     | (3) 0x9703e71BBb574482a010D4d3cA96EB1430F7BC29 (100 ETH)
+nodo_ganache     | (4) 0xb00D8Eded7cC40288d296a1DC96466bEA3e8dF0C (100 ETH)
+nodo_ganache     | (5) 0x321D2b901F89b0ea21bed966aaE297e8B1f42A91 (100 ETH)
+nodo_ganache     | (6) 0x46d346A31c93F14f8E6B9F3a16cE34a910f2Be88 (100 ETH)
+nodo_ganache     | (7) 0xBC0702F80DbB41187c63a70517b759fb79BF5c27 (100 ETH)
+nodo_ganache     | (8) 0xBc24fBc830c43Cb34EF911309aAA1EB0Edb7C9Fb (100 ETH)
+nodo_ganache     | (9) 0x9D80918B43Da28e504ecB349367dbbFDE4f402dD (100 ETH)
+nodo_ganache     | 
+nodo_ganache     | Private Keys
+nodo_ganache     | ==================
+nodo_ganache     | (0) 0x4e2cf3726f7311992a1602f36c9364cac9a35ffe0e943f152d54c14d3f58b6ca
+nodo_ganache     | (1) 0x84722977a08dc79dfc426dc29339e6ec75baaf38ae2daced3eb1604c4ea20dbf
+nodo_ganache     | (2) 0x765b3402bf3e4eff7ac3f44184f06c9f9eec87b0720d5510d2fee924bbd7ea6b
+nodo_ganache     | (3) 0x7316cccfbc55a65ada0af4defe3db70b672732d7e40406afe1d76be65dfb76ba
+nodo_ganache     | (4) 0xee5163742e2f54b541e486ca6830400a9e4afcb7f926435bb364cc9bf5099d11
+nodo_ganache     | (5) 0x5773f1287cc5eedf0f7f4e0e0493406c62b0b0eb07070eb7c31a9d8a62e469e0
+nodo_ganache     | (6) 0xd4e271eb312483e2007e242ac6c6dc98f0474c820c259b20ace7a0324c9374d3
+nodo_ganache     | (7) 0x729aa618f7d70b7f0f8fc995a14b909bb2480fe2e0eeaa5403951876f764cb5e
+nodo_ganache     | (8) 0xf68ba227fb42926a4e629408508a2b6da9036904fb3e59361d779b7686232e68
+nodo_ganache     | (9) 0x5c6bb4d275828163cc7e5570d530c607e22c1fd15562adc96c6b080ef80139de
+nodo_ganache     | 
+nodo_ganache     | HD Wallet
+nodo_ganache     | ==================
+nodo_ganache     | Mnemonic:      sstereo
+nodo_ganache     | Base HD Path:  m/44'/60'/0'/0/{account_index}
+nodo_ganache     | 
+nodo_ganache     | Gas Limit
+nodo_ganache     | ==================
+nodo_ganache     | 6721975
+nodo_ganache     | 
+nodo_ganache     | Call Gas Limit
+nodo_ganache     | ==================
+nodo_ganache     | 9007199254740991

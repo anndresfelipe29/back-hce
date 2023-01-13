@@ -35,6 +35,12 @@ contract Modifiers {
         _; // acá se ejecuta la función
     }
 
+    modifier esMedicoActivoModifier() {
+        bool esAccesible = accesoHistoriaClinica.esMedicoActivo(msg.sender);
+        require(esAccesible, "El usuario no es un medico activo en el sistema nacional");
+        _;
+    }
+
     modifier esPropietario() {
         require(
             msg.sender == creador,

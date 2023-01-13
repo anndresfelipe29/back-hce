@@ -165,7 +165,10 @@ datosParametricosMapper.consultarTipoIdentificacionVO(0)
 - historiaClinica.inicializarHCE(accounts[0])
 - historiaClinica.registrosFiltradosPorFecha(accounts[0], 1)
 - historiaClinica.agregarRegistro(accounts[8], alergia.address, {from: accounts[9]})
-- historiaClinica.registrosFiltradosPorTipo(accounts[8], 0)
+- historiaClinica.registrosFiltradosPorTipo(accounts[8], 0, {from: accounts[9]})
+
+- historiaClinica.getAcceso()
+- historiaClinica.tieneAccesoFunc(21, {from: accounts[9]})
 
 # Alergia VO
 - AlergiaVO.new().then(c => alergia=c)
@@ -201,9 +204,11 @@ const accounts = await web3.eth.getAccounts()
 - ahc.getPermisosDeAccesoActivosPorMedico(accounts[9], {from: accounts[9]})
 - ahc.getPermisosDeAccesoPorMedico.call(accounts[9], {from: accounts[9]})
 
-- ahc.esSolicitudVigente.call(accounts[8], accounts[9])
+- ahc.esSolicitudVigente.call(accounts[8], accounts[9], {from: accounts[9]})
 - ahc.setAccesoHistoriaClinicaMapper("0xdcc85D7139741266B58853341af6B62a0D3B8dd4")
 - ahc.setAcceso("0xdcc85D7139741266B58853341af6B62a0D3B8dd4")
+- ahc.getAcceso()
+- ahc.tieneAccesoFunc(21)
 
 # PermisoDeAccesoVO
 - PermisoDeAccesoVO.new().then(c => permiso = c)
@@ -211,6 +216,10 @@ const accounts = await web3.eth.getAccounts()
 - permiso.setFechaExpiracion(1663869864)
 - permiso.getFechaExpiracion()
 - permiso.getId()
+
+# Oracle
+- Oracle.deployed().then(c => oracle = c)
+- oracle.createRequest("","")
 
 ## Truffle Debug
 - Para iniciar el debug usar
@@ -272,3 +281,93 @@ ganache-cli  --logging.debug
 
 # Ejecutar scripts
  truffle exec ./initial.js
+
+#      truffle exec ./scripts/initial.js;
+#      truffle exec ./scripts/usuariosDefault.js;
+
+
+  ethereum_node:
+    # image: node:alpine
+    build: 
+      context: ./back
+      target: base
+    container_name: ${NODE}    
+    env_file: 
+      - .env
+    ports: 
+      - 7545:7545
+    networks:
+      - backend
+    command: sh -c "
+      ganache-cli  -h 0.0.0.0 -p 7545 --chainId 1337 -g 0 -m ${MNEMONIC};"
+
+
+  back:
+    build: 
+      context: ./back
+      target: base
+    depends_on:
+      - ethereum_node
+    container_name: ${API_NAME_BACK}
+    volumes:
+      - ../../back-hce:/back
+      - ../../front-hce-2022-07:/front
+    env_file: 
+      - .env      
+    working_dir: /back
+    networks:
+      - backend
+    command: sh -c "
+      echo ===========INICIANDO BACK-END===========;
+      echo ${MNEMONIC}      
+      sleep 8s;
+      truffle migrate -f 3 --to 3;
+      rm -r /front/src/assets/contracts;
+      mkdir /back/build/contracts/extras;
+      truffle exec ./scripts/initial.js;
+      truffle exec ./scripts/usuariosDefault.js;
+      cp -r -v /back/build/contracts /front/src/assets/contracts;"
+
+
+  front:
+    build: 
+      context: ./front
+      target: base    
+    container_name: ${API_NAME_FRONT}
+    depends_on:
+      - back
+    volumes:
+      - ../../front-hce-2022-07:/front
+    env_file: 
+      - .env  
+    working_dir: /front
+    ports: 
+      - 4200:4200
+    networks:
+      - backend
+    command: sh -c "
+      ls;
+      npm install;
+      sleep 30s;
+      echo ===========INICIANDO FRONT-END===========;
+      ng serve --host 0.0.0.0 --poll;"
+  
+
+  sistema-validador-externo:
+    image: node:19-alpine
+    container_name: ${API_NAME_VALIDADOR_EXTERNO}
+    volumes:
+      - ../../sistema-validacion-medico:/validador
+    env_file: 
+      - .env
+    working_dir: /validador
+    ports: 
+      - 3001:3001
+    networks:
+      - backend
+    command: sh -c "
+      ls;
+      npm install;
+      sleep 15s;
+      echo ===========INICIANDO VALIDADOR EXTERNO===========;
+      npm start;"

@@ -1,12 +1,14 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
 import "../models/MedicoVO.sol";
 import "../persistence/MedicoMapper.sol";
 import "../persistence/DatosParametricosMapper.sol";
 import "../models/VOGenerales/enums/RolDeAccesoEnum.sol";
-import "./sistemaExterno/MedicoOraculo.sol";
 import "./Acceso.sol";
 import "../utils/Modifiers.sol";
+import "../oracles/Oracle.sol";
+import "../models/oracles/PeticionExternaEnum.sol";
 
 contract Medico is Modifiers {
     // TODO: consumir este evento desde una clase heredada o algo así
@@ -16,9 +18,11 @@ contract Medico is Modifiers {
 
     MedicoMapperInterface private medicoMapper;
     DatosParametricosMapperInterface private datosParametricosMapper;
-    MedicoOraculo private medicoOraculo;
+    // MedicoOraculo private medicoOraculo;
     RolMapperInterface private rolMapper;
     UsuarioMapperInterface private usuarioMapper;
+
+    Oracle private oraculo;
 
     constructor() {
         creador = msg.sender;
@@ -34,11 +38,10 @@ contract Medico is Modifiers {
     }
 
     function registrar(address direccion, MedicoVO medico)
-        public
-        tieneAcceso(4)
+        public        
     {
         if (direccion != msg.sender) {
-            revert("Un paciente se debe registrar a si mismo");
+            revert("Un medico se debe registrar a si mismo");
         }
         RolVO rol = rolMapper.consultar(RolDeAccesoEnum.MEDICO);
         UsuarioVO nuevoUsuario = new UsuarioVO();
@@ -47,14 +50,9 @@ contract Medico is Modifiers {
         nuevoUsuario.setEstaActivo(true);
         usuarioMapper.guardar(direccion, nuevoUsuario);
         medicoMapper.guardar(direccion, medico);
-        /*try  {
-            emit Log("Se guarda la informacion del medico correctamente");
-        } catch Error(string memory data) {
-            /*reason*/
-            /*
-            emit Log("se rompio por un revert o require");
-            emit Log(data);
-        }*/
+        verificarExistenciaEnSistemaExterno(
+            direccion
+        );
     }
 
     function registrarConStruct(
@@ -62,17 +60,11 @@ contract Medico is Modifiers {
         MedicoVO.MedicoVOStruct memory medicoVOStruct,
         string memory _usuario,
         string memory _contrasena // TODO: Recibir encryptada
-    ) public {
-        bool medicoValido = medicoOraculo.verificarExistenciaEnSistemaExterno(
-            _usuario,
-            _contrasena
-        );
-        if (!medicoValido) {
-            revert("No existe ese medico para el estado");
-        }
+    ) public       
+    {        
         MedicoVO medicoVO = new MedicoVO();
         EstadoVO estadoVO = datosParametricosMapper.consultarEstadoVO(
-            medicoVOStruct.estadoId
+            2 // Medico en validación  TODO: convertir en enum
         );
         TipoIdentificacionVO _tipoIdentificacionVO = datosParametricosMapper
             .consultarTipoIdentificacionVO(
@@ -86,7 +78,7 @@ contract Medico is Modifiers {
             _usuario,
             _contrasena
         );
-        registrar(direccion, medicoVO);
+        registrar(direccion, medicoVO);        
     }
 
     // TODO: Cambiar por struct
@@ -105,22 +97,65 @@ contract Medico is Modifiers {
         }*/
     }
 
-    /*function verificarExistenciaEnSistemaExterno(address direccion)
-        public
-        tieneAcceso(10)
-        returns (bool)
+    function verificarExistenciaEnSistemaExterno(
+        address direccion
+        )
+        public                
     {
+        // tieneAcceso(10)
         /* TODO: Consultar info del medico (usuario y contraseña)
          *  despues se hace con oraculos una consulta
          */
-    /*
-        return true;
-    }*/
 
-    /*function buscarPerfilMedicoSistemaExterno(address direccion) public 
-    tieneAcceso(11) returns (PerfilMedicoSistemaExternoStruct memory){
+         MedicoVO informacionMedico = medicoMapper.consultar(direccion);
+
+         string memory url = string.concat(
+            string.concat(
+                string.concat(
+                    "http://172.19.0.1:3001/validar-usuario?identificacion=",
+                    informacionMedico.getUsuario()
+                    ),
+            "&contrasena="
+            ),
+            informacionMedico.getContrasena());
+
+         
+         
+         oraculo.createRequest(
+            url,
+            "GET", 
+            direccion, 
+            PeticionExternaEnum.VALIDAR_MEDICO
+            );
+    }
+
+    function buscarPerfilMedicoSistemaExterno(address direccion) public 
+    tieneAcceso(11) {
         // TODO: tambien con oraculo
-    }*/
+        // returns (PerfilMedicoSistemaExternoStruct memory)
+
+         MedicoVO informacionMedico = medicoMapper.consultar(direccion);
+
+         string memory url = string.concat(
+            string.concat(
+                string.concat(
+                    "http://172.19.0.1:3001/buscar-usuario?identificacion=",
+                    informacionMedico.getUsuario()
+                    ),
+            "&contrasena="
+            ),
+            informacionMedico.getContrasena());
+
+         
+         
+         oraculo.createRequest(
+            url,
+            "GET", 
+            msg.sender, 
+            PeticionExternaEnum.BUSCAR_MEDICO
+            );
+
+    }
 
     function setMedicoMapper(MedicoMapperInterface _medicoMapper)
         public
@@ -135,12 +170,13 @@ contract Medico is Modifiers {
         datosParametricosMapper = _datosParametricosMapperAddress;
     }
 
-    function setMedicoOraculo(MedicoOraculo _medicoOraculo)
+    // Eliminar
+    /*function setMedicoOraculo(MedicoOraculo _medicoOraculo)
         public
         esPropietario
     {
         medicoOraculo = _medicoOraculo;
-    }
+    }*/
 
     function setRolMapper(RolMapperInterface _rolMapperAddress)
         public
@@ -154,6 +190,13 @@ contract Medico is Modifiers {
         esPropietario
     {
         usuarioMapper = _usuarioMapperAddress;
+    }
+
+    function setOracle(Oracle _oracleAddress)
+    public
+    esPropietario
+    {
+        oraculo = _oracleAddress;
     }
 
     function selfDestruct() public esPropietario {
