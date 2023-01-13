@@ -19,6 +19,8 @@ enum TipoRegistroMedico {
     PROCEDIMIENTOQUIRURGICOVO, // 13
     PRUEBADELABORATORIOVO, // 14
     TRANSFUSIONVO, // 15
-    TRAUMATISMOVO // 16
+    TRAUMATISMOVO, // 16
+    GINECOBSTETRICIA, //17
+    ANTICONCEPTIVO //18
     }
 // https://solidity-es.readthedocs.io/es/latest/types.html#enums:~:text=Los-,Enums,-son%20una%20manera

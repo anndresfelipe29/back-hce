@@ -1,8 +1,43 @@
-# back-hce
-Back end solidity para DAPP de historias clínicas
+# Prototype of based-blockchain system software to store medical records
 
-## Ejecución en local
+## System overview
+In this project there is a prototype based-software system to manage electronic medical records according with Colombia laws in a descentralized environment and blockchain-based. The goal of this project is to provide a tool where people can manage its own medical history. In this tool they can see when, where and who is editying and who is seeing their medical data. In this project we found the backend-side of this prototype, to see the Frontend-side see **_Additional resources_**
 
+## Team
+- Andres Felipe Gomez Salinas (angomezs@correo.udistrital.edu.co)
+- Jose Ricardo Ortega Ramirez (jrortegar@correo.udistrital.edu.co)
+
+## Context Diagram
+Potentially change
+![Context](docs/images/context.png)
+
+## Entry Points
+* [![metamask](https://img.shields.io/badge/metamask-10.20.0-orange)](https://metamask.io/): A crypto wallet & gateway to blockchain apps.
+
+## Technology stack
+* [![solidity](https://img.shields.io/badge/solidity-0.8.17-brightgreen)](https://docs.soliditylang.org/en/v0.8.17/): is an object-oriented, high-level language for implementing smart contracts.
+* [![ethereum](https://img.shields.io/badge/ethereum-gray)](https://ethereum.org/es/): is a community management technology that promotes Ether cryptocoin and thousands of decentralized applications.
+* [![truffle](https://img.shields.io/badge/truffle-5.5.26-green)](https://trufflesuite.com/docs/truffle/): A world class development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM), aiming to make life as a developer easier.
+* [![ganache](https://img.shields.io/badge/ganache-7.4.0-yellow)](https://trufflesuite.com/docs/ganache/): A personal blockchain for rapid Ethereum and Corda distributed application development.
+* [![node](https://img.shields.io/badge/node-16.17.0-yellowgreen)](https://nodejs.org/es/): an open-source, cross-platform JavaScript runtime environment.
+
+## Project Structure
+- [build/contracts](build/contracts/): The contracts compiled files in JSON format.
+- [contracts/logica](contracts/logica/): Domain model of application
+- [contracts/logica/IteradorHCE](contracts/logica/IteradorHCE/): Contains iterator over medical history
+- [contracts/logica/sistemaExterno](contracts/logica/sistemaExterno/): Oraculo to create connection with External verification medical service
+- [contracts/models](contracts/models/): 
+- [contracts/models/accesoHistoriaClinica](contracts/models/accesoHistoriaClinica/): Access to medical history logic
+- [contracts/models/historiaClinica](contracts/models/historiaClinica/): Medical records logic
+- [contracts/models/historiaClinica/enums](contracts/models/historiaClinica/enums/): Contains enum file that classify the medical records
+- [contracts/models/structsGenerales](contracts/models/structsGenerales/): Comun struct that can be contained in other structs
+- [contracts/models/VOGenerales](contracts/models/VOGenerales/): Value objects of data entities.
+- [contracts/persistence](contracts/persistence/): Contains mappers of domain model to be storage in blockchain
+- [contracts/service](contracts/service/):
+- [contracts/utils](contracts/utils/):
+
+## How to Run
+- In local environment
 - Instala ganache CLI y ejecuta:
 
     ganache-cli -p 7545 -g 20  
@@ -33,7 +68,18 @@ https://blog.chronologic.network/how-to-change-and-reset-your-nonce-in-metamask-
 
 million benefit runway donor there gold cause ensure account decorate venture wonder
 
+HD Wallet
+==================
+Mnemonic:      option reward combine popular estate vapor thunder brick also champion hunt combine
+Base HD Path:  m/44'/60'/0'/0/{account_index}
 
+Default Gas Price
+==================
+20
+
+## Additional resources
+- [Propose-frontend]()
+=======
 nodo_ganache     | Available Accounts
 nodo_ganache     | ==================
 nodo_ganache     | (0) 0x8765983E2557FbD93d2Cc9cAFD0f3a5C25441cd1 (100 ETH)

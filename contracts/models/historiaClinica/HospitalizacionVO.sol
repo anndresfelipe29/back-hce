@@ -63,7 +63,7 @@ contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACION
         return hospitalizacionStruct;
     }
 
-    function setAtencionUrgenciasStruct(
+    function setHospitalizacionStruct(
         HospitalizacionStruct memory _hospitalizacionStruct
     ) public {
         hospitalizacionStruct = _hospitalizacionStruct;
