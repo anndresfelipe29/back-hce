@@ -53,7 +53,6 @@ module.exports = async function (callback) {
     let accesoHistoriaClinica
     let accesoHistoriaClinicaMapper
 
-    const accounts = await web3.eth.getAccounts()
 
     try {
         // Carga de mappers 
