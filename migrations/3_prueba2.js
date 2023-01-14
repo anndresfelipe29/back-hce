@@ -13,7 +13,7 @@ const UsuarioMapper = artifacts.require("UsuarioMapper");
 const RolMapper = artifacts.require("RolMapper");
 const TipoIdentificacionVO = artifacts.require('TipoIdentificacionVO');
 const DatosParametricosMapper = artifacts.require('DatosParametricosMapper');
-const MedicoOraculo = artifacts.require('MedicoOraculo')
+// const MedicoOraculo = artifacts.require('MedicoOraculo')
 const HistoriaClinica = artifacts.require('HistoriaClinica')
 const HistoriaClinicaMapper =artifacts.require('HistoriaClinicaMapper')
 const AccesoHistoriaClinicaMapper = artifacts.require('AccesoHistoriaClinicaMapper')
@@ -36,7 +36,7 @@ module.exports = function (deployer) {
     deployer.deploy(RolMapper);
     deployer.deploy(TipoIdentificacionVO);
     deployer.deploy(DatosParametricosMapper);
-    deployer.deploy(MedicoOraculo);
+    // deployer.deploy(MedicoOraculo);
     deployer.deploy(HistoriaClinicaMapper);
     deployer.deploy(HistoriaClinica);
     /*
