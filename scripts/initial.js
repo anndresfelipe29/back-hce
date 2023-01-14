@@ -55,6 +55,7 @@ module.exports = async function (callback) {
 
 
     try {
+        console.log("================1==================")
         // Carga de mappers 
         rolMapper = await RolMapper.deployed()
         pacienteMapper = await PacienteMapper.deployed()

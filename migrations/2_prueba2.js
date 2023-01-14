@@ -23,7 +23,8 @@ const Utils = artifacts.require('Utils')
 const Oracle = artifacts.require('Oracle')
 
 module.exports = function (deployer) {
-    // deployer.deploy(PersonaStruct);
+    try {
+           // deployer.deploy(PersonaStruct);
     // deployer.deploy(PacienteService);
     deployer.deploy(PacienteMapper);
     deployer.deploy(MedicoMapper);
@@ -52,4 +53,10 @@ module.exports = function (deployer) {
     // Agregar a otro migrate
     deployer.link(Utils, Oracle);
     deployer.deploy(Oracle)
+    } catch (error) {
+        console.log("================= Error migration================")
+        console.error(error)
+        console.log("================= Fin Error migration================")
+    }
+ 
 };
