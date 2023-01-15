@@ -1,44 +1,41 @@
 const { open } = require('fs/promises');
 
 
-const RolMapper = artifacts.require('RolMapper')
-
-const UsuarioMapper = artifacts.require('UsuarioMapper')
-
+const Paciente = artifacts.require('Paciente')
 const PacienteMapper = artifacts.require('PacienteMapper')
-
-const MedicoMapper = artifacts.require('MedicoMapper')
-// const MedicoOraculo = artifacts.require('MedicoOraculo')
-
-const AccesoHistoriaClinicaMapper = artifacts.require('AccesoHistoriaClinicaMapper')
-
-
-
+const RolMapper = artifacts.require('RolMapper')
+const UsuarioMapper = artifacts.require('UsuarioMapper')
+const Acceso = artifacts.require('Acceso')
 const DatosParametricosMapper = artifacts.require('DatosParametricosMapper')
 
-const HistoriaClinicaMapper = artifacts.require('HistoriaClinicaMapper')
-
-const Oracle = artifacts.require('Oracle')
 
 module.exports = async function (callback) {
-    let direcciones = []
-    let medicoMapper
-    let datosParametricosMapper
+
 
     try {
+        let paciente
+        let pacienteMapper
+        let rolMapper
+        let usuarioMapper       
+        let acceso
+        let datosParametricosMapper
+        
 
-        console.log("================Inyeccion de dependencias==================")
-
-        medicoMapper = await MedicoMapper.deployed()
+        pacienteMapper = await PacienteMapper.deployed()
+        rolMapper = await RolMapper.deployed()
+        usuarioMapper = await UsuarioMapper.deployed()
+        acceso = await Acceso.deployed()        
         datosParametricosMapper = await DatosParametricosMapper.deployed()
-        oracle = await Oracle.deployed()
 
-        /*******************************************Inyección de dependencias************************************/
-        console.log("================Oracle==================")
-        // Oraculo
-        direcciones.push({ contrato: 'oracle', direccion: oracle.address })
-        await oracle.setMedicoMapper(medicoMapper.address)
-        await oracle.setDatosParametricosMapper(datosParametricosMapper.address)
+
+        console.log("================Paciente==================")
+        // Paciente
+        paciente = await Paciente.deployed()
+        await paciente.setPacienteMapper(pacienteMapper.address)
+        await paciente.setRolMapper(rolMapper.address)
+        await paciente.setUsuarioMapper(usuarioMapper.address)
+        await paciente.setAcceso(acceso.address)
+        await paciente.setDatosParametricosMapper(datosParametricosMapper.address)
         callback()
 
     } catch (error) {

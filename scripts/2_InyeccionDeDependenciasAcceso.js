@@ -1,6 +1,7 @@
 const { open } = require('fs/promises');
 
 const Acceso = artifacts.require('Acceso')
+const UsuarioMapper = artifacts.require('UsuarioMapper')
 
 
 module.exports = async function (callback) {
@@ -8,6 +9,8 @@ module.exports = async function (callback) {
 
     try {
         let acceso
+        let usuarioMapper
+        usuarioMapper = await UsuarioMapper.deployed()
         console.log("================Acceso==================")
         // Acceso
         acceso = await Acceso.deployed()
@@ -18,6 +21,7 @@ module.exports = async function (callback) {
         console.log("================= Error migration================")
         console.error(error)
         console.log("================= Fin Error migration================")
+        callback()
     }
 }
 

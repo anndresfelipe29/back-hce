@@ -1,44 +1,44 @@
 const { open } = require('fs/promises');
 
-
+const Medico = artifacts.require('Medico')
 const RolMapper = artifacts.require('RolMapper')
-
 const UsuarioMapper = artifacts.require('UsuarioMapper')
-
-const PacienteMapper = artifacts.require('PacienteMapper')
-
 const MedicoMapper = artifacts.require('MedicoMapper')
-// const MedicoOraculo = artifacts.require('MedicoOraculo')
-
-const AccesoHistoriaClinicaMapper = artifacts.require('AccesoHistoriaClinicaMapper')
-
-
-
+const Acceso = artifacts.require('Acceso')
 const DatosParametricosMapper = artifacts.require('DatosParametricosMapper')
-
-const HistoriaClinicaMapper = artifacts.require('HistoriaClinicaMapper')
-
 const Oracle = artifacts.require('Oracle')
 
+
+
 module.exports = async function (callback) {
-    let direcciones = []
-    let medicoMapper
-    let datosParametricosMapper
+
 
     try {
+        let medico
+        let rolMapper
+        let usuarioMapper
+        let medicoMapper
+        let acceso
+        let datosParametricosMapper
+        let oracle
 
-        console.log("================Inyeccion de dependencias==================")
 
+        rolMapper = await RolMapper.deployed()
+        usuarioMapper = await UsuarioMapper.deployed()
         medicoMapper = await MedicoMapper.deployed()
+        acceso = await Acceso.deployed()        
         datosParametricosMapper = await DatosParametricosMapper.deployed()
         oracle = await Oracle.deployed()
 
-        /*******************************************Inyección de dependencias************************************/
-        console.log("================Oracle==================")
-        // Oraculo
-        direcciones.push({ contrato: 'oracle', direccion: oracle.address })
-        await oracle.setMedicoMapper(medicoMapper.address)
-        await oracle.setDatosParametricosMapper(datosParametricosMapper.address)
+        console.log("================Medico==================")
+        // Médico
+        medico = await Medico.deployed()
+        await medico.setRolMapper(rolMapper.address)
+        await medico.setUsuarioMapper(usuarioMapper.address)
+        await medico.setMedicoMapper(medicoMapper.address)
+        await medico.setDatosParametricosMapper(datosParametricosMapper.address)
+        await medico.setAcceso(acceso.address)
+        await medico.setOracle(oracle.address)
         callback()
 
     } catch (error) {

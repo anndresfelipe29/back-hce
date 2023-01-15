@@ -282,5 +282,6 @@ module.exports = async function (callback) {
         console.log("================= Error migration================")
         console.error(error)
         console.log("================= Fin Error migration================")
+        callback()
     }
 }
