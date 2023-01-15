@@ -1,5 +1,3 @@
-const { open } = require('fs/promises');
-
 const HistoriaClinica = artifacts.require('HistoriaClinica')
 const AccesoHistoriaClinica = artifacts.require('AccesoHistoriaClinica')
 const Acceso = artifacts.require('Acceso')
@@ -43,15 +41,3 @@ module.exports = async function (callback) {
     }
 }
 
-async function writeToFile(fileName, data) {
-    try {
-        console.log("============== Guardando direcciones relevantes =================")
-        // await writeFile(fileName, data);
-        const file = await open(fileName, 'w');
-        console.log(data)
-        await file.write(JSON.stringify(data));
-        console.log(`Wrote data to ${fileName}`);
-    } catch (error) {
-        console.error(`Got an error trying to write the file: ${error.message}`);
-    }
-}

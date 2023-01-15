@@ -1,6 +1,3 @@
-const { open } = require('fs/promises');
-
-
 const Paciente = artifacts.require('Paciente')
 const PacienteMapper = artifacts.require('PacienteMapper')
 const RolMapper = artifacts.require('RolMapper')
@@ -43,18 +40,5 @@ module.exports = async function (callback) {
         console.error(error)
         console.log("================= Fin Error migration================")
         callback()
-    }
-}
-
-async function writeToFile(fileName, data) {
-    try {
-        console.log("============== Guardando direcciones relevantes =================")
-        // await writeFile(fileName, data);
-        const file = await open(fileName, 'w');
-        console.log(data)
-        await file.write(JSON.stringify(data));
-        console.log(`Wrote data to ${fileName}`);
-    } catch (error) {
-        console.error(`Got an error trying to write the file: ${error.message}`);
     }
 }

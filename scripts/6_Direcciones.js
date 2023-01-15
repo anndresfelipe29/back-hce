@@ -20,6 +20,10 @@ module.exports = async function (callback) {
         direcciones.push({ contrato: 'oracle', direccion: oracle.address })
         direcciones.push({ contrato: 'accesoHistoriaClinica', direccion: accesoHistoriaClinica.address })
         
+        console.log("oracle: ", oracle.address)
+        console.log("accesoHistoriaClinica: ", accesoHistoriaClinica.address)
+
+
         await writeToFile('build/contracts/extras/direcciones.json', direcciones)
        
         callback()

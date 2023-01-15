@@ -1,5 +1,3 @@
-const { open } = require('fs/promises');
-
 const AccesoHistoriaClinica = artifacts.require('AccesoHistoriaClinica')
 const Acceso = artifacts.require('Acceso')
 const AccesoHistoriaClinicaMapper = artifacts.require('AccesoHistoriaClinicaMapper')
@@ -26,9 +24,7 @@ module.exports = async function (callback) {
         await accesoHistoriaClinica.setAccesoHistoriaClinicaMapper(accesoHistoriaClinicaMapper.address)
         await accesoHistoriaClinica.setMedicoMapper(medicoMapper.address)
         await accesoHistoriaClinica.setAcceso(acceso.address)
-        direcciones.push({ contrato: 'accesoHistoriaClinica', direccion: accesoHistoriaClinica.address })
-        console.log("accesoHistoriaClinica: ", accesoHistoriaClinica.address)
-
+       
         callback()
 
     } catch (error) {
@@ -36,18 +32,5 @@ module.exports = async function (callback) {
         console.error(error)
         console.log("================= Fin Error migration================")
         callback()
-    }
-}
-
-async function writeToFile(fileName, data) {
-    try {
-        console.log("============== Guardando direcciones relevantes =================")
-        // await writeFile(fileName, data);
-        const file = await open(fileName, 'w');
-        console.log(data)
-        await file.write(JSON.stringify(data));
-        console.log(`Wrote data to ${fileName}`);
-    } catch (error) {
-        console.error(`Got an error trying to write the file: ${error.message}`);
     }
 }
