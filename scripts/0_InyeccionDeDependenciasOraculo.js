@@ -22,12 +22,9 @@ const Oracle = artifacts.require('Oracle')
 
 module.exports = async function (callback) {
     let direcciones = []
-    let pacienteMapper
     let medicoMapper
     let datosParametricosMapper
-    let historiaClinicaMapper
-    let rolMapper
-    let accesoHistoriaClinicaMapper
+
 
     try {
 
