@@ -58,28 +58,37 @@ module.exports = async function (callback) {
         console.log("================1==================")
         // Carga de mappers 
         rolMapper = await RolMapper.deployed()
+        console.log("================2==================")
         pacienteMapper = await PacienteMapper.deployed()
+        console.log("================3==================")
         medicoMapper = await MedicoMapper.deployed()
+        console.log("================4==================")
         //medicoOraculo = await MedicoOraculo.deployed()
         //direcciones.push({contrato:'medicoOraculo',direccion: medicoOraculo.address})
         datosParametricosMapper = await DatosParametricosMapper.deployed()
+        console.log("================5==================")
         usuarioMapper = await UsuarioMapper.deployed()
+        console.log("================6==================")
         historiaClinicaMapper = await HistoriaClinicaMapper.deployed()
+        console.log("================7==================")
         accesoHistoriaClinicaMapper = await AccesoHistoriaClinicaMapper.deployed()
+        console.log("================8==================")
 
 
         /*******************************************Inyección de dependencias************************************/
-
+        console.log("================Oracle==================")
         // Oraculo
         oracle = await Oracle.deployed()
         direcciones.push({ contrato: 'oracle', direccion: oracle.address })
         await oracle.setMedicoMapper(medicoMapper.address)
         await oracle.setDatosParametricosMapper(datosParametricosMapper.address)
 
+        console.log("================Acceso==================")
         // Acceso
         acceso = await Acceso.deployed()
         await acceso.setUsuarioMapper(usuarioMapper.address)
 
+        console.log("================AccesoHistoriaClinica==================")
         // accesoHistoriaClinica
         accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()
         await accesoHistoriaClinica.setAccesoHistoriaClinicaMapper(accesoHistoriaClinicaMapper.address)
@@ -88,6 +97,7 @@ module.exports = async function (callback) {
         direcciones.push({ contrato: 'accesoHistoriaClinica', direccion: accesoHistoriaClinica.address })
         console.log("accesoHistoriaClinica: ", accesoHistoriaClinica.address)
 
+        console.log("================HistoriaClinica==================")
         // Historia clínica
         historiaClinica = await HistoriaClinica.deployed()
         await historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
@@ -95,6 +105,7 @@ module.exports = async function (callback) {
         await historiaClinica.setAcceso(acceso.address)
         await historiaClinica.setAccesoHistoriaClinica(accesoHistoriaClinica.address)
 
+        console.log("================Medico==================")
         // Médico
         medico = await Medico.deployed()
         await medico.setRolMapper(rolMapper.address)
@@ -105,6 +116,7 @@ module.exports = async function (callback) {
         await medico.setAcceso(acceso.address)
         await medico.setOracle(oracle.address)
 
+        console.log("================Paciente==================")
         // Paciente
         paciente = await Paciente.deployed()
         await paciente.setPacienteMapper(pacienteMapper.address)
@@ -115,7 +127,7 @@ module.exports = async function (callback) {
 
 
         /********************************************Carga de datos inicial********************************************/
-
+        console.log("================Carga de datos ==================")
         // Permisos
         /******Paciente*******/
         paciente_consultar = await PermisoVO.new()
