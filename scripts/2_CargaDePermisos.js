@@ -52,7 +52,7 @@ module.exports = async function (callback) {
 
     try {
 
-        console.log("================1==================")
+        console.log("================Carga de permisos==================")
         // Carga de mappers 
         rolMapper = await RolMapper.deployed()
         console.log("================2==================")
