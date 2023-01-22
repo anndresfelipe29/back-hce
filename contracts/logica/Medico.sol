@@ -112,7 +112,7 @@ contract Medico is Modifiers {
          string memory url = string.concat(
             string.concat(
                 string.concat(
-                    "http://172.19.0.1:3001/validar-usuario?identificacion=",
+                    "http://172.18.0.1:3001/validar-usuario?identificacion=",
                     informacionMedico.getUsuario()
                     ),
             "&contrasena="
@@ -139,7 +139,7 @@ contract Medico is Modifiers {
          string memory url = string.concat(
             string.concat(
                 string.concat(
-                    "http://172.19.0.1:3001/buscar-usuario?identificacion=",
+                    "http://172.18.0.1:3001/buscar-usuario?identificacion=",
                     informacionMedico.getUsuario()
                     ),
             "&contrasena="
