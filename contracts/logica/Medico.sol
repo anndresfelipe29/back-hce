@@ -14,11 +14,9 @@ contract Medico is Modifiers {
     // TODO: consumir este evento desde una clase heredada o algo así
     event Log(string data);
     //address public creador;
-    address public medicoMapperAddress;
 
     MedicoMapperInterface private medicoMapper;
     DatosParametricosMapperInterface private datosParametricosMapper;
-    // MedicoOraculo private medicoOraculo;
     RolMapperInterface private rolMapper;
     UsuarioMapperInterface private usuarioMapper;
 
@@ -87,14 +85,6 @@ contract Medico is Modifiers {
         tieneAcceso(9)
     {
         medicoMapper.actualizar(direccion, medico);
-        /*
-        try contratoPacienteDAO.actualizar(direccion, paciente) {
-            emit Log("Se guarda la informacion de paciente correctamente");
-        } catch Error(string memory data) {
-            /*reason*/
-        /*  emit Log("se rompio por un revert o require");
-            emit Log(data);
-        }*/
     }
 
     function verificarExistenciaEnSistemaExterno(
@@ -132,8 +122,6 @@ contract Medico is Modifiers {
     function buscarPerfilMedicoSistemaExterno(address direccion) public 
     tieneAcceso(11) {
         // TODO: tambien con oraculo
-        // returns (PerfilMedicoSistemaExternoStruct memory)
-
          MedicoVO informacionMedico = medicoMapper.consultar(direccion);
 
          string memory url = string.concat(

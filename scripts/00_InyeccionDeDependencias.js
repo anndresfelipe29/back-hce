@@ -83,6 +83,8 @@ module.exports = async function (callback) {
         acceso = await Acceso.deployed()
         await acceso.setUsuarioMapper(usuarioMapper.address)
 
+
+        
         console.log("================AccesoHistoriaClinica==================")
         // accesoHistoriaClinica
         accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()
