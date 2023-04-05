@@ -1,0 +1,2280 @@
+{
+  "contractName": "DatosParametricosMapperInterface",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "data",
+          "type": "string"
+        }
+      ],
+      "name": "Log",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "consultarTipoIdentificacionVO",
+      "outputs": [
+        {
+          "internalType": "contract TipoIdentificacionVO",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract TipoIdentificacionVO",
+          "name": "_tipoIdentificacion",
+          "type": "address"
+        }
+      ],
+      "name": "guardarTipoIdentificacionVO",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract TipoIdentificacionVO",
+          "name": "_tipoIdentificacion",
+          "type": "address"
+        }
+      ],
+      "name": "actualizarTipoIdentificacionVO",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "consultarEstadoVO",
+      "outputs": [
+        {
+          "internalType": "contract EstadoVO",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract EstadoVO",
+          "name": "_estado",
+          "type": "address"
+        }
+      ],
+      "name": "guardarEstadoVO",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract EstadoVO",
+          "name": "estado",
+          "type": "address"
+        }
+      ],
+      "name": "actualizarEstadoVO",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "consultarEstadoCivilVO",
+      "outputs": [
+        {
+          "internalType": "contract EstadoCivilVO",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract EstadoCivilVO",
+          "name": "_estadoCivil",
+          "type": "address"
+        }
+      ],
+      "name": "guardarEstadoCivilVO",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract EstadoCivilVO",
+          "name": "_estadoCivil",
+          "type": "address"
+        }
+      ],
+      "name": "actualizarEstadoCivilVO",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "consultarAseguradoraVO",
+      "outputs": [
+        {
+          "internalType": "contract AseguradoraVO",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract AseguradoraVO",
+          "name": "_aseguradora",
+          "type": "address"
+        }
+      ],
+      "name": "guardarAseguradoraVO",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract AseguradoraVO",
+          "name": "_aseguradoraVO",
+          "type": "address"
+        }
+      ],
+      "name": "actualizarAseguradoraVO",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "consultarTipoVinculacionVO",
+      "outputs": [
+        {
+          "internalType": "contract TipoVinculacionVO",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract TipoVinculacionVO",
+          "name": "_tipoVinculacion",
+          "type": "address"
+        }
+      ],
+      "name": "guardarTipoVinculacionVO",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract TipoVinculacionVO",
+          "name": "_tipoVinculacion",
+          "type": "address"
+        }
+      ],
+      "name": "actualizarTipoVinculacionVO",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "consultarEstadoHCEVO",
+      "outputs": [
+        {
+          "internalType": "contract EstadoHCEVO",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract EstadoHCEVO",
+          "name": "_estadoHCE",
+          "type": "address"
+        }
+      ],
+      "name": "guardarEstadoHCEVO",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract EstadoHCEVO",
+          "name": "_estadoHCE",
+          "type": "address"
+        }
+      ],
+      "name": "actualizarEstadoHCEVO",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "selfDestruct",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"name\":\"Log\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"contract AseguradoraVO\",\"name\":\"_aseguradoraVO\",\"type\":\"address\"}],\"name\":\"actualizarAseguradoraVO\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"contract EstadoCivilVO\",\"name\":\"_estadoCivil\",\"type\":\"address\"}],\"name\":\"actualizarEstadoCivilVO\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"contract EstadoHCEVO\",\"name\":\"_estadoHCE\",\"type\":\"address\"}],\"name\":\"actualizarEstadoHCEVO\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"contract EstadoVO\",\"name\":\"estado\",\"type\":\"address\"}],\"name\":\"actualizarEstadoVO\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"contract TipoIdentificacionVO\",\"name\":\"_tipoIdentificacion\",\"type\":\"address\"}],\"name\":\"actualizarTipoIdentificacionVO\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"contract TipoVinculacionVO\",\"name\":\"_tipoVinculacion\",\"type\":\"address\"}],\"name\":\"actualizarTipoVinculacionVO\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"consultarAseguradoraVO\",\"outputs\":[{\"internalType\":\"contract AseguradoraVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"consultarEstadoCivilVO\",\"outputs\":[{\"internalType\":\"contract EstadoCivilVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"consultarEstadoHCEVO\",\"outputs\":[{\"internalType\":\"contract EstadoHCEVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"consultarEstadoVO\",\"outputs\":[{\"internalType\":\"contract EstadoVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"consultarTipoIdentificacionVO\",\"outputs\":[{\"internalType\":\"contract TipoIdentificacionVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"consultarTipoVinculacionVO\",\"outputs\":[{\"internalType\":\"contract TipoVinculacionVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract AseguradoraVO\",\"name\":\"_aseguradora\",\"type\":\"address\"}],\"name\":\"guardarAseguradoraVO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract EstadoCivilVO\",\"name\":\"_estadoCivil\",\"type\":\"address\"}],\"name\":\"guardarEstadoCivilVO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract EstadoHCEVO\",\"name\":\"_estadoHCE\",\"type\":\"address\"}],\"name\":\"guardarEstadoHCEVO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract EstadoVO\",\"name\":\"_estado\",\"type\":\"address\"}],\"name\":\"guardarEstadoVO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract TipoIdentificacionVO\",\"name\":\"_tipoIdentificacion\",\"type\":\"address\"}],\"name\":\"guardarTipoIdentificacionVO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract TipoVinculacionVO\",\"name\":\"_tipoVinculacion\",\"type\":\"address\"}],\"name\":\"guardarTipoVinculacionVO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"selfDestruct\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/persistence/DatosParametricosMapperInterface.sol\":\"DatosParametricosMapperInterface\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"project:/contracts/models/PermisoVO.sol\":{\"keccak256\":\"0x01cbef6460e7e2615298a90008d89e6687832053a58fa61d5e24c560e763059f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3cec0d9aa5f40b6d689c93c268b37a54d87163e3828d49217afe894dad39da67\",\"dweb:/ipfs/QmbBDCBW8HHWVbhDJJ1mMMpx8otKuLQCc89xTccdZrNgs3\"]},\"project:/contracts/models/RolVO.sol\":{\"keccak256\":\"0x90e2683e761136f55e9b1f7bd676489c33c1f2087282d3b37a7ad65f5f031969\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8f186fcdd55500992bb7bfa0cd79524ce848438c3a38ec68269f43a2f2ebf73a\",\"dweb:/ipfs/QmPwPAppt171aE5hXWVtiefJVT6mHGBdCL1CiW7CGRtL6p\"]},\"project:/contracts/models/VOGenerales/AseguradoraVO.sol\":{\"keccak256\":\"0x7f75094010e37f42bafdd5afa005846b1a11b8f30f6d679275cc4d645058884f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b895fc1a4753900376d2719f5bfdec5f9e27b6d4ee866998e9f4bfeb7e78f98b\",\"dweb:/ipfs/QmTHv1fpY7cSJABHUTdwEB9kpsYK2ewhafdAnayTaY6ZXa\"]},\"project:/contracts/models/VOGenerales/EstadoCivilVO.sol\":{\"keccak256\":\"0xae183df05f26fe92c25c558227027f2c2236d3c41cd9b5596a0bb140fd23df91\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fb87563a7660315b1faf41048e26d5fe97d1f0145f731f70cc453223d2a224cb\",\"dweb:/ipfs/QmP93EYQ8yzP34ZM1Ac6Lyvg5CmRhBynQXgTeB4D7x6JQX\"]},\"project:/contracts/models/VOGenerales/EstadoHCEVO.sol\":{\"keccak256\":\"0x2bca165cd631450804bbd8f9a15ae7341c7aa4466752da2c1d8464999c614a38\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://02f2b1985728db17b76bfc4865eb5c3edfa7ed9addecdcd4ec48d35c890ed5dc\",\"dweb:/ipfs/QmQoABjYyvmTHevPMgL5i91pWPppJpEt2biAVZteEkdmN5\"]},\"project:/contracts/models/VOGenerales/EstadoVO.sol\":{\"keccak256\":\"0x174d26586118f5de36fae850d8cd2d115e877ea32add115a64610078a711e391\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://219a490b8d0fed5adc7c6f95def96d9303bcd8f1278681c9d2d0f6d0cfdba88b\",\"dweb:/ipfs/QmcyHrKXyR1LBakfsJ3oVkBeweTbgyyFy8zeL6tdcRemFw\"]},\"project:/contracts/models/VOGenerales/TipoIdentificacionVO.sol\":{\"keccak256\":\"0x2269ddef1a4584deccedb86298081873b7a8ac63bbf8af9ca33ff0265799432d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://81b897f818d7e5a82fdf0a0bef70027b65db5c8ad44cf1856e680390acbbba6b\",\"dweb:/ipfs/QmPSo5wc3NfbJCAQgDKWk7jAx5gTFg8QHnAkT4yxNXFuED\"]},\"project:/contracts/models/VOGenerales/TipoVinculacionVO.sol\":{\"keccak256\":\"0xe5a667d2794f10ef42cd4aeedd780c40c33f345ea5309e2580fda2636b9526d2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8010323b8f3c2582c70240f9449f6f2da36ebcbb8f1cfb428c92ec70707ca1e7\",\"dweb:/ipfs/QmX6jsZ6UnkmBuYjVk4bFfvei29ArR7GUqQKU3iPqsJmsZ\"]},\"project:/contracts/persistence/DatosParametricosMapperInterface.sol\":{\"keccak256\":\"0xd5f4c94c34f0bbc6622b2df3b97e7706ea015ba41147aef6f67f4f321f1af927\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5bad4b4a7e24d3d43f8d7bd43a169c0dbb6567f06172a6d376df740196f38c90\",\"dweb:/ipfs/QmYrkb3c7F4xWK59uZihLddssd31oC4S1VD861hErmG4Lt\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\nimport \"../models/RolVO.sol\";\nimport \"../models/VOGenerales/TipoIdentificacionVO.sol\";\nimport \"../models/VOGenerales/EstadoVO.sol\";\nimport \"../models/VOGenerales/EstadoCivilVO.sol\";\nimport \"../models/VOGenerales/AseguradoraVO.sol\";\nimport \"../models/VOGenerales/TipoVinculacionVO.sol\";\nimport \"../models/VOGenerales/EstadoHCEVO.sol\";\n\ninterface DatosParametricosMapperInterface {\n    event Log(string data);\n\n    // function consultar(uint256 _id) external returns (RolVO);\n\n    // function guardar(uint256 _id, RolVO paciente) external;\n\n    //    function actualizar(uint256 _id, RolVO paciente) external;\n\n    function consultarTipoIdentificacionVO(uint256 _id)\n        external\n        view\n        returns (TipoIdentificacionVO);\n\n    function guardarTipoIdentificacionVO(\n        TipoIdentificacionVO _tipoIdentificacion\n    ) external returns (uint256);\n\n    function actualizarTipoIdentificacionVO(\n        uint256 _id,\n        TipoIdentificacionVO _tipoIdentificacion\n    ) external;\n\n    function consultarEstadoVO(uint256 _id) external view returns (EstadoVO);\n\n    function guardarEstadoVO(EstadoVO _estado) external returns (uint256);\n\n    function actualizarEstadoVO(uint256 _id, EstadoVO estado) external;\n\n    function consultarEstadoCivilVO(uint256 _id)\n        external\n        view\n        returns (EstadoCivilVO);\n\n    function guardarEstadoCivilVO(EstadoCivilVO _estadoCivil)\n        external\n        returns (uint256);\n\n    function actualizarEstadoCivilVO(uint256 _id, EstadoCivilVO _estadoCivil)\n        external;\n\n    function consultarAseguradoraVO(uint256 _id)\n        external\n        view\n        returns (AseguradoraVO);\n\n    function guardarAseguradoraVO(AseguradoraVO _aseguradora)\n        external\n        returns (uint256);\n\n    function actualizarAseguradoraVO(uint256 _id, AseguradoraVO _aseguradoraVO)\n        external;\n\n    function consultarTipoVinculacionVO(uint256 _id)\n        external\n        view\n        returns (TipoVinculacionVO);\n\n    function guardarTipoVinculacionVO(TipoVinculacionVO _tipoVinculacion)\n        external\n        returns (uint256);\n\n    function actualizarTipoVinculacionVO(\n        uint256 _id,\n        TipoVinculacionVO _tipoVinculacion\n    ) external;\n\n    function consultarEstadoHCEVO(uint256 _id)\n        external\n        view\n        returns (EstadoHCEVO);\n\n    function guardarEstadoHCEVO(EstadoHCEVO _estadoHCE)\n        external\n        returns (uint256);\n\n    function actualizarEstadoHCEVO(uint256 _id, EstadoHCEVO _estadoHCE)\n        external;\n\n    function selfDestruct() external;\n}\n",
+  "sourcePath": "/home/felipe/Documentos/Blockchain/codigo/HCE-full/back-hce/contracts/persistence/DatosParametricosMapperInterface.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/persistence/DatosParametricosMapperInterface.sol",
+    "exportedSymbols": {
+      "AseguradoraVO": [
+        3425
+      ],
+      "DatosParametricosMapperInterface": [
+        10088
+      ],
+      "EstadoCivilVO": [
+        3530
+      ],
+      "EstadoHCEVO": [
+        3663
+      ],
+      "EstadoVO": [
+        3796
+      ],
+      "PermisoVO": [
+        2654
+      ],
+      "RolVO": [
+        3226
+      ],
+      "TipoIdentificacionVO": [
+        3929
+      ],
+      "TipoVinculacionVO": [
+        4062
+      ]
+    },
+    "id": 10089,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9929,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".17"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:58"
+      },
+      {
+        "absolutePath": "project:/contracts/models/RolVO.sol",
+        "file": "../models/RolVO.sol",
+        "id": 9930,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 10089,
+        "sourceUnit": 3227,
+        "src": "58:29:58",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/models/VOGenerales/TipoIdentificacionVO.sol",
+        "file": "../models/VOGenerales/TipoIdentificacionVO.sol",
+        "id": 9931,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 10089,
+        "sourceUnit": 3930,
+        "src": "88:56:58",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/models/VOGenerales/EstadoVO.sol",
+        "file": "../models/VOGenerales/EstadoVO.sol",
+        "id": 9932,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 10089,
+        "sourceUnit": 3797,
+        "src": "145:44:58",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/models/VOGenerales/EstadoCivilVO.sol",
+        "file": "../models/VOGenerales/EstadoCivilVO.sol",
+        "id": 9933,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 10089,
+        "sourceUnit": 3531,
+        "src": "190:49:58",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/models/VOGenerales/AseguradoraVO.sol",
+        "file": "../models/VOGenerales/AseguradoraVO.sol",
+        "id": 9934,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 10089,
+        "sourceUnit": 3426,
+        "src": "240:49:58",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/models/VOGenerales/TipoVinculacionVO.sol",
+        "file": "../models/VOGenerales/TipoVinculacionVO.sol",
+        "id": 9935,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 10089,
+        "sourceUnit": 4063,
+        "src": "290:53:58",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/models/VOGenerales/EstadoHCEVO.sol",
+        "file": "../models/VOGenerales/EstadoHCEVO.sol",
+        "id": 9936,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 10089,
+        "sourceUnit": 3664,
+        "src": "344:47:58",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "DatosParametricosMapperInterface",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 10088,
+        "linearizedBaseContracts": [
+          10088
+        ],
+        "name": "DatosParametricosMapperInterface",
+        "nameLocation": "403:32:58",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "eventSelector": "cf34ef537ac33ee1ac626ca1587a0a7e8e51561e5514f8cb36afa1c5102b3bab",
+            "id": 9940,
+            "name": "Log",
+            "nameLocation": "448:3:58",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9939,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9938,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "459:4:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9940,
+                  "src": "452:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 9937,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "452:6:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "451:13:58"
+            },
+            "src": "442:23:58"
+          },
+          {
+            "functionSelector": "1dbaf403",
+            "id": 9948,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "consultarTipoIdentificacionVO",
+            "nameLocation": "680:29:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9943,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9942,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "718:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9948,
+                  "src": "710:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9941,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "710:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "709:13:58"
+            },
+            "returnParameters": {
+              "id": 9947,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9946,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9948,
+                  "src": "770:20:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_TipoIdentificacionVO_$3929",
+                    "typeString": "contract TipoIdentificacionVO"
+                  },
+                  "typeName": {
+                    "id": 9945,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 9944,
+                      "name": "TipoIdentificacionVO",
+                      "nameLocations": [
+                        "770:20:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3929,
+                      "src": "770:20:58"
+                    },
+                    "referencedDeclaration": 3929,
+                    "src": "770:20:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TipoIdentificacionVO_$3929",
+                      "typeString": "contract TipoIdentificacionVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "769:22:58"
+            },
+            "scope": 10088,
+            "src": "671:121:58",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "fac4714d",
+            "id": 9956,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "guardarTipoIdentificacionVO",
+            "nameLocation": "807:27:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9952,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9951,
+                  "mutability": "mutable",
+                  "name": "_tipoIdentificacion",
+                  "nameLocation": "865:19:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9956,
+                  "src": "844:40:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_TipoIdentificacionVO_$3929",
+                    "typeString": "contract TipoIdentificacionVO"
+                  },
+                  "typeName": {
+                    "id": 9950,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 9949,
+                      "name": "TipoIdentificacionVO",
+                      "nameLocations": [
+                        "844:20:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3929,
+                      "src": "844:20:58"
+                    },
+                    "referencedDeclaration": 3929,
+                    "src": "844:20:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TipoIdentificacionVO_$3929",
+                      "typeString": "contract TipoIdentificacionVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "834:56:58"
+            },
+            "returnParameters": {
+              "id": 9955,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9954,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9956,
+                  "src": "909:7:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9953,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "909:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "908:9:58"
+            },
+            "scope": 10088,
+            "src": "798:120:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "8c303f74",
+            "id": 9964,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "actualizarTipoIdentificacionVO",
+            "nameLocation": "933:30:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9962,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9958,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "981:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9964,
+                  "src": "973:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9957,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "973:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9961,
+                  "mutability": "mutable",
+                  "name": "_tipoIdentificacion",
+                  "nameLocation": "1015:19:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9964,
+                  "src": "994:40:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_TipoIdentificacionVO_$3929",
+                    "typeString": "contract TipoIdentificacionVO"
+                  },
+                  "typeName": {
+                    "id": 9960,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 9959,
+                      "name": "TipoIdentificacionVO",
+                      "nameLocations": [
+                        "994:20:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3929,
+                      "src": "994:20:58"
+                    },
+                    "referencedDeclaration": 3929,
+                    "src": "994:20:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TipoIdentificacionVO_$3929",
+                      "typeString": "contract TipoIdentificacionVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "963:77:58"
+            },
+            "returnParameters": {
+              "id": 9963,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1049:0:58"
+            },
+            "scope": 10088,
+            "src": "924:126:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "480c42a0",
+            "id": 9972,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "consultarEstadoVO",
+            "nameLocation": "1065:17:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9967,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9966,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1091:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9972,
+                  "src": "1083:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9965,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1083:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1082:13:58"
+            },
+            "returnParameters": {
+              "id": 9971,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9970,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9972,
+                  "src": "1119:8:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EstadoVO_$3796",
+                    "typeString": "contract EstadoVO"
+                  },
+                  "typeName": {
+                    "id": 9969,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 9968,
+                      "name": "EstadoVO",
+                      "nameLocations": [
+                        "1119:8:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3796,
+                      "src": "1119:8:58"
+                    },
+                    "referencedDeclaration": 3796,
+                    "src": "1119:8:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EstadoVO_$3796",
+                      "typeString": "contract EstadoVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1118:10:58"
+            },
+            "scope": 10088,
+            "src": "1056:73:58",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "4ce678be",
+            "id": 9980,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "guardarEstadoVO",
+            "nameLocation": "1144:15:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9976,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9975,
+                  "mutability": "mutable",
+                  "name": "_estado",
+                  "nameLocation": "1169:7:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9980,
+                  "src": "1160:16:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EstadoVO_$3796",
+                    "typeString": "contract EstadoVO"
+                  },
+                  "typeName": {
+                    "id": 9974,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 9973,
+                      "name": "EstadoVO",
+                      "nameLocations": [
+                        "1160:8:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3796,
+                      "src": "1160:8:58"
+                    },
+                    "referencedDeclaration": 3796,
+                    "src": "1160:8:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EstadoVO_$3796",
+                      "typeString": "contract EstadoVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1159:18:58"
+            },
+            "returnParameters": {
+              "id": 9979,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9978,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9980,
+                  "src": "1196:7:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9977,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1196:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1195:9:58"
+            },
+            "scope": 10088,
+            "src": "1135:70:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "3754a150",
+            "id": 9988,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "actualizarEstadoVO",
+            "nameLocation": "1220:18:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9986,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9982,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1247:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9988,
+                  "src": "1239:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9981,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1239:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9985,
+                  "mutability": "mutable",
+                  "name": "estado",
+                  "nameLocation": "1261:6:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9988,
+                  "src": "1252:15:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EstadoVO_$3796",
+                    "typeString": "contract EstadoVO"
+                  },
+                  "typeName": {
+                    "id": 9984,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 9983,
+                      "name": "EstadoVO",
+                      "nameLocations": [
+                        "1252:8:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3796,
+                      "src": "1252:8:58"
+                    },
+                    "referencedDeclaration": 3796,
+                    "src": "1252:8:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EstadoVO_$3796",
+                      "typeString": "contract EstadoVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1238:30:58"
+            },
+            "returnParameters": {
+              "id": 9987,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1277:0:58"
+            },
+            "scope": 10088,
+            "src": "1211:67:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "1e8264a9",
+            "id": 9996,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "consultarEstadoCivilVO",
+            "nameLocation": "1293:22:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9991,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9990,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1324:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9996,
+                  "src": "1316:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9989,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1316:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1315:13:58"
+            },
+            "returnParameters": {
+              "id": 9995,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9994,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9996,
+                  "src": "1376:13:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EstadoCivilVO_$3530",
+                    "typeString": "contract EstadoCivilVO"
+                  },
+                  "typeName": {
+                    "id": 9993,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 9992,
+                      "name": "EstadoCivilVO",
+                      "nameLocations": [
+                        "1376:13:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3530,
+                      "src": "1376:13:58"
+                    },
+                    "referencedDeclaration": 3530,
+                    "src": "1376:13:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EstadoCivilVO_$3530",
+                      "typeString": "contract EstadoCivilVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1375:15:58"
+            },
+            "scope": 10088,
+            "src": "1284:107:58",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "8336a7d7",
+            "id": 10004,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "guardarEstadoCivilVO",
+            "nameLocation": "1406:20:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10000,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9999,
+                  "mutability": "mutable",
+                  "name": "_estadoCivil",
+                  "nameLocation": "1441:12:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10004,
+                  "src": "1427:26:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EstadoCivilVO_$3530",
+                    "typeString": "contract EstadoCivilVO"
+                  },
+                  "typeName": {
+                    "id": 9998,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 9997,
+                      "name": "EstadoCivilVO",
+                      "nameLocations": [
+                        "1427:13:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3530,
+                      "src": "1427:13:58"
+                    },
+                    "referencedDeclaration": 3530,
+                    "src": "1427:13:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EstadoCivilVO_$3530",
+                      "typeString": "contract EstadoCivilVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1426:28:58"
+            },
+            "returnParameters": {
+              "id": 10003,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10002,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10004,
+                  "src": "1489:7:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10001,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1489:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1488:9:58"
+            },
+            "scope": 10088,
+            "src": "1397:101:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "069a6e57",
+            "id": 10012,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "actualizarEstadoCivilVO",
+            "nameLocation": "1513:23:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10010,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10006,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1545:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10012,
+                  "src": "1537:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10005,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1537:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10009,
+                  "mutability": "mutable",
+                  "name": "_estadoCivil",
+                  "nameLocation": "1564:12:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10012,
+                  "src": "1550:26:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EstadoCivilVO_$3530",
+                    "typeString": "contract EstadoCivilVO"
+                  },
+                  "typeName": {
+                    "id": 10008,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10007,
+                      "name": "EstadoCivilVO",
+                      "nameLocations": [
+                        "1550:13:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3530,
+                      "src": "1550:13:58"
+                    },
+                    "referencedDeclaration": 3530,
+                    "src": "1550:13:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EstadoCivilVO_$3530",
+                      "typeString": "contract EstadoCivilVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1536:41:58"
+            },
+            "returnParameters": {
+              "id": 10011,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1594:0:58"
+            },
+            "scope": 10088,
+            "src": "1504:91:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "7fd2430d",
+            "id": 10020,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "consultarAseguradoraVO",
+            "nameLocation": "1610:22:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10015,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10014,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1641:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10020,
+                  "src": "1633:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10013,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1633:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1632:13:58"
+            },
+            "returnParameters": {
+              "id": 10019,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10018,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10020,
+                  "src": "1693:13:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_AseguradoraVO_$3425",
+                    "typeString": "contract AseguradoraVO"
+                  },
+                  "typeName": {
+                    "id": 10017,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10016,
+                      "name": "AseguradoraVO",
+                      "nameLocations": [
+                        "1693:13:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3425,
+                      "src": "1693:13:58"
+                    },
+                    "referencedDeclaration": 3425,
+                    "src": "1693:13:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_AseguradoraVO_$3425",
+                      "typeString": "contract AseguradoraVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1692:15:58"
+            },
+            "scope": 10088,
+            "src": "1601:107:58",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "5d56f175",
+            "id": 10028,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "guardarAseguradoraVO",
+            "nameLocation": "1723:20:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10024,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10023,
+                  "mutability": "mutable",
+                  "name": "_aseguradora",
+                  "nameLocation": "1758:12:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10028,
+                  "src": "1744:26:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_AseguradoraVO_$3425",
+                    "typeString": "contract AseguradoraVO"
+                  },
+                  "typeName": {
+                    "id": 10022,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10021,
+                      "name": "AseguradoraVO",
+                      "nameLocations": [
+                        "1744:13:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3425,
+                      "src": "1744:13:58"
+                    },
+                    "referencedDeclaration": 3425,
+                    "src": "1744:13:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_AseguradoraVO_$3425",
+                      "typeString": "contract AseguradoraVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1743:28:58"
+            },
+            "returnParameters": {
+              "id": 10027,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10026,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10028,
+                  "src": "1806:7:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10025,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1806:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1805:9:58"
+            },
+            "scope": 10088,
+            "src": "1714:101:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "af86577e",
+            "id": 10036,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "actualizarAseguradoraVO",
+            "nameLocation": "1830:23:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10034,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10030,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1862:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10036,
+                  "src": "1854:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10029,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1854:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10033,
+                  "mutability": "mutable",
+                  "name": "_aseguradoraVO",
+                  "nameLocation": "1881:14:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10036,
+                  "src": "1867:28:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_AseguradoraVO_$3425",
+                    "typeString": "contract AseguradoraVO"
+                  },
+                  "typeName": {
+                    "id": 10032,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10031,
+                      "name": "AseguradoraVO",
+                      "nameLocations": [
+                        "1867:13:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3425,
+                      "src": "1867:13:58"
+                    },
+                    "referencedDeclaration": 3425,
+                    "src": "1867:13:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_AseguradoraVO_$3425",
+                      "typeString": "contract AseguradoraVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1853:43:58"
+            },
+            "returnParameters": {
+              "id": 10035,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1913:0:58"
+            },
+            "scope": 10088,
+            "src": "1821:93:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "02a2f106",
+            "id": 10044,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "consultarTipoVinculacionVO",
+            "nameLocation": "1929:26:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10039,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10038,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1964:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10044,
+                  "src": "1956:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10037,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1956:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1955:13:58"
+            },
+            "returnParameters": {
+              "id": 10043,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10042,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10044,
+                  "src": "2016:17:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_TipoVinculacionVO_$4062",
+                    "typeString": "contract TipoVinculacionVO"
+                  },
+                  "typeName": {
+                    "id": 10041,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10040,
+                      "name": "TipoVinculacionVO",
+                      "nameLocations": [
+                        "2016:17:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 4062,
+                      "src": "2016:17:58"
+                    },
+                    "referencedDeclaration": 4062,
+                    "src": "2016:17:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TipoVinculacionVO_$4062",
+                      "typeString": "contract TipoVinculacionVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2015:19:58"
+            },
+            "scope": 10088,
+            "src": "1920:115:58",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "25a5b0c8",
+            "id": 10052,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "guardarTipoVinculacionVO",
+            "nameLocation": "2050:24:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10048,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10047,
+                  "mutability": "mutable",
+                  "name": "_tipoVinculacion",
+                  "nameLocation": "2093:16:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10052,
+                  "src": "2075:34:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_TipoVinculacionVO_$4062",
+                    "typeString": "contract TipoVinculacionVO"
+                  },
+                  "typeName": {
+                    "id": 10046,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10045,
+                      "name": "TipoVinculacionVO",
+                      "nameLocations": [
+                        "2075:17:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 4062,
+                      "src": "2075:17:58"
+                    },
+                    "referencedDeclaration": 4062,
+                    "src": "2075:17:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TipoVinculacionVO_$4062",
+                      "typeString": "contract TipoVinculacionVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2074:36:58"
+            },
+            "returnParameters": {
+              "id": 10051,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10050,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10052,
+                  "src": "2145:7:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10049,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2145:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2144:9:58"
+            },
+            "scope": 10088,
+            "src": "2041:113:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "fd558f6b",
+            "id": 10060,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "actualizarTipoVinculacionVO",
+            "nameLocation": "2169:27:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10058,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10054,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "2214:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10060,
+                  "src": "2206:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10053,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2206:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10057,
+                  "mutability": "mutable",
+                  "name": "_tipoVinculacion",
+                  "nameLocation": "2245:16:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10060,
+                  "src": "2227:34:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_TipoVinculacionVO_$4062",
+                    "typeString": "contract TipoVinculacionVO"
+                  },
+                  "typeName": {
+                    "id": 10056,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10055,
+                      "name": "TipoVinculacionVO",
+                      "nameLocations": [
+                        "2227:17:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 4062,
+                      "src": "2227:17:58"
+                    },
+                    "referencedDeclaration": 4062,
+                    "src": "2227:17:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TipoVinculacionVO_$4062",
+                      "typeString": "contract TipoVinculacionVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2196:71:58"
+            },
+            "returnParameters": {
+              "id": 10059,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2276:0:58"
+            },
+            "scope": 10088,
+            "src": "2160:117:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "1c9f4259",
+            "id": 10068,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "consultarEstadoHCEVO",
+            "nameLocation": "2292:20:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10063,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10062,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "2321:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10068,
+                  "src": "2313:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10061,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2313:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2312:13:58"
+            },
+            "returnParameters": {
+              "id": 10067,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10066,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10068,
+                  "src": "2373:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EstadoHCEVO_$3663",
+                    "typeString": "contract EstadoHCEVO"
+                  },
+                  "typeName": {
+                    "id": 10065,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10064,
+                      "name": "EstadoHCEVO",
+                      "nameLocations": [
+                        "2373:11:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3663,
+                      "src": "2373:11:58"
+                    },
+                    "referencedDeclaration": 3663,
+                    "src": "2373:11:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EstadoHCEVO_$3663",
+                      "typeString": "contract EstadoHCEVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2372:13:58"
+            },
+            "scope": 10088,
+            "src": "2283:103:58",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "72bd4f7b",
+            "id": 10076,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "guardarEstadoHCEVO",
+            "nameLocation": "2401:18:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10072,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10071,
+                  "mutability": "mutable",
+                  "name": "_estadoHCE",
+                  "nameLocation": "2432:10:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10076,
+                  "src": "2420:22:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EstadoHCEVO_$3663",
+                    "typeString": "contract EstadoHCEVO"
+                  },
+                  "typeName": {
+                    "id": 10070,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10069,
+                      "name": "EstadoHCEVO",
+                      "nameLocations": [
+                        "2420:11:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3663,
+                      "src": "2420:11:58"
+                    },
+                    "referencedDeclaration": 3663,
+                    "src": "2420:11:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EstadoHCEVO_$3663",
+                      "typeString": "contract EstadoHCEVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2419:24:58"
+            },
+            "returnParameters": {
+              "id": 10075,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10074,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10076,
+                  "src": "2478:7:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10073,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2478:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2477:9:58"
+            },
+            "scope": 10088,
+            "src": "2392:95:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "c6865569",
+            "id": 10084,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "actualizarEstadoHCEVO",
+            "nameLocation": "2502:21:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10082,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10078,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "2532:3:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10084,
+                  "src": "2524:11:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10077,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2524:7:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10081,
+                  "mutability": "mutable",
+                  "name": "_estadoHCE",
+                  "nameLocation": "2549:10:58",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10084,
+                  "src": "2537:22:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EstadoHCEVO_$3663",
+                    "typeString": "contract EstadoHCEVO"
+                  },
+                  "typeName": {
+                    "id": 10080,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10079,
+                      "name": "EstadoHCEVO",
+                      "nameLocations": [
+                        "2537:11:58"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3663,
+                      "src": "2537:11:58"
+                    },
+                    "referencedDeclaration": 3663,
+                    "src": "2537:11:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EstadoHCEVO_$3663",
+                      "typeString": "contract EstadoHCEVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2523:37:58"
+            },
+            "returnParameters": {
+              "id": 10083,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2577:0:58"
+            },
+            "scope": 10088,
+            "src": "2493:85:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "9cb8a26a",
+            "id": 10087,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "selfDestruct",
+            "nameLocation": "2593:12:58",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10085,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2605:2:58"
+            },
+            "returnParameters": {
+              "id": 10086,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2616:0:58"
+            },
+            "scope": 10088,
+            "src": "2584:33:58",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 10089,
+        "src": "393:2226:58",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:2588:58"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.8",
+  "updatedAt": "2023-03-26T17:17:11.532Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

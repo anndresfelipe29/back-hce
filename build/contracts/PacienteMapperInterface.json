@@ -1,0 +1,676 @@
+{
+  "contractName": "PacienteMapperInterface",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "data",
+          "type": "string"
+        }
+      ],
+      "name": "Log",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "direccion",
+          "type": "address"
+        }
+      ],
+      "name": "consultar",
+      "outputs": [
+        {
+          "internalType": "contract PacienteVO",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "consultarPorId",
+      "outputs": [
+        {
+          "internalType": "contract PacienteVO",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "direccion",
+          "type": "address"
+        },
+        {
+          "internalType": "contract PacienteVO",
+          "name": "paciente",
+          "type": "address"
+        }
+      ],
+      "name": "guardar",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "direccion",
+          "type": "address"
+        },
+        {
+          "internalType": "contract PacienteVO",
+          "name": "paciente",
+          "type": "address"
+        }
+      ],
+      "name": "actualizar",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "selfDestruct",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"name\":\"Log\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"},{\"internalType\":\"contract PacienteVO\",\"name\":\"paciente\",\"type\":\"address\"}],\"name\":\"actualizar\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"}],\"name\":\"consultar\",\"outputs\":[{\"internalType\":\"contract PacienteVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"consultarPorId\",\"outputs\":[{\"internalType\":\"contract PacienteVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"},{\"internalType\":\"contract PacienteVO\",\"name\":\"paciente\",\"type\":\"address\"}],\"name\":\"guardar\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"selfDestruct\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/persistence/PacienteMapperInterface.sol\":\"PacienteMapperInterface\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"project:/contracts/models/PacienteVO.sol\":{\"keccak256\":\"0x0ff7d15abbbe0f77407675081243e0d2f66a07057ebd335f293ccf0cade520cb\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cf97670159f1f4435392c31e12802e607552706572868da38b053b46c9cdeb5b\",\"dweb:/ipfs/QmTFbnEi46CyLHKZmnG4VMBk3g3iuBMudNEfXiG3iGfW7M\"]},\"project:/contracts/models/Persona.sol\":{\"keccak256\":\"0xd9ad7a7da279983d9129f5c8336d8dd46c32bdd53e1038ac35b0e257ae12ecd3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9353e76cc1098940755329eabe7560bd5a17a00905ac14ac958b2e71f1837cc9\",\"dweb:/ipfs/QmboTtEvuE1qsdscYsjCwQFGyo5q2dBkJpAk8ocenAkc3U\"]},\"project:/contracts/models/VOGenerales/EstadoVO.sol\":{\"keccak256\":\"0x174d26586118f5de36fae850d8cd2d115e877ea32add115a64610078a711e391\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://219a490b8d0fed5adc7c6f95def96d9303bcd8f1278681c9d2d0f6d0cfdba88b\",\"dweb:/ipfs/QmcyHrKXyR1LBakfsJ3oVkBeweTbgyyFy8zeL6tdcRemFw\"]},\"project:/contracts/models/VOGenerales/TipoIdentificacionVO.sol\":{\"keccak256\":\"0x2269ddef1a4584deccedb86298081873b7a8ac63bbf8af9ca33ff0265799432d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://81b897f818d7e5a82fdf0a0bef70027b65db5c8ad44cf1856e680390acbbba6b\",\"dweb:/ipfs/QmPSo5wc3NfbJCAQgDKWk7jAx5gTFg8QHnAkT4yxNXFuED\"]},\"project:/contracts/models/structsGenerales/DatosPersonalesStruct.sol\":{\"keccak256\":\"0x89368f4351e6b22bb63bb4aaa926a59337a80591d702fab1b3991ead35cc10f6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e5f79feaf7c911ad061c8906ea62bc82f2d21bea3253ec60f000c638af2abff\",\"dweb:/ipfs/QmaA48KVeXbVyVhYwTGGZoD3QJugxX86v64DMDQXGK4Vjb\"]},\"project:/contracts/persistence/PacienteMapperInterface.sol\":{\"keccak256\":\"0x08d71348f5c3565b543d83f8e92f4eb2090acc83713c8edc3f7a421991a19bfa\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://79c1d0bcee8b56ff4a94e8ee022cfd39de41e558b949ec47fe15f1c058e8e8d0\",\"dweb:/ipfs/QmdRF3p3F7Lk34LoPFtgTJZhv9qW9MDJ8NGuv89HGBDHcZ\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\nimport \"../models/PacienteVO.sol\";\n\ninterface PacienteMapperInterface {\n    event Log(string data);\n\n    function consultar(address direccion) external returns (PacienteVO);\n\n    function consultarPorId(uint256 id) external returns (PacienteVO);\n\n    function guardar(address direccion, PacienteVO paciente) external returns (uint256);\n\n    function actualizar(address direccion, PacienteVO paciente) external;\n\n    function selfDestruct() external;\n}\n",
+  "sourcePath": "/home/felipe/Documentos/Blockchain/codigo/HCE-full/back-hce/contracts/persistence/PacienteMapperInterface.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/persistence/PacienteMapperInterface.sol",
+    "exportedSymbols": {
+      "DatosPersonalesStruct": [
+        7322
+      ],
+      "EstadoVO": [
+        3585
+      ],
+      "PacienteMapperInterface": [
+        10624
+      ],
+      "PacienteVO": [
+        2356
+      ],
+      "Persona": [
+        2732
+      ],
+      "TipoIdentificacionVO": [
+        3718
+      ]
+    },
+    "id": 10625,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 10581,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".17"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:62"
+      },
+      {
+        "absolutePath": "project:/contracts/models/PacienteVO.sol",
+        "file": "../models/PacienteVO.sol",
+        "id": 10582,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 10625,
+        "sourceUnit": 2357,
+        "src": "58:34:62",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "PacienteMapperInterface",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 10624,
+        "linearizedBaseContracts": [
+          10624
+        ],
+        "name": "PacienteMapperInterface",
+        "nameLocation": "104:23:62",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "eventSelector": "cf34ef537ac33ee1ac626ca1587a0a7e8e51561e5514f8cb36afa1c5102b3bab",
+            "id": 10586,
+            "name": "Log",
+            "nameLocation": "140:3:62",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 10585,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10584,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "151:4:62",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10586,
+                  "src": "144:11:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 10583,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "144:6:62",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "143:13:62"
+            },
+            "src": "134:23:62"
+          },
+          {
+            "functionSelector": "7da8f6a5",
+            "id": 10594,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "consultar",
+            "nameLocation": "172:9:62",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10589,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10588,
+                  "mutability": "mutable",
+                  "name": "direccion",
+                  "nameLocation": "190:9:62",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10594,
+                  "src": "182:17:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 10587,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "182:7:62",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "181:19:62"
+            },
+            "returnParameters": {
+              "id": 10593,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10592,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10594,
+                  "src": "219:10:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_PacienteVO_$2356",
+                    "typeString": "contract PacienteVO"
+                  },
+                  "typeName": {
+                    "id": 10591,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10590,
+                      "name": "PacienteVO",
+                      "nameLocations": [
+                        "219:10:62"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2356,
+                      "src": "219:10:62"
+                    },
+                    "referencedDeclaration": 2356,
+                    "src": "219:10:62",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_PacienteVO_$2356",
+                      "typeString": "contract PacienteVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "218:12:62"
+            },
+            "scope": 10624,
+            "src": "163:68:62",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "adb0a725",
+            "id": 10602,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "consultarPorId",
+            "nameLocation": "246:14:62",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10597,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10596,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "269:2:62",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10602,
+                  "src": "261:10:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10595,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "261:7:62",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "260:12:62"
+            },
+            "returnParameters": {
+              "id": 10601,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10600,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10602,
+                  "src": "291:10:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_PacienteVO_$2356",
+                    "typeString": "contract PacienteVO"
+                  },
+                  "typeName": {
+                    "id": 10599,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10598,
+                      "name": "PacienteVO",
+                      "nameLocations": [
+                        "291:10:62"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2356,
+                      "src": "291:10:62"
+                    },
+                    "referencedDeclaration": 2356,
+                    "src": "291:10:62",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_PacienteVO_$2356",
+                      "typeString": "contract PacienteVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "290:12:62"
+            },
+            "scope": 10624,
+            "src": "237:66:62",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "be381c59",
+            "id": 10612,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "guardar",
+            "nameLocation": "318:7:62",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10608,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10604,
+                  "mutability": "mutable",
+                  "name": "direccion",
+                  "nameLocation": "334:9:62",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10612,
+                  "src": "326:17:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 10603,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "326:7:62",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10607,
+                  "mutability": "mutable",
+                  "name": "paciente",
+                  "nameLocation": "356:8:62",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10612,
+                  "src": "345:19:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_PacienteVO_$2356",
+                    "typeString": "contract PacienteVO"
+                  },
+                  "typeName": {
+                    "id": 10606,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10605,
+                      "name": "PacienteVO",
+                      "nameLocations": [
+                        "345:10:62"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2356,
+                      "src": "345:10:62"
+                    },
+                    "referencedDeclaration": 2356,
+                    "src": "345:10:62",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_PacienteVO_$2356",
+                      "typeString": "contract PacienteVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "325:40:62"
+            },
+            "returnParameters": {
+              "id": 10611,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10610,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10612,
+                  "src": "384:7:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10609,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "384:7:62",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "383:9:62"
+            },
+            "scope": 10624,
+            "src": "309:84:62",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0da7d7a5",
+            "id": 10620,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "actualizar",
+            "nameLocation": "408:10:62",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10618,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10614,
+                  "mutability": "mutable",
+                  "name": "direccion",
+                  "nameLocation": "427:9:62",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10620,
+                  "src": "419:17:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 10613,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "419:7:62",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10617,
+                  "mutability": "mutable",
+                  "name": "paciente",
+                  "nameLocation": "449:8:62",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10620,
+                  "src": "438:19:62",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_PacienteVO_$2356",
+                    "typeString": "contract PacienteVO"
+                  },
+                  "typeName": {
+                    "id": 10616,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 10615,
+                      "name": "PacienteVO",
+                      "nameLocations": [
+                        "438:10:62"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2356,
+                      "src": "438:10:62"
+                    },
+                    "referencedDeclaration": 2356,
+                    "src": "438:10:62",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_PacienteVO_$2356",
+                      "typeString": "contract PacienteVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "418:40:62"
+            },
+            "returnParameters": {
+              "id": 10619,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "467:0:62"
+            },
+            "scope": 10624,
+            "src": "399:69:62",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "9cb8a26a",
+            "id": 10623,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "selfDestruct",
+            "nameLocation": "483:12:62",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10621,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "495:2:62"
+            },
+            "returnParameters": {
+              "id": 10622,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "506:0:62"
+            },
+            "scope": 10624,
+            "src": "474:33:62",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 10625,
+        "src": "94:415:62",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:478:62"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.8",
+  "updatedAt": "2023-04-05T22:10:23.512Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
