@@ -32,6 +32,10 @@ const privateKeyProvider = new HDWalletProvider({
   providerOrUrl: "http://34.136.104.204:8516"
 });
 
+const privateKeyProviderLocal = new HDWalletProvider({
+  privateKeys: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"],
+  providerOrUrl: "http://localhost:8516"
+});
 
 
 module.exports = {
@@ -104,7 +108,25 @@ module.exports = {
       network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
       gas: 8000000,   //limite de gas
       from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"      
-    }
+    },
+    besu_local: {   
+      networkCheckTimeout: 10000,
+      timeoutBlocks: 200,
+      timeout: 100000,   
+      /*
+      
+      host: '34.171.163.9',
+      port: 8515,      
+      network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
+      gas: 8000000,   //limite de gas
+      from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      */
+      provider: privateKeyProviderLocal,
+      network_id: "*",
+      disableMigrationsValidation: true,
+      // Agrega esta línea para deshabilitar SSL
+      strictSSL: false
+    },
 
     // development: {
     //  host: "127.0.0.1",     // Localhost (default: none)
