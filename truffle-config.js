@@ -23,6 +23,17 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+const privateKey = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+                   // 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80   
+                   // "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80", "http://34.171.163.9:8515"
+const privateKeyProvider = new HDWalletProvider({
+  privateKeys: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"],
+  providerOrUrl: "http://34.136.104.204:8516"
+});
+
+
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -46,12 +57,55 @@ module.exports = {
       timeout: 100000,
       host: '172.18.0.1',
       port: 7545,
+      gas: 90000000, 
       //port: 8545,
       network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
       // gasPrice: 20,
       // gas: 90000000,   //limite de gas
       // from: "0xC2e5c0E064783e47D220142bd418857D7B01aFf3"
+    },
+
+    geth: {
+      // host: 'localhost',
+      timeout: 100000,
+      host: '34.125.97.40',
+      port: 8545,
+      //port: 8545,
+      network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
+      // gasPrice: 20,
+      gas: 8000000,   //limite de gas
+      from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      
+    },
+
+    besu: {   
+      networkCheckTimeout: 10000,
+      timeoutBlocks: 200,
+      timeout: 100000,   
+      /*
+      
+      host: '34.171.163.9',
+      port: 8515,      
+      network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
+      gas: 8000000,   //limite de gas
+      from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      */
+      provider: privateKeyProvider,
+      network_id: "*",
+      disableMigrationsValidation: true,
+      // Agrega esta línea para deshabilitar SSL
+      strictSSL: false
+    },
+    besud: {     
+      
+      timeout: 100000,
+      host: '34.136.104.204',
+      port: 8515,      
+      network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
+      gas: 8000000,   //limite de gas
+      from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"      
     }
+
     // development: {
     //  host: "127.0.0.1",     // Localhost (default: none)
     //  port: 8545,            // Standard Ethereum port (default: none)

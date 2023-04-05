@@ -4,6 +4,6 @@ const AccesoHistoriaClinicaMapper = artifacts.require("AccesoHistoriaClinicaMapp
 
 module.exports = function (deployer) {
     deployer.link(Utils, AccesoHistoriaClinicaMapper);
-    deployer.deploy(AccesoHistoriaClinicaMapper);
+    deployer.deploy(AccesoHistoriaClinicaMapper, {gas: 8000000});
    
 }
