@@ -29,13 +29,13 @@ const privateKey = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4
                    // "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80", "http://34.171.163.9:8515"
 const privateKeyProvider = new HDWalletProvider({
   privateKeys: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"],
-  providerOrUrl: "http://34.136.104.204:8516"
+  providerOrUrl: "ws://34.136.104.204:8516"
 });
 
-const privateKeyProviderLocal = new HDWalletProvider({
+/*const privateKeyProviderLocal = new HDWalletProvider({
   privateKeys: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"],
   providerOrUrl: "http://localhost:8516"
-});
+});*/
 
 
 module.exports = {
@@ -121,7 +121,7 @@ module.exports = {
       gas: 8000000,   //limite de gas
       from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
       */
-      provider: privateKeyProviderLocal,
+      provider: privateKeyProvider,
       network_id: "*",
       disableMigrationsValidation: true,
       // Agrega esta línea para deshabilitar SSL
