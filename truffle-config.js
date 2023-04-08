@@ -61,7 +61,7 @@ module.exports = {
       timeout: 100000,
       host: '172.18.0.1',
       port: 7545,
-      gas: 90000000, 
+      //gas: 90000000, 
       //port: 8545,
       network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
       // gasPrice: 20,
@@ -86,14 +86,7 @@ module.exports = {
       networkCheckTimeout: 10000,
       timeoutBlocks: 200,
       timeout: 100000,   
-      /*
-      
-      host: '34.171.163.9',
-      port: 8515,      
-      network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
-      gas: 8000000,   //limite de gas
-      from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-      */
+
       provider: privateKeyProvider,
       network_id: "*",
       disableMigrationsValidation: true,
