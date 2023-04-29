@@ -1,0 +1,35 @@
+version: '3.5'
+
+services:
+  # Truffle
+  back:
+    build: 
+      context: ./
+      target: base      
+    container_name: deploy-back
+    volumes:
+      - ../:/back  
+    env_file: 
+      -  .env   
+    working_dir: /back
+    command: sh -c "
+      echo ===========INICIANDO BACK-END===========;    
+      truffle migrate -f 1 --to 17 --network besu;
+      mkdir /build/contracts/extras;
+      truffle exec ./scripts/6_Direcciones.js --verbose --network besu;   
+      echo ===========INICIANDO Inyeccion de dependencias===========;
+      truffle exec ./scripts/0_InyeccionDeDependenciasOraculo.js --verbose --network besu;      
+      truffle exec ./scripts/1_InyeccionDeDependenciasAccesoHistoriaClinica.js --verbose --network besu;     
+      truffle exec ./scripts/2_InyeccionDeDependenciasAcceso.js --verbose --network besu;       
+      truffle exec ./scripts/3_InyeccionDeDependenciasHistoriaClinica.js --verbose --network besu;             
+      truffle exec ./scripts/4_InyeccionDeDependenciasMedico.js --verbose --network besu;       
+      truffle exec ./scripts/5_InyeccionDeDependenciasPaciente.js --verbose --network besu;        
+      echo ===========INICIANDO CargaDePermisos===========;    
+      truffle exec ./scripts/20_CargaDePermisos.js --verbose --network besu;      
+      echo ===========INICIANDO DatosParametricos===========;    
+      truffle exec ./scripts/30_CargaDeDatosParametricos.js --verbose --network besu;            
+      truffle exec ./scripts/40_UsuariosDefaultBesu.js;"
+
+
+
+  

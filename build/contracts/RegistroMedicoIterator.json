@@ -1,0 +1,240 @@
+{
+  "contractName": "RegistroMedicoIterator",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getNext",
+      "outputs": [
+        {
+          "internalType": "contract RegistroMedico",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "hasMore",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getNext\",\"outputs\":[{\"internalType\":\"contract RegistroMedico\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hasMore\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/logica/IteradorHCE/RegistroMedicoIterator.sol\":\"RegistroMedicoIterator\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"project:/contracts/logica/IteradorHCE/RegistroMedicoIterator.sol\":{\"keccak256\":\"0xf214daa0038d1ae2303924c0d0cdbac3725047256a467dc849c408bae49ade2c\",\"urls\":[\"bzz-raw://864f74df5c2a2829006fa0521cba042d57921f7d1abccf4be75ac3980d48567f\",\"dweb:/ipfs/QmW81DZVwrmGC4PA9ne7fQMjhsj6EX5snS3BSQhP2yPYER\"]},\"project:/contracts/models/historiaClinica/RegistroMedico.sol\":{\"keccak256\":\"0xaa555d0e5bb37bc653fef81f63038b2a64727ca657091f9aa155f99e58ce5387\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5e5ae77ddd99b4c94c648fc79c904aa3374b90b973185de7c9fc07f611ff24c0\",\"dweb:/ipfs/QmUZj4AkQCHgEGpvWxFvYdE6i1WCg8SstdhQCAeP46jABQ\"]},\"project:/contracts/models/historiaClinica/enums/TipoRegistroEnum.sol\":{\"keccak256\":\"0xe6f23b637cbd5cbce20f3ea543ee8a37f3ea82d98571a6c8c37d26f1e06c4cae\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9264aa0027f55aecb01e65d4605e4effed5c62cba0e66a7a9769cb3a96a4725f\",\"dweb:/ipfs/QmTZnC48NnjQhSvm6MueFYmJBs3wX2QfYCNXL2ZFGitgU2\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.8.17;\n\nimport \"../../models/historiaClinica/RegistroMedico.sol\";\nabstract contract RegistroMedicoIterator {\n    function getNext() virtual public returns(RegistroMedico);\n    function hasMore() virtual public returns(bool);\n}",
+  "sourcePath": "/home/felipe/Documentos/Blockchain/codigo/HCE-full/back-hce/contracts/logica/IteradorHCE/RegistroMedicoIterator.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/logica/IteradorHCE/RegistroMedicoIterator.sol",
+    "exportedSymbols": {
+      "RegistroMedico": [
+        7091
+      ],
+      "RegistroMedicoIterator": [
+        1370
+      ],
+      "TipoRegistroMedico": [
+        7292
+      ]
+    },
+    "id": 1371,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1357,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".17"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "absolutePath": "project:/contracts/models/historiaClinica/RegistroMedico.sol",
+        "file": "../../models/historiaClinica/RegistroMedico.sol",
+        "id": 1358,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 1371,
+        "sourceUnit": 7092,
+        "src": "26:57:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "canonicalName": "RegistroMedicoIterator",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": false,
+        "id": 1370,
+        "linearizedBaseContracts": [
+          1370
+        ],
+        "name": "RegistroMedicoIterator",
+        "nameLocation": "102:22:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "f3638f78",
+            "id": 1364,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getNext",
+            "nameLocation": "140:7:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1359,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "147:2:6"
+            },
+            "returnParameters": {
+              "id": 1363,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1362,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1364,
+                  "src": "173:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                    "typeString": "contract RegistroMedico"
+                  },
+                  "typeName": {
+                    "id": 1361,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1360,
+                      "name": "RegistroMedico",
+                      "nameLocations": [
+                        "173:14:6"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 7091,
+                      "src": "173:14:6"
+                    },
+                    "referencedDeclaration": 7091,
+                    "src": "173:14:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                      "typeString": "contract RegistroMedico"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "172:16:6"
+            },
+            "scope": 1370,
+            "src": "131:58:6",
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "public"
+          },
+          {
+            "functionSelector": "fb045cc9",
+            "id": 1369,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "hasMore",
+            "nameLocation": "203:7:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1365,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "210:2:6"
+            },
+            "returnParameters": {
+              "id": 1368,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1367,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1369,
+                  "src": "236:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1366,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "236:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "235:6:6"
+            },
+            "scope": 1370,
+            "src": "194:48:6",
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1371,
+        "src": "84:160:6",
+        "usedErrors": []
+      }
+    ],
+    "src": "0:244:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.8",
+  "updatedAt": "2023-04-05T22:10:22.942Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

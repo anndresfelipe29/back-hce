@@ -4,5 +4,5 @@ const Oracle = artifacts.require("Oracle");
 
 module.exports = function (deployer) {
     deployer.link(Utils, Oracle);
-    deployer.deploy(Oracle);
+    deployer.deploy(Oracle, {gas: 8000000});
 }
