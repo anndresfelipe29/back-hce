@@ -19,7 +19,7 @@ contract PerdidaDeConocimientoVO is RegistroMedico (TipoRegistroMedico.PERDIDADE
         return perdidaDeConocimientoStruct.fechaAproximada;
     }
 
-    function getAntecedentePatologicoPersonalStruct()
+    function getPerdidaDeConocimientoStruct()
         public
         view
         returns (PerdidaDeConocimientoStruct memory)
@@ -27,7 +27,7 @@ contract PerdidaDeConocimientoVO is RegistroMedico (TipoRegistroMedico.PERDIDADE
         return perdidaDeConocimientoStruct;
     }
 
-    function setAntecedentePatologicoPersonalStruct(
+    function setPerdidaDeConocimientoStruct(
         PerdidaDeConocimientoStruct memory _perdidaDeConocimientoStruct
     ) public {
         perdidaDeConocimientoStruct = _perdidaDeConocimientoStruct;
