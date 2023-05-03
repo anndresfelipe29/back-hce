@@ -12,7 +12,7 @@ contract ProcedimientoQuirurgicoVO is RegistroMedico (TipoRegistroMedico.PROCEDI
         string formaRealizacionProcedimientoQuirurgico;
         string diagnosticoPrincipal;
         string diagnosticoRelacionado;        
-        uint256 fechaProcedimiento;
+        int256 fechaProcedimiento;
         TipoProcedimientoStruct finalidadProcedimiento;
     }
 
@@ -42,7 +42,7 @@ contract ProcedimientoQuirurgicoVO is RegistroMedico (TipoRegistroMedico.PROCEDI
         return procedimientoQuirurgicoStruct.diagnosticoRelacionado;
     }
 
-    function getFechaProcedimiento() public view returns (uint256) {
+    function getFechaProcedimiento() public view returns (int256) {
         return procedimientoQuirurgicoStruct.fechaProcedimiento;
     }
 
@@ -88,7 +88,7 @@ contract ProcedimientoQuirurgicoVO is RegistroMedico (TipoRegistroMedico.PROCEDI
         procedimientoQuirurgicoStruct.diagnosticoRelacionado = _diagnosticoRelacionado;
     }
 
-    function setFechaProcedimiento(uint256 _fechaProcedimiento) public {
+    function setFechaProcedimiento(int256 _fechaProcedimiento) public {
         procedimientoQuirurgicoStruct.fechaProcedimiento = _fechaProcedimiento;
     }
 }

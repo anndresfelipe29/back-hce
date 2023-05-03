@@ -2093,7 +2093,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_uint256t_contract$_PermisoVO_$2654t_bool",
+            "name": "abi_decode_tuple_t_uint256t_contract$_PermisoVO_$2660t_bool",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -3391,7 +3391,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+            "name": "abi_decode_tuple_t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4096,7 +4096,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr__to_t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr__fromStack_reversed",
+            "name": "abi_encode_tuple_t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr__to_t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4326,7 +4326,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_struct$_PermisoRol_$2954_memory_ptr__to_t_struct$_PermisoRol_$2954_memory_ptr__fromStack_reversed",
+            "name": "abi_encode_tuple_t_struct$_PermisoRol_$2960_memory_ptr__to_t_struct$_PermisoRol_$2960_memory_ptr__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -5430,7 +5430,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_struct$_RolVoStruct_$2961_memory_ptr__to_t_struct$_RolVoStruct_$2961_memory_ptr__fromStack_reversed",
+            "name": "abi_encode_tuple_t_struct$_RolVoStruct_$2967_memory_ptr__to_t_struct$_RolVoStruct_$2967_memory_ptr__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -8017,7 +8017,7 @@
           }
         ]
       },
-      "contents": "{\n    { }\n    function panic_error_0x41()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n    function allocate_memory_1722() -> memPtr\n    {\n        memPtr := mload(64)\n        let newFreePtr := add(memPtr, 0x60)\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n    function allocate_memory(size) -> memPtr\n    {\n        memPtr := mload(64)\n        let newFreePtr := add(memPtr, and(add(size, 31), not(31)))\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n    function abi_decode_tuple_t_string_memory_ptr(headStart, dataEnd) -> value0\n    {\n        let _1 := 32\n        if slt(sub(dataEnd, headStart), _1) { revert(0, 0) }\n        let offset := calldataload(headStart)\n        let _2 := 0xffffffffffffffff\n        if gt(offset, _2) { revert(0, 0) }\n        let _3 := add(headStart, offset)\n        if iszero(slt(add(_3, 0x1f), dataEnd)) { revert(0, 0) }\n        let _4 := calldataload(_3)\n        if gt(_4, _2) { panic_error_0x41() }\n        let array := allocate_memory(add(and(add(_4, 0x1f), not(31)), _1))\n        mstore(array, _4)\n        if gt(add(add(_3, _4), _1), dataEnd) { revert(0, 0) }\n        calldatacopy(add(array, _1), add(_3, _1), _4)\n        mstore(add(add(array, _4), _1), 0)\n        value0 := array\n    }\n    function abi_decode_contract_PermisoVO(offset) -> value\n    {\n        value := calldataload(offset)\n        if iszero(eq(value, and(value, 0xffffffffffffffffffffffffffffffffffffffff))) { revert(0, 0) }\n    }\n    function abi_decode_bool(offset) -> value\n    {\n        value := calldataload(offset)\n        if iszero(eq(value, iszero(iszero(value)))) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_uint256t_contract$_PermisoVO_$2654t_bool(headStart, dataEnd) -> value0, value1, value2\n    {\n        if slt(sub(dataEnd, headStart), 96) { revert(0, 0) }\n        value0 := calldataload(headStart)\n        value1 := abi_decode_contract_PermisoVO(add(headStart, 32))\n        value2 := abi_decode_bool(add(headStart, 64))\n    }\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, value0)\n    }\n    function abi_decode_tuple_t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr(headStart, dataEnd) -> value0\n    {\n        let _1 := 32\n        if slt(sub(dataEnd, headStart), _1) { revert(0, 0) }\n        let offset := calldataload(headStart)\n        let _2 := 0xffffffffffffffff\n        if gt(offset, _2) { revert(0, 0) }\n        let _3 := add(headStart, offset)\n        if iszero(slt(add(_3, 0x1f), dataEnd)) { revert(0, 0) }\n        let _4 := calldataload(_3)\n        if gt(_4, _2) { panic_error_0x41() }\n        let dst := allocate_memory(add(shl(5, _4), _1))\n        let dst_1 := dst\n        mstore(dst, _4)\n        dst := add(dst, _1)\n        let _5 := 0x60\n        let srcEnd := add(add(_3, mul(_4, _5)), _1)\n        if gt(srcEnd, dataEnd) { revert(0, 0) }\n        let src := add(_3, _1)\n        for { } lt(src, srcEnd) { src := add(src, _5) }\n        {\n            if slt(sub(dataEnd, src), _5)\n            {\n                let _6 := 0\n                revert(_6, _6)\n            }\n            let value := allocate_memory_1722()\n            mstore(value, calldataload(src))\n            mstore(add(value, _1), abi_decode_contract_PermisoVO(add(src, _1)))\n            let _7 := 64\n            mstore(add(value, _7), abi_decode_bool(add(src, _7)))\n            mstore(dst, value)\n            dst := add(dst, _1)\n        }\n        value0 := dst_1\n    }\n    function abi_encode_struct_PermisoRol(value, pos)\n    {\n        mstore(pos, mload(value))\n        mstore(add(pos, 0x20), and(mload(add(value, 0x20)), 0xffffffffffffffffffffffffffffffffffffffff))\n        mstore(add(pos, 0x40), iszero(iszero(mload(add(value, 0x40)))))\n    }\n    function abi_encode_tuple_t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr__to_t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        let _1 := 32\n        let tail_1 := add(headStart, _1)\n        mstore(headStart, _1)\n        let pos := tail_1\n        let length := mload(value0)\n        mstore(tail_1, length)\n        pos := add(headStart, 64)\n        let srcPtr := add(value0, _1)\n        let i := 0\n        for { } lt(i, length) { i := add(i, 1) }\n        {\n            abi_encode_struct_PermisoRol(mload(srcPtr), pos)\n            pos := add(pos, 0x60)\n            srcPtr := add(srcPtr, _1)\n        }\n        tail := pos\n    }\n    function abi_decode_tuple_t_uint256(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        value0 := calldataload(headStart)\n    }\n    function abi_encode_tuple_t_struct$_PermisoRol_$2954_memory_ptr__to_t_struct$_PermisoRol_$2954_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 96)\n        abi_encode_struct_PermisoRol(value0, headStart)\n    }\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, iszero(iszero(value0)))\n    }\n    function abi_encode_string(value, pos) -> end\n    {\n        let length := mload(value)\n        mstore(pos, length)\n        let i := 0\n        for { } lt(i, length) { i := add(i, 0x20) }\n        {\n            let _1 := 0x20\n            mstore(add(add(pos, i), _1), mload(add(add(value, i), _1)))\n        }\n        mstore(add(add(pos, length), 0x20), 0)\n        end := add(add(pos, and(add(length, 31), not(31))), 0x20)\n    }\n    function abi_encode_tuple_t_string_memory_ptr__to_t_string_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        mstore(headStart, 32)\n        tail := abi_encode_string(value0, add(headStart, 32))\n    }\n    function abi_encode_tuple_t_struct$_RolVoStruct_$2961_memory_ptr__to_t_struct$_RolVoStruct_$2961_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), mload(value0))\n        let memberValue0 := mload(add(value0, 32))\n        mstore(add(headStart, 64), 0x60)\n        let tail_1 := abi_encode_string(memberValue0, add(headStart, 128))\n        let memberValue0_1 := mload(add(value0, 64))\n        mstore(add(headStart, 0x60), add(sub(tail_1, headStart), not(31)))\n        tail := abi_encode_string(memberValue0_1, tail_1)\n    }\n    function abi_decode_tuple_t_bool(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        value0 := abi_decode_bool(headStart)\n    }\n    function extract_byte_array_length(data) -> length\n    {\n        length := shr(1, data)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) { length := and(length, 0x7f) }\n        if eq(outOfPlaceEncoding, lt(length, 32))\n        {\n            mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n            mstore(4, 0x22)\n            revert(0, 0x24)\n        }\n    }\n    function array_dataslot_string_storage(ptr) -> data\n    {\n        mstore(0, ptr)\n        data := keccak256(0, 0x20)\n    }\n    function clean_up_bytearray_end_slots_string_storage(array, len, startIndex)\n    {\n        if gt(len, 31)\n        {\n            let _1 := 0\n            mstore(_1, array)\n            let data := keccak256(_1, 0x20)\n            let deleteStart := add(data, shr(5, add(startIndex, 31)))\n            if lt(startIndex, 0x20) { deleteStart := data }\n            let _2 := add(data, shr(5, add(len, 31)))\n            let start := deleteStart\n            for { } lt(start, _2) { start := add(start, 1) }\n            { sstore(start, _1) }\n        }\n    }\n    function extract_used_part_and_set_length_of_short_byte_array(data, len) -> used\n    {\n        used := or(and(data, not(shr(shl(3, len), not(0)))), shl(1, len))\n    }\n    function copy_byte_array_to_storage_from_t_string_memory_ptr_to_t_string_storage(slot, src)\n    {\n        let newLen := mload(src)\n        if gt(newLen, 0xffffffffffffffff) { panic_error_0x41() }\n        clean_up_bytearray_end_slots_string_storage(slot, extract_byte_array_length(sload(slot)), newLen)\n        let srcOffset := 0\n        let srcOffset_1 := 0x20\n        srcOffset := srcOffset_1\n        switch gt(newLen, 31)\n        case 1 {\n            let loopEnd := and(newLen, not(31))\n            let dstPtr := array_dataslot_string_storage(slot)\n            let i := 0\n            for { } lt(i, loopEnd) { i := add(i, srcOffset_1) }\n            {\n                sstore(dstPtr, mload(add(src, srcOffset)))\n                dstPtr := add(dstPtr, 1)\n                srcOffset := add(srcOffset, srcOffset_1)\n            }\n            if lt(loopEnd, newLen)\n            {\n                let lastValue := mload(add(src, srcOffset))\n                sstore(dstPtr, and(lastValue, not(shr(and(shl(3, newLen), 248), not(0)))))\n            }\n            sstore(slot, add(shl(1, newLen), 1))\n        }\n        default {\n            let value := 0\n            if newLen\n            {\n                value := mload(add(src, srcOffset))\n            }\n            sstore(slot, extract_used_part_and_set_length_of_short_byte_array(value, newLen))\n        }\n    }\n    function abi_encode_tuple_t_stringliteral_efc834fca35ef720683a855c7ec608eaecd04aa5356631fa50212bd0dd350790__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 53)\n        mstore(add(headStart, 64), \"Ya existe un permiso registrado \")\n        mstore(add(headStart, 96), \"para ese ID de metodo\")\n        tail := add(headStart, 128)\n    }\n    function panic_error_0x32()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x32)\n        revert(0, 0x24)\n    }\n    function increment_t_uint256(value) -> ret\n    {\n        if eq(value, not(0))\n        {\n            mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n            mstore(4, 0x11)\n            revert(0, 0x24)\n        }\n        ret := add(value, 1)\n    }\n}",
+      "contents": "{\n    { }\n    function panic_error_0x41()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n    function allocate_memory_1722() -> memPtr\n    {\n        memPtr := mload(64)\n        let newFreePtr := add(memPtr, 0x60)\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n    function allocate_memory(size) -> memPtr\n    {\n        memPtr := mload(64)\n        let newFreePtr := add(memPtr, and(add(size, 31), not(31)))\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n    function abi_decode_tuple_t_string_memory_ptr(headStart, dataEnd) -> value0\n    {\n        let _1 := 32\n        if slt(sub(dataEnd, headStart), _1) { revert(0, 0) }\n        let offset := calldataload(headStart)\n        let _2 := 0xffffffffffffffff\n        if gt(offset, _2) { revert(0, 0) }\n        let _3 := add(headStart, offset)\n        if iszero(slt(add(_3, 0x1f), dataEnd)) { revert(0, 0) }\n        let _4 := calldataload(_3)\n        if gt(_4, _2) { panic_error_0x41() }\n        let array := allocate_memory(add(and(add(_4, 0x1f), not(31)), _1))\n        mstore(array, _4)\n        if gt(add(add(_3, _4), _1), dataEnd) { revert(0, 0) }\n        calldatacopy(add(array, _1), add(_3, _1), _4)\n        mstore(add(add(array, _4), _1), 0)\n        value0 := array\n    }\n    function abi_decode_contract_PermisoVO(offset) -> value\n    {\n        value := calldataload(offset)\n        if iszero(eq(value, and(value, 0xffffffffffffffffffffffffffffffffffffffff))) { revert(0, 0) }\n    }\n    function abi_decode_bool(offset) -> value\n    {\n        value := calldataload(offset)\n        if iszero(eq(value, iszero(iszero(value)))) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_uint256t_contract$_PermisoVO_$2660t_bool(headStart, dataEnd) -> value0, value1, value2\n    {\n        if slt(sub(dataEnd, headStart), 96) { revert(0, 0) }\n        value0 := calldataload(headStart)\n        value1 := abi_decode_contract_PermisoVO(add(headStart, 32))\n        value2 := abi_decode_bool(add(headStart, 64))\n    }\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, value0)\n    }\n    function abi_decode_tuple_t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr(headStart, dataEnd) -> value0\n    {\n        let _1 := 32\n        if slt(sub(dataEnd, headStart), _1) { revert(0, 0) }\n        let offset := calldataload(headStart)\n        let _2 := 0xffffffffffffffff\n        if gt(offset, _2) { revert(0, 0) }\n        let _3 := add(headStart, offset)\n        if iszero(slt(add(_3, 0x1f), dataEnd)) { revert(0, 0) }\n        let _4 := calldataload(_3)\n        if gt(_4, _2) { panic_error_0x41() }\n        let dst := allocate_memory(add(shl(5, _4), _1))\n        let dst_1 := dst\n        mstore(dst, _4)\n        dst := add(dst, _1)\n        let _5 := 0x60\n        let srcEnd := add(add(_3, mul(_4, _5)), _1)\n        if gt(srcEnd, dataEnd) { revert(0, 0) }\n        let src := add(_3, _1)\n        for { } lt(src, srcEnd) { src := add(src, _5) }\n        {\n            if slt(sub(dataEnd, src), _5)\n            {\n                let _6 := 0\n                revert(_6, _6)\n            }\n            let value := allocate_memory_1722()\n            mstore(value, calldataload(src))\n            mstore(add(value, _1), abi_decode_contract_PermisoVO(add(src, _1)))\n            let _7 := 64\n            mstore(add(value, _7), abi_decode_bool(add(src, _7)))\n            mstore(dst, value)\n            dst := add(dst, _1)\n        }\n        value0 := dst_1\n    }\n    function abi_encode_struct_PermisoRol(value, pos)\n    {\n        mstore(pos, mload(value))\n        mstore(add(pos, 0x20), and(mload(add(value, 0x20)), 0xffffffffffffffffffffffffffffffffffffffff))\n        mstore(add(pos, 0x40), iszero(iszero(mload(add(value, 0x40)))))\n    }\n    function abi_encode_tuple_t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr__to_t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        let _1 := 32\n        let tail_1 := add(headStart, _1)\n        mstore(headStart, _1)\n        let pos := tail_1\n        let length := mload(value0)\n        mstore(tail_1, length)\n        pos := add(headStart, 64)\n        let srcPtr := add(value0, _1)\n        let i := 0\n        for { } lt(i, length) { i := add(i, 1) }\n        {\n            abi_encode_struct_PermisoRol(mload(srcPtr), pos)\n            pos := add(pos, 0x60)\n            srcPtr := add(srcPtr, _1)\n        }\n        tail := pos\n    }\n    function abi_decode_tuple_t_uint256(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        value0 := calldataload(headStart)\n    }\n    function abi_encode_tuple_t_struct$_PermisoRol_$2960_memory_ptr__to_t_struct$_PermisoRol_$2960_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 96)\n        abi_encode_struct_PermisoRol(value0, headStart)\n    }\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, iszero(iszero(value0)))\n    }\n    function abi_encode_string(value, pos) -> end\n    {\n        let length := mload(value)\n        mstore(pos, length)\n        let i := 0\n        for { } lt(i, length) { i := add(i, 0x20) }\n        {\n            let _1 := 0x20\n            mstore(add(add(pos, i), _1), mload(add(add(value, i), _1)))\n        }\n        mstore(add(add(pos, length), 0x20), 0)\n        end := add(add(pos, and(add(length, 31), not(31))), 0x20)\n    }\n    function abi_encode_tuple_t_string_memory_ptr__to_t_string_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        mstore(headStart, 32)\n        tail := abi_encode_string(value0, add(headStart, 32))\n    }\n    function abi_encode_tuple_t_struct$_RolVoStruct_$2967_memory_ptr__to_t_struct$_RolVoStruct_$2967_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), mload(value0))\n        let memberValue0 := mload(add(value0, 32))\n        mstore(add(headStart, 64), 0x60)\n        let tail_1 := abi_encode_string(memberValue0, add(headStart, 128))\n        let memberValue0_1 := mload(add(value0, 64))\n        mstore(add(headStart, 0x60), add(sub(tail_1, headStart), not(31)))\n        tail := abi_encode_string(memberValue0_1, tail_1)\n    }\n    function abi_decode_tuple_t_bool(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        value0 := abi_decode_bool(headStart)\n    }\n    function extract_byte_array_length(data) -> length\n    {\n        length := shr(1, data)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) { length := and(length, 0x7f) }\n        if eq(outOfPlaceEncoding, lt(length, 32))\n        {\n            mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n            mstore(4, 0x22)\n            revert(0, 0x24)\n        }\n    }\n    function array_dataslot_string_storage(ptr) -> data\n    {\n        mstore(0, ptr)\n        data := keccak256(0, 0x20)\n    }\n    function clean_up_bytearray_end_slots_string_storage(array, len, startIndex)\n    {\n        if gt(len, 31)\n        {\n            let _1 := 0\n            mstore(_1, array)\n            let data := keccak256(_1, 0x20)\n            let deleteStart := add(data, shr(5, add(startIndex, 31)))\n            if lt(startIndex, 0x20) { deleteStart := data }\n            let _2 := add(data, shr(5, add(len, 31)))\n            let start := deleteStart\n            for { } lt(start, _2) { start := add(start, 1) }\n            { sstore(start, _1) }\n        }\n    }\n    function extract_used_part_and_set_length_of_short_byte_array(data, len) -> used\n    {\n        used := or(and(data, not(shr(shl(3, len), not(0)))), shl(1, len))\n    }\n    function copy_byte_array_to_storage_from_t_string_memory_ptr_to_t_string_storage(slot, src)\n    {\n        let newLen := mload(src)\n        if gt(newLen, 0xffffffffffffffff) { panic_error_0x41() }\n        clean_up_bytearray_end_slots_string_storage(slot, extract_byte_array_length(sload(slot)), newLen)\n        let srcOffset := 0\n        let srcOffset_1 := 0x20\n        srcOffset := srcOffset_1\n        switch gt(newLen, 31)\n        case 1 {\n            let loopEnd := and(newLen, not(31))\n            let dstPtr := array_dataslot_string_storage(slot)\n            let i := 0\n            for { } lt(i, loopEnd) { i := add(i, srcOffset_1) }\n            {\n                sstore(dstPtr, mload(add(src, srcOffset)))\n                dstPtr := add(dstPtr, 1)\n                srcOffset := add(srcOffset, srcOffset_1)\n            }\n            if lt(loopEnd, newLen)\n            {\n                let lastValue := mload(add(src, srcOffset))\n                sstore(dstPtr, and(lastValue, not(shr(and(shl(3, newLen), 248), not(0)))))\n            }\n            sstore(slot, add(shl(1, newLen), 1))\n        }\n        default {\n            let value := 0\n            if newLen\n            {\n                value := mload(add(src, srcOffset))\n            }\n            sstore(slot, extract_used_part_and_set_length_of_short_byte_array(value, newLen))\n        }\n    }\n    function abi_encode_tuple_t_stringliteral_efc834fca35ef720683a855c7ec608eaecd04aa5356631fa50212bd0dd350790__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 53)\n        mstore(add(headStart, 64), \"Ya existe un permiso registrado \")\n        mstore(add(headStart, 96), \"para ese ID de metodo\")\n        tail := add(headStart, 128)\n    }\n    function panic_error_0x32()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x32)\n        revert(0, 0x24)\n    }\n    function increment_t_uint256(value) -> ret\n    {\n        if eq(value, not(0))\n        {\n            mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n            mstore(4, 0x11)\n            revert(0, 0x24)\n        }\n        ret := add(value, 1)\n    }\n}",
       "id": 73,
       "language": "Yul",
       "name": "#utility.yul"
@@ -8026,23 +8026,23 @@
   "sourceMap": "85:2891:15:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "85:2891:15:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1994:82;;;;;;:::i;:::-;;:::i;:::-;;2190:353;;;;;;:::i;:::-;;:::i;768:73::-;806:7;832:2;768:73;;;2389:25:73;;;2377:2;2362:18;768:73:15;;;;;;;;2578:301;;;;;;:::i;:::-;;:::i;1323:95::-;1397:7;:14;1323:95;;1043:274;;;:::i;:::-;;;;;;;:::i;1720:110::-;;;;;;:::i;:::-;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;1810:13:15;;;:8;:13;;;;;;1803:20;;;;;;;;;;;;;;-1:-1:-1;;;;;1803:20:15;;;;;;;;;-1:-1:-1;;;1803:20:15;;;;;;;;;;;1720:110;;;;;3872:12:73;;3860:25;;3938:4;3927:16;;;3921:23;-1:-1:-1;;;;;3917:72:73;3901:14;;;3894:96;4042:16;;;4036:23;4029:31;4022:39;4006:14;;;3999:63;5165:2;5150:18;1720:110:15;4975:255:73;1836:86:15;1905:10;;;;1836:86;;5400:14:73;;5393:22;5375:41;;5363:2;5348:18;1836:86:15;5235:187:73;1928:60:15;;;;;;:::i;:::-;1973:2;:8;1928:60;2082:102;;;;;;:::i;:::-;;:::i;847:87::-;;;:::i;:::-;;;;;;;:::i;636:126::-;;;:::i;:::-;;;;;;;:::i;940:97::-;;;:::i;2885:89::-;;;;;;:::i;:::-;2943:10;:24;;-1:-1:-1;;2943:24:15;;;;;;;;;;2885:89;1994:82;2053:6;:16;2062:7;2053:6;:16;:::i;:::-;;1994:82;:::o;2190:353::-;2317:13;;;;:8;:13;;;;;:16;:21;;2313:142;;2354:7;:17;;;;;;;;;;;;;;2401:43;;;;;;;;;;;-1:-1:-1;;;;;2401:43:15;;;2354:17;2401:43;;;;;;;;;;;;;;;-1:-1:-1;2385:13:15;;;:8;:13;;;;;;:59;;;;;;;;;;;;;;;-1:-1:-1;;;2385:59:15;-1:-1:-1;;2385:59:15;;;;;;;;;;;2313:142;2464:63;;;;;9717:2:73;2464:63:15;;;9699:21:73;9756:2;9736:18;;;9729:30;9795:34;9775:18;;;9768:62;9866:23;9846:18;;;9839:51;9907:19;;2464:63:15;;;;;;;2578:301;2652:9;2647:226;2671:9;:16;2667:1;:20;2647:226;;;2712:8;:25;2721:9;2731:1;2721:12;;;;;;;;:::i;:::-;;;;;;;:15;;;2712:25;;;;;;;;;;;:28;;;2744:1;2712:33;2708:101;;2765:7;2778:9;2788:1;2778:12;;;;;;;;:::i;:::-;;;;;;;;;;;;:15;2765:29;;;;;;;2778:15;2765:29;;;;;;;;;2708:101;2850:9;2860:1;2850:12;;;;;;;;:::i;:::-;;;;;;;2822:8;:25;2831:9;2841:1;2831:12;;;;;;;;:::i;:::-;;;;;;;;;;;;:15;2822:25;;;;;;;;;;;;;2831:15;2822:25;:40;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;2822:40:15;-1:-1:-1;;2822:40:15;;;-1:-1:-1;;;;;2822:40:15;;;;;;;;;;;;;2689:3;;;;:::i;:::-;;;;2647:226;;1043:274;1163:7;:14;1087:19;;1118:25;;1146:32;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;1146:32:15;;-1:-1:-1;;1146:32:15;;;;;;;;;;;;1118:60;;1193:9;1188:101;1212:7;:14;1208:18;;1188:101;;;1258:8;:20;1267:7;1275:1;1267:10;;;;;;;;:::i;:::-;;;;;;;;;;;;;;1258:20;;;;;;;;;;;;;;;1247:31;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1247:31:15;;;;;;;;;-1:-1:-1;;;1247:31:15;;;;;;;;;;;:8;;;;1253:1;;1247:8;;;;;;:::i;:::-;;;;;;:31;;;;1228:3;;;;;:::i;:::-;;;;1188:101;;;-1:-1:-1;1305:5:15;1043:274;-1:-1:-1;1043:274:15:o;2082:102::-;2151:11;:26;2165:12;2151:11;:26;:::i;847:87::-;889:13;921:6;914:13;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;847:87;:::o;636:126::-;682:18;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;682:18:15;719:36;;;;;;;;731:2;;719:36;;;;735:6;719:36;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;743:11;719:36;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;712:43;;636:126;:::o;940:97::-;987:13;1019:11;1012:18;;;;;:::i;14:184:73:-;-1:-1:-1;;;63:1:73;56:88;163:4;160:1;153:15;187:4;184:1;177:15;203:253;275:2;269:9;317:4;305:17;;352:18;337:34;;373:22;;;334:62;331:88;;;399:18;;:::i;:::-;435:2;428:22;203:253;:::o;461:275::-;532:2;526:9;597:2;578:13;;-1:-1:-1;;574:27:73;562:40;;632:18;617:34;;653:22;;;614:62;611:88;;;679:18;;:::i;:::-;715:2;708:22;461:275;;-1:-1:-1;461:275:73:o;741:764::-;810:6;841:2;884;872:9;863:7;859:23;855:32;852:52;;;900:1;897;890:12;852:52;940:9;927:23;969:18;1010:2;1002:6;999:14;996:34;;;1026:1;1023;1016:12;996:34;1064:6;1053:9;1049:22;1039:32;;1109:7;1102:4;1098:2;1094:13;1090:27;1080:55;;1131:1;1128;1121:12;1080:55;1167:2;1154:16;1189:2;1185;1182:10;1179:36;;;1195:18;;:::i;:::-;1237:53;1280:2;1261:13;;-1:-1:-1;;1257:27:73;1253:36;;1237:53;:::i;:::-;1224:66;;1313:2;1306:5;1299:17;1353:7;1348:2;1343;1339;1335:11;1331:20;1328:33;1325:53;;;1374:1;1371;1364:12;1325:53;1429:2;1424;1420;1416:11;1411:2;1404:5;1400:14;1387:45;1473:1;1452:14;;;1448:23;;;1441:34;;;;-1:-1:-1;1456:5:73;741:764;-1:-1:-1;;;741:764:73:o;1510:207::-;1589:20;;-1:-1:-1;;;;;1638:54:73;;1628:65;;1618:93;;1707:1;1704;1697:12;1618:93;1510:207;;;:::o;1722:160::-;1787:20;;1843:13;;1836:21;1826:32;;1816:60;;1872:1;1869;1862:12;1887:351;1979:6;1987;1995;2048:2;2036:9;2027:7;2023:23;2019:32;2016:52;;;2064:1;2061;2054:12;2016:52;2100:9;2087:23;2077:33;;2129:49;2174:2;2163:9;2159:18;2129:49;:::i;:::-;2119:59;;2197:35;2228:2;2217:9;2213:18;2197:35;:::i;:::-;2187:45;;1887:351;;;;;:::o;2425:1366::-;2537:6;2568:2;2611;2599:9;2590:7;2586:23;2582:32;2579:52;;;2627:1;2624;2617:12;2579:52;2667:9;2654:23;2696:18;2737:2;2729:6;2726:14;2723:34;;;2753:1;2750;2743:12;2723:34;2791:6;2780:9;2776:22;2766:32;;2836:7;2829:4;2825:2;2821:13;2817:27;2807:55;;2858:1;2855;2848:12;2807:55;2894:2;2881:16;2916:2;2912;2909:10;2906:36;;;2922:18;;:::i;:::-;2962:36;2994:2;2989;2986:1;2982:10;2978:19;2962:36;:::i;:::-;3032:15;;;3063:12;;;;-1:-1:-1;3094:4:73;3133:11;;;3125:20;;3121:29;;;3162:19;;;3159:39;;;3194:1;3191;3184:12;3159:39;3218:11;;;;3238:523;3254:6;3249:3;3246:15;3238:523;;;3334:2;3328:3;3319:7;3315:17;3311:26;3308:116;;;3378:1;3407:2;3403;3396:14;3308:116;3450:22;;:::i;:::-;3512:3;3499:17;3492:5;3485:32;3553:43;3592:2;3587:3;3583:12;3553:43;:::i;:::-;3548:2;3541:5;3537:14;3530:67;3620:2;3658:29;3683:2;3678:3;3674:12;3658:29;:::i;:::-;3642:14;;;3635:53;3701:18;;3271:12;;;;3739;;;;3238:523;;;-1:-1:-1;3780:5:73;2425:1366;-1:-1:-1;;;;;;;2425:1366:73:o;4073:712::-;4300:2;4352:21;;;4422:13;;4325:18;;;4444:22;;;4271:4;;4300:2;4523:15;;;;4497:2;4482:18;;;4271:4;4566:193;4580:6;4577:1;4574:13;4566:193;;;4629:48;4673:3;4664:6;4658:13;3872:12;;3860:25;;3938:4;3927:16;;;3921:23;-1:-1:-1;;;;;3917:72:73;3901:14;;;3894:96;4053:4;4042:16;;;4036:23;4029:31;4022:39;4006:14;;3999:63;3796:272;4629:48;4734:15;;;;4706:4;4697:14;;;;;4602:1;4595:9;4566:193;;;-1:-1:-1;4776:3:73;;4073:712;-1:-1:-1;;;;;;4073:712:73:o;4790:180::-;4849:6;4902:2;4890:9;4881:7;4877:23;4873:32;4870:52;;;4918:1;4915;4908:12;4870:52;-1:-1:-1;4941:23:73;;4790:180;-1:-1:-1;4790:180:73:o;5427:423::-;5469:3;5507:5;5501:12;5534:6;5529:3;5522:19;5559:1;5569:162;5583:6;5580:1;5577:13;5569:162;;;5645:4;5701:13;;;5697:22;;5691:29;5673:11;;;5669:20;;5662:59;5598:12;5569:162;;;5573:3;5776:1;5769:4;5760:6;5755:3;5751:16;5747:27;5740:38;5839:4;5832:2;5828:7;5823:2;5815:6;5811:15;5807:29;5802:3;5798:39;5794:50;5787:57;;;5427:423;;;;:::o;5855:220::-;6004:2;5993:9;5986:21;5967:4;6024:45;6065:2;6054:9;6050:18;6042:6;6024:45;:::i;:::-;6016:53;5855:220;-1:-1:-1;;;5855:220:73:o;6080:599::-;6267:2;6256:9;6249:21;6312:6;6306:13;6301:2;6290:9;6286:18;6279:41;6230:4;6367:2;6359:6;6355:15;6349:22;6407:4;6402:2;6391:9;6387:18;6380:32;6435:52;6482:3;6471:9;6467:19;6453:12;6435:52;:::i;:::-;6421:66;;6536:2;6528:6;6524:15;6518:22;6610:2;6606:7;6594:9;6586:6;6582:22;6578:36;6571:4;6560:9;6556:20;6549:66;6632:41;6666:6;6650:14;6632:41;:::i;:::-;6624:49;6080:599;-1:-1:-1;;;;;6080:599:73:o;6684:180::-;6740:6;6793:2;6781:9;6772:7;6768:23;6764:32;6761:52;;;6809:1;6806;6799:12;6761:52;6832:26;6848:9;6832:26;:::i;6869:437::-;6948:1;6944:12;;;;6991;;;7012:61;;7066:4;7058:6;7054:17;7044:27;;7012:61;7119:2;7111:6;7108:14;7088:18;7085:38;7082:218;;-1:-1:-1;;;7153:1:73;7146:88;7257:4;7254:1;7247:15;7285:4;7282:1;7275:15;7437:545;7539:2;7534:3;7531:11;7528:448;;;7575:1;7600:5;7596:2;7589:17;7645:4;7641:2;7631:19;7715:2;7703:10;7699:19;7696:1;7692:27;7686:4;7682:38;7751:4;7739:10;7736:20;7733:47;;;-1:-1:-1;7774:4:73;7733:47;7829:2;7824:3;7820:12;7817:1;7813:20;7807:4;7803:31;7793:41;;7884:82;7902:2;7895:5;7892:13;7884:82;;;7947:17;;;7928:1;7917:13;7884:82;;;7888:3;;;7528:448;7437:545;;;:::o;8158:1352::-;8284:3;8278:10;8311:18;8303:6;8300:30;8297:56;;;8333:18;;:::i;:::-;8362:97;8452:6;8412:38;8444:4;8438:11;8412:38;:::i;:::-;8406:4;8362:97;:::i;:::-;8514:4;;8578:2;8567:14;;8595:1;8590:663;;;;9297:1;9314:6;9311:89;;;-1:-1:-1;9366:19:73;;;9360:26;9311:89;-1:-1:-1;;8115:1:73;8111:11;;;8107:24;8103:29;8093:40;8139:1;8135:11;;;8090:57;9413:81;;8560:944;;8590:663;7384:1;7377:14;;;7421:4;7408:18;;-1:-1:-1;;8626:20:73;;;8744:236;8758:7;8755:1;8752:14;8744:236;;;8847:19;;;8841:26;8826:42;;8939:27;;;;8907:1;8895:14;;;;8774:19;;8744:236;;;8748:3;9008:6;8999:7;8996:19;8993:201;;;9069:19;;;9063:26;-1:-1:-1;;9152:1:73;9148:14;;;9164:3;9144:24;9140:37;9136:42;9121:58;9106:74;;8993:201;-1:-1:-1;;;;;9240:1:73;9224:14;;;9220:22;9207:36;;-1:-1:-1;8158:1352:73:o;9937:184::-;-1:-1:-1;;;9986:1:73;9979:88;10086:4;10083:1;10076:15;10110:4;10107:1;10100:15;10126:289;10165:3;10186:17;;;10183:197;;-1:-1:-1;;;10233:1:73;10226:88;10337:4;10334:1;10327:15;10365:4;10362:1;10355:15;10183:197;-1:-1:-1;10407:1:73;10396:13;;10126:289::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\nimport \"./PermisoVO.sol\";\n\ncontract RolVO {\n    struct PermisoRol {\n        uint256 id;\n        PermisoVO permiso;\n        bool accesoPermitido;\n    }\n\n    struct RolVoStruct {\n        uint256 id;\n        string nombre;\n        string descripcion;\n    }\n\n    event Log(string data);\n\n    uint256 private id;\n    string private nombre;\n    string private descripcion;\n    bool private estaActivo;\n\n\n    mapping(uint256 => PermisoRol) private permisos; // TODO: Hacer mapper de permisos, para la info de estos\n    uint256[] private idsList; // NOTE Mapped Structs with Index\n\n    function getRolVoValue() public view returns (RolVoStruct memory) {\n        return RolVoStruct(id, nombre, descripcion);\n    }\n\n    function getId() public view returns (uint256) {\n        return id;\n    }\n\n    function getNombre() public view returns (string memory) {\n        return nombre;\n    }\n\n    function getDescripcion() public view returns (string memory) {\n        return descripcion;\n    }\n\n    function getPermisos() public view returns (PermisoRol[] memory) {\n        PermisoRol[] memory lista = new PermisoRol[](idsList.length);\n        for (uint256 i = 0; i < idsList.length; i++) {\n            lista[i] = permisos[idsList[i]];\n        }\n        return lista;\n    }\n\n    function getPermisosSize() public view returns (uint256) {\n        return idsList.length;\n    }\n\n    /*function getPermisos() public view returns (IdValue[] memory) {\n        IdValue[] memory lista = new IdValue[](idsList.length);\n        for (uint256 i = 0; i < idsList.length; i++) {\n            lista[i] = IdValue(idsList[i], permisos[idsList[i]]);\n        }\n        return lista;\n    }*/\n\n    function getPermiso(uint256 _id) public view returns (PermisoRol memory) {\n        return permisos[_id];\n    }\n\n    function getEstaActivo() public view returns (bool) {\n        return estaActivo;\n    }\n\n    function setId(uint256 _id) public {\n        id = _id;\n    }\n\n    function setNombre(string memory _nombre) public {\n        nombre = _nombre;\n    }\n\n    function setDescripcion(string memory _descripcion) public {\n        descripcion = _descripcion;\n    }\n\n    function setPermiso(\n        uint256 _id,\n        PermisoVO _permiso,\n        bool _accesoPermitido\n    ) public {\n        if (permisos[_id].id == 0) {\n            idsList.push(_id);\n            permisos[_id] = PermisoRol(_id, _permiso, _accesoPermitido);\n        }\n        revert(\"Ya existe un permiso registrado para ese ID de metodo\");\n        \n    }\n\n    // TODO: Revisar lógica\n    function setPermisos(PermisoRol[] memory _permisos) public {\n        for (uint256 i = 0; i < _permisos.length; i++) {\n            if (permisos[_permisos[i].id].id == 0) {\n                idsList.push(_permisos[i].id);\n            }\n            permisos[_permisos[i].id] = _permisos[i];\n        }\n    }\n\n    function setEstaActivo(bool _estaActivo) public {\n        estaActivo = _estaActivo;\n    }\n}\n",
-  "sourcePath": "/home/felipe/Documentos/Blockchain/codigo/HCE-full/back-hce/contracts/models/RolVO.sol",
+  "sourcePath": "/back/contracts/models/RolVO.sol",
   "ast": {
     "absolutePath": "project:/contracts/models/RolVO.sol",
     "exportedSymbols": {
       "PermisoVO": [
-        2654
+        2660
       ],
       "RolVO": [
-        3226
+        3232
       ]
     },
-    "id": 3227,
+    "id": 3233,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2945,
+        "id": 2951,
         "literals": [
           "solidity",
           "^",
@@ -8055,11 +8055,11 @@
       {
         "absolutePath": "project:/contracts/models/PermisoVO.sol",
         "file": "./PermisoVO.sol",
-        "id": 2946,
+        "id": 2952,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 3227,
-        "sourceUnit": 2655,
+        "scope": 3233,
+        "sourceUnit": 2661,
         "src": "58:25:15",
         "symbolAliases": [],
         "unitAlias": ""
@@ -8071,9 +8071,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 3226,
+        "id": 3232,
         "linearizedBaseContracts": [
-          3226
+          3232
         ],
         "name": "RolVO",
         "nameLocation": "94:5:15",
@@ -8081,16 +8081,16 @@
         "nodes": [
           {
             "canonicalName": "RolVO.PermisoRol",
-            "id": 2954,
+            "id": 2960,
             "members": [
               {
                 "constant": false,
-                "id": 2948,
+                "id": 2954,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "142:2:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 2954,
+                "scope": 2960,
                 "src": "134:10:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8099,7 +8099,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2947,
+                  "id": 2953,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "134:7:15",
@@ -8112,36 +8112,36 @@
               },
               {
                 "constant": false,
-                "id": 2951,
+                "id": 2957,
                 "mutability": "mutable",
                 "name": "permiso",
                 "nameLocation": "164:7:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 2954,
+                "scope": 2960,
                 "src": "154:17:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                  "typeIdentifier": "t_contract$_PermisoVO_$2660",
                   "typeString": "contract PermisoVO"
                 },
                 "typeName": {
-                  "id": 2950,
+                  "id": 2956,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 2949,
+                    "id": 2955,
                     "name": "PermisoVO",
                     "nameLocations": [
                       "154:9:15"
                     ],
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2654,
+                    "referencedDeclaration": 2660,
                     "src": "154:9:15"
                   },
-                  "referencedDeclaration": 2654,
+                  "referencedDeclaration": 2660,
                   "src": "154:9:15",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                    "typeIdentifier": "t_contract$_PermisoVO_$2660",
                     "typeString": "contract PermisoVO"
                   }
                 },
@@ -8149,12 +8149,12 @@
               },
               {
                 "constant": false,
-                "id": 2953,
+                "id": 2959,
                 "mutability": "mutable",
                 "name": "accesoPermitido",
                 "nameLocation": "186:15:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 2954,
+                "scope": 2960,
                 "src": "181:20:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8163,7 +8163,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2952,
+                  "id": 2958,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "181:4:15",
@@ -8178,22 +8178,22 @@
             "name": "PermisoRol",
             "nameLocation": "113:10:15",
             "nodeType": "StructDefinition",
-            "scope": 3226,
+            "scope": 3232,
             "src": "106:102:15",
             "visibility": "public"
           },
           {
             "canonicalName": "RolVO.RolVoStruct",
-            "id": 2961,
+            "id": 2967,
             "members": [
               {
                 "constant": false,
-                "id": 2956,
+                "id": 2962,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "251:2:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 2961,
+                "scope": 2967,
                 "src": "243:10:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8202,7 +8202,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2955,
+                  "id": 2961,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "243:7:15",
@@ -8215,12 +8215,12 @@
               },
               {
                 "constant": false,
-                "id": 2958,
+                "id": 2964,
                 "mutability": "mutable",
                 "name": "nombre",
                 "nameLocation": "270:6:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 2961,
+                "scope": 2967,
                 "src": "263:13:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8229,7 +8229,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2957,
+                  "id": 2963,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "263:6:15",
@@ -8242,12 +8242,12 @@
               },
               {
                 "constant": false,
-                "id": 2960,
+                "id": 2966,
                 "mutability": "mutable",
                 "name": "descripcion",
                 "nameLocation": "293:11:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 2961,
+                "scope": 2967,
                 "src": "286:18:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8256,7 +8256,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2959,
+                  "id": 2965,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "286:6:15",
@@ -8271,30 +8271,30 @@
             "name": "RolVoStruct",
             "nameLocation": "221:11:15",
             "nodeType": "StructDefinition",
-            "scope": 3226,
+            "scope": 3232,
             "src": "214:97:15",
             "visibility": "public"
           },
           {
             "anonymous": false,
             "eventSelector": "cf34ef537ac33ee1ac626ca1587a0a7e8e51561e5514f8cb36afa1c5102b3bab",
-            "id": 2965,
+            "id": 2971,
             "name": "Log",
             "nameLocation": "323:3:15",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2964,
+              "id": 2970,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2963,
+                  "id": 2969,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "334:4:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2965,
+                  "scope": 2971,
                   "src": "327:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -8303,7 +8303,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2962,
+                    "id": 2968,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "327:6:15",
@@ -8321,12 +8321,12 @@
           },
           {
             "constant": false,
-            "id": 2967,
+            "id": 2973,
             "mutability": "mutable",
             "name": "id",
             "nameLocation": "362:2:15",
             "nodeType": "VariableDeclaration",
-            "scope": 3226,
+            "scope": 3232,
             "src": "346:18:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -8335,7 +8335,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 2966,
+              "id": 2972,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "346:7:15",
@@ -8348,12 +8348,12 @@
           },
           {
             "constant": false,
-            "id": 2969,
+            "id": 2975,
             "mutability": "mutable",
             "name": "nombre",
             "nameLocation": "385:6:15",
             "nodeType": "VariableDeclaration",
-            "scope": 3226,
+            "scope": 3232,
             "src": "370:21:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -8362,7 +8362,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 2968,
+              "id": 2974,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "370:6:15",
@@ -8375,12 +8375,12 @@
           },
           {
             "constant": false,
-            "id": 2971,
+            "id": 2977,
             "mutability": "mutable",
             "name": "descripcion",
             "nameLocation": "412:11:15",
             "nodeType": "VariableDeclaration",
-            "scope": 3226,
+            "scope": 3232,
             "src": "397:26:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -8389,7 +8389,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 2970,
+              "id": 2976,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "397:6:15",
@@ -8402,12 +8402,12 @@
           },
           {
             "constant": false,
-            "id": 2973,
+            "id": 2979,
             "mutability": "mutable",
             "name": "estaActivo",
             "nameLocation": "442:10:15",
             "nodeType": "VariableDeclaration",
-            "scope": 3226,
+            "scope": 3232,
             "src": "429:23:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -8416,7 +8416,7 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 2972,
+              "id": 2978,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
               "src": "429:4:15",
@@ -8429,23 +8429,23 @@
           },
           {
             "constant": false,
-            "id": 2978,
+            "id": 2984,
             "mutability": "mutable",
             "name": "permisos",
             "nameLocation": "499:8:15",
             "nodeType": "VariableDeclaration",
-            "scope": 3226,
+            "scope": 3232,
             "src": "460:47:15",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2954_storage_$",
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2960_storage_$",
               "typeString": "mapping(uint256 => struct RolVO.PermisoRol)"
             },
             "typeName": {
-              "id": 2977,
+              "id": 2983,
               "keyType": {
-                "id": 2974,
+                "id": 2980,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "468:7:15",
@@ -8457,26 +8457,26 @@
               "nodeType": "Mapping",
               "src": "460:30:15",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2954_storage_$",
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2960_storage_$",
                 "typeString": "mapping(uint256 => struct RolVO.PermisoRol)"
               },
               "valueType": {
-                "id": 2976,
+                "id": 2982,
                 "nodeType": "UserDefinedTypeName",
                 "pathNode": {
-                  "id": 2975,
+                  "id": 2981,
                   "name": "PermisoRol",
                   "nameLocations": [
                     "479:10:15"
                   ],
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 2954,
+                  "referencedDeclaration": 2960,
                   "src": "479:10:15"
                 },
-                "referencedDeclaration": 2954,
+                "referencedDeclaration": 2960,
                 "src": "479:10:15",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_PermisoRol_$2954_storage_ptr",
+                  "typeIdentifier": "t_struct$_PermisoRol_$2960_storage_ptr",
                   "typeString": "struct RolVO.PermisoRol"
                 }
               }
@@ -8485,12 +8485,12 @@
           },
           {
             "constant": false,
-            "id": 2981,
+            "id": 2987,
             "mutability": "mutable",
             "name": "idsList",
             "nameLocation": "588:7:15",
             "nodeType": "VariableDeclaration",
-            "scope": 3226,
+            "scope": 3232,
             "src": "570:25:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -8500,7 +8500,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 2979,
+                "id": 2985,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "570:7:15",
@@ -8509,7 +8509,7 @@
                   "typeString": "uint256"
                 }
               },
-              "id": 2980,
+              "id": 2986,
               "nodeType": "ArrayTypeName",
               "src": "570:9:15",
               "typeDescriptions": {
@@ -8521,7 +8521,7 @@
           },
           {
             "body": {
-              "id": 2993,
+              "id": 2999,
               "nodeType": "Block",
               "src": "702:60:15",
               "statements": [
@@ -8529,11 +8529,11 @@
                   "expression": {
                     "arguments": [
                       {
-                        "id": 2988,
+                        "id": 2994,
                         "name": "id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2967,
+                        "referencedDeclaration": 2973,
                         "src": "731:2:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -8541,11 +8541,11 @@
                         }
                       },
                       {
-                        "id": 2989,
+                        "id": 2995,
                         "name": "nombre",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2969,
+                        "referencedDeclaration": 2975,
                         "src": "735:6:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -8553,11 +8553,11 @@
                         }
                       },
                       {
-                        "id": 2990,
+                        "id": 2996,
                         "name": "descripcion",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2971,
+                        "referencedDeclaration": 2977,
                         "src": "743:11:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -8580,18 +8580,18 @@
                           "typeString": "string storage ref"
                         }
                       ],
-                      "id": 2987,
+                      "id": 2993,
                       "name": "RolVoStruct",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2961,
+                      "referencedDeclaration": 2967,
                       "src": "719:11:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_RolVoStruct_$2961_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_RolVoStruct_$2967_storage_ptr_$",
                         "typeString": "type(struct RolVO.RolVoStruct storage pointer)"
                       }
                     },
-                    "id": 2991,
+                    "id": 2997,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -8603,19 +8603,19 @@
                     "src": "719:36:15",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_RolVoStruct_$2961_memory_ptr",
+                      "typeIdentifier": "t_struct$_RolVoStruct_$2967_memory_ptr",
                       "typeString": "struct RolVO.RolVoStruct memory"
                     }
                   },
-                  "functionReturnParameters": 2986,
-                  "id": 2992,
+                  "functionReturnParameters": 2992,
+                  "id": 2998,
                   "nodeType": "Return",
                   "src": "712:43:15"
                 }
               ]
             },
             "functionSelector": "ea1a6f29",
-            "id": 2994,
+            "id": 3000,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -8623,47 +8623,47 @@
             "nameLocation": "645:13:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2982,
+              "id": 2988,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "658:2:15"
             },
             "returnParameters": {
-              "id": 2986,
+              "id": 2992,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2985,
+                  "id": 2991,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2994,
+                  "scope": 3000,
                   "src": "682:18:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_RolVoStruct_$2961_memory_ptr",
+                    "typeIdentifier": "t_struct$_RolVoStruct_$2967_memory_ptr",
                     "typeString": "struct RolVO.RolVoStruct"
                   },
                   "typeName": {
-                    "id": 2984,
+                    "id": 2990,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 2983,
+                      "id": 2989,
                       "name": "RolVoStruct",
                       "nameLocations": [
                         "682:11:15"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2961,
+                      "referencedDeclaration": 2967,
                       "src": "682:11:15"
                     },
-                    "referencedDeclaration": 2961,
+                    "referencedDeclaration": 2967,
                     "src": "682:11:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_RolVoStruct_$2961_storage_ptr",
+                      "typeIdentifier": "t_struct$_RolVoStruct_$2967_storage_ptr",
                       "typeString": "struct RolVO.RolVoStruct"
                     }
                   },
@@ -8672,7 +8672,7 @@
               ],
               "src": "681:20:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "636:126:15",
             "stateMutability": "view",
             "virtual": false,
@@ -8680,32 +8680,32 @@
           },
           {
             "body": {
-              "id": 3001,
+              "id": 3007,
               "nodeType": "Block",
               "src": "815:26:15",
               "statements": [
                 {
                   "expression": {
-                    "id": 2999,
+                    "id": 3005,
                     "name": "id",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2967,
+                    "referencedDeclaration": 2973,
                     "src": "832:2:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 2998,
-                  "id": 3000,
+                  "functionReturnParameters": 3004,
+                  "id": 3006,
                   "nodeType": "Return",
                   "src": "825:9:15"
                 }
               ]
             },
             "functionSelector": "5d1ca631",
-            "id": 3002,
+            "id": 3008,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -8713,23 +8713,23 @@
             "nameLocation": "777:5:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2995,
+              "id": 3001,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "782:2:15"
             },
             "returnParameters": {
-              "id": 2998,
+              "id": 3004,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2997,
+                  "id": 3003,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3002,
+                  "scope": 3008,
                   "src": "806:7:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -8738,7 +8738,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2996,
+                    "id": 3002,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "806:7:15",
@@ -8752,7 +8752,7 @@
               ],
               "src": "805:9:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "768:73:15",
             "stateMutability": "view",
             "virtual": false,
@@ -8760,32 +8760,32 @@
           },
           {
             "body": {
-              "id": 3009,
+              "id": 3015,
               "nodeType": "Block",
               "src": "904:30:15",
               "statements": [
                 {
                   "expression": {
-                    "id": 3007,
+                    "id": 3013,
                     "name": "nombre",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2969,
+                    "referencedDeclaration": 2975,
                     "src": "921:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "functionReturnParameters": 3006,
-                  "id": 3008,
+                  "functionReturnParameters": 3012,
+                  "id": 3014,
                   "nodeType": "Return",
                   "src": "914:13:15"
                 }
               ]
             },
             "functionSelector": "d75cbf9b",
-            "id": 3010,
+            "id": 3016,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -8793,23 +8793,23 @@
             "nameLocation": "856:9:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3003,
+              "id": 3009,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "865:2:15"
             },
             "returnParameters": {
-              "id": 3006,
+              "id": 3012,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3005,
+                  "id": 3011,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3010,
+                  "scope": 3016,
                   "src": "889:13:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -8818,7 +8818,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3004,
+                    "id": 3010,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "889:6:15",
@@ -8832,7 +8832,7 @@
               ],
               "src": "888:15:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "847:87:15",
             "stateMutability": "view",
             "virtual": false,
@@ -8840,32 +8840,32 @@
           },
           {
             "body": {
-              "id": 3017,
+              "id": 3023,
               "nodeType": "Block",
               "src": "1002:35:15",
               "statements": [
                 {
                   "expression": {
-                    "id": 3015,
+                    "id": 3021,
                     "name": "descripcion",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2971,
+                    "referencedDeclaration": 2977,
                     "src": "1019:11:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "functionReturnParameters": 3014,
-                  "id": 3016,
+                  "functionReturnParameters": 3020,
+                  "id": 3022,
                   "nodeType": "Return",
                   "src": "1012:18:15"
                 }
               ]
             },
             "functionSelector": "f9a9ff9d",
-            "id": 3018,
+            "id": 3024,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -8873,23 +8873,23 @@
             "nameLocation": "949:14:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3011,
+              "id": 3017,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "963:2:15"
             },
             "returnParameters": {
-              "id": 3014,
+              "id": 3020,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3013,
+                  "id": 3019,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3018,
+                  "scope": 3024,
                   "src": "987:13:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -8898,7 +8898,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3012,
+                    "id": 3018,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "987:6:15",
@@ -8912,7 +8912,7 @@
               ],
               "src": "986:15:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "940:97:15",
             "stateMutability": "view",
             "virtual": false,
@@ -8920,79 +8920,79 @@
           },
           {
             "body": {
-              "id": 3063,
+              "id": 3069,
               "nodeType": "Block",
               "src": "1108:209:15",
               "statements": [
                 {
                   "assignments": [
-                    3029
+                    3035
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 3029,
+                      "id": 3035,
                       "mutability": "mutable",
                       "name": "lista",
                       "nameLocation": "1138:5:15",
                       "nodeType": "VariableDeclaration",
-                      "scope": 3063,
+                      "scope": 3069,
                       "src": "1118:25:15",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                        "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                         "typeString": "struct RolVO.PermisoRol[]"
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 3027,
+                          "id": 3033,
                           "nodeType": "UserDefinedTypeName",
                           "pathNode": {
-                            "id": 3026,
+                            "id": 3032,
                             "name": "PermisoRol",
                             "nameLocations": [
                               "1118:10:15"
                             ],
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 2954,
+                            "referencedDeclaration": 2960,
                             "src": "1118:10:15"
                           },
-                          "referencedDeclaration": 2954,
+                          "referencedDeclaration": 2960,
                           "src": "1118:10:15",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_PermisoRol_$2954_storage_ptr",
+                            "typeIdentifier": "t_struct$_PermisoRol_$2960_storage_ptr",
                             "typeString": "struct RolVO.PermisoRol"
                           }
                         },
-                        "id": 3028,
+                        "id": 3034,
                         "nodeType": "ArrayTypeName",
                         "src": "1118:12:15",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_storage_$dyn_storage_ptr",
+                          "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_storage_$dyn_storage_ptr",
                           "typeString": "struct RolVO.PermisoRol[]"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 3037,
+                  "id": 3043,
                   "initialValue": {
                     "arguments": [
                       {
                         "expression": {
-                          "id": 3034,
+                          "id": 3040,
                           "name": "idsList",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2981,
+                          "referencedDeclaration": 2987,
                           "src": "1163:7:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                             "typeString": "uint256[] storage ref"
                           }
                         },
-                        "id": 3035,
+                        "id": 3041,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -9014,7 +9014,7 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 3033,
+                      "id": 3039,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -9022,40 +9022,40 @@
                       "nodeType": "NewExpression",
                       "src": "1146:16:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr_$",
+                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr_$",
                         "typeString": "function (uint256) pure returns (struct RolVO.PermisoRol memory[] memory)"
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 3031,
+                          "id": 3037,
                           "nodeType": "UserDefinedTypeName",
                           "pathNode": {
-                            "id": 3030,
+                            "id": 3036,
                             "name": "PermisoRol",
                             "nameLocations": [
                               "1150:10:15"
                             ],
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 2954,
+                            "referencedDeclaration": 2960,
                             "src": "1150:10:15"
                           },
-                          "referencedDeclaration": 2954,
+                          "referencedDeclaration": 2960,
                           "src": "1150:10:15",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_PermisoRol_$2954_storage_ptr",
+                            "typeIdentifier": "t_struct$_PermisoRol_$2960_storage_ptr",
                             "typeString": "struct RolVO.PermisoRol"
                           }
                         },
-                        "id": 3032,
+                        "id": 3038,
                         "nodeType": "ArrayTypeName",
                         "src": "1150:12:15",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_storage_$dyn_storage_ptr",
+                          "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_storage_$dyn_storage_ptr",
                           "typeString": "struct RolVO.PermisoRol[]"
                         }
                       }
                     },
-                    "id": 3036,
+                    "id": 3042,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -9067,7 +9067,7 @@
                     "src": "1146:32:15",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                       "typeString": "struct RolVO.PermisoRol memory[] memory"
                     }
                   },
@@ -9076,37 +9076,37 @@
                 },
                 {
                   "body": {
-                    "id": 3059,
+                    "id": 3065,
                     "nodeType": "Block",
                     "src": "1233:56:15",
                     "statements": [
                       {
                         "expression": {
-                          "id": 3057,
+                          "id": 3063,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "baseExpression": {
-                              "id": 3049,
+                              "id": 3055,
                               "name": "lista",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3029,
+                              "referencedDeclaration": 3035,
                               "src": "1247:5:15",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                                "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                                 "typeString": "struct RolVO.PermisoRol memory[] memory"
                               }
                             },
-                            "id": 3051,
+                            "id": 3057,
                             "indexExpression": {
-                              "id": 3050,
+                              "id": 3056,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3039,
+                              "referencedDeclaration": 3045,
                               "src": "1253:1:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -9120,7 +9120,7 @@
                             "nodeType": "IndexAccess",
                             "src": "1247:8:15",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_PermisoRol_$2954_memory_ptr",
+                              "typeIdentifier": "t_struct$_PermisoRol_$2960_memory_ptr",
                               "typeString": "struct RolVO.PermisoRol memory"
                             }
                           },
@@ -9128,38 +9128,38 @@
                           "operator": "=",
                           "rightHandSide": {
                             "baseExpression": {
-                              "id": 3052,
+                              "id": 3058,
                               "name": "permisos",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2978,
+                              "referencedDeclaration": 2984,
                               "src": "1258:8:15",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2954_storage_$",
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2960_storage_$",
                                 "typeString": "mapping(uint256 => struct RolVO.PermisoRol storage ref)"
                               }
                             },
-                            "id": 3056,
+                            "id": 3062,
                             "indexExpression": {
                               "baseExpression": {
-                                "id": 3053,
+                                "id": 3059,
                                 "name": "idsList",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 2981,
+                                "referencedDeclaration": 2987,
                                 "src": "1267:7:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                                   "typeString": "uint256[] storage ref"
                                 }
                               },
-                              "id": 3055,
+                              "id": 3061,
                               "indexExpression": {
-                                "id": 3054,
+                                "id": 3060,
                                 "name": "i",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 3039,
+                                "referencedDeclaration": 3045,
                                 "src": "1275:1:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
@@ -9184,17 +9184,17 @@
                             "nodeType": "IndexAccess",
                             "src": "1258:20:15",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_PermisoRol_$2954_storage",
+                              "typeIdentifier": "t_struct$_PermisoRol_$2960_storage",
                               "typeString": "struct RolVO.PermisoRol storage ref"
                             }
                           },
                           "src": "1247:31:15",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_PermisoRol_$2954_memory_ptr",
+                            "typeIdentifier": "t_struct$_PermisoRol_$2960_memory_ptr",
                             "typeString": "struct RolVO.PermisoRol memory"
                           }
                         },
-                        "id": 3058,
+                        "id": 3064,
                         "nodeType": "ExpressionStatement",
                         "src": "1247:31:15"
                       }
@@ -9205,17 +9205,17 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 3045,
+                    "id": 3051,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 3042,
+                      "id": 3048,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3039,
+                      "referencedDeclaration": 3045,
                       "src": "1208:1:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -9226,18 +9226,18 @@
                     "operator": "<",
                     "rightExpression": {
                       "expression": {
-                        "id": 3043,
+                        "id": 3049,
                         "name": "idsList",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2981,
+                        "referencedDeclaration": 2987,
                         "src": "1212:7:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                           "typeString": "uint256[] storage ref"
                         }
                       },
-                      "id": 3044,
+                      "id": 3050,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -9257,20 +9257,20 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 3060,
+                  "id": 3066,
                   "initializationExpression": {
                     "assignments": [
-                      3039
+                      3045
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 3039,
+                        "id": 3045,
                         "mutability": "mutable",
                         "name": "i",
                         "nameLocation": "1201:1:15",
                         "nodeType": "VariableDeclaration",
-                        "scope": 3060,
+                        "scope": 3066,
                         "src": "1193:9:15",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -9279,7 +9279,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 3038,
+                          "id": 3044,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
                           "src": "1193:7:15",
@@ -9291,10 +9291,10 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 3041,
+                    "id": 3047,
                     "initialValue": {
                       "hexValue": "30",
-                      "id": 3040,
+                      "id": 3046,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -9313,7 +9313,7 @@
                   },
                   "loopExpression": {
                     "expression": {
-                      "id": 3047,
+                      "id": 3053,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -9323,11 +9323,11 @@
                       "prefix": false,
                       "src": "1228:3:15",
                       "subExpression": {
-                        "id": 3046,
+                        "id": 3052,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3039,
+                        "referencedDeclaration": 3045,
                         "src": "1228:1:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -9339,7 +9339,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 3048,
+                    "id": 3054,
                     "nodeType": "ExpressionStatement",
                     "src": "1228:3:15"
                   },
@@ -9348,26 +9348,26 @@
                 },
                 {
                   "expression": {
-                    "id": 3061,
+                    "id": 3067,
                     "name": "lista",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 3029,
+                    "referencedDeclaration": 3035,
                     "src": "1305:5:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                       "typeString": "struct RolVO.PermisoRol memory[] memory"
                     }
                   },
-                  "functionReturnParameters": 3024,
-                  "id": 3062,
+                  "functionReturnParameters": 3030,
+                  "id": 3068,
                   "nodeType": "Return",
                   "src": "1298:12:15"
                 }
               ]
             },
             "functionSelector": "804851c0",
-            "id": 3064,
+            "id": 3070,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9375,56 +9375,56 @@
             "nameLocation": "1052:11:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3019,
+              "id": 3025,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1063:2:15"
             },
             "returnParameters": {
-              "id": 3024,
+              "id": 3030,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3023,
+                  "id": 3029,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3064,
+                  "scope": 3070,
                   "src": "1087:19:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct RolVO.PermisoRol[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 3021,
+                      "id": 3027,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 3020,
+                        "id": 3026,
                         "name": "PermisoRol",
                         "nameLocations": [
                           "1087:10:15"
                         ],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 2954,
+                        "referencedDeclaration": 2960,
                         "src": "1087:10:15"
                       },
-                      "referencedDeclaration": 2954,
+                      "referencedDeclaration": 2960,
                       "src": "1087:10:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_PermisoRol_$2954_storage_ptr",
+                        "typeIdentifier": "t_struct$_PermisoRol_$2960_storage_ptr",
                         "typeString": "struct RolVO.PermisoRol"
                       }
                     },
-                    "id": 3022,
+                    "id": 3028,
                     "nodeType": "ArrayTypeName",
                     "src": "1087:12:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_storage_$dyn_storage_ptr",
                       "typeString": "struct RolVO.PermisoRol[]"
                     }
                   },
@@ -9433,7 +9433,7 @@
               ],
               "src": "1086:21:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "1043:274:15",
             "stateMutability": "view",
             "virtual": false,
@@ -9441,25 +9441,25 @@
           },
           {
             "body": {
-              "id": 3072,
+              "id": 3078,
               "nodeType": "Block",
               "src": "1380:38:15",
               "statements": [
                 {
                   "expression": {
                     "expression": {
-                      "id": 3069,
+                      "id": 3075,
                       "name": "idsList",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2981,
+                      "referencedDeclaration": 2987,
                       "src": "1397:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                         "typeString": "uint256[] storage ref"
                       }
                     },
-                    "id": 3070,
+                    "id": 3076,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -9473,15 +9473,15 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 3068,
-                  "id": 3071,
+                  "functionReturnParameters": 3074,
+                  "id": 3077,
                   "nodeType": "Return",
                   "src": "1390:21:15"
                 }
               ]
             },
             "functionSelector": "7ce8aae4",
-            "id": 3073,
+            "id": 3079,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9489,23 +9489,23 @@
             "nameLocation": "1332:15:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3065,
+              "id": 3071,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1347:2:15"
             },
             "returnParameters": {
-              "id": 3068,
+              "id": 3074,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3067,
+                  "id": 3073,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3073,
+                  "scope": 3079,
                   "src": "1371:7:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9514,7 +9514,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3066,
+                    "id": 3072,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1371:7:15",
@@ -9528,7 +9528,7 @@
               ],
               "src": "1370:9:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "1323:95:15",
             "stateMutability": "view",
             "virtual": false,
@@ -9536,31 +9536,31 @@
           },
           {
             "body": {
-              "id": 3085,
+              "id": 3091,
               "nodeType": "Block",
               "src": "1793:37:15",
               "statements": [
                 {
                   "expression": {
                     "baseExpression": {
-                      "id": 3081,
+                      "id": 3087,
                       "name": "permisos",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2978,
+                      "referencedDeclaration": 2984,
                       "src": "1810:8:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2954_storage_$",
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2960_storage_$",
                         "typeString": "mapping(uint256 => struct RolVO.PermisoRol storage ref)"
                       }
                     },
-                    "id": 3083,
+                    "id": 3089,
                     "indexExpression": {
-                      "id": 3082,
+                      "id": 3088,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3075,
+                      "referencedDeclaration": 3081,
                       "src": "1819:3:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -9574,19 +9574,19 @@
                     "nodeType": "IndexAccess",
                     "src": "1810:13:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PermisoRol_$2954_storage",
+                      "typeIdentifier": "t_struct$_PermisoRol_$2960_storage",
                       "typeString": "struct RolVO.PermisoRol storage ref"
                     }
                   },
-                  "functionReturnParameters": 3080,
-                  "id": 3084,
+                  "functionReturnParameters": 3086,
+                  "id": 3090,
                   "nodeType": "Return",
                   "src": "1803:20:15"
                 }
               ]
             },
             "functionSelector": "ade2a612",
-            "id": 3086,
+            "id": 3092,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9594,17 +9594,17 @@
             "nameLocation": "1729:10:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3076,
+              "id": 3082,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3075,
+                  "id": 3081,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "1748:3:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3086,
+                  "scope": 3092,
                   "src": "1740:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9613,7 +9613,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3074,
+                    "id": 3080,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1740:7:15",
@@ -9628,41 +9628,41 @@
               "src": "1739:13:15"
             },
             "returnParameters": {
-              "id": 3080,
+              "id": 3086,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3079,
+                  "id": 3085,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3086,
+                  "scope": 3092,
                   "src": "1774:17:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PermisoRol_$2954_memory_ptr",
+                    "typeIdentifier": "t_struct$_PermisoRol_$2960_memory_ptr",
                     "typeString": "struct RolVO.PermisoRol"
                   },
                   "typeName": {
-                    "id": 3078,
+                    "id": 3084,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 3077,
+                      "id": 3083,
                       "name": "PermisoRol",
                       "nameLocations": [
                         "1774:10:15"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2954,
+                      "referencedDeclaration": 2960,
                       "src": "1774:10:15"
                     },
-                    "referencedDeclaration": 2954,
+                    "referencedDeclaration": 2960,
                     "src": "1774:10:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PermisoRol_$2954_storage_ptr",
+                      "typeIdentifier": "t_struct$_PermisoRol_$2960_storage_ptr",
                       "typeString": "struct RolVO.PermisoRol"
                     }
                   },
@@ -9671,7 +9671,7 @@
               ],
               "src": "1773:19:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "1720:110:15",
             "stateMutability": "view",
             "virtual": false,
@@ -9679,32 +9679,32 @@
           },
           {
             "body": {
-              "id": 3093,
+              "id": 3099,
               "nodeType": "Block",
               "src": "1888:34:15",
               "statements": [
                 {
                   "expression": {
-                    "id": 3091,
+                    "id": 3097,
                     "name": "estaActivo",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2973,
+                    "referencedDeclaration": 2979,
                     "src": "1905:10:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 3090,
-                  "id": 3092,
+                  "functionReturnParameters": 3096,
+                  "id": 3098,
                   "nodeType": "Return",
                   "src": "1898:17:15"
                 }
               ]
             },
             "functionSelector": "af995846",
-            "id": 3094,
+            "id": 3100,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9712,23 +9712,23 @@
             "nameLocation": "1845:13:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3087,
+              "id": 3093,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1858:2:15"
             },
             "returnParameters": {
-              "id": 3090,
+              "id": 3096,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3089,
+                  "id": 3095,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3094,
+                  "scope": 3100,
                   "src": "1882:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9737,7 +9737,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 3088,
+                    "id": 3094,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1882:4:15",
@@ -9751,7 +9751,7 @@
               ],
               "src": "1881:6:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "1836:86:15",
             "stateMutability": "view",
             "virtual": false,
@@ -9759,23 +9759,23 @@
           },
           {
             "body": {
-              "id": 3103,
+              "id": 3109,
               "nodeType": "Block",
               "src": "1963:25:15",
               "statements": [
                 {
                   "expression": {
-                    "id": 3101,
+                    "id": 3107,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 3099,
+                      "id": 3105,
                       "name": "id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2967,
+                      "referencedDeclaration": 2973,
                       "src": "1973:2:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -9785,11 +9785,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 3100,
+                      "id": 3106,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3096,
+                      "referencedDeclaration": 3102,
                       "src": "1978:3:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -9802,14 +9802,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 3102,
+                  "id": 3108,
                   "nodeType": "ExpressionStatement",
                   "src": "1973:8:15"
                 }
               ]
             },
             "functionSelector": "d0e0ba95",
-            "id": 3104,
+            "id": 3110,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9817,17 +9817,17 @@
             "nameLocation": "1937:5:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3097,
+              "id": 3103,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3096,
+                  "id": 3102,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "1951:3:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3104,
+                  "scope": 3110,
                   "src": "1943:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9836,7 +9836,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3095,
+                    "id": 3101,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1943:7:15",
@@ -9851,12 +9851,12 @@
               "src": "1942:13:15"
             },
             "returnParameters": {
-              "id": 3098,
+              "id": 3104,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1963:0:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "1928:60:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -9864,23 +9864,23 @@
           },
           {
             "body": {
-              "id": 3113,
+              "id": 3119,
               "nodeType": "Block",
               "src": "2043:33:15",
               "statements": [
                 {
                   "expression": {
-                    "id": 3111,
+                    "id": 3117,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 3109,
+                      "id": 3115,
                       "name": "nombre",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2969,
+                      "referencedDeclaration": 2975,
                       "src": "2053:6:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -9890,11 +9890,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 3110,
+                      "id": 3116,
                       "name": "_nombre",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3106,
+                      "referencedDeclaration": 3112,
                       "src": "2062:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -9907,14 +9907,14 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 3112,
+                  "id": 3118,
                   "nodeType": "ExpressionStatement",
                   "src": "2053:16:15"
                 }
               ]
             },
             "functionSelector": "0002736b",
-            "id": 3114,
+            "id": 3120,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9922,17 +9922,17 @@
             "nameLocation": "2003:9:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3107,
+              "id": 3113,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3106,
+                  "id": 3112,
                   "mutability": "mutable",
                   "name": "_nombre",
                   "nameLocation": "2027:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3114,
+                  "scope": 3120,
                   "src": "2013:21:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -9941,7 +9941,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3105,
+                    "id": 3111,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2013:6:15",
@@ -9956,12 +9956,12 @@
               "src": "2012:23:15"
             },
             "returnParameters": {
-              "id": 3108,
+              "id": 3114,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2043:0:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "1994:82:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -9969,23 +9969,23 @@
           },
           {
             "body": {
-              "id": 3123,
+              "id": 3129,
               "nodeType": "Block",
               "src": "2141:43:15",
               "statements": [
                 {
                   "expression": {
-                    "id": 3121,
+                    "id": 3127,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 3119,
+                      "id": 3125,
                       "name": "descripcion",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2971,
+                      "referencedDeclaration": 2977,
                       "src": "2151:11:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -9995,11 +9995,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 3120,
+                      "id": 3126,
                       "name": "_descripcion",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3116,
+                      "referencedDeclaration": 3122,
                       "src": "2165:12:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -10012,14 +10012,14 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 3122,
+                  "id": 3128,
                   "nodeType": "ExpressionStatement",
                   "src": "2151:26:15"
                 }
               ]
             },
             "functionSelector": "d45795cb",
-            "id": 3124,
+            "id": 3130,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -10027,17 +10027,17 @@
             "nameLocation": "2091:14:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3117,
+              "id": 3123,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3116,
+                  "id": 3122,
                   "mutability": "mutable",
                   "name": "_descripcion",
                   "nameLocation": "2120:12:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3124,
+                  "scope": 3130,
                   "src": "2106:26:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -10046,7 +10046,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3115,
+                    "id": 3121,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2106:6:15",
@@ -10061,12 +10061,12 @@
               "src": "2105:28:15"
             },
             "returnParameters": {
-              "id": 3118,
+              "id": 3124,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2141:0:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "2082:102:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -10074,7 +10074,7 @@
           },
           {
             "body": {
-              "id": 3162,
+              "id": 3168,
               "nodeType": "Block",
               "src": "2303:240:15",
               "statements": [
@@ -10084,7 +10084,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 3139,
+                    "id": 3145,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -10092,24 +10092,24 @@
                     "leftExpression": {
                       "expression": {
                         "baseExpression": {
-                          "id": 3134,
+                          "id": 3140,
                           "name": "permisos",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2978,
+                          "referencedDeclaration": 2984,
                           "src": "2317:8:15",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2954_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2960_storage_$",
                             "typeString": "mapping(uint256 => struct RolVO.PermisoRol storage ref)"
                           }
                         },
-                        "id": 3136,
+                        "id": 3142,
                         "indexExpression": {
-                          "id": 3135,
+                          "id": 3141,
                           "name": "_id",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3126,
+                          "referencedDeclaration": 3132,
                           "src": "2326:3:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -10123,11 +10123,11 @@
                         "nodeType": "IndexAccess",
                         "src": "2317:13:15",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_PermisoRol_$2954_storage",
+                          "typeIdentifier": "t_struct$_PermisoRol_$2960_storage",
                           "typeString": "struct RolVO.PermisoRol storage ref"
                         }
                       },
-                      "id": 3137,
+                      "id": 3143,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -10135,7 +10135,7 @@
                       "memberLocation": "2331:2:15",
                       "memberName": "id",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2948,
+                      "referencedDeclaration": 2954,
                       "src": "2317:16:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -10146,7 +10146,7 @@
                     "operator": "==",
                     "rightExpression": {
                       "hexValue": "30",
-                      "id": 3138,
+                      "id": 3144,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -10166,11 +10166,11 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 3157,
+                  "id": 3163,
                   "nodeType": "IfStatement",
                   "src": "2313:142:15",
                   "trueBody": {
-                    "id": 3156,
+                    "id": 3162,
                     "nodeType": "Block",
                     "src": "2340:115:15",
                     "statements": [
@@ -10178,11 +10178,11 @@
                         "expression": {
                           "arguments": [
                             {
-                              "id": 3143,
+                              "id": 3149,
                               "name": "_id",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3126,
+                              "referencedDeclaration": 3132,
                               "src": "2367:3:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -10198,18 +10198,18 @@
                               }
                             ],
                             "expression": {
-                              "id": 3140,
+                              "id": 3146,
                               "name": "idsList",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2981,
+                              "referencedDeclaration": 2987,
                               "src": "2354:7:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                                 "typeString": "uint256[] storage ref"
                               }
                             },
-                            "id": 3142,
+                            "id": 3148,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -10223,7 +10223,7 @@
                               "typeString": "function (uint256[] storage pointer,uint256)"
                             }
                           },
-                          "id": 3144,
+                          "id": 3150,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -10239,37 +10239,37 @@
                             "typeString": "tuple()"
                           }
                         },
-                        "id": 3145,
+                        "id": 3151,
                         "nodeType": "ExpressionStatement",
                         "src": "2354:17:15"
                       },
                       {
                         "expression": {
-                          "id": 3154,
+                          "id": 3160,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "baseExpression": {
-                              "id": 3146,
+                              "id": 3152,
                               "name": "permisos",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2978,
+                              "referencedDeclaration": 2984,
                               "src": "2385:8:15",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2954_storage_$",
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2960_storage_$",
                                 "typeString": "mapping(uint256 => struct RolVO.PermisoRol storage ref)"
                               }
                             },
-                            "id": 3148,
+                            "id": 3154,
                             "indexExpression": {
-                              "id": 3147,
+                              "id": 3153,
                               "name": "_id",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3126,
+                              "referencedDeclaration": 3132,
                               "src": "2394:3:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -10283,7 +10283,7 @@
                             "nodeType": "IndexAccess",
                             "src": "2385:13:15",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_PermisoRol_$2954_storage",
+                              "typeIdentifier": "t_struct$_PermisoRol_$2960_storage",
                               "typeString": "struct RolVO.PermisoRol storage ref"
                             }
                           },
@@ -10292,11 +10292,11 @@
                           "rightHandSide": {
                             "arguments": [
                               {
-                                "id": 3150,
+                                "id": 3156,
                                 "name": "_id",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 3126,
+                                "referencedDeclaration": 3132,
                                 "src": "2412:3:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
@@ -10304,23 +10304,23 @@
                                 }
                               },
                               {
-                                "id": 3151,
+                                "id": 3157,
                                 "name": "_permiso",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 3129,
+                                "referencedDeclaration": 3135,
                                 "src": "2417:8:15",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                                  "typeIdentifier": "t_contract$_PermisoVO_$2660",
                                   "typeString": "contract PermisoVO"
                                 }
                               },
                               {
-                                "id": 3152,
+                                "id": 3158,
                                 "name": "_accesoPermitido",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 3131,
+                                "referencedDeclaration": 3137,
                                 "src": "2427:16:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bool",
@@ -10335,7 +10335,7 @@
                                   "typeString": "uint256"
                                 },
                                 {
-                                  "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                                  "typeIdentifier": "t_contract$_PermisoVO_$2660",
                                   "typeString": "contract PermisoVO"
                                 },
                                 {
@@ -10343,18 +10343,18 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "id": 3149,
+                              "id": 3155,
                               "name": "PermisoRol",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2954,
+                              "referencedDeclaration": 2960,
                               "src": "2401:10:15",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_struct$_PermisoRol_$2954_storage_ptr_$",
+                                "typeIdentifier": "t_type$_t_struct$_PermisoRol_$2960_storage_ptr_$",
                                 "typeString": "type(struct RolVO.PermisoRol storage pointer)"
                               }
                             },
-                            "id": 3153,
+                            "id": 3159,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -10366,17 +10366,17 @@
                             "src": "2401:43:15",
                             "tryCall": false,
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_PermisoRol_$2954_memory_ptr",
+                              "typeIdentifier": "t_struct$_PermisoRol_$2960_memory_ptr",
                               "typeString": "struct RolVO.PermisoRol memory"
                             }
                           },
                           "src": "2385:59:15",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_PermisoRol_$2954_storage",
+                            "typeIdentifier": "t_struct$_PermisoRol_$2960_storage",
                             "typeString": "struct RolVO.PermisoRol storage ref"
                           }
                         },
-                        "id": 3155,
+                        "id": 3161,
                         "nodeType": "ExpressionStatement",
                         "src": "2385:59:15"
                       }
@@ -10388,7 +10388,7 @@
                     "arguments": [
                       {
                         "hexValue": "59612065786973746520756e207065726d69736f207265676973747261646f207061726120657365204944206465206d65746f646f",
-                        "id": 3159,
+                        "id": 3165,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -10410,7 +10410,7 @@
                           "typeString": "literal_string \"Ya existe un permiso registrado para ese ID de metodo\""
                         }
                       ],
-                      "id": 3158,
+                      "id": 3164,
                       "name": "revert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -10424,7 +10424,7 @@
                         "typeString": "function (string memory) pure"
                       }
                     },
-                    "id": 3160,
+                    "id": 3166,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -10440,14 +10440,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3161,
+                  "id": 3167,
                   "nodeType": "ExpressionStatement",
                   "src": "2464:63:15"
                 }
               ]
             },
             "functionSelector": "3d7c901a",
-            "id": 3163,
+            "id": 3169,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -10455,17 +10455,17 @@
             "nameLocation": "2199:10:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3132,
+              "id": 3138,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3126,
+                  "id": 3132,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "2227:3:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3163,
+                  "scope": 3169,
                   "src": "2219:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -10474,7 +10474,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3125,
+                    "id": 3131,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2219:7:15",
@@ -10487,36 +10487,36 @@
                 },
                 {
                   "constant": false,
-                  "id": 3129,
+                  "id": 3135,
                   "mutability": "mutable",
                   "name": "_permiso",
                   "nameLocation": "2250:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3163,
+                  "scope": 3169,
                   "src": "2240:18:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                    "typeIdentifier": "t_contract$_PermisoVO_$2660",
                     "typeString": "contract PermisoVO"
                   },
                   "typeName": {
-                    "id": 3128,
+                    "id": 3134,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 3127,
+                      "id": 3133,
                       "name": "PermisoVO",
                       "nameLocations": [
                         "2240:9:15"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2654,
+                      "referencedDeclaration": 2660,
                       "src": "2240:9:15"
                     },
-                    "referencedDeclaration": 2654,
+                    "referencedDeclaration": 2660,
                     "src": "2240:9:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                      "typeIdentifier": "t_contract$_PermisoVO_$2660",
                       "typeString": "contract PermisoVO"
                     }
                   },
@@ -10524,12 +10524,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3131,
+                  "id": 3137,
                   "mutability": "mutable",
                   "name": "_accesoPermitido",
                   "nameLocation": "2273:16:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3163,
+                  "scope": 3169,
                   "src": "2268:21:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -10538,7 +10538,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 3130,
+                    "id": 3136,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2268:4:15",
@@ -10553,12 +10553,12 @@
               "src": "2209:86:15"
             },
             "returnParameters": {
-              "id": 3133,
+              "id": 3139,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2303:0:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "2190:353:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -10566,13 +10566,13 @@
           },
           {
             "body": {
-              "id": 3214,
+              "id": 3220,
               "nodeType": "Block",
               "src": "2637:242:15",
               "statements": [
                 {
                   "body": {
-                    "id": 3212,
+                    "id": 3218,
                     "nodeType": "Block",
                     "src": "2694:179:15",
                     "statements": [
@@ -10582,7 +10582,7 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 3189,
+                          "id": 3195,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -10590,39 +10590,39 @@
                           "leftExpression": {
                             "expression": {
                               "baseExpression": {
-                                "id": 3181,
+                                "id": 3187,
                                 "name": "permisos",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 2978,
+                                "referencedDeclaration": 2984,
                                 "src": "2712:8:15",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2954_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2960_storage_$",
                                   "typeString": "mapping(uint256 => struct RolVO.PermisoRol storage ref)"
                                 }
                               },
-                              "id": 3186,
+                              "id": 3192,
                               "indexExpression": {
                                 "expression": {
                                   "baseExpression": {
-                                    "id": 3182,
+                                    "id": 3188,
                                     "name": "_permisos",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 3167,
+                                    "referencedDeclaration": 3173,
                                     "src": "2721:9:15",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                                       "typeString": "struct RolVO.PermisoRol memory[] memory"
                                     }
                                   },
-                                  "id": 3184,
+                                  "id": 3190,
                                   "indexExpression": {
-                                    "id": 3183,
+                                    "id": 3189,
                                     "name": "i",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 3171,
+                                    "referencedDeclaration": 3177,
                                     "src": "2731:1:15",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
@@ -10636,11 +10636,11 @@
                                   "nodeType": "IndexAccess",
                                   "src": "2721:12:15",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_PermisoRol_$2954_memory_ptr",
+                                    "typeIdentifier": "t_struct$_PermisoRol_$2960_memory_ptr",
                                     "typeString": "struct RolVO.PermisoRol memory"
                                   }
                                 },
-                                "id": 3185,
+                                "id": 3191,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
@@ -10648,7 +10648,7 @@
                                 "memberLocation": "2734:2:15",
                                 "memberName": "id",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 2948,
+                                "referencedDeclaration": 2954,
                                 "src": "2721:15:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
@@ -10662,11 +10662,11 @@
                               "nodeType": "IndexAccess",
                               "src": "2712:25:15",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_PermisoRol_$2954_storage",
+                                "typeIdentifier": "t_struct$_PermisoRol_$2960_storage",
                                 "typeString": "struct RolVO.PermisoRol storage ref"
                               }
                             },
-                            "id": 3187,
+                            "id": 3193,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
@@ -10674,7 +10674,7 @@
                             "memberLocation": "2738:2:15",
                             "memberName": "id",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2948,
+                            "referencedDeclaration": 2954,
                             "src": "2712:28:15",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -10685,7 +10685,7 @@
                           "operator": "==",
                           "rightExpression": {
                             "hexValue": "30",
-                            "id": 3188,
+                            "id": 3194,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -10705,11 +10705,11 @@
                             "typeString": "bool"
                           }
                         },
-                        "id": 3200,
+                        "id": 3206,
                         "nodeType": "IfStatement",
                         "src": "2708:101:15",
                         "trueBody": {
-                          "id": 3199,
+                          "id": 3205,
                           "nodeType": "Block",
                           "src": "2747:62:15",
                           "statements": [
@@ -10719,24 +10719,24 @@
                                   {
                                     "expression": {
                                       "baseExpression": {
-                                        "id": 3193,
+                                        "id": 3199,
                                         "name": "_permisos",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 3167,
+                                        "referencedDeclaration": 3173,
                                         "src": "2778:9:15",
                                         "typeDescriptions": {
-                                          "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                                          "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                                           "typeString": "struct RolVO.PermisoRol memory[] memory"
                                         }
                                       },
-                                      "id": 3195,
+                                      "id": 3201,
                                       "indexExpression": {
-                                        "id": 3194,
+                                        "id": 3200,
                                         "name": "i",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 3171,
+                                        "referencedDeclaration": 3177,
                                         "src": "2788:1:15",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
@@ -10750,11 +10750,11 @@
                                       "nodeType": "IndexAccess",
                                       "src": "2778:12:15",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_PermisoRol_$2954_memory_ptr",
+                                        "typeIdentifier": "t_struct$_PermisoRol_$2960_memory_ptr",
                                         "typeString": "struct RolVO.PermisoRol memory"
                                       }
                                     },
-                                    "id": 3196,
+                                    "id": 3202,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
@@ -10762,7 +10762,7 @@
                                     "memberLocation": "2791:2:15",
                                     "memberName": "id",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 2948,
+                                    "referencedDeclaration": 2954,
                                     "src": "2778:15:15",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
@@ -10778,18 +10778,18 @@
                                     }
                                   ],
                                   "expression": {
-                                    "id": 3190,
+                                    "id": 3196,
                                     "name": "idsList",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 2981,
+                                    "referencedDeclaration": 2987,
                                     "src": "2765:7:15",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                                       "typeString": "uint256[] storage ref"
                                     }
                                   },
-                                  "id": 3192,
+                                  "id": 3198,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": false,
@@ -10803,7 +10803,7 @@
                                     "typeString": "function (uint256[] storage pointer,uint256)"
                                   }
                                 },
-                                "id": 3197,
+                                "id": 3203,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -10819,7 +10819,7 @@
                                   "typeString": "tuple()"
                                 }
                               },
-                              "id": 3198,
+                              "id": 3204,
                               "nodeType": "ExpressionStatement",
                               "src": "2765:29:15"
                             }
@@ -10828,46 +10828,46 @@
                       },
                       {
                         "expression": {
-                          "id": 3210,
+                          "id": 3216,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "baseExpression": {
-                              "id": 3201,
+                              "id": 3207,
                               "name": "permisos",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2978,
+                              "referencedDeclaration": 2984,
                               "src": "2822:8:15",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2954_storage_$",
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_PermisoRol_$2960_storage_$",
                                 "typeString": "mapping(uint256 => struct RolVO.PermisoRol storage ref)"
                               }
                             },
-                            "id": 3206,
+                            "id": 3212,
                             "indexExpression": {
                               "expression": {
                                 "baseExpression": {
-                                  "id": 3202,
+                                  "id": 3208,
                                   "name": "_permisos",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 3167,
+                                  "referencedDeclaration": 3173,
                                   "src": "2831:9:15",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                                    "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                                     "typeString": "struct RolVO.PermisoRol memory[] memory"
                                   }
                                 },
-                                "id": 3204,
+                                "id": 3210,
                                 "indexExpression": {
-                                  "id": 3203,
+                                  "id": 3209,
                                   "name": "i",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 3171,
+                                  "referencedDeclaration": 3177,
                                   "src": "2841:1:15",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -10881,11 +10881,11 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2831:12:15",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_PermisoRol_$2954_memory_ptr",
+                                  "typeIdentifier": "t_struct$_PermisoRol_$2960_memory_ptr",
                                   "typeString": "struct RolVO.PermisoRol memory"
                                 }
                               },
-                              "id": 3205,
+                              "id": 3211,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
@@ -10893,7 +10893,7 @@
                               "memberLocation": "2844:2:15",
                               "memberName": "id",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 2948,
+                              "referencedDeclaration": 2954,
                               "src": "2831:15:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -10907,7 +10907,7 @@
                             "nodeType": "IndexAccess",
                             "src": "2822:25:15",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_PermisoRol_$2954_storage",
+                              "typeIdentifier": "t_struct$_PermisoRol_$2960_storage",
                               "typeString": "struct RolVO.PermisoRol storage ref"
                             }
                           },
@@ -10915,24 +10915,24 @@
                           "operator": "=",
                           "rightHandSide": {
                             "baseExpression": {
-                              "id": 3207,
+                              "id": 3213,
                               "name": "_permisos",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3167,
+                              "referencedDeclaration": 3173,
                               "src": "2850:9:15",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                                "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                                 "typeString": "struct RolVO.PermisoRol memory[] memory"
                               }
                             },
-                            "id": 3209,
+                            "id": 3215,
                             "indexExpression": {
-                              "id": 3208,
+                              "id": 3214,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3171,
+                              "referencedDeclaration": 3177,
                               "src": "2860:1:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -10946,17 +10946,17 @@
                             "nodeType": "IndexAccess",
                             "src": "2850:12:15",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_PermisoRol_$2954_memory_ptr",
+                              "typeIdentifier": "t_struct$_PermisoRol_$2960_memory_ptr",
                               "typeString": "struct RolVO.PermisoRol memory"
                             }
                           },
                           "src": "2822:40:15",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_PermisoRol_$2954_storage",
+                            "typeIdentifier": "t_struct$_PermisoRol_$2960_storage",
                             "typeString": "struct RolVO.PermisoRol storage ref"
                           }
                         },
-                        "id": 3211,
+                        "id": 3217,
                         "nodeType": "ExpressionStatement",
                         "src": "2822:40:15"
                       }
@@ -10967,17 +10967,17 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 3177,
+                    "id": 3183,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 3174,
+                      "id": 3180,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3171,
+                      "referencedDeclaration": 3177,
                       "src": "2667:1:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -10988,18 +10988,18 @@
                     "operator": "<",
                     "rightExpression": {
                       "expression": {
-                        "id": 3175,
+                        "id": 3181,
                         "name": "_permisos",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3167,
+                        "referencedDeclaration": 3173,
                         "src": "2671:9:15",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                          "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                           "typeString": "struct RolVO.PermisoRol memory[] memory"
                         }
                       },
-                      "id": 3176,
+                      "id": 3182,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -11019,20 +11019,20 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 3213,
+                  "id": 3219,
                   "initializationExpression": {
                     "assignments": [
-                      3171
+                      3177
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 3171,
+                        "id": 3177,
                         "mutability": "mutable",
                         "name": "i",
                         "nameLocation": "2660:1:15",
                         "nodeType": "VariableDeclaration",
-                        "scope": 3213,
+                        "scope": 3219,
                         "src": "2652:9:15",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -11041,7 +11041,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 3170,
+                          "id": 3176,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
                           "src": "2652:7:15",
@@ -11053,10 +11053,10 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 3173,
+                    "id": 3179,
                     "initialValue": {
                       "hexValue": "30",
-                      "id": 3172,
+                      "id": 3178,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -11075,7 +11075,7 @@
                   },
                   "loopExpression": {
                     "expression": {
-                      "id": 3179,
+                      "id": 3185,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -11085,11 +11085,11 @@
                       "prefix": false,
                       "src": "2689:3:15",
                       "subExpression": {
-                        "id": 3178,
+                        "id": 3184,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3171,
+                        "referencedDeclaration": 3177,
                         "src": "2689:1:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -11101,7 +11101,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 3180,
+                    "id": 3186,
                     "nodeType": "ExpressionStatement",
                     "src": "2689:3:15"
                   },
@@ -11111,7 +11111,7 @@
               ]
             },
             "functionSelector": "62d31320",
-            "id": 3215,
+            "id": 3221,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -11119,50 +11119,50 @@
             "nameLocation": "2587:11:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3168,
+              "id": 3174,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3167,
+                  "id": 3173,
                   "mutability": "mutable",
                   "name": "_permisos",
                   "nameLocation": "2619:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3215,
+                  "scope": 3221,
                   "src": "2599:29:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct RolVO.PermisoRol[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 3165,
+                      "id": 3171,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 3164,
+                        "id": 3170,
                         "name": "PermisoRol",
                         "nameLocations": [
                           "2599:10:15"
                         ],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 2954,
+                        "referencedDeclaration": 2960,
                         "src": "2599:10:15"
                       },
-                      "referencedDeclaration": 2954,
+                      "referencedDeclaration": 2960,
                       "src": "2599:10:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_PermisoRol_$2954_storage_ptr",
+                        "typeIdentifier": "t_struct$_PermisoRol_$2960_storage_ptr",
                         "typeString": "struct RolVO.PermisoRol"
                       }
                     },
-                    "id": 3166,
+                    "id": 3172,
                     "nodeType": "ArrayTypeName",
                     "src": "2599:12:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2954_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_PermisoRol_$2960_storage_$dyn_storage_ptr",
                       "typeString": "struct RolVO.PermisoRol[]"
                     }
                   },
@@ -11172,12 +11172,12 @@
               "src": "2598:31:15"
             },
             "returnParameters": {
-              "id": 3169,
+              "id": 3175,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2637:0:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "2578:301:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -11185,23 +11185,23 @@
           },
           {
             "body": {
-              "id": 3224,
+              "id": 3230,
               "nodeType": "Block",
               "src": "2933:41:15",
               "statements": [
                 {
                   "expression": {
-                    "id": 3222,
+                    "id": 3228,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 3220,
+                      "id": 3226,
                       "name": "estaActivo",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2973,
+                      "referencedDeclaration": 2979,
                       "src": "2943:10:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -11211,11 +11211,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 3221,
+                      "id": 3227,
                       "name": "_estaActivo",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3217,
+                      "referencedDeclaration": 3223,
                       "src": "2956:11:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -11228,14 +11228,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 3223,
+                  "id": 3229,
                   "nodeType": "ExpressionStatement",
                   "src": "2943:24:15"
                 }
               ]
             },
             "functionSelector": "fdaef483",
-            "id": 3225,
+            "id": 3231,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -11243,17 +11243,17 @@
             "nameLocation": "2894:13:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3218,
+              "id": 3224,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3217,
+                  "id": 3223,
                   "mutability": "mutable",
                   "name": "_estaActivo",
                   "nameLocation": "2913:11:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3225,
+                  "scope": 3231,
                   "src": "2908:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -11262,7 +11262,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 3216,
+                    "id": 3222,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2908:4:15",
@@ -11277,19 +11277,19 @@
               "src": "2907:18:15"
             },
             "returnParameters": {
-              "id": 3219,
+              "id": 3225,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2933:0:15"
             },
-            "scope": 3226,
+            "scope": 3232,
             "src": "2885:89:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 3227,
+        "scope": 3233,
         "src": "85:2891:15",
         "usedErrors": []
       }
@@ -11301,8 +11301,8 @@
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.8",
-  "updatedAt": "2023-03-26T17:17:11.259Z",
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-05-03T03:35:49.396Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

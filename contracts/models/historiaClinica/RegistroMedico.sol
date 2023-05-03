@@ -11,13 +11,13 @@ abstract contract RegistroMedico {
 
     uint256 private id;
     address private codPrestadorServicioDeSalud;
-    uint256 private fechaRegistro;
+    int256 private fechaRegistro;
     TipoRegistroMedico private tipoRegistroMedico;
 
     struct RegistroMedicoStruct {
         uint256 id;
         address codPrestadorServicioDeSalud;
-        uint256 fechaRegistro;
+        int256 fechaRegistro;
         TipoRegistroMedico tipoRegistroMedico;
     }
 
@@ -44,7 +44,7 @@ abstract contract RegistroMedico {
         return codPrestadorServicioDeSalud;
     }
 
-    function getFechaRegistro() public view returns (uint256) {
+    function getFechaRegistro() public view returns (int256) {
         return fechaRegistro;
     }
 
@@ -62,7 +62,7 @@ abstract contract RegistroMedico {
         codPrestadorServicioDeSalud = _codPrestadorServicioDeSalud;
     }
 
-    function setFechaRegistro(uint256 _fechaRegistro) public {
+    function setFechaRegistro(int256 _fechaRegistro) public {
         fechaRegistro = _fechaRegistro;
     }
 

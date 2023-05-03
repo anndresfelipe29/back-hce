@@ -8,7 +8,7 @@ contract TransfusionVO is RegistroMedico (TipoRegistroMedico.TRANSFUSIONVO) {
     struct TransfusionStruct {
         uint cantidad;
         string reacciones;
-        uint256 fechaTransfusion;        
+        int256 fechaTransfusion;        
     }
 
     TransfusionStruct private transfusionStruct;
@@ -21,7 +21,7 @@ contract TransfusionVO is RegistroMedico (TipoRegistroMedico.TRANSFUSIONVO) {
         return transfusionStruct.reacciones;
     }
 
-    function getFechaTransfusion() public view returns (uint256) {
+    function getFechaTransfusion() public view returns (int256) {
         return transfusionStruct.fechaTransfusion;
     }
 
@@ -47,7 +47,7 @@ contract TransfusionVO is RegistroMedico (TipoRegistroMedico.TRANSFUSIONVO) {
         transfusionStruct.reacciones = _reacciones;
     }
 
-    function setFechaTransfusion(uint256 _fechaTransfusion) public {
+    function setFechaTransfusion(int256 _fechaTransfusion) public {
         transfusionStruct.fechaTransfusion = _fechaTransfusion;
     }
 }

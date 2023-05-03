@@ -6,10 +6,10 @@ import "../structsGenerales/IncapacidadStruct.sol";
 
 contract AtencionUrgenciasVO is RegistroMedico(TipoRegistroMedico.ATENCIONURGENCIASVO) {
     struct AtencionUrgenciasStruct {
-        uint256 fechaIngreso;
-        uint256 fechaSalida;
+        int256 fechaIngreso;
+        int256 fechaSalida;
         string condicion;
-        uint256 horasDeObservacion;
+        int256 horasDeObservacion;
         bool salidaVivo;
         IncapacidadStruct incapacidad;
         string motivo;
@@ -19,11 +19,11 @@ contract AtencionUrgenciasVO is RegistroMedico(TipoRegistroMedico.ATENCIONURGENC
 
     AtencionUrgenciasStruct private atencionUrgenciasStruct;
 
-    function getFechaIngreso() public view returns (uint256) {
+    function getFechaIngreso() public view returns (int256) {
         return atencionUrgenciasStruct.fechaIngreso;
     }
 
-    function getFechaSalida() public view returns (uint256) {
+    function getFechaSalida() public view returns (int256) {
         return atencionUrgenciasStruct.fechaSalida;
     }
 
@@ -31,7 +31,7 @@ contract AtencionUrgenciasVO is RegistroMedico(TipoRegistroMedico.ATENCIONURGENC
         return atencionUrgenciasStruct.condicion;
     }
 
-    function getHorasDeObservacion() public view returns (uint256) {
+    function getHorasDeObservacion() public view returns (int256) {
         return atencionUrgenciasStruct.horasDeObservacion;
     }
 
@@ -69,11 +69,11 @@ contract AtencionUrgenciasVO is RegistroMedico(TipoRegistroMedico.ATENCIONURGENC
         atencionUrgenciasStruct = _atencionUrgenciasStruct;
     }
 
-    function setFechaIngreso(uint256 _fechaIngreso) public {
+    function setFechaIngreso(int256 _fechaIngreso) public {
         atencionUrgenciasStruct.fechaIngreso = _fechaIngreso;
     }
 
-    function setFechaSalida(uint256 _fechaSalida) public {
+    function setFechaSalida(int256 _fechaSalida) public {
         atencionUrgenciasStruct.fechaSalida = _fechaSalida;
     }
 
@@ -81,7 +81,7 @@ contract AtencionUrgenciasVO is RegistroMedico(TipoRegistroMedico.ATENCIONURGENC
         atencionUrgenciasStruct.condicion = _condicion;
     }
 
-    function setHorasDeObservacion(uint256 _horasDeObservacion) public {
+    function setHorasDeObservacion(int256 _horasDeObservacion) public {
         atencionUrgenciasStruct.horasDeObservacion = _horasDeObservacion;
     }
 

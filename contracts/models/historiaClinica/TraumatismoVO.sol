@@ -6,7 +6,7 @@ import "./RegistroMedico.sol";
 contract TraumatismoVO is RegistroMedico (TipoRegistroMedico.TRAUMATISMOVO) {
     struct TraumatismoStruct {
         string descripcion;
-        uint256 fechaAproximada;
+        int256 fechaAproximada;
     }
 
     TraumatismoStruct private traumatismoStruct;
@@ -15,7 +15,7 @@ contract TraumatismoVO is RegistroMedico (TipoRegistroMedico.TRAUMATISMOVO) {
         return traumatismoStruct.descripcion;
     }
 
-    function getFechaAproximada() public view returns (uint256) {
+    function getFechaAproximada() public view returns (int256) {
         return traumatismoStruct.fechaAproximada;
     }
 
@@ -37,7 +37,7 @@ contract TraumatismoVO is RegistroMedico (TipoRegistroMedico.TRAUMATISMOVO) {
         traumatismoStruct.descripcion = _descripcion;
     }
 
-    function setFechaAproximada(uint256 _fechaAproximada) public {
+    function setFechaAproximada(int256 _fechaAproximada) public {
         traumatismoStruct.fechaAproximada = _fechaAproximada;
     }
 }

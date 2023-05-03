@@ -64,9 +64,9 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract RegistroMedico[]\",\"name\":\"_todosLosRegistros\",\"type\":\"address[]\"},{\"internalType\":\"enum TipoRegistroMedico\",\"name\":\"_tipoRegistroMedico\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"creador\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getNext\",\"outputs\":[{\"internalType\":\"contract RegistroMedico\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hasMore\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"selfDestruct\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/logica/IteradorHCE/FiltroTipoRegistroMedicoIterator.sol\":\"FiltroTipoRegistroMedicoIterator\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"project:/contracts/logica/IteradorHCE/FiltroTipoRegistroMedicoIterator.sol\":{\"keccak256\":\"0x6651fb9a8b3976344324f1eed07d3a8d07c1a06187f8b01def9114f56204e387\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://943f44f53452061444e93898202819be9f3fb38b036fb64a80bc4f6ffa28d489\",\"dweb:/ipfs/QmUgZBx3aLmzF5iPCyX1PmtHjynoG9yBwQhuyNhKyiPjLD\"]},\"project:/contracts/logica/IteradorHCE/RegistroMedicoIterator.sol\":{\"keccak256\":\"0xf214daa0038d1ae2303924c0d0cdbac3725047256a467dc849c408bae49ade2c\",\"urls\":[\"bzz-raw://864f74df5c2a2829006fa0521cba042d57921f7d1abccf4be75ac3980d48567f\",\"dweb:/ipfs/QmW81DZVwrmGC4PA9ne7fQMjhsj6EX5snS3BSQhP2yPYER\"]},\"project:/contracts/models/historiaClinica/RegistroMedico.sol\":{\"keccak256\":\"0xaa555d0e5bb37bc653fef81f63038b2a64727ca657091f9aa155f99e58ce5387\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5e5ae77ddd99b4c94c648fc79c904aa3374b90b973185de7c9fc07f611ff24c0\",\"dweb:/ipfs/QmUZj4AkQCHgEGpvWxFvYdE6i1WCg8SstdhQCAeP46jABQ\"]},\"project:/contracts/models/historiaClinica/enums/TipoRegistroEnum.sol\":{\"keccak256\":\"0xe6f23b637cbd5cbce20f3ea543ee8a37f3ea82d98571a6c8c37d26f1e06c4cae\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9264aa0027f55aecb01e65d4605e4effed5c62cba0e66a7a9769cb3a96a4725f\",\"dweb:/ipfs/QmTZnC48NnjQhSvm6MueFYmJBs3wX2QfYCNXL2ZFGitgU2\"]}},\"version\":1}",
-  "bytecode": "0x60806040526000600355600060045534801561001a57600080fd5b506040516105a33803806105a38339810160408190526100399161014b565b600080546001600160a01b03191633179055815161005e906001906020850190610090565b506000805482919060ff60a01b1916600160a01b83601281111561008457610084610221565b02179055505050610237565b8280548282559060005260206000209081019282156100e5579160200282015b828111156100e557825182546001600160a01b0319166001600160a01b039091161782556020909201916001909101906100b0565b506100f19291506100f5565b5090565b5b808211156100f157600081556001016100f6565b634e487b7160e01b600052604160045260246000fd5b80516001600160a01b038116811461013757600080fd5b919050565b80516013811061013757600080fd5b6000806040838503121561015e57600080fd5b82516001600160401b038082111561017557600080fd5b818501915085601f83011261018957600080fd5b815160208282111561019d5761019d61010a565b8160051b604051601f19603f830116810181811086821117156101c2576101c261010a565b6040529283528183019350848101820192898411156101e057600080fd5b948201945b83861015610205576101f686610120565b855294820194938201936101e5565b9650610214905087820161013c565b9450505050509250929050565b634e487b7160e01b600052602160045260246000fd5b61035d806102466000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806392ebdcd2146100515780639cb8a26a14610081578063f3638f781461008b578063fb045cc914610093575b600080fd5b600054610064906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6100896100ab565b005b6100646100b9565b61009b610174565b6040519015158152602001610078565b6000546001600160a01b0316ff5b60006100c3610174565b1561010e5760006001600454815481106100df576100df61028b565b6000918252602090912001546004546001600160a01b0390911691506101069060016102b7565b600355919050565b6040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601360248201527f4e6f2068617920756e207369677569656e746500000000000000000000000000604482015260640160405180910390fd5b6003546000905b6001548110156102835760005474010000000000000000000000000000000000000000900460ff1660128111156101b4576101b46102d0565b600182815481106101c7576101c761028b565b60009182526020918290200154604080517f44517a9a00000000000000000000000000000000000000000000000000000000815290516001600160a01b03909216926344517a9a926004808401938290030181865afa15801561022e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061025291906102e6565b6012811115610263576102636102d0565b036102715760045550600190565b8061027b8161030e565b91505061017b565b600091505090565b634e487b7160e01b600052603260045260246000fd5b634e487b7160e01b600052601160045260246000fd5b808201808211156102ca576102ca6102a1565b92915050565b634e487b7160e01b600052602160045260246000fd5b6000602082840312156102f857600080fd5b81516013811061030757600080fd5b9392505050565b600060018201610320576103206102a1565b506001019056fea2646970667358221220d48abbf1f5ac90e83cdbc737834989de567b6e3755be7e38c77876a21b56a2f164736f6c63430008110033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806392ebdcd2146100515780639cb8a26a14610081578063f3638f781461008b578063fb045cc914610093575b600080fd5b600054610064906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6100896100ab565b005b6100646100b9565b61009b610174565b6040519015158152602001610078565b6000546001600160a01b0316ff5b60006100c3610174565b1561010e5760006001600454815481106100df576100df61028b565b6000918252602090912001546004546001600160a01b0390911691506101069060016102b7565b600355919050565b6040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601360248201527f4e6f2068617920756e207369677569656e746500000000000000000000000000604482015260640160405180910390fd5b6003546000905b6001548110156102835760005474010000000000000000000000000000000000000000900460ff1660128111156101b4576101b46102d0565b600182815481106101c7576101c761028b565b60009182526020918290200154604080517f44517a9a00000000000000000000000000000000000000000000000000000000815290516001600160a01b03909216926344517a9a926004808401938290030181865afa15801561022e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061025291906102e6565b6012811115610263576102636102d0565b036102715760045550600190565b8061027b8161030e565b91505061017b565b600091505090565b634e487b7160e01b600052603260045260246000fd5b634e487b7160e01b600052601160045260246000fd5b808201808211156102ca576102ca6102a1565b92915050565b634e487b7160e01b600052602160045260246000fd5b6000602082840312156102f857600080fd5b81516013811061030757600080fd5b9392505050565b600060018201610320576103206102a1565b506001019056fea2646970667358221220d48abbf1f5ac90e83cdbc737834989de567b6e3755be7e38c77876a21b56a2f164736f6c63430008110033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract RegistroMedico[]\",\"name\":\"_todosLosRegistros\",\"type\":\"address[]\"},{\"internalType\":\"enum TipoRegistroMedico\",\"name\":\"_tipoRegistroMedico\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"creador\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getNext\",\"outputs\":[{\"internalType\":\"contract RegistroMedico\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hasMore\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"selfDestruct\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/logica/IteradorHCE/FiltroTipoRegistroMedicoIterator.sol\":\"FiltroTipoRegistroMedicoIterator\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"project:/contracts/logica/IteradorHCE/FiltroTipoRegistroMedicoIterator.sol\":{\"keccak256\":\"0x6651fb9a8b3976344324f1eed07d3a8d07c1a06187f8b01def9114f56204e387\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://943f44f53452061444e93898202819be9f3fb38b036fb64a80bc4f6ffa28d489\",\"dweb:/ipfs/QmUgZBx3aLmzF5iPCyX1PmtHjynoG9yBwQhuyNhKyiPjLD\"]},\"project:/contracts/logica/IteradorHCE/RegistroMedicoIterator.sol\":{\"keccak256\":\"0xf214daa0038d1ae2303924c0d0cdbac3725047256a467dc849c408bae49ade2c\",\"urls\":[\"bzz-raw://864f74df5c2a2829006fa0521cba042d57921f7d1abccf4be75ac3980d48567f\",\"dweb:/ipfs/QmW81DZVwrmGC4PA9ne7fQMjhsj6EX5snS3BSQhP2yPYER\"]},\"project:/contracts/models/historiaClinica/RegistroMedico.sol\":{\"keccak256\":\"0x2cc9d1363ba4efbb2c2b9bd7928f732d0077684e081efc207ec6ad49afcdd338\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d6f966fa86bc6864d87156fdbdb29f65c10b91f1103ec3d943a077490f70fa05\",\"dweb:/ipfs/Qmb1JLBoNc6B6PMXdhNBgWUALYZdMv26nCd1MHA7Sf49nW\"]},\"project:/contracts/models/historiaClinica/enums/TipoRegistroEnum.sol\":{\"keccak256\":\"0xe6f23b637cbd5cbce20f3ea543ee8a37f3ea82d98571a6c8c37d26f1e06c4cae\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9264aa0027f55aecb01e65d4605e4effed5c62cba0e66a7a9769cb3a96a4725f\",\"dweb:/ipfs/QmTZnC48NnjQhSvm6MueFYmJBs3wX2QfYCNXL2ZFGitgU2\"]}},\"version\":1}",
+  "bytecode": "0x60806040526000600355600060045534801561001a57600080fd5b506040516105a33803806105a38339810160408190526100399161014b565b600080546001600160a01b03191633179055815161005e906001906020850190610090565b506000805482919060ff60a01b1916600160a01b83601281111561008457610084610221565b02179055505050610237565b8280548282559060005260206000209081019282156100e5579160200282015b828111156100e557825182546001600160a01b0319166001600160a01b039091161782556020909201916001909101906100b0565b506100f19291506100f5565b5090565b5b808211156100f157600081556001016100f6565b634e487b7160e01b600052604160045260246000fd5b80516001600160a01b038116811461013757600080fd5b919050565b80516013811061013757600080fd5b6000806040838503121561015e57600080fd5b82516001600160401b038082111561017557600080fd5b818501915085601f83011261018957600080fd5b815160208282111561019d5761019d61010a565b8160051b604051601f19603f830116810181811086821117156101c2576101c261010a565b6040529283528183019350848101820192898411156101e057600080fd5b948201945b83861015610205576101f686610120565b855294820194938201936101e5565b9650610214905087820161013c565b9450505050509250929050565b634e487b7160e01b600052602160045260246000fd5b61035d806102466000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806392ebdcd2146100515780639cb8a26a14610081578063f3638f781461008b578063fb045cc914610093575b600080fd5b600054610064906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6100896100ab565b005b6100646100b9565b61009b610174565b6040519015158152602001610078565b6000546001600160a01b0316ff5b60006100c3610174565b1561010e5760006001600454815481106100df576100df61028b565b6000918252602090912001546004546001600160a01b0390911691506101069060016102b7565b600355919050565b6040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601360248201527f4e6f2068617920756e207369677569656e746500000000000000000000000000604482015260640160405180910390fd5b6003546000905b6001548110156102835760005474010000000000000000000000000000000000000000900460ff1660128111156101b4576101b46102d0565b600182815481106101c7576101c761028b565b60009182526020918290200154604080517f44517a9a00000000000000000000000000000000000000000000000000000000815290516001600160a01b03909216926344517a9a926004808401938290030181865afa15801561022e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061025291906102e6565b6012811115610263576102636102d0565b036102715760045550600190565b8061027b8161030e565b91505061017b565b600091505090565b634e487b7160e01b600052603260045260246000fd5b634e487b7160e01b600052601160045260246000fd5b808201808211156102ca576102ca6102a1565b92915050565b634e487b7160e01b600052602160045260246000fd5b6000602082840312156102f857600080fd5b81516013811061030757600080fd5b9392505050565b600060018201610320576103206102a1565b506001019056fea2646970667358221220ab7e3413d54aef67939edbf22203ce8e54adec8afe8e1298401435d98420eb3464736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806392ebdcd2146100515780639cb8a26a14610081578063f3638f781461008b578063fb045cc914610093575b600080fd5b600054610064906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6100896100ab565b005b6100646100b9565b61009b610174565b6040519015158152602001610078565b6000546001600160a01b0316ff5b60006100c3610174565b1561010e5760006001600454815481106100df576100df61028b565b6000918252602090912001546004546001600160a01b0390911691506101069060016102b7565b600355919050565b6040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601360248201527f4e6f2068617920756e207369677569656e746500000000000000000000000000604482015260640160405180910390fd5b6003546000905b6001548110156102835760005474010000000000000000000000000000000000000000900460ff1660128111156101b4576101b46102d0565b600182815481106101c7576101c761028b565b60009182526020918290200154604080517f44517a9a00000000000000000000000000000000000000000000000000000000815290516001600160a01b03909216926344517a9a926004808401938290030181865afa15801561022e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061025291906102e6565b6012811115610263576102636102d0565b036102715760045550600190565b8061027b8161030e565b91505061017b565b600091505090565b634e487b7160e01b600052603260045260246000fd5b634e487b7160e01b600052601160045260246000fd5b808201808211156102ca576102ca6102a1565b92915050565b634e487b7160e01b600052602160045260246000fd5b6000602082840312156102f857600080fd5b81516013811061030757600080fd5b9392505050565b600060018201610320576103206102a1565b506001019056fea2646970667358221220ab7e3413d54aef67939edbf22203ce8e54adec8afe8e1298401435d98420eb3464736f6c63430008110033",
   "immutableReferences": {},
   "generatedSources": [
     {
@@ -1609,7 +1609,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_array$_t_contract$_RegistroMedico_$7091_$dyn_memory_ptrt_enum$_TipoRegistroMedico_$7292_fromMemory",
+            "name": "abi_decode_tuple_t_array$_t_contract$_RegistroMedico_$7097_$dyn_memory_ptrt_enum$_TipoRegistroMedico_$7298_fromMemory",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1759,7 +1759,7 @@
           }
         ]
       },
-      "contents": "{\n    { }\n    function panic_error_0x41()\n    {\n        mstore(0, shl(224, 0x4e487b71))\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n    function abi_decode_contract_RegistroMedico_fromMemory(offset) -> value\n    {\n        value := mload(offset)\n        if iszero(eq(value, and(value, sub(shl(160, 1), 1)))) { revert(0, 0) }\n    }\n    function abi_decode_enum_TipoRegistroMedico_fromMemory(offset) -> value\n    {\n        value := mload(offset)\n        if iszero(lt(value, 19)) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_array$_t_contract$_RegistroMedico_$7091_$dyn_memory_ptrt_enum$_TipoRegistroMedico_$7292_fromMemory(headStart, dataEnd) -> value0, value1\n    {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n        let offset := mload(headStart)\n        let _1 := sub(shl(64, 1), 1)\n        if gt(offset, _1) { revert(0, 0) }\n        let _2 := add(headStart, offset)\n        if iszero(slt(add(_2, 0x1f), dataEnd)) { revert(0, 0) }\n        let _3 := mload(_2)\n        let _4 := 0x20\n        if gt(_3, _1) { panic_error_0x41() }\n        let _5 := shl(5, _3)\n        let memPtr := mload(64)\n        let newFreePtr := add(memPtr, and(add(_5, 63), not(31)))\n        if or(gt(newFreePtr, _1), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n        let dst := memPtr\n        mstore(memPtr, _3)\n        dst := add(memPtr, _4)\n        let srcEnd := add(add(_2, _5), _4)\n        if gt(srcEnd, dataEnd) { revert(0, 0) }\n        let src := add(_2, _4)\n        for { } lt(src, srcEnd) { src := add(src, _4) }\n        {\n            mstore(dst, abi_decode_contract_RegistroMedico_fromMemory(src))\n            dst := add(dst, _4)\n        }\n        value0 := memPtr\n        value1 := abi_decode_enum_TipoRegistroMedico_fromMemory(add(headStart, _4))\n    }\n    function panic_error_0x21()\n    {\n        mstore(0, shl(224, 0x4e487b71))\n        mstore(4, 0x21)\n        revert(0, 0x24)\n    }\n}",
+      "contents": "{\n    { }\n    function panic_error_0x41()\n    {\n        mstore(0, shl(224, 0x4e487b71))\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n    function abi_decode_contract_RegistroMedico_fromMemory(offset) -> value\n    {\n        value := mload(offset)\n        if iszero(eq(value, and(value, sub(shl(160, 1), 1)))) { revert(0, 0) }\n    }\n    function abi_decode_enum_TipoRegistroMedico_fromMemory(offset) -> value\n    {\n        value := mload(offset)\n        if iszero(lt(value, 19)) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_array$_t_contract$_RegistroMedico_$7097_$dyn_memory_ptrt_enum$_TipoRegistroMedico_$7298_fromMemory(headStart, dataEnd) -> value0, value1\n    {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n        let offset := mload(headStart)\n        let _1 := sub(shl(64, 1), 1)\n        if gt(offset, _1) { revert(0, 0) }\n        let _2 := add(headStart, offset)\n        if iszero(slt(add(_2, 0x1f), dataEnd)) { revert(0, 0) }\n        let _3 := mload(_2)\n        let _4 := 0x20\n        if gt(_3, _1) { panic_error_0x41() }\n        let _5 := shl(5, _3)\n        let memPtr := mload(64)\n        let newFreePtr := add(memPtr, and(add(_5, 63), not(31)))\n        if or(gt(newFreePtr, _1), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n        let dst := memPtr\n        mstore(memPtr, _3)\n        dst := add(memPtr, _4)\n        let srcEnd := add(add(_2, _5), _4)\n        if gt(srcEnd, dataEnd) { revert(0, 0) }\n        let src := add(_2, _4)\n        for { } lt(src, srcEnd) { src := add(src, _4) }\n        {\n            mstore(dst, abi_decode_contract_RegistroMedico_fromMemory(src))\n            dst := add(dst, _4)\n        }\n        value0 := memPtr\n        value1 := abi_decode_enum_TipoRegistroMedico_fromMemory(add(headStart, _4))\n    }\n    function panic_error_0x21()\n    {\n        mstore(0, shl(224, 0x4e487b71))\n        mstore(4, 0x21)\n        revert(0, 0x24)\n    }\n}",
       "id": 69,
       "language": "Yul",
       "name": "#utility.yul"
@@ -1970,7 +1970,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_contract$_RegistroMedico_$7091__to_t_address__fromStack_reversed",
+            "name": "abi_encode_tuple_t_contract$_RegistroMedico_$7097__to_t_address__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2895,7 +2895,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_enum$_TipoRegistroMedico_$7292_fromMemory",
+            "name": "abi_decode_tuple_t_enum$_TipoRegistroMedico_$7298_fromMemory",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -3042,7 +3042,7 @@
           }
         ]
       },
-      "contents": "{\n    { }\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function abi_encode_tuple_t_contract$_RegistroMedico_$7091__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, iszero(iszero(value0)))\n    }\n    function panic_error_0x32()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x32)\n        revert(0, 0x24)\n    }\n    function panic_error_0x11()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n    function checked_add_t_uint256(x, y) -> sum\n    {\n        sum := add(x, y)\n        if gt(x, sum) { panic_error_0x11() }\n    }\n    function abi_encode_tuple_t_stringliteral_2a1ab1dc096f4d2e0d2d29ffb8e97e5be15d7ab7b95aa53f3e8f6a5e9a7f3874__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 19)\n        mstore(add(headStart, 64), \"No hay un siguiente\")\n        tail := add(headStart, 96)\n    }\n    function panic_error_0x21()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x21)\n        revert(0, 0x24)\n    }\n    function abi_decode_tuple_t_enum$_TipoRegistroMedico_$7292_fromMemory(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := mload(headStart)\n        if iszero(lt(value, 19)) { revert(0, 0) }\n        value0 := value\n    }\n    function increment_t_uint256(value) -> ret\n    {\n        if eq(value, not(0)) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n}",
+      "contents": "{\n    { }\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function abi_encode_tuple_t_contract$_RegistroMedico_$7097__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, iszero(iszero(value0)))\n    }\n    function panic_error_0x32()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x32)\n        revert(0, 0x24)\n    }\n    function panic_error_0x11()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n    function checked_add_t_uint256(x, y) -> sum\n    {\n        sum := add(x, y)\n        if gt(x, sum) { panic_error_0x11() }\n    }\n    function abi_encode_tuple_t_stringliteral_2a1ab1dc096f4d2e0d2d29ffb8e97e5be15d7ab7b95aa53f3e8f6a5e9a7f3874__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 19)\n        mstore(add(headStart, 64), \"No hay un siguiente\")\n        tail := add(headStart, 96)\n    }\n    function panic_error_0x21()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x21)\n        revert(0, 0x24)\n    }\n    function abi_decode_tuple_t_enum$_TipoRegistroMedico_$7298_fromMemory(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := mload(headStart)\n        if iszero(lt(value, 19)) { revert(0, 0) }\n        value0 := value\n    }\n    function increment_t_uint256(value) -> ret\n    {\n        if eq(value, not(0)) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n}",
       "id": 69,
       "language": "Yul",
       "name": "#utility.yul"
@@ -3051,29 +3051,29 @@
   "sourceMap": "222:1498:5:-:0;;;579:1;556:24;;612:1;586:27;;620:281;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;752:7;:20;;-1:-1:-1;;;;;;752:20:5;762:10;752:20;;;806:38;;;;752:20;;806:38;;;;;:::i;:::-;-1:-1:-1;854:18:5;:40;;875:19;;854:18;-1:-1:-1;;;;854:40:5;-1:-1:-1;;;875:19:5;854:40;;;;;;;;:::i;:::-;;;;;;620:281;;222:1498;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;222:1498:5;-1:-1:-1;;;;;222:1498:5;;;;;;;;;;;-1:-1:-1;222:1498:5;;;;;;;-1:-1:-1;222:1498:5;;;-1:-1:-1;222:1498:5;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;14:127:69;75:10;70:3;66:20;63:1;56:31;106:4;103:1;96:15;130:4;127:1;120:15;146:193;241:13;;-1:-1:-1;;;;;283:31:69;;273:42;;263:70;;329:1;326;319:12;263:70;146:193;;;:::o;344:164::-;439:13;;481:2;471:13;;461:41;;498:1;495;488:12;513:1294;663:6;671;724:2;712:9;703:7;699:23;695:32;692:52;;;740:1;737;730:12;692:52;767:16;;-1:-1:-1;;;;;832:14:69;;;829:34;;;859:1;856;849:12;829:34;897:6;886:9;882:22;872:32;;942:7;935:4;931:2;927:13;923:27;913:55;;964:1;961;954:12;913:55;993:2;987:9;1015:4;1038:2;1034;1031:10;1028:36;;;1044:18;;:::i;:::-;1090:2;1087:1;1083:10;1122:2;1116:9;1185:2;1181:7;1176:2;1172;1168:11;1164:25;1156:6;1152:38;1240:6;1228:10;1225:22;1220:2;1208:10;1205:18;1202:46;1199:72;;;1251:18;;:::i;:::-;1287:2;1280:22;1337:18;;;1371:15;;;;-1:-1:-1;1413:11:69;;;1409:20;;;1441:19;;;1438:39;;;1473:1;1470;1463:12;1438:39;1497:11;;;;1517:175;1533:6;1528:3;1525:15;1517:175;;;1599:50;1645:3;1599:50;:::i;:::-;1587:63;;1550:12;;;;1670;;;;1517:175;;;1711:6;-1:-1:-1;1736:65:69;;-1:-1:-1;1782:18:69;;;1736:65;:::i;:::-;1726:75;;;;;;513:1294;;;;;:::o;1812:127::-;1873:10;1868:3;1864:20;1861:1;1854:31;1904:4;1901:1;1894:15;1928:4;1925:1;1918:15;1812:127;222:1498:5;;;;;;",
   "deployedSourceMap": "222:1498:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;412:22;;;;;-1:-1:-1;;;;;412:22:5;;;;;;-1:-1:-1;;;;;178:55:69;;;160:74;;148:2;133:18;412:22:5;;;;;;;;1634:78;;;:::i;:::-;;1303:325;;;:::i;907:390::-;;;:::i;:::-;;;664:14:69;;657:22;639:41;;627:2;612:18;907:390:5;499:187:69;1634:78:5;1696:7;;-1:-1:-1;;;;;1696:7:5;1675:30;1303:325;1346:14;1383:9;:7;:9::i;:::-;1380:202;;;1407:29;1439:17;1457;;1439:36;;;;;;;;:::i;:::-;;;;;;;;;;;1506:17;;-1:-1:-1;;;;;1439:36:5;;;;-1:-1:-1;1506:21:5;;1439:36;1506:21;:::i;:::-;1489:14;:38;1557:14;1303:325;-1:-1:-1;1303:325:5:o;1380:202::-;1592:29;;;;;1401:2:69;1592:29:5;;;1383:21:69;1440:2;1420:18;;;1413:30;1479:21;1459:18;;;1452:49;1518:18;;1592:29:5;;;;;;;907:390;984:14;;950:4;;1008:261;1026:17;:24;1015:35;;1008:261;;;1125:18;;;;;;;1070:73;;;;;;;;:::i;:::-;:17;1088:8;1070:27;;;;;;;;:::i;:::-;;;;;;;;;;;;:51;;;;;;;;-1:-1:-1;;;;;1070:27:5;;;;:49;;:51;;;;;;;;;;:27;:51;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;:73;;;;;;;;:::i;:::-;;1067:168;;1163:17;:28;-1:-1:-1;1216:4:5;;907:390::o;1067:168::-;1248:10;;;;:::i;:::-;;;;1008:261;;;1285:5;1278:12;;;907:390;:::o;691:184:69:-;-1:-1:-1;;;740:1:69;733:88;840:4;837:1;830:15;864:4;861:1;854:15;880:184;-1:-1:-1;;;929:1:69;922:88;1029:4;1026:1;1019:15;1053:4;1050:1;1043:15;1069:125;1134:9;;;1155:10;;;1152:36;;;1168:18;;:::i;:::-;1069:125;;;;:::o;1547:184::-;-1:-1:-1;;;1596:1:69;1589:88;1696:4;1693:1;1686:15;1720:4;1717:1;1710:15;1736:284;1829:6;1882:2;1870:9;1861:7;1857:23;1853:32;1850:52;;;1898:1;1895;1888:12;1850:52;1930:9;1924:16;1969:2;1962:5;1959:13;1949:41;;1986:1;1983;1976:12;1949:41;2009:5;1736:284;-1:-1:-1;;;1736:284:69:o;2025:135::-;2064:3;2085:17;;;2082:43;;2105:18;;:::i;:::-;-1:-1:-1;2152:1:69;2141:13;;2025:135::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\n\nimport \"./RegistroMedicoIterator.sol\";\nimport \"../../models/historiaClinica/RegistroMedico.sol\";\nimport \"../../models/historiaClinica/enums/TipoRegistroEnum.sol\";\n\ncontract FiltroTipoRegistroMedicoIterator  is RegistroMedicoIterator{\n    /* TODO: Ajustar que las creaciones de estos objetos, pueden ser muy costosos \n     si quedan en storge\n     */\n    address public creador;\n\n    TipoRegistroMedico tipoRegistroMedico;\n\n    RegistroMedico[]  todosLosRegistros;\n    RegistroMedico siguiente;\n    uint256 posicionActual=0;\n    uint256 posicionSiguiente=0;\n\n    constructor(\n        RegistroMedico[] memory _todosLosRegistros,\n        TipoRegistroMedico _tipoRegistroMedico\n        ) {\n        creador = msg.sender; // creador del contrato\n        todosLosRegistros = _todosLosRegistros;\n        tipoRegistroMedico = _tipoRegistroMedico;\n    }\n\n    function hasMore() public override returns(bool){\n        uint256 posicion = posicionActual;\n        while (posicion < todosLosRegistros.length ) {\n            if(todosLosRegistros[posicion].getTipoRegistroMedico() == tipoRegistroMedico) {\n                posicionSiguiente = posicion;\n                return true;\n            }\n            posicion++;\n        }\n        return false;\n    }\n\n    function getNext() public override returns(RegistroMedico) {        \n        if(hasMore()){\n            RegistroMedico registroMedico = todosLosRegistros[posicionSiguiente];\n            posicionActual = posicionSiguiente + 1;         \n            return registroMedico;\n        } \n        revert(\"No hay un siguiente\");\n    }\n\n    function selfDestruct() public {\n        selfdestruct(payable(creador));\n    }\n\n    \n}",
-  "sourcePath": "/home/felipe/Documentos/Blockchain/codigo/HCE-full/back-hce/contracts/logica/IteradorHCE/FiltroTipoRegistroMedicoIterator.sol",
+  "sourcePath": "/back/contracts/logica/IteradorHCE/FiltroTipoRegistroMedicoIterator.sol",
   "ast": {
     "absolutePath": "project:/contracts/logica/IteradorHCE/FiltroTipoRegistroMedicoIterator.sol",
     "exportedSymbols": {
       "FiltroTipoRegistroMedicoIterator": [
-        1355
+        1364
       ],
       "RegistroMedico": [
-        7091
+        7097
       ],
       "RegistroMedicoIterator": [
-        1370
+        1379
       ],
       "TipoRegistroMedico": [
-        7292
+        7298
       ]
     },
-    "id": 1356,
+    "id": 1365,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1228,
+        "id": 1237,
         "literals": [
           "solidity",
           "^",
@@ -3086,11 +3086,11 @@
       {
         "absolutePath": "project:/contracts/logica/IteradorHCE/RegistroMedicoIterator.sol",
         "file": "./RegistroMedicoIterator.sol",
-        "id": 1229,
+        "id": 1238,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 1356,
-        "sourceUnit": 1371,
+        "scope": 1365,
+        "sourceUnit": 1380,
         "src": "58:38:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3098,11 +3098,11 @@
       {
         "absolutePath": "project:/contracts/models/historiaClinica/RegistroMedico.sol",
         "file": "../../models/historiaClinica/RegistroMedico.sol",
-        "id": 1230,
+        "id": 1239,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 1356,
-        "sourceUnit": 7092,
+        "scope": 1365,
+        "sourceUnit": 7098,
         "src": "97:57:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3110,11 +3110,11 @@
       {
         "absolutePath": "project:/contracts/models/historiaClinica/enums/TipoRegistroEnum.sol",
         "file": "../../models/historiaClinica/enums/TipoRegistroEnum.sol",
-        "id": 1231,
+        "id": 1240,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 1356,
-        "sourceUnit": 7293,
+        "scope": 1365,
+        "sourceUnit": 7299,
         "src": "155:65:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3124,16 +3124,16 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 1232,
+              "id": 1241,
               "name": "RegistroMedicoIterator",
               "nameLocations": [
                 "268:22:5"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1370,
+              "referencedDeclaration": 1379,
               "src": "268:22:5"
             },
-            "id": 1233,
+            "id": 1242,
             "nodeType": "InheritanceSpecifier",
             "src": "268:22:5"
           }
@@ -3142,10 +3142,10 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1355,
+        "id": 1364,
         "linearizedBaseContracts": [
-          1355,
-          1370
+          1364,
+          1379
         ],
         "name": "FiltroTipoRegistroMedicoIterator",
         "nameLocation": "231:32:5",
@@ -3154,12 +3154,12 @@
           {
             "constant": false,
             "functionSelector": "92ebdcd2",
-            "id": 1235,
+            "id": 1244,
             "mutability": "mutable",
             "name": "creador",
             "nameLocation": "427:7:5",
             "nodeType": "VariableDeclaration",
-            "scope": 1355,
+            "scope": 1364,
             "src": "412:22:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -3168,7 +3168,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1234,
+              "id": 1243,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "412:7:5",
@@ -3182,36 +3182,36 @@
           },
           {
             "constant": false,
-            "id": 1238,
+            "id": 1247,
             "mutability": "mutable",
             "name": "tipoRegistroMedico",
             "nameLocation": "460:18:5",
             "nodeType": "VariableDeclaration",
-            "scope": 1355,
+            "scope": 1364,
             "src": "441:37:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+              "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
               "typeString": "enum TipoRegistroMedico"
             },
             "typeName": {
-              "id": 1237,
+              "id": 1246,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 1236,
+                "id": 1245,
                 "name": "TipoRegistroMedico",
                 "nameLocations": [
                   "441:18:5"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 7292,
+                "referencedDeclaration": 7298,
                 "src": "441:18:5"
               },
-              "referencedDeclaration": 7292,
+              "referencedDeclaration": 7298,
               "src": "441:18:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+                "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
                 "typeString": "enum TipoRegistroMedico"
               }
             },
@@ -3219,45 +3219,45 @@
           },
           {
             "constant": false,
-            "id": 1242,
+            "id": 1251,
             "mutability": "mutable",
             "name": "todosLosRegistros",
             "nameLocation": "503:17:5",
             "nodeType": "VariableDeclaration",
-            "scope": 1355,
+            "scope": 1364,
             "src": "485:35:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_storage",
+              "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_storage",
               "typeString": "contract RegistroMedico[]"
             },
             "typeName": {
               "baseType": {
-                "id": 1240,
+                "id": 1249,
                 "nodeType": "UserDefinedTypeName",
                 "pathNode": {
-                  "id": 1239,
+                  "id": 1248,
                   "name": "RegistroMedico",
                   "nameLocations": [
                     "485:14:5"
                   ],
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7091,
+                  "referencedDeclaration": 7097,
                   "src": "485:14:5"
                 },
-                "referencedDeclaration": 7091,
+                "referencedDeclaration": 7097,
                 "src": "485:14:5",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                  "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                   "typeString": "contract RegistroMedico"
                 }
               },
-              "id": 1241,
+              "id": 1250,
               "nodeType": "ArrayTypeName",
               "src": "485:16:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_storage_ptr",
                 "typeString": "contract RegistroMedico[]"
               }
             },
@@ -3265,36 +3265,36 @@
           },
           {
             "constant": false,
-            "id": 1245,
+            "id": 1254,
             "mutability": "mutable",
             "name": "siguiente",
             "nameLocation": "541:9:5",
             "nodeType": "VariableDeclaration",
-            "scope": 1355,
+            "scope": 1364,
             "src": "526:24:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+              "typeIdentifier": "t_contract$_RegistroMedico_$7097",
               "typeString": "contract RegistroMedico"
             },
             "typeName": {
-              "id": 1244,
+              "id": 1253,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 1243,
+                "id": 1252,
                 "name": "RegistroMedico",
                 "nameLocations": [
                   "526:14:5"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 7091,
+                "referencedDeclaration": 7097,
                 "src": "526:14:5"
               },
-              "referencedDeclaration": 7091,
+              "referencedDeclaration": 7097,
               "src": "526:14:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                 "typeString": "contract RegistroMedico"
               }
             },
@@ -3302,12 +3302,12 @@
           },
           {
             "constant": false,
-            "id": 1248,
+            "id": 1257,
             "mutability": "mutable",
             "name": "posicionActual",
             "nameLocation": "564:14:5",
             "nodeType": "VariableDeclaration",
-            "scope": 1355,
+            "scope": 1364,
             "src": "556:24:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -3316,7 +3316,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1246,
+              "id": 1255,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "556:7:5",
@@ -3327,7 +3327,7 @@
             },
             "value": {
               "hexValue": "30",
-              "id": 1247,
+              "id": 1256,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -3345,12 +3345,12 @@
           },
           {
             "constant": false,
-            "id": 1251,
+            "id": 1260,
             "mutability": "mutable",
             "name": "posicionSiguiente",
             "nameLocation": "594:17:5",
             "nodeType": "VariableDeclaration",
-            "scope": 1355,
+            "scope": 1364,
             "src": "586:27:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -3359,7 +3359,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1249,
+              "id": 1258,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "586:7:5",
@@ -3370,7 +3370,7 @@
             },
             "value": {
               "hexValue": "30",
-              "id": 1250,
+              "id": 1259,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -3388,23 +3388,23 @@
           },
           {
             "body": {
-              "id": 1274,
+              "id": 1283,
               "nodeType": "Block",
               "src": "742:159:5",
               "statements": [
                 {
                   "expression": {
-                    "id": 1264,
+                    "id": 1273,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 1261,
+                      "id": 1270,
                       "name": "creador",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1235,
+                      "referencedDeclaration": 1244,
                       "src": "752:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -3415,7 +3415,7 @@
                     "operator": "=",
                     "rightHandSide": {
                       "expression": {
-                        "id": 1262,
+                        "id": 1271,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -3426,7 +3426,7 @@
                           "typeString": "msg"
                         }
                       },
-                      "id": 1263,
+                      "id": 1272,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3446,99 +3446,99 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 1265,
+                  "id": 1274,
                   "nodeType": "ExpressionStatement",
                   "src": "752:20:5"
                 },
                 {
                   "expression": {
-                    "id": 1268,
+                    "id": 1277,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 1266,
+                      "id": 1275,
                       "name": "todosLosRegistros",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1242,
+                      "referencedDeclaration": 1251,
                       "src": "806:17:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_storage",
+                        "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_storage",
                         "typeString": "contract RegistroMedico[] storage ref"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1267,
+                      "id": 1276,
                       "name": "_todosLosRegistros",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1255,
+                      "referencedDeclaration": 1264,
                       "src": "826:18:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_memory_ptr",
+                        "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_memory_ptr",
                         "typeString": "contract RegistroMedico[] memory"
                       }
                     },
                     "src": "806:38:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_storage",
+                      "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_storage",
                       "typeString": "contract RegistroMedico[] storage ref"
                     }
                   },
-                  "id": 1269,
+                  "id": 1278,
                   "nodeType": "ExpressionStatement",
                   "src": "806:38:5"
                 },
                 {
                   "expression": {
-                    "id": 1272,
+                    "id": 1281,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 1270,
+                      "id": 1279,
                       "name": "tipoRegistroMedico",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1238,
+                      "referencedDeclaration": 1247,
                       "src": "854:18:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+                        "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
                         "typeString": "enum TipoRegistroMedico"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1271,
+                      "id": 1280,
                       "name": "_tipoRegistroMedico",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1258,
+                      "referencedDeclaration": 1267,
                       "src": "875:19:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+                        "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
                         "typeString": "enum TipoRegistroMedico"
                       }
                     },
                     "src": "854:40:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+                      "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
                       "typeString": "enum TipoRegistroMedico"
                     }
                   },
-                  "id": 1273,
+                  "id": 1282,
                   "nodeType": "ExpressionStatement",
                   "src": "854:40:5"
                 }
               ]
             },
-            "id": 1275,
+            "id": 1284,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -3546,50 +3546,50 @@
             "nameLocation": "-1:-1:-1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1259,
+              "id": 1268,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1255,
+                  "id": 1264,
                   "mutability": "mutable",
                   "name": "_todosLosRegistros",
                   "nameLocation": "665:18:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1275,
+                  "scope": 1284,
                   "src": "641:42:5",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_memory_ptr",
                     "typeString": "contract RegistroMedico[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1253,
+                      "id": 1262,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 1252,
+                        "id": 1261,
                         "name": "RegistroMedico",
                         "nameLocations": [
                           "641:14:5"
                         ],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 7091,
+                        "referencedDeclaration": 7097,
                         "src": "641:14:5"
                       },
-                      "referencedDeclaration": 7091,
+                      "referencedDeclaration": 7097,
                       "src": "641:14:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                        "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                         "typeString": "contract RegistroMedico"
                       }
                     },
-                    "id": 1254,
+                    "id": 1263,
                     "nodeType": "ArrayTypeName",
                     "src": "641:16:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_storage_ptr",
                       "typeString": "contract RegistroMedico[]"
                     }
                   },
@@ -3597,36 +3597,36 @@
                 },
                 {
                   "constant": false,
-                  "id": 1258,
+                  "id": 1267,
                   "mutability": "mutable",
                   "name": "_tipoRegistroMedico",
                   "nameLocation": "712:19:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1275,
+                  "scope": 1284,
                   "src": "693:38:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+                    "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
                     "typeString": "enum TipoRegistroMedico"
                   },
                   "typeName": {
-                    "id": 1257,
+                    "id": 1266,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1256,
+                      "id": 1265,
                       "name": "TipoRegistroMedico",
                       "nameLocations": [
                         "693:18:5"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 7292,
+                      "referencedDeclaration": 7298,
                       "src": "693:18:5"
                     },
-                    "referencedDeclaration": 7292,
+                    "referencedDeclaration": 7298,
                     "src": "693:18:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+                      "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
                       "typeString": "enum TipoRegistroMedico"
                     }
                   },
@@ -3636,12 +3636,12 @@
               "src": "631:110:5"
             },
             "returnParameters": {
-              "id": 1260,
+              "id": 1269,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "742:0:5"
             },
-            "scope": 1355,
+            "scope": 1364,
             "src": "620:281:5",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -3649,26 +3649,26 @@
           },
           {
             "baseFunctions": [
-              1369
+              1378
             ],
             "body": {
-              "id": 1311,
+              "id": 1320,
               "nodeType": "Block",
               "src": "955:342:5",
               "statements": [
                 {
                   "assignments": [
-                    1282
+                    1291
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1282,
+                      "id": 1291,
                       "mutability": "mutable",
                       "name": "posicion",
                       "nameLocation": "973:8:5",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1311,
+                      "scope": 1320,
                       "src": "965:16:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3677,7 +3677,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1281,
+                        "id": 1290,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "965:7:5",
@@ -3689,13 +3689,13 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1284,
+                  "id": 1293,
                   "initialValue": {
-                    "id": 1283,
+                    "id": 1292,
                     "name": "posicionActual",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1248,
+                    "referencedDeclaration": 1257,
                     "src": "984:14:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -3707,17 +3707,17 @@
                 },
                 {
                   "body": {
-                    "id": 1307,
+                    "id": 1316,
                     "nodeType": "Block",
                     "src": "1053:216:5",
                     "statements": [
                       {
                         "condition": {
                           "commonType": {
-                            "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+                            "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
                             "typeString": "enum TipoRegistroMedico"
                           },
-                          "id": 1295,
+                          "id": 1304,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3728,24 +3728,24 @@
                               "argumentTypes": [],
                               "expression": {
                                 "baseExpression": {
-                                  "id": 1289,
+                                  "id": 1298,
                                   "name": "todosLosRegistros",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1242,
+                                  "referencedDeclaration": 1251,
                                   "src": "1070:17:5",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_storage",
+                                    "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_storage",
                                     "typeString": "contract RegistroMedico[] storage ref"
                                   }
                                 },
-                                "id": 1291,
+                                "id": 1300,
                                 "indexExpression": {
-                                  "id": 1290,
+                                  "id": 1299,
                                   "name": "posicion",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1282,
+                                  "referencedDeclaration": 1291,
                                   "src": "1088:8:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -3759,11 +3759,11 @@
                                 "nodeType": "IndexAccess",
                                 "src": "1070:27:5",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                                  "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                                   "typeString": "contract RegistroMedico"
                                 }
                               },
-                              "id": 1292,
+                              "id": 1301,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -3771,14 +3771,14 @@
                               "memberLocation": "1098:21:5",
                               "memberName": "getTipoRegistroMedico",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 7024,
+                              "referencedDeclaration": 7030,
                               "src": "1070:49:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_external_view$__$returns$_t_enum$_TipoRegistroMedico_$7292_$",
+                                "typeIdentifier": "t_function_external_view$__$returns$_t_enum$_TipoRegistroMedico_$7298_$",
                                 "typeString": "function () view external returns (enum TipoRegistroMedico)"
                               }
                             },
-                            "id": 1293,
+                            "id": 1302,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -3790,21 +3790,21 @@
                             "src": "1070:51:5",
                             "tryCall": false,
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+                              "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
                               "typeString": "enum TipoRegistroMedico"
                             }
                           },
                           "nodeType": "BinaryOperation",
                           "operator": "==",
                           "rightExpression": {
-                            "id": 1294,
+                            "id": 1303,
                             "name": "tipoRegistroMedico",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1238,
+                            "referencedDeclaration": 1247,
                             "src": "1125:18:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_TipoRegistroMedico_$7292",
+                              "typeIdentifier": "t_enum$_TipoRegistroMedico_$7298",
                               "typeString": "enum TipoRegistroMedico"
                             }
                           },
@@ -3814,27 +3814,27 @@
                             "typeString": "bool"
                           }
                         },
-                        "id": 1303,
+                        "id": 1312,
                         "nodeType": "IfStatement",
                         "src": "1067:168:5",
                         "trueBody": {
-                          "id": 1302,
+                          "id": 1311,
                           "nodeType": "Block",
                           "src": "1145:90:5",
                           "statements": [
                             {
                               "expression": {
-                                "id": 1298,
+                                "id": 1307,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "leftHandSide": {
-                                  "id": 1296,
+                                  "id": 1305,
                                   "name": "posicionSiguiente",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1251,
+                                  "referencedDeclaration": 1260,
                                   "src": "1163:17:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -3844,11 +3844,11 @@
                                 "nodeType": "Assignment",
                                 "operator": "=",
                                 "rightHandSide": {
-                                  "id": 1297,
+                                  "id": 1306,
                                   "name": "posicion",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1282,
+                                  "referencedDeclaration": 1291,
                                   "src": "1183:8:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -3861,14 +3861,14 @@
                                   "typeString": "uint256"
                                 }
                               },
-                              "id": 1299,
+                              "id": 1308,
                               "nodeType": "ExpressionStatement",
                               "src": "1163:28:5"
                             },
                             {
                               "expression": {
                                 "hexValue": "74727565",
-                                "id": 1300,
+                                "id": 1309,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -3882,8 +3882,8 @@
                                 },
                                 "value": "true"
                               },
-                              "functionReturnParameters": 1280,
-                              "id": 1301,
+                              "functionReturnParameters": 1289,
+                              "id": 1310,
                               "nodeType": "Return",
                               "src": "1209:11:5"
                             }
@@ -3892,7 +3892,7 @@
                       },
                       {
                         "expression": {
-                          "id": 1305,
+                          "id": 1314,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3902,11 +3902,11 @@
                           "prefix": false,
                           "src": "1248:10:5",
                           "subExpression": {
-                            "id": 1304,
+                            "id": 1313,
                             "name": "posicion",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1282,
+                            "referencedDeclaration": 1291,
                             "src": "1248:8:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -3918,7 +3918,7 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1306,
+                        "id": 1315,
                         "nodeType": "ExpressionStatement",
                         "src": "1248:10:5"
                       }
@@ -3929,17 +3929,17 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1288,
+                    "id": 1297,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 1285,
+                      "id": 1294,
                       "name": "posicion",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1282,
+                      "referencedDeclaration": 1291,
                       "src": "1015:8:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -3950,18 +3950,18 @@
                     "operator": "<",
                     "rightExpression": {
                       "expression": {
-                        "id": 1286,
+                        "id": 1295,
                         "name": "todosLosRegistros",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1242,
+                        "referencedDeclaration": 1251,
                         "src": "1026:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_storage",
                           "typeString": "contract RegistroMedico[] storage ref"
                         }
                       },
-                      "id": 1287,
+                      "id": 1296,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3981,14 +3981,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1308,
+                  "id": 1317,
                   "nodeType": "WhileStatement",
                   "src": "1008:261:5"
                 },
                 {
                   "expression": {
                     "hexValue": "66616c7365",
-                    "id": 1309,
+                    "id": 1318,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -4002,15 +4002,15 @@
                     },
                     "value": "false"
                   },
-                  "functionReturnParameters": 1280,
-                  "id": 1310,
+                  "functionReturnParameters": 1289,
+                  "id": 1319,
                   "nodeType": "Return",
                   "src": "1278:12:5"
                 }
               ]
             },
             "functionSelector": "fb045cc9",
-            "id": 1312,
+            "id": 1321,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4018,29 +4018,29 @@
             "nameLocation": "916:7:5",
             "nodeType": "FunctionDefinition",
             "overrides": {
-              "id": 1277,
+              "id": 1286,
               "nodeType": "OverrideSpecifier",
               "overrides": [],
               "src": "933:8:5"
             },
             "parameters": {
-              "id": 1276,
+              "id": 1285,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "923:2:5"
             },
             "returnParameters": {
-              "id": 1280,
+              "id": 1289,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1279,
+                  "id": 1288,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1312,
+                  "scope": 1321,
                   "src": "950:4:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4049,7 +4049,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1278,
+                    "id": 1287,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "950:4:5",
@@ -4063,7 +4063,7 @@
               ],
               "src": "949:6:5"
             },
-            "scope": 1355,
+            "scope": 1364,
             "src": "907:390:5",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4071,10 +4071,10 @@
           },
           {
             "baseFunctions": [
-              1364
+              1373
             ],
             "body": {
-              "id": 1342,
+              "id": 1351,
               "nodeType": "Block",
               "src": "1362:266:5",
               "statements": [
@@ -4083,20 +4083,20 @@
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 1319,
+                      "id": 1328,
                       "name": "hasMore",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1312
+                        1321
                       ],
-                      "referencedDeclaration": 1312,
+                      "referencedDeclaration": 1321,
                       "src": "1383:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$__$returns$_t_bool_$",
                         "typeString": "function () returns (bool)"
                       }
                     },
-                    "id": 1320,
+                    "id": 1329,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4112,78 +4112,78 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1337,
+                  "id": 1346,
                   "nodeType": "IfStatement",
                   "src": "1380:202:5",
                   "trueBody": {
-                    "id": 1336,
+                    "id": 1345,
                     "nodeType": "Block",
                     "src": "1393:189:5",
                     "statements": [
                       {
                         "assignments": [
-                          1323
+                          1332
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1323,
+                            "id": 1332,
                             "mutability": "mutable",
                             "name": "registroMedico",
                             "nameLocation": "1422:14:5",
                             "nodeType": "VariableDeclaration",
-                            "scope": 1336,
+                            "scope": 1345,
                             "src": "1407:29:5",
                             "stateVariable": false,
                             "storageLocation": "default",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                              "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                               "typeString": "contract RegistroMedico"
                             },
                             "typeName": {
-                              "id": 1322,
+                              "id": 1331,
                               "nodeType": "UserDefinedTypeName",
                               "pathNode": {
-                                "id": 1321,
+                                "id": 1330,
                                 "name": "RegistroMedico",
                                 "nameLocations": [
                                   "1407:14:5"
                                 ],
                                 "nodeType": "IdentifierPath",
-                                "referencedDeclaration": 7091,
+                                "referencedDeclaration": 7097,
                                 "src": "1407:14:5"
                               },
-                              "referencedDeclaration": 7091,
+                              "referencedDeclaration": 7097,
                               "src": "1407:14:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                                "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                                 "typeString": "contract RegistroMedico"
                               }
                             },
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1327,
+                        "id": 1336,
                         "initialValue": {
                           "baseExpression": {
-                            "id": 1324,
+                            "id": 1333,
                             "name": "todosLosRegistros",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1242,
+                            "referencedDeclaration": 1251,
                             "src": "1439:17:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7091_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_contract$_RegistroMedico_$7097_$dyn_storage",
                               "typeString": "contract RegistroMedico[] storage ref"
                             }
                           },
-                          "id": 1326,
+                          "id": 1335,
                           "indexExpression": {
-                            "id": 1325,
+                            "id": 1334,
                             "name": "posicionSiguiente",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1251,
+                            "referencedDeclaration": 1260,
                             "src": "1457:17:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4197,7 +4197,7 @@
                           "nodeType": "IndexAccess",
                           "src": "1439:36:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                            "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                             "typeString": "contract RegistroMedico"
                           }
                         },
@@ -4206,17 +4206,17 @@
                       },
                       {
                         "expression": {
-                          "id": 1332,
+                          "id": 1341,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
-                            "id": 1328,
+                            "id": 1337,
                             "name": "posicionActual",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1248,
+                            "referencedDeclaration": 1257,
                             "src": "1489:14:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4230,17 +4230,17 @@
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             },
-                            "id": 1331,
+                            "id": 1340,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftExpression": {
-                              "id": 1329,
+                              "id": 1338,
                               "name": "posicionSiguiente",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1251,
+                              "referencedDeclaration": 1260,
                               "src": "1506:17:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -4251,7 +4251,7 @@
                             "operator": "+",
                             "rightExpression": {
                               "hexValue": "31",
-                              "id": 1330,
+                              "id": 1339,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -4277,25 +4277,25 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1333,
+                        "id": 1342,
                         "nodeType": "ExpressionStatement",
                         "src": "1489:38:5"
                       },
                       {
                         "expression": {
-                          "id": 1334,
+                          "id": 1343,
                           "name": "registroMedico",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1323,
+                          "referencedDeclaration": 1332,
                           "src": "1557:14:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                            "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                             "typeString": "contract RegistroMedico"
                           }
                         },
-                        "functionReturnParameters": 1318,
-                        "id": 1335,
+                        "functionReturnParameters": 1327,
+                        "id": 1344,
                         "nodeType": "Return",
                         "src": "1550:21:5"
                       }
@@ -4307,7 +4307,7 @@
                     "arguments": [
                       {
                         "hexValue": "4e6f2068617920756e207369677569656e7465",
-                        "id": 1339,
+                        "id": 1348,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4329,7 +4329,7 @@
                           "typeString": "literal_string \"No hay un siguiente\""
                         }
                       ],
-                      "id": 1338,
+                      "id": 1347,
                       "name": "revert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -4343,7 +4343,7 @@
                         "typeString": "function (string memory) pure"
                       }
                     },
-                    "id": 1340,
+                    "id": 1349,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4359,14 +4359,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1341,
+                  "id": 1350,
                   "nodeType": "ExpressionStatement",
                   "src": "1592:29:5"
                 }
               ]
             },
             "functionSelector": "f3638f78",
-            "id": 1343,
+            "id": 1352,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4374,53 +4374,53 @@
             "nameLocation": "1312:7:5",
             "nodeType": "FunctionDefinition",
             "overrides": {
-              "id": 1314,
+              "id": 1323,
               "nodeType": "OverrideSpecifier",
               "overrides": [],
               "src": "1329:8:5"
             },
             "parameters": {
-              "id": 1313,
+              "id": 1322,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1319:2:5"
             },
             "returnParameters": {
-              "id": 1318,
+              "id": 1327,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1317,
+                  "id": 1326,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1343,
+                  "scope": 1352,
                   "src": "1346:14:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                    "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                     "typeString": "contract RegistroMedico"
                   },
                   "typeName": {
-                    "id": 1316,
+                    "id": 1325,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1315,
+                      "id": 1324,
                       "name": "RegistroMedico",
                       "nameLocations": [
                         "1346:14:5"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 7091,
+                      "referencedDeclaration": 7097,
                       "src": "1346:14:5"
                     },
-                    "referencedDeclaration": 7091,
+                    "referencedDeclaration": 7097,
                     "src": "1346:14:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_RegistroMedico_$7091",
+                      "typeIdentifier": "t_contract$_RegistroMedico_$7097",
                       "typeString": "contract RegistroMedico"
                     }
                   },
@@ -4429,7 +4429,7 @@
               ],
               "src": "1345:16:5"
             },
-            "scope": 1355,
+            "scope": 1364,
             "src": "1303:325:5",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4437,7 +4437,7 @@
           },
           {
             "body": {
-              "id": 1353,
+              "id": 1362,
               "nodeType": "Block",
               "src": "1665:47:5",
               "statements": [
@@ -4447,11 +4447,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 1349,
+                            "id": 1358,
                             "name": "creador",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1235,
+                            "referencedDeclaration": 1244,
                             "src": "1696:7:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -4466,7 +4466,7 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 1348,
+                          "id": 1357,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -4478,7 +4478,7 @@
                             "typeString": "type(address payable)"
                           },
                           "typeName": {
-                            "id": 1347,
+                            "id": 1356,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
                             "src": "1688:8:5",
@@ -4486,7 +4486,7 @@
                             "typeDescriptions": {}
                           }
                         },
-                        "id": 1350,
+                        "id": 1359,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -4510,7 +4510,7 @@
                           "typeString": "address payable"
                         }
                       ],
-                      "id": 1346,
+                      "id": 1355,
                       "name": "selfdestruct",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -4521,7 +4521,7 @@
                         "typeString": "function (address payable)"
                       }
                     },
-                    "id": 1351,
+                    "id": 1360,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4537,14 +4537,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1352,
+                  "id": 1361,
                   "nodeType": "ExpressionStatement",
                   "src": "1675:30:5"
                 }
               ]
             },
             "functionSelector": "9cb8a26a",
-            "id": 1354,
+            "id": 1363,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4552,25 +4552,25 @@
             "nameLocation": "1643:12:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1344,
+              "id": 1353,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1655:2:5"
             },
             "returnParameters": {
-              "id": 1345,
+              "id": 1354,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1665:0:5"
             },
-            "scope": 1355,
+            "scope": 1364,
             "src": "1634:78:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1356,
+        "scope": 1365,
         "src": "222:1498:5",
         "usedErrors": []
       }
@@ -4582,8 +4582,8 @@
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.8",
-  "updatedAt": "2023-04-05T22:10:22.936Z",
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-05-03T04:13:42.017Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

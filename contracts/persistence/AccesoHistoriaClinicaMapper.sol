@@ -186,7 +186,7 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
     {
         uint256 size = 0;
         for (uint256 i = 0; i < permisos.length; i++) {
-            if (permisos[i].getFechaExpiracion() > block.timestamp) {
+            if (uint256(permisos[i].getFechaExpiracion()) > block.timestamp) {
                 size++;
             }
         }
@@ -197,7 +197,7 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
         PermisoDeAccesoVO[] memory response = new PermisoDeAccesoVO[](size);
         uint256 index = 0;
         for (uint256 i = 0; i < permisos.length; i++) {
-            if (permisos[i].getFechaExpiracion() > block.timestamp) {
+            if (uint256(permisos[i].getFechaExpiracion()) > block.timestamp) {
                 response[index] = permisos[i];
                 index++;
             }

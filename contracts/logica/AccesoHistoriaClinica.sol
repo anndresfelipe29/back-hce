@@ -25,7 +25,7 @@ MedicoMapperInterface private medicoMapper;
         PermisoDeAccesoVO[] memory permisos = accesoHistoriaClinicaMapper
             .getPermisos(msg.sender, direccionMedico);
         PermisoDeAccesoVO permiso;
-        uint256 fechaActual = block.timestamp;
+        int256 fechaActual = int256(block.timestamp);
         for (uint256 i = permisos.length; i > 0; i--) {
             permiso = permisos[i - 1];
             if (!permiso.getFueRespondido()) {

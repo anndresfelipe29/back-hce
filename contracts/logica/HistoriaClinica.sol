@@ -43,7 +43,7 @@ contract HistoriaClinica is Modifiers {
         RegistroMedico registroMedico
     ) public tieneAcceso(14) tienePermisoDeAccesoTemporal(direccionPaciente) {
         registroMedico.setCodPrestadorServicioDeSalud(msg.sender);
-        registroMedico.setFechaRegistro(block.timestamp);
+        registroMedico.setFechaRegistro(int256(block.timestamp));
         // TODO: Setear el tipo de registro médico desde el front
         // TODO: Falta definir el id
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(

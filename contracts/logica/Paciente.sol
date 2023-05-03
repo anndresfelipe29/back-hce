@@ -19,7 +19,7 @@ contract Paciente is Modifiers {
     RolMapperInterface private rolMapper;
     UsuarioMapperInterface private usuarioMapper;
     DatosParametricosMapperInterface private datosParametricosMapper;
-    Acceso private acceso;
+    // Acceso private acceso;
 
     constructor() {
         creador = msg.sender; // creador del contrato

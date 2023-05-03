@@ -1705,7 +1705,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_struct$_UsuarioVoStruct_$3248_memory_ptr__to_t_struct$_UsuarioVoStruct_$3248_memory_ptr__fromStack_reversed",
+            "name": "abi_encode_tuple_t_struct$_UsuarioVoStruct_$3254_memory_ptr__to_t_struct$_UsuarioVoStruct_$3254_memory_ptr__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1929,7 +1929,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_contract$_RolVO_$3226__to_t_address__fromStack_reversed",
+            "name": "abi_encode_tuple_t_contract$_RolVO_$3232__to_t_address__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2104,7 +2104,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_contract$_RolVO_$3226",
+            "name": "abi_decode_tuple_t_contract$_RolVO_$3232",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4042,7 +4042,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_struct$_RolVoStruct_$2961_memory_ptr_fromMemory",
+            "name": "abi_decode_tuple_t_struct$_RolVoStruct_$2967_memory_ptr_fromMemory",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4070,7 +4070,7 @@
           }
         ]
       },
-      "contents": "{\n    { }\n    function validator_revert_address(value)\n    {\n        if iszero(eq(value, and(value, 0xffffffffffffffffffffffffffffffffffffffff))) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := calldataload(headStart)\n        validator_revert_address(value)\n        value0 := value\n    }\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function copy_memory_to_memory_with_cleanup(src, dst, length)\n    {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        mstore(add(dst, length), 0)\n    }\n    function abi_encode_string(value, pos) -> end\n    {\n        let length := mload(value)\n        mstore(pos, length)\n        copy_memory_to_memory_with_cleanup(add(value, 0x20), add(pos, 0x20), length)\n        end := add(add(pos, and(add(length, 31), not(31))), 0x20)\n    }\n    function abi_encode_tuple_t_struct$_UsuarioVoStruct_$3248_memory_ptr__to_t_struct$_UsuarioVoStruct_$3248_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), and(mload(value0), 0xffffffffffffffffffffffffffffffffffffffff))\n        let memberValue0 := mload(add(value0, 32))\n        mstore(add(headStart, 64), 0x60)\n        mstore(add(headStart, 128), mload(memberValue0))\n        let memberValue0_1 := mload(add(memberValue0, 32))\n        mstore(add(headStart, 160), 0x60)\n        let tail_1 := abi_encode_string(memberValue0_1, add(headStart, 224))\n        let memberValue0_2 := mload(add(memberValue0, 64))\n        mstore(add(headStart, 192), add(sub(tail_1, headStart), not(127)))\n        let end := abi_encode_string(memberValue0_2, tail_1)\n        mstore(add(headStart, 0x60), iszero(iszero(mload(add(value0, 64)))))\n        tail := end\n    }\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, iszero(iszero(value0)))\n    }\n    function abi_encode_tuple_t_contract$_RolVO_$3226__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function abi_decode_tuple_t_contract$_RolVO_$3226(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := calldataload(headStart)\n        validator_revert_address(value)\n        value0 := value\n    }\n    function abi_decode_tuple_t_bool(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := calldataload(headStart)\n        if iszero(eq(value, iszero(iszero(value)))) { revert(0, 0) }\n        value0 := value\n    }\n    function panic_error_0x41()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n    function abi_decode_string_fromMemory(offset, end) -> array\n    {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let _1 := mload(offset)\n        let _2 := 0xffffffffffffffff\n        if gt(_1, _2) { panic_error_0x41() }\n        let _3 := not(31)\n        let memPtr := mload(64)\n        let newFreePtr := add(memPtr, and(add(and(add(_1, 0x1f), _3), 63), _3))\n        if or(gt(newFreePtr, _2), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n        mstore(memPtr, _1)\n        if gt(add(add(offset, _1), 0x20), end) { revert(0, 0) }\n        copy_memory_to_memory_with_cleanup(add(offset, 0x20), add(memPtr, 0x20), _1)\n        array := memPtr\n    }\n    function abi_decode_tuple_t_struct$_RolVoStruct_$2961_memory_ptr_fromMemory(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let offset := mload(headStart)\n        let _1 := 0xffffffffffffffff\n        if gt(offset, _1) { revert(0, 0) }\n        let _2 := add(headStart, offset)\n        if slt(sub(dataEnd, _2), 0x60) { revert(0, 0) }\n        let memPtr := mload(64)\n        let newFreePtr := add(memPtr, 0x60)\n        if or(gt(newFreePtr, _1), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n        mstore(memPtr, mload(_2))\n        let offset_1 := mload(add(_2, 32))\n        if gt(offset_1, _1) { revert(0, 0) }\n        mstore(add(memPtr, 32), abi_decode_string_fromMemory(add(_2, offset_1), dataEnd))\n        let offset_2 := mload(add(_2, 64))\n        if gt(offset_2, _1) { revert(0, 0) }\n        mstore(add(memPtr, 64), abi_decode_string_fromMemory(add(_2, offset_2), dataEnd))\n        value0 := memPtr\n    }\n}",
+      "contents": "{\n    { }\n    function validator_revert_address(value)\n    {\n        if iszero(eq(value, and(value, 0xffffffffffffffffffffffffffffffffffffffff))) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := calldataload(headStart)\n        validator_revert_address(value)\n        value0 := value\n    }\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function copy_memory_to_memory_with_cleanup(src, dst, length)\n    {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        mstore(add(dst, length), 0)\n    }\n    function abi_encode_string(value, pos) -> end\n    {\n        let length := mload(value)\n        mstore(pos, length)\n        copy_memory_to_memory_with_cleanup(add(value, 0x20), add(pos, 0x20), length)\n        end := add(add(pos, and(add(length, 31), not(31))), 0x20)\n    }\n    function abi_encode_tuple_t_struct$_UsuarioVoStruct_$3254_memory_ptr__to_t_struct$_UsuarioVoStruct_$3254_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), and(mload(value0), 0xffffffffffffffffffffffffffffffffffffffff))\n        let memberValue0 := mload(add(value0, 32))\n        mstore(add(headStart, 64), 0x60)\n        mstore(add(headStart, 128), mload(memberValue0))\n        let memberValue0_1 := mload(add(memberValue0, 32))\n        mstore(add(headStart, 160), 0x60)\n        let tail_1 := abi_encode_string(memberValue0_1, add(headStart, 224))\n        let memberValue0_2 := mload(add(memberValue0, 64))\n        mstore(add(headStart, 192), add(sub(tail_1, headStart), not(127)))\n        let end := abi_encode_string(memberValue0_2, tail_1)\n        mstore(add(headStart, 0x60), iszero(iszero(mload(add(value0, 64)))))\n        tail := end\n    }\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, iszero(iszero(value0)))\n    }\n    function abi_encode_tuple_t_contract$_RolVO_$3232__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function abi_decode_tuple_t_contract$_RolVO_$3232(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := calldataload(headStart)\n        validator_revert_address(value)\n        value0 := value\n    }\n    function abi_decode_tuple_t_bool(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := calldataload(headStart)\n        if iszero(eq(value, iszero(iszero(value)))) { revert(0, 0) }\n        value0 := value\n    }\n    function panic_error_0x41()\n    {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n    function abi_decode_string_fromMemory(offset, end) -> array\n    {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let _1 := mload(offset)\n        let _2 := 0xffffffffffffffff\n        if gt(_1, _2) { panic_error_0x41() }\n        let _3 := not(31)\n        let memPtr := mload(64)\n        let newFreePtr := add(memPtr, and(add(and(add(_1, 0x1f), _3), 63), _3))\n        if or(gt(newFreePtr, _2), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n        mstore(memPtr, _1)\n        if gt(add(add(offset, _1), 0x20), end) { revert(0, 0) }\n        copy_memory_to_memory_with_cleanup(add(offset, 0x20), add(memPtr, 0x20), _1)\n        array := memPtr\n    }\n    function abi_decode_tuple_t_struct$_RolVoStruct_$2967_memory_ptr_fromMemory(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let offset := mload(headStart)\n        let _1 := 0xffffffffffffffff\n        if gt(offset, _1) { revert(0, 0) }\n        let _2 := add(headStart, offset)\n        if slt(sub(dataEnd, _2), 0x60) { revert(0, 0) }\n        let memPtr := mload(64)\n        let newFreePtr := add(memPtr, 0x60)\n        if or(gt(newFreePtr, _1), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n        mstore(memPtr, mload(_2))\n        let offset_1 := mload(add(_2, 32))\n        if gt(offset_1, _1) { revert(0, 0) }\n        mstore(add(memPtr, 32), abi_decode_string_fromMemory(add(_2, offset_1), dataEnd))\n        let offset_2 := mload(add(_2, 64))\n        if gt(offset_2, _1) { revert(0, 0) }\n        mstore(add(memPtr, 64), abi_decode_string_fromMemory(add(_2, offset_2), dataEnd))\n        value0 := memPtr\n    }\n}",
       "id": 73,
       "language": "Yul",
       "name": "#utility.yul"
@@ -4079,26 +4079,26 @@
   "sourceMap": "81:1072:16:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "81:1072:16:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;900:88;;;;;;:::i;:::-;959:9;:22;;-1:-1:-1;;959:22:16;-1:-1:-1;;;;;959:22:16;;;;;;;;;;900:88;;;636:87;681:7;707:9;-1:-1:-1;;;;;707:9:16;636:87;;;-1:-1:-1;;;;;589:55:73;;;571:74;;559:2;544:18;636:87:16;;;;;;;;427:203;;;:::i;:::-;;;;;;;:::i;808:86::-;877:10;;-1:-1:-1;;;877:10:16;;;;808:86;;2279:14:73;;2272:22;2254:41;;2242:2;2227:18;808:86:16;2114:187:73;729:73:16;792:3;;-1:-1:-1;;;;;792:3:16;729:73;;994:62;;;;;;:::i;:::-;1039:3;:10;;-1:-1:-1;;1039:10:16;-1:-1:-1;;;;;1039:10:16;;;;;;;;;;994:62;1062:89;;;;;;:::i;:::-;1120:10;:24;;;;;-1:-1:-1;;;1120:24:16;;;;;;;;;;;1062:89;427:203;477:22;;:::i;:::-;518:105;;;;;;;;-1:-1:-1;547:9:16;;-1:-1:-1;;;;;547:9:16;;;518:105;;547:9;570:3;:19;;;;;;;518:105;;;;;;570:3;;;;;:17;;:19;;;;;;;;;;;:3;:19;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;570:19:16;;;;;;;;;;;;:::i;:::-;518:105;;603:10;;-1:-1:-1;;;603:10:16;;;;518:105;;;;;;;511:112;;-1:-1:-1;427:203:16:o;-1:-1:-1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;14:154:73:-;-1:-1:-1;;;;;93:5:73;89:54;82:5;79:65;69:93;;158:1;155;148:12;69:93;14:154;:::o;173:247::-;232:6;285:2;273:9;264:7;260:23;256:32;253:52;;;301:1;298;291:12;253:52;340:9;327:23;359:31;384:5;359:31;:::i;:::-;409:5;173:247;-1:-1:-1;;;173:247:73:o;656:250::-;741:1;751:113;765:6;762:1;759:13;751:113;;;841:11;;;835:18;822:11;;;815:39;787:2;780:10;751:113;;;-1:-1:-1;;898:1:73;880:16;;873:27;656:250::o;911:271::-;953:3;991:5;985:12;1018:6;1013:3;1006:19;1034:76;1103:6;1096:4;1091:3;1087:14;1080:4;1073:5;1069:16;1034:76;:::i;:::-;1164:2;1143:15;-1:-1:-1;;1139:29:73;1130:39;;;;1171:4;1126:50;;911:271;-1:-1:-1;;911:271:73:o;1187:922::-;1382:2;1371:9;1364:21;-1:-1:-1;;;;;1431:6:73;1425:13;1421:62;1416:2;1405:9;1401:18;1394:90;1345:4;1531:2;1523:6;1519:15;1513:22;1571:4;1566:2;1555:9;1551:18;1544:32;1619:12;1613:19;1607:3;1596:9;1592:19;1585:48;1688:2;1674:12;1670:21;1664:28;1729:4;1723:3;1712:9;1708:19;1701:33;1757:54;1806:3;1795:9;1791:19;1775:14;1757:54;:::i;:::-;1743:68;;1866:2;1852:12;1848:21;1842:28;1820:50;;1939:3;1935:8;1923:9;1915:6;1911:22;1907:37;1901:3;1890:9;1886:19;1879:66;1965:41;1999:6;1983:14;1965:41;:::i;:::-;1954:52;;;2076:2;2068:6;2064:15;2058:22;2051:30;2044:38;2037:4;2026:9;2022:20;2015:68;2100:3;2092:11;;;1187:922;;;;:::o;2817:273::-;2873:6;2926:2;2914:9;2905:7;2901:23;2897:32;2894:52;;;2942:1;2939;2932:12;2894:52;2981:9;2968:23;3034:5;3027:13;3020:21;3013:5;3010:32;3000:60;;3056:1;3053;3046:12;3095:184;3147:77;3144:1;3137:88;3244:4;3241:1;3234:15;3268:4;3265:1;3258:15;3284:699;3338:5;3391:3;3384:4;3376:6;3372:17;3368:27;3358:55;;3409:1;3406;3399:12;3358:55;3438:6;3432:13;3464:18;3501:2;3497;3494:10;3491:36;;;3507:18;;:::i;:::-;3582:2;3576:9;3550:2;3636:13;;-1:-1:-1;;3632:22:73;;;3656:2;3628:31;3624:40;3612:53;;;3680:18;;;3700:22;;;3677:46;3674:72;;;3726:18;;:::i;:::-;3766:10;3762:2;3755:22;3801:2;3793:6;3786:18;3847:3;3840:4;3835:2;3827:6;3823:15;3819:26;3816:35;3813:55;;;3864:1;3861;3854:12;3813:55;3877:76;3950:2;3943:4;3935:6;3931:17;3924:4;3916:6;3912:17;3877:76;:::i;:::-;3971:6;3284:699;-1:-1:-1;;;;;;3284:699:73:o;3988:997::-;4087:6;4140:2;4128:9;4119:7;4115:23;4111:32;4108:52;;;4156:1;4153;4146:12;4108:52;4189:9;4183:16;4218:18;4259:2;4251:6;4248:14;4245:34;;;4275:1;4272;4265:12;4245:34;4298:22;;;;4354:4;4336:16;;;4332:27;4329:47;;;4372:1;4369;4362:12;4329:47;4405:2;4399:9;4447:4;4439:6;4435:17;4502:6;4490:10;4487:22;4482:2;4470:10;4467:18;4464:46;4461:72;;;4513:18;;:::i;:::-;4549:2;4542:22;4588:9;;4573:25;;4637:2;4629:11;;4623:18;4653:16;;;4650:36;;;4682:1;4679;4672:12;4650:36;4719:56;4767:7;4756:8;4752:2;4748:17;4719:56;:::i;:::-;4714:2;4706:6;4702:15;4695:81;;4815:2;4811;4807:11;4801:18;4844:2;4834:8;4831:16;4828:36;;;4860:1;4857;4850:12;4828:36;4897:56;4945:7;4934:8;4930:2;4926:17;4897:56;:::i;:::-;4892:2;4880:15;;4873:81;-1:-1:-1;4884:6:73;3988:997;-1:-1:-1;;;;;3988:997:73:o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\nimport \"./RolVO.sol\";\n\ncontract UsuarioVO {\n    event Log(string data);\n\n    address private direccion;\n    RolVO private rol; // TODO dejar esto como array para que un usuario pueda ser médico y paciente al tiempo\n    bool private estaActivo;\n\n    struct UsuarioVoStruct {\n        address direccion;\n        RolVO.RolVoStruct rol;\n        bool estaActivo;\n    }\n\n    function getUsuarioVOValue() public view returns (UsuarioVoStruct memory) {\n        return UsuarioVoStruct(\n            direccion,\n            rol.getRolVoValue(),\n            estaActivo\n        );\n    }\n\n    function getDireccion() public view returns (address) {\n        return direccion;\n    }\n\n    function getRol() public view returns (RolVO) {\n        return rol;\n    }\n\n    function getEstaActivo() public view returns (bool) {\n        return estaActivo;\n    }\n\n    function setDireccion(address _direccion) public {\n        direccion = _direccion;\n    }\n\n    function setRol(RolVO _rol) public {\n        rol = _rol;\n    }\n\n    function setEstaActivo(bool _estaActivo) public {\n        estaActivo = _estaActivo;\n    }\n}\n",
-  "sourcePath": "/home/felipe/Documentos/Blockchain/codigo/HCE-full/back-hce/contracts/models/UsuarioVO.sol",
+  "sourcePath": "/back/contracts/models/UsuarioVO.sol",
   "ast": {
     "absolutePath": "project:/contracts/models/UsuarioVO.sol",
     "exportedSymbols": {
       "PermisoVO": [
-        2654
+        2660
       ],
       "RolVO": [
-        3226
+        3232
       ],
       "UsuarioVO": [
-        3320
+        3326
       ]
     },
-    "id": 3321,
+    "id": 3327,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3228,
+        "id": 3234,
         "literals": [
           "solidity",
           "^",
@@ -4111,11 +4111,11 @@
       {
         "absolutePath": "project:/contracts/models/RolVO.sol",
         "file": "./RolVO.sol",
-        "id": 3229,
+        "id": 3235,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 3321,
-        "sourceUnit": 3227,
+        "scope": 3327,
+        "sourceUnit": 3233,
         "src": "58:21:16",
         "symbolAliases": [],
         "unitAlias": ""
@@ -4127,9 +4127,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 3320,
+        "id": 3326,
         "linearizedBaseContracts": [
-          3320
+          3326
         ],
         "name": "UsuarioVO",
         "nameLocation": "90:9:16",
@@ -4138,23 +4138,23 @@
           {
             "anonymous": false,
             "eventSelector": "cf34ef537ac33ee1ac626ca1587a0a7e8e51561e5514f8cb36afa1c5102b3bab",
-            "id": 3233,
+            "id": 3239,
             "name": "Log",
             "nameLocation": "112:3:16",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 3232,
+              "id": 3238,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3231,
+                  "id": 3237,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "123:4:16",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3233,
+                  "scope": 3239,
                   "src": "116:11:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4163,7 +4163,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3230,
+                    "id": 3236,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "116:6:16",
@@ -4181,12 +4181,12 @@
           },
           {
             "constant": false,
-            "id": 3235,
+            "id": 3241,
             "mutability": "mutable",
             "name": "direccion",
             "nameLocation": "151:9:16",
             "nodeType": "VariableDeclaration",
-            "scope": 3320,
+            "scope": 3326,
             "src": "135:25:16",
             "stateVariable": true,
             "storageLocation": "default",
@@ -4195,7 +4195,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 3234,
+              "id": 3240,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "135:7:16",
@@ -4209,36 +4209,36 @@
           },
           {
             "constant": false,
-            "id": 3238,
+            "id": 3244,
             "mutability": "mutable",
             "name": "rol",
             "nameLocation": "180:3:16",
             "nodeType": "VariableDeclaration",
-            "scope": 3320,
+            "scope": 3326,
             "src": "166:17:16",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_RolVO_$3226",
+              "typeIdentifier": "t_contract$_RolVO_$3232",
               "typeString": "contract RolVO"
             },
             "typeName": {
-              "id": 3237,
+              "id": 3243,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 3236,
+                "id": 3242,
                 "name": "RolVO",
                 "nameLocations": [
                   "166:5:16"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 3226,
+                "referencedDeclaration": 3232,
                 "src": "166:5:16"
               },
-              "referencedDeclaration": 3226,
+              "referencedDeclaration": 3232,
               "src": "166:5:16",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RolVO_$3226",
+                "typeIdentifier": "t_contract$_RolVO_$3232",
                 "typeString": "contract RolVO"
               }
             },
@@ -4246,12 +4246,12 @@
           },
           {
             "constant": false,
-            "id": 3240,
+            "id": 3246,
             "mutability": "mutable",
             "name": "estaActivo",
             "nameLocation": "291:10:16",
             "nodeType": "VariableDeclaration",
-            "scope": 3320,
+            "scope": 3326,
             "src": "278:23:16",
             "stateVariable": true,
             "storageLocation": "default",
@@ -4260,7 +4260,7 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 3239,
+              "id": 3245,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
               "src": "278:4:16",
@@ -4273,16 +4273,16 @@
           },
           {
             "canonicalName": "UsuarioVO.UsuarioVoStruct",
-            "id": 3248,
+            "id": 3254,
             "members": [
               {
                 "constant": false,
-                "id": 3242,
+                "id": 3248,
                 "mutability": "mutable",
                 "name": "direccion",
                 "nameLocation": "349:9:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 3248,
+                "scope": 3254,
                 "src": "341:17:16",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -4291,7 +4291,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 3241,
+                  "id": 3247,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "341:7:16",
@@ -4305,37 +4305,37 @@
               },
               {
                 "constant": false,
-                "id": 3245,
+                "id": 3251,
                 "mutability": "mutable",
                 "name": "rol",
                 "nameLocation": "386:3:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 3248,
+                "scope": 3254,
                 "src": "368:21:16",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_RolVoStruct_$2961_storage_ptr",
+                  "typeIdentifier": "t_struct$_RolVoStruct_$2967_storage_ptr",
                   "typeString": "struct RolVO.RolVoStruct"
                 },
                 "typeName": {
-                  "id": 3244,
+                  "id": 3250,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 3243,
+                    "id": 3249,
                     "name": "RolVO.RolVoStruct",
                     "nameLocations": [
                       "368:5:16",
                       "374:11:16"
                     ],
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2961,
+                    "referencedDeclaration": 2967,
                     "src": "368:17:16"
                   },
-                  "referencedDeclaration": 2961,
+                  "referencedDeclaration": 2967,
                   "src": "368:17:16",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_RolVoStruct_$2961_storage_ptr",
+                    "typeIdentifier": "t_struct$_RolVoStruct_$2967_storage_ptr",
                     "typeString": "struct RolVO.RolVoStruct"
                   }
                 },
@@ -4343,12 +4343,12 @@
               },
               {
                 "constant": false,
-                "id": 3247,
+                "id": 3253,
                 "mutability": "mutable",
                 "name": "estaActivo",
                 "nameLocation": "404:10:16",
                 "nodeType": "VariableDeclaration",
-                "scope": 3248,
+                "scope": 3254,
                 "src": "399:15:16",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -4357,7 +4357,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3246,
+                  "id": 3252,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "399:4:16",
@@ -4372,13 +4372,13 @@
             "name": "UsuarioVoStruct",
             "nameLocation": "315:15:16",
             "nodeType": "StructDefinition",
-            "scope": 3320,
+            "scope": 3326,
             "src": "308:113:16",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 3262,
+              "id": 3268,
               "nodeType": "Block",
               "src": "501:129:16",
               "statements": [
@@ -4386,11 +4386,11 @@
                   "expression": {
                     "arguments": [
                       {
-                        "id": 3255,
+                        "id": 3261,
                         "name": "direccion",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3235,
+                        "referencedDeclaration": 3241,
                         "src": "547:9:16",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4402,18 +4402,18 @@
                         "expression": {
                           "argumentTypes": [],
                           "expression": {
-                            "id": 3256,
+                            "id": 3262,
                             "name": "rol",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3238,
+                            "referencedDeclaration": 3244,
                             "src": "570:3:16",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_RolVO_$3226",
+                              "typeIdentifier": "t_contract$_RolVO_$3232",
                               "typeString": "contract RolVO"
                             }
                           },
-                          "id": 3257,
+                          "id": 3263,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4421,14 +4421,14 @@
                           "memberLocation": "574:13:16",
                           "memberName": "getRolVoValue",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 2994,
+                          "referencedDeclaration": 3000,
                           "src": "570:17:16",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_function_external_view$__$returns$_t_struct$_RolVoStruct_$2961_memory_ptr_$",
+                            "typeIdentifier": "t_function_external_view$__$returns$_t_struct$_RolVoStruct_$2967_memory_ptr_$",
                             "typeString": "function () view external returns (struct RolVO.RolVoStruct memory)"
                           }
                         },
-                        "id": 3258,
+                        "id": 3264,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -4440,16 +4440,16 @@
                         "src": "570:19:16",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_RolVoStruct_$2961_memory_ptr",
+                          "typeIdentifier": "t_struct$_RolVoStruct_$2967_memory_ptr",
                           "typeString": "struct RolVO.RolVoStruct memory"
                         }
                       },
                       {
-                        "id": 3259,
+                        "id": 3265,
                         "name": "estaActivo",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3240,
+                        "referencedDeclaration": 3246,
                         "src": "603:10:16",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
@@ -4464,7 +4464,7 @@
                           "typeString": "address"
                         },
                         {
-                          "typeIdentifier": "t_struct$_RolVoStruct_$2961_memory_ptr",
+                          "typeIdentifier": "t_struct$_RolVoStruct_$2967_memory_ptr",
                           "typeString": "struct RolVO.RolVoStruct memory"
                         },
                         {
@@ -4472,18 +4472,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 3254,
+                      "id": 3260,
                       "name": "UsuarioVoStruct",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3248,
+                      "referencedDeclaration": 3254,
                       "src": "518:15:16",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_UsuarioVoStruct_$3248_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_UsuarioVoStruct_$3254_storage_ptr_$",
                         "typeString": "type(struct UsuarioVO.UsuarioVoStruct storage pointer)"
                       }
                     },
-                    "id": 3260,
+                    "id": 3266,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4495,19 +4495,19 @@
                     "src": "518:105:16",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_UsuarioVoStruct_$3248_memory_ptr",
+                      "typeIdentifier": "t_struct$_UsuarioVoStruct_$3254_memory_ptr",
                       "typeString": "struct UsuarioVO.UsuarioVoStruct memory"
                     }
                   },
-                  "functionReturnParameters": 3253,
-                  "id": 3261,
+                  "functionReturnParameters": 3259,
+                  "id": 3267,
                   "nodeType": "Return",
                   "src": "511:112:16"
                 }
               ]
             },
             "functionSelector": "64ff6bbe",
-            "id": 3263,
+            "id": 3269,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4515,47 +4515,47 @@
             "nameLocation": "436:17:16",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3249,
+              "id": 3255,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "453:2:16"
             },
             "returnParameters": {
-              "id": 3253,
+              "id": 3259,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3252,
+                  "id": 3258,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3263,
+                  "scope": 3269,
                   "src": "477:22:16",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_UsuarioVoStruct_$3248_memory_ptr",
+                    "typeIdentifier": "t_struct$_UsuarioVoStruct_$3254_memory_ptr",
                     "typeString": "struct UsuarioVO.UsuarioVoStruct"
                   },
                   "typeName": {
-                    "id": 3251,
+                    "id": 3257,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 3250,
+                      "id": 3256,
                       "name": "UsuarioVoStruct",
                       "nameLocations": [
                         "477:15:16"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3248,
+                      "referencedDeclaration": 3254,
                       "src": "477:15:16"
                     },
-                    "referencedDeclaration": 3248,
+                    "referencedDeclaration": 3254,
                     "src": "477:15:16",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_UsuarioVoStruct_$3248_storage_ptr",
+                      "typeIdentifier": "t_struct$_UsuarioVoStruct_$3254_storage_ptr",
                       "typeString": "struct UsuarioVO.UsuarioVoStruct"
                     }
                   },
@@ -4564,7 +4564,7 @@
               ],
               "src": "476:24:16"
             },
-            "scope": 3320,
+            "scope": 3326,
             "src": "427:203:16",
             "stateMutability": "view",
             "virtual": false,
@@ -4572,32 +4572,32 @@
           },
           {
             "body": {
-              "id": 3270,
+              "id": 3276,
               "nodeType": "Block",
               "src": "690:33:16",
               "statements": [
                 {
                   "expression": {
-                    "id": 3268,
+                    "id": 3274,
                     "name": "direccion",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 3235,
+                    "referencedDeclaration": 3241,
                     "src": "707:9:16",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 3267,
-                  "id": 3269,
+                  "functionReturnParameters": 3273,
+                  "id": 3275,
                   "nodeType": "Return",
                   "src": "700:16:16"
                 }
               ]
             },
             "functionSelector": "60749724",
-            "id": 3271,
+            "id": 3277,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4605,23 +4605,23 @@
             "nameLocation": "645:12:16",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3264,
+              "id": 3270,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "657:2:16"
             },
             "returnParameters": {
-              "id": 3267,
+              "id": 3273,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3266,
+                  "id": 3272,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3271,
+                  "scope": 3277,
                   "src": "681:7:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4630,7 +4630,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3265,
+                    "id": 3271,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "681:7:16",
@@ -4645,7 +4645,7 @@
               ],
               "src": "680:9:16"
             },
-            "scope": 3320,
+            "scope": 3326,
             "src": "636:87:16",
             "stateMutability": "view",
             "virtual": false,
@@ -4653,32 +4653,32 @@
           },
           {
             "body": {
-              "id": 3279,
+              "id": 3285,
               "nodeType": "Block",
               "src": "775:27:16",
               "statements": [
                 {
                   "expression": {
-                    "id": 3277,
+                    "id": 3283,
                     "name": "rol",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 3238,
+                    "referencedDeclaration": 3244,
                     "src": "792:3:16",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_RolVO_$3226",
+                      "typeIdentifier": "t_contract$_RolVO_$3232",
                       "typeString": "contract RolVO"
                     }
                   },
-                  "functionReturnParameters": 3276,
-                  "id": 3278,
+                  "functionReturnParameters": 3282,
+                  "id": 3284,
                   "nodeType": "Return",
                   "src": "785:10:16"
                 }
               ]
             },
             "functionSelector": "c3e00aff",
-            "id": 3280,
+            "id": 3286,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4686,47 +4686,47 @@
             "nameLocation": "738:6:16",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3272,
+              "id": 3278,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "744:2:16"
             },
             "returnParameters": {
-              "id": 3276,
+              "id": 3282,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3275,
+                  "id": 3281,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3280,
+                  "scope": 3286,
                   "src": "768:5:16",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_RolVO_$3226",
+                    "typeIdentifier": "t_contract$_RolVO_$3232",
                     "typeString": "contract RolVO"
                   },
                   "typeName": {
-                    "id": 3274,
+                    "id": 3280,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 3273,
+                      "id": 3279,
                       "name": "RolVO",
                       "nameLocations": [
                         "768:5:16"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3226,
+                      "referencedDeclaration": 3232,
                       "src": "768:5:16"
                     },
-                    "referencedDeclaration": 3226,
+                    "referencedDeclaration": 3232,
                     "src": "768:5:16",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_RolVO_$3226",
+                      "typeIdentifier": "t_contract$_RolVO_$3232",
                       "typeString": "contract RolVO"
                     }
                   },
@@ -4735,7 +4735,7 @@
               ],
               "src": "767:7:16"
             },
-            "scope": 3320,
+            "scope": 3326,
             "src": "729:73:16",
             "stateMutability": "view",
             "virtual": false,
@@ -4743,32 +4743,32 @@
           },
           {
             "body": {
-              "id": 3287,
+              "id": 3293,
               "nodeType": "Block",
               "src": "860:34:16",
               "statements": [
                 {
                   "expression": {
-                    "id": 3285,
+                    "id": 3291,
                     "name": "estaActivo",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 3240,
+                    "referencedDeclaration": 3246,
                     "src": "877:10:16",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 3284,
-                  "id": 3286,
+                  "functionReturnParameters": 3290,
+                  "id": 3292,
                   "nodeType": "Return",
                   "src": "870:17:16"
                 }
               ]
             },
             "functionSelector": "af995846",
-            "id": 3288,
+            "id": 3294,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4776,23 +4776,23 @@
             "nameLocation": "817:13:16",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3281,
+              "id": 3287,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "830:2:16"
             },
             "returnParameters": {
-              "id": 3284,
+              "id": 3290,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3283,
+                  "id": 3289,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3288,
+                  "scope": 3294,
                   "src": "854:4:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4801,7 +4801,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 3282,
+                    "id": 3288,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "854:4:16",
@@ -4815,7 +4815,7 @@
               ],
               "src": "853:6:16"
             },
-            "scope": 3320,
+            "scope": 3326,
             "src": "808:86:16",
             "stateMutability": "view",
             "virtual": false,
@@ -4823,23 +4823,23 @@
           },
           {
             "body": {
-              "id": 3297,
+              "id": 3303,
               "nodeType": "Block",
               "src": "949:39:16",
               "statements": [
                 {
                   "expression": {
-                    "id": 3295,
+                    "id": 3301,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 3293,
+                      "id": 3299,
                       "name": "direccion",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3235,
+                      "referencedDeclaration": 3241,
                       "src": "959:9:16",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -4849,11 +4849,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 3294,
+                      "id": 3300,
                       "name": "_direccion",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3290,
+                      "referencedDeclaration": 3296,
                       "src": "971:10:16",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -4866,14 +4866,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 3296,
+                  "id": 3302,
                   "nodeType": "ExpressionStatement",
                   "src": "959:22:16"
                 }
               ]
             },
             "functionSelector": "5745ab98",
-            "id": 3298,
+            "id": 3304,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4881,17 +4881,17 @@
             "nameLocation": "909:12:16",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3291,
+              "id": 3297,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3290,
+                  "id": 3296,
                   "mutability": "mutable",
                   "name": "_direccion",
                   "nameLocation": "930:10:16",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3298,
+                  "scope": 3304,
                   "src": "922:18:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4900,7 +4900,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3289,
+                    "id": 3295,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "922:7:16",
@@ -4916,12 +4916,12 @@
               "src": "921:20:16"
             },
             "returnParameters": {
-              "id": 3292,
+              "id": 3298,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "949:0:16"
             },
-            "scope": 3320,
+            "scope": 3326,
             "src": "900:88:16",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4929,57 +4929,57 @@
           },
           {
             "body": {
-              "id": 3308,
+              "id": 3314,
               "nodeType": "Block",
               "src": "1029:27:16",
               "statements": [
                 {
                   "expression": {
-                    "id": 3306,
+                    "id": 3312,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 3304,
+                      "id": 3310,
                       "name": "rol",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3238,
+                      "referencedDeclaration": 3244,
                       "src": "1039:3:16",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_RolVO_$3226",
+                        "typeIdentifier": "t_contract$_RolVO_$3232",
                         "typeString": "contract RolVO"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 3305,
+                      "id": 3311,
                       "name": "_rol",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3301,
+                      "referencedDeclaration": 3307,
                       "src": "1045:4:16",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_RolVO_$3226",
+                        "typeIdentifier": "t_contract$_RolVO_$3232",
                         "typeString": "contract RolVO"
                       }
                     },
                     "src": "1039:10:16",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_RolVO_$3226",
+                      "typeIdentifier": "t_contract$_RolVO_$3232",
                       "typeString": "contract RolVO"
                     }
                   },
-                  "id": 3307,
+                  "id": 3313,
                   "nodeType": "ExpressionStatement",
                   "src": "1039:10:16"
                 }
               ]
             },
             "functionSelector": "ce8dd29f",
-            "id": 3309,
+            "id": 3315,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4987,41 +4987,41 @@
             "nameLocation": "1003:6:16",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3302,
+              "id": 3308,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3301,
+                  "id": 3307,
                   "mutability": "mutable",
                   "name": "_rol",
                   "nameLocation": "1016:4:16",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3309,
+                  "scope": 3315,
                   "src": "1010:10:16",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_RolVO_$3226",
+                    "typeIdentifier": "t_contract$_RolVO_$3232",
                     "typeString": "contract RolVO"
                   },
                   "typeName": {
-                    "id": 3300,
+                    "id": 3306,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 3299,
+                      "id": 3305,
                       "name": "RolVO",
                       "nameLocations": [
                         "1010:5:16"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3226,
+                      "referencedDeclaration": 3232,
                       "src": "1010:5:16"
                     },
-                    "referencedDeclaration": 3226,
+                    "referencedDeclaration": 3232,
                     "src": "1010:5:16",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_RolVO_$3226",
+                      "typeIdentifier": "t_contract$_RolVO_$3232",
                       "typeString": "contract RolVO"
                     }
                   },
@@ -5031,12 +5031,12 @@
               "src": "1009:12:16"
             },
             "returnParameters": {
-              "id": 3303,
+              "id": 3309,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1029:0:16"
             },
-            "scope": 3320,
+            "scope": 3326,
             "src": "994:62:16",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -5044,23 +5044,23 @@
           },
           {
             "body": {
-              "id": 3318,
+              "id": 3324,
               "nodeType": "Block",
               "src": "1110:41:16",
               "statements": [
                 {
                   "expression": {
-                    "id": 3316,
+                    "id": 3322,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 3314,
+                      "id": 3320,
                       "name": "estaActivo",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3240,
+                      "referencedDeclaration": 3246,
                       "src": "1120:10:16",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -5070,11 +5070,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 3315,
+                      "id": 3321,
                       "name": "_estaActivo",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3311,
+                      "referencedDeclaration": 3317,
                       "src": "1133:11:16",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -5087,14 +5087,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 3317,
+                  "id": 3323,
                   "nodeType": "ExpressionStatement",
                   "src": "1120:24:16"
                 }
               ]
             },
             "functionSelector": "fdaef483",
-            "id": 3319,
+            "id": 3325,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -5102,17 +5102,17 @@
             "nameLocation": "1071:13:16",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3312,
+              "id": 3318,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3311,
+                  "id": 3317,
                   "mutability": "mutable",
                   "name": "_estaActivo",
                   "nameLocation": "1090:11:16",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3319,
+                  "scope": 3325,
                   "src": "1085:16:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5121,7 +5121,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 3310,
+                    "id": 3316,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1085:4:16",
@@ -5136,19 +5136,19 @@
               "src": "1084:18:16"
             },
             "returnParameters": {
-              "id": 3313,
+              "id": 3319,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1110:0:16"
             },
-            "scope": 3320,
+            "scope": 3326,
             "src": "1062:89:16",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 3321,
+        "scope": 3327,
         "src": "81:1072:16",
         "usedErrors": []
       }
@@ -5160,8 +5160,8 @@
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.8",
-  "updatedAt": "2023-03-26T17:17:11.265Z",
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-05-03T03:35:49.403Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

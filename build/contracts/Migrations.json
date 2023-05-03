@@ -635,7 +635,7 @@
   "sourceMap": "58:352:1:-:0;;;82:33;;;-1:-1:-1;;;;;;82:33:1;105:10;82:33;;;58:352;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "58:352:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;119:36;;;;;;;;;160:25:73;;;148:2;133:18;119:36:1;;;;;;;;82:33;;;;;;;;;;;;372:42:73;360:55;;;342:74;;330:2;315:18;82:33:1;196:226:73;305:103:1;;;;;;:::i;:::-;;:::i;:::-;;;217:5;;;;203:10;:19;188:101;;;;;;;814:2:73;188:101:1;;;796:21:73;853:2;833:18;;;826:30;892:34;872:18;;;865:62;963:21;943:18;;;936:49;1002:19;;188:101:1;;;;;;;;367:24:::1;:36:::0;305:103::o;427:180:73:-;486:6;539:2;527:9;518:7;514:23;510:32;507:52;;;555:1;552;545:12;507:52;-1:-1:-1;578:23:73;;427:180;-1:-1:-1;427:180:73:o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\ncontract Migrations {\n  address public owner = msg.sender;\n  uint public last_completed_migration;\n\n  modifier restricted() {\n    require(\n      msg.sender == owner,\n      \"This function is restricted to the contract's owner\"\n    );\n    _;\n  }\n\n  function setCompleted(uint completed) public restricted {\n    last_completed_migration = completed;\n  }\n}\n",
-  "sourcePath": "/home/felipe/Documentos/Blockchain/codigo/HCE-full/back-hce/contracts/Migrations.sol",
+  "sourcePath": "/back/contracts/Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -1044,8 +1044,8 @@
     "20": {
       "events": {},
       "links": {},
-      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      "transactionHash": "0x7e49f1ad765493338af02d69d8bf46713fab46b420f68244ef1b6fdbed8cc948"
+      "address": "0xC976c932092ECcD8f328FfD85066C0c05ED54044",
+      "transactionHash": "0x90e532b98b43f25e0ec0d9de2bb3f22db60c66df1c5a6741bf416e8e6ed09f8e"
     },
     "1337": {
       "events": {},
@@ -1324,8 +1324,8 @@
       "transactionHash": "0xf6d83a637c3d4901ca8268e6240855e7edda6b3c32c5209fbbe8e3e5d8b2a51d"
     }
   },
-  "schemaVersion": "3.4.8",
-  "updatedAt": "2023-04-05T22:11:43.129Z",
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-05-03T04:15:06.638Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

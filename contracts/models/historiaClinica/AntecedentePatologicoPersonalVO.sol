@@ -8,7 +8,7 @@ import "./RegistroMedico.sol";
 contract AntecedentePatologicoPersonalVO is RegistroMedico(TipoRegistroMedico.ANTECEDENTEPATOLOGICOPERSONALVO) {
     struct AntecedentePatologicoPersonalStruct {
         string enfermedad; // Quizá deba existir una lista de enfermedades en una nueva tabla
-        uint256 fechaAproximada;
+        int256 fechaAproximada;
     }
 
     AntecedentePatologicoPersonalStruct
@@ -18,7 +18,7 @@ contract AntecedentePatologicoPersonalVO is RegistroMedico(TipoRegistroMedico.AN
         return antecedentePatologicoPersonalStruct.enfermedad;
     }
 
-    function getFechaAproximada() public view returns (uint256) {
+    function getFechaAproximada() public view returns (int256) {
         return antecedentePatologicoPersonalStruct.fechaAproximada;
     }
 
@@ -41,7 +41,7 @@ contract AntecedentePatologicoPersonalVO is RegistroMedico(TipoRegistroMedico.AN
         antecedentePatologicoPersonalStruct.enfermedad = _enfermedad;
     }
 
-    function setFechaAproximada(uint256 _fechaAproximada) public {
+    function setFechaAproximada(int256 _fechaAproximada) public {
         antecedentePatologicoPersonalStruct.fechaAproximada = _fechaAproximada;
     }
 }

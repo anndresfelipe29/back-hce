@@ -10,8 +10,8 @@ module.exports = async function (callback) {
     let medico
     let oraculo
 
-    const accounts = await web3.eth.getAccounts()
-    console.log(accounts[8])
+    //const accounts = await web3.eth.getAccounts()
+    //console.log(accounts[8])
     // Paciente
     paciente = await Paciente.deployed()
 
@@ -21,6 +21,7 @@ module.exports = async function (callback) {
     // Oraculo
     oraculo = await Oraculo.deployed()
     try {
+        console.log(process.env.ACCOUNT)
         // NOTE: Cambiar dirección por dirección que usara el nodo.
         await  oraculo.setOraculo(process.env.ACCOUNT, 1)
     } catch (error) {
@@ -30,7 +31,7 @@ module.exports = async function (callback) {
 
     console.log("==================Usuarios default====================")
     console.log("Terminamos la carga de datos y conexión entre contratos")
-    console.log("usuarios disponibles:")
-    console.table(accounts)
+    //console.log("usuarios disponibles:")
+    //console.table(accounts)
     callback()
 }

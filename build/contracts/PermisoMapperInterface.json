@@ -86,26 +86,26 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\nimport \"../models/RolVO.sol\";\n\ninterface PermisoMapperInterface {\n    event Log(string data);\n\n    function consultar(uint256 _id) external returns (PermisoVO);\n\n    function guardar(uint256 _id, PermisoVO paciente) external;\n\n    function actualizar(uint256 _id, PermisoVO paciente) external;\n\n    function selfDestruct() external;\n}\n",
-  "sourcePath": "/home/felipe/Documentos/Blockchain/codigo/HCE-full/back-hce/contracts/persistence/PermisoMapperInterface.sol",
+  "sourcePath": "/back/contracts/persistence/PermisoMapperInterface.sol",
   "ast": {
     "absolutePath": "project:/contracts/persistence/PermisoMapperInterface.sol",
     "exportedSymbols": {
       "PermisoMapperInterface": [
-        11083
+        11095
       ],
       "PermisoVO": [
-        2654
+        2660
       ],
       "RolVO": [
-        3226
+        3232
       ]
     },
-    "id": 11084,
+    "id": 11096,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 11050,
+        "id": 11062,
         "literals": [
           "solidity",
           "^",
@@ -118,11 +118,11 @@
       {
         "absolutePath": "project:/contracts/models/RolVO.sol",
         "file": "../models/RolVO.sol",
-        "id": 11051,
+        "id": 11063,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 11084,
-        "sourceUnit": 3227,
+        "scope": 11096,
+        "sourceUnit": 3233,
         "src": "58:29:66",
         "symbolAliases": [],
         "unitAlias": ""
@@ -134,9 +134,9 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 11083,
+        "id": 11095,
         "linearizedBaseContracts": [
-          11083
+          11095
         ],
         "name": "PermisoMapperInterface",
         "nameLocation": "99:22:66",
@@ -145,23 +145,23 @@
           {
             "anonymous": false,
             "eventSelector": "cf34ef537ac33ee1ac626ca1587a0a7e8e51561e5514f8cb36afa1c5102b3bab",
-            "id": 11055,
+            "id": 11067,
             "name": "Log",
             "nameLocation": "134:3:66",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 11054,
+              "id": 11066,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11053,
+                  "id": 11065,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "145:4:66",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11055,
+                  "scope": 11067,
                   "src": "138:11:66",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -170,7 +170,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 11052,
+                    "id": 11064,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "138:6:66",
@@ -188,7 +188,7 @@
           },
           {
             "functionSelector": "b10b65ce",
-            "id": 11063,
+            "id": 11075,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -196,17 +196,17 @@
             "nameLocation": "166:9:66",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11058,
+              "id": 11070,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11057,
+                  "id": 11069,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "184:3:66",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11063,
+                  "scope": 11075,
                   "src": "176:11:66",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -215,7 +215,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 11056,
+                    "id": 11068,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "176:7:66",
@@ -230,41 +230,41 @@
               "src": "175:13:66"
             },
             "returnParameters": {
-              "id": 11062,
+              "id": 11074,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11061,
+                  "id": 11073,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11063,
+                  "scope": 11075,
                   "src": "207:9:66",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                    "typeIdentifier": "t_contract$_PermisoVO_$2660",
                     "typeString": "contract PermisoVO"
                   },
                   "typeName": {
-                    "id": 11060,
+                    "id": 11072,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 11059,
+                      "id": 11071,
                       "name": "PermisoVO",
                       "nameLocations": [
                         "207:9:66"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2654,
+                      "referencedDeclaration": 2660,
                       "src": "207:9:66"
                     },
-                    "referencedDeclaration": 2654,
+                    "referencedDeclaration": 2660,
                     "src": "207:9:66",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                      "typeIdentifier": "t_contract$_PermisoVO_$2660",
                       "typeString": "contract PermisoVO"
                     }
                   },
@@ -273,7 +273,7 @@
               ],
               "src": "206:11:66"
             },
-            "scope": 11083,
+            "scope": 11095,
             "src": "157:61:66",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -281,7 +281,7 @@
           },
           {
             "functionSelector": "d058e437",
-            "id": 11071,
+            "id": 11083,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -289,17 +289,17 @@
             "nameLocation": "233:7:66",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11069,
+              "id": 11081,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11065,
+                  "id": 11077,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "249:3:66",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11071,
+                  "scope": 11083,
                   "src": "241:11:66",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -308,7 +308,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 11064,
+                    "id": 11076,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "241:7:66",
@@ -321,36 +321,36 @@
                 },
                 {
                   "constant": false,
-                  "id": 11068,
+                  "id": 11080,
                   "mutability": "mutable",
                   "name": "paciente",
                   "nameLocation": "264:8:66",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11071,
+                  "scope": 11083,
                   "src": "254:18:66",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                    "typeIdentifier": "t_contract$_PermisoVO_$2660",
                     "typeString": "contract PermisoVO"
                   },
                   "typeName": {
-                    "id": 11067,
+                    "id": 11079,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 11066,
+                      "id": 11078,
                       "name": "PermisoVO",
                       "nameLocations": [
                         "254:9:66"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2654,
+                      "referencedDeclaration": 2660,
                       "src": "254:9:66"
                     },
-                    "referencedDeclaration": 2654,
+                    "referencedDeclaration": 2660,
                     "src": "254:9:66",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                      "typeIdentifier": "t_contract$_PermisoVO_$2660",
                       "typeString": "contract PermisoVO"
                     }
                   },
@@ -360,12 +360,12 @@
               "src": "240:33:66"
             },
             "returnParameters": {
-              "id": 11070,
+              "id": 11082,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "282:0:66"
             },
-            "scope": 11083,
+            "scope": 11095,
             "src": "224:59:66",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -373,7 +373,7 @@
           },
           {
             "functionSelector": "27fcdf2b",
-            "id": 11079,
+            "id": 11091,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -381,17 +381,17 @@
             "nameLocation": "298:10:66",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11077,
+              "id": 11089,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11073,
+                  "id": 11085,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "317:3:66",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11079,
+                  "scope": 11091,
                   "src": "309:11:66",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -400,7 +400,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 11072,
+                    "id": 11084,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "309:7:66",
@@ -413,36 +413,36 @@
                 },
                 {
                   "constant": false,
-                  "id": 11076,
+                  "id": 11088,
                   "mutability": "mutable",
                   "name": "paciente",
                   "nameLocation": "332:8:66",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11079,
+                  "scope": 11091,
                   "src": "322:18:66",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                    "typeIdentifier": "t_contract$_PermisoVO_$2660",
                     "typeString": "contract PermisoVO"
                   },
                   "typeName": {
-                    "id": 11075,
+                    "id": 11087,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 11074,
+                      "id": 11086,
                       "name": "PermisoVO",
                       "nameLocations": [
                         "322:9:66"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2654,
+                      "referencedDeclaration": 2660,
                       "src": "322:9:66"
                     },
-                    "referencedDeclaration": 2654,
+                    "referencedDeclaration": 2660,
                     "src": "322:9:66",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_PermisoVO_$2654",
+                      "typeIdentifier": "t_contract$_PermisoVO_$2660",
                       "typeString": "contract PermisoVO"
                     }
                   },
@@ -452,12 +452,12 @@
               "src": "308:33:66"
             },
             "returnParameters": {
-              "id": 11078,
+              "id": 11090,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "350:0:66"
             },
-            "scope": 11083,
+            "scope": 11095,
             "src": "289:62:66",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -465,7 +465,7 @@
           },
           {
             "functionSelector": "9cb8a26a",
-            "id": 11082,
+            "id": 11094,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -473,25 +473,25 @@
             "nameLocation": "366:12:66",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11080,
+              "id": 11092,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "378:2:66"
             },
             "returnParameters": {
-              "id": 11081,
+              "id": 11093,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "389:0:66"
             },
-            "scope": 11083,
+            "scope": 11095,
             "src": "357:33:66",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 11084,
+        "scope": 11096,
         "src": "89:303:66",
         "usedErrors": []
       }
@@ -503,8 +503,8 @@
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.8",
-  "updatedAt": "2023-03-26T17:17:11.559Z",
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-05-03T03:35:50.898Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
