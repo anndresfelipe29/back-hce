@@ -92,24 +92,24 @@
     "absolutePath": "project:/contracts/persistence/RolMapperInterface.sol",
     "exportedSymbols": {
       "PermisoVO": [
-        2449
+        2627
       ],
       "RolDeAccesoEnum": [
-        3862
+        4040
       ],
       "RolMapperInterface": [
-        10864
+        11042
       ],
       "RolVO": [
-        3021
+        3199
       ]
     },
-    "id": 10865,
+    "id": 11043,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 10828,
+        "id": 11006,
         "literals": [
           "solidity",
           "^",
@@ -117,29 +117,29 @@
           ".17"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:64"
+        "src": "32:24:65"
       },
       {
         "absolutePath": "project:/contracts/models/RolVO.sol",
         "file": "../models/RolVO.sol",
-        "id": 10829,
+        "id": 11007,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 10865,
-        "sourceUnit": 3022,
-        "src": "58:29:64",
+        "scope": 11043,
+        "sourceUnit": 3200,
+        "src": "58:29:65",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "project:/contracts/models/VOGenerales/enums/RolDeAccesoEnum.sol",
         "file": "../models/VOGenerales/enums/RolDeAccesoEnum.sol",
-        "id": 10830,
+        "id": 11008,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 10865,
-        "sourceUnit": 3863,
-        "src": "88:57:64",
+        "scope": 11043,
+        "sourceUnit": 4041,
+        "src": "88:57:65",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -150,35 +150,35 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 10864,
+        "id": 11042,
         "linearizedBaseContracts": [
-          10864
+          11042
         ],
         "name": "RolMapperInterface",
-        "nameLocation": "157:18:64",
+        "nameLocation": "157:18:65",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "anonymous": false,
             "eventSelector": "cf34ef537ac33ee1ac626ca1587a0a7e8e51561e5514f8cb36afa1c5102b3bab",
-            "id": 10834,
+            "id": 11012,
             "name": "Log",
-            "nameLocation": "188:3:64",
+            "nameLocation": "188:3:65",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 10833,
+              "id": 11011,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10832,
+                  "id": 11010,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "data",
-                  "nameLocation": "199:4:64",
+                  "nameLocation": "199:4:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10834,
-                  "src": "192:11:64",
+                  "scope": 11012,
+                  "src": "192:11:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -186,10 +186,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 10831,
+                    "id": 11009,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "192:6:64",
+                    "src": "192:6:65",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -198,179 +198,179 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "191:13:64"
+              "src": "191:13:65"
             },
-            "src": "182:23:64"
+            "src": "182:23:65"
           },
           {
             "functionSelector": "86dda368",
-            "id": 10843,
+            "id": 11021,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "consultar",
-            "nameLocation": "220:9:64",
+            "nameLocation": "220:9:65",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10838,
+              "id": 11016,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10837,
+                  "id": 11015,
                   "mutability": "mutable",
                   "name": "_id",
-                  "nameLocation": "246:3:64",
+                  "nameLocation": "246:3:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10843,
-                  "src": "230:19:64",
+                  "scope": 11021,
+                  "src": "230:19:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_RolDeAccesoEnum_$3862",
+                    "typeIdentifier": "t_enum$_RolDeAccesoEnum_$4040",
                     "typeString": "enum RolDeAccesoEnum"
                   },
                   "typeName": {
-                    "id": 10836,
+                    "id": 11014,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 10835,
+                      "id": 11013,
                       "name": "RolDeAccesoEnum",
                       "nameLocations": [
-                        "230:15:64"
+                        "230:15:65"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3862,
-                      "src": "230:15:64"
+                      "referencedDeclaration": 4040,
+                      "src": "230:15:65"
                     },
-                    "referencedDeclaration": 3862,
-                    "src": "230:15:64",
+                    "referencedDeclaration": 4040,
+                    "src": "230:15:65",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_RolDeAccesoEnum_$3862",
+                      "typeIdentifier": "t_enum$_RolDeAccesoEnum_$4040",
                       "typeString": "enum RolDeAccesoEnum"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "229:21:64"
+              "src": "229:21:65"
             },
             "returnParameters": {
-              "id": 10842,
+              "id": 11020,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10841,
+                  "id": 11019,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10843,
-                  "src": "269:5:64",
+                  "scope": 11021,
+                  "src": "269:5:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_RolVO_$3021",
+                    "typeIdentifier": "t_contract$_RolVO_$3199",
                     "typeString": "contract RolVO"
                   },
                   "typeName": {
-                    "id": 10840,
+                    "id": 11018,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 10839,
+                      "id": 11017,
                       "name": "RolVO",
                       "nameLocations": [
-                        "269:5:64"
+                        "269:5:65"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3021,
-                      "src": "269:5:64"
+                      "referencedDeclaration": 3199,
+                      "src": "269:5:65"
                     },
-                    "referencedDeclaration": 3021,
-                    "src": "269:5:64",
+                    "referencedDeclaration": 3199,
+                    "src": "269:5:65",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_RolVO_$3021",
+                      "typeIdentifier": "t_contract$_RolVO_$3199",
                       "typeString": "contract RolVO"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "268:7:64"
+              "src": "268:7:65"
             },
-            "scope": 10864,
-            "src": "211:65:64",
+            "scope": 11042,
+            "src": "211:65:65",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "415b268b",
-            "id": 10851,
+            "id": 11029,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "guardar",
-            "nameLocation": "291:7:64",
+            "nameLocation": "291:7:65",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10847,
+              "id": 11025,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10846,
+                  "id": 11024,
                   "mutability": "mutable",
                   "name": "paciente",
-                  "nameLocation": "305:8:64",
+                  "nameLocation": "305:8:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10851,
-                  "src": "299:14:64",
+                  "scope": 11029,
+                  "src": "299:14:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_RolVO_$3021",
+                    "typeIdentifier": "t_contract$_RolVO_$3199",
                     "typeString": "contract RolVO"
                   },
                   "typeName": {
-                    "id": 10845,
+                    "id": 11023,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 10844,
+                      "id": 11022,
                       "name": "RolVO",
                       "nameLocations": [
-                        "299:5:64"
+                        "299:5:65"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3021,
-                      "src": "299:5:64"
+                      "referencedDeclaration": 3199,
+                      "src": "299:5:65"
                     },
-                    "referencedDeclaration": 3021,
-                    "src": "299:5:64",
+                    "referencedDeclaration": 3199,
+                    "src": "299:5:65",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_RolVO_$3021",
+                      "typeIdentifier": "t_contract$_RolVO_$3199",
                       "typeString": "contract RolVO"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "298:16:64"
+              "src": "298:16:65"
             },
             "returnParameters": {
-              "id": 10850,
+              "id": 11028,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10849,
+                  "id": 11027,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10851,
-                  "src": "333:7:64",
+                  "scope": 11029,
+                  "src": "333:7:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -378,10 +378,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 10848,
+                    "id": 11026,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "333:7:64",
+                    "src": "333:7:65",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -390,59 +390,59 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "332:9:64"
+              "src": "332:9:65"
             },
-            "scope": 10864,
-            "src": "282:60:64",
+            "scope": 11042,
+            "src": "282:60:65",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "0b7f2010",
-            "id": 10860,
+            "id": 11038,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "actualizar",
-            "nameLocation": "357:10:64",
+            "nameLocation": "357:10:65",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10858,
+              "id": 11036,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10854,
+                  "id": 11032,
                   "mutability": "mutable",
                   "name": "_id",
-                  "nameLocation": "384:3:64",
+                  "nameLocation": "384:3:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10860,
-                  "src": "368:19:64",
+                  "scope": 11038,
+                  "src": "368:19:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_RolDeAccesoEnum_$3862",
+                    "typeIdentifier": "t_enum$_RolDeAccesoEnum_$4040",
                     "typeString": "enum RolDeAccesoEnum"
                   },
                   "typeName": {
-                    "id": 10853,
+                    "id": 11031,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 10852,
+                      "id": 11030,
                       "name": "RolDeAccesoEnum",
                       "nameLocations": [
-                        "368:15:64"
+                        "368:15:65"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3862,
-                      "src": "368:15:64"
+                      "referencedDeclaration": 4040,
+                      "src": "368:15:65"
                     },
-                    "referencedDeclaration": 3862,
-                    "src": "368:15:64",
+                    "referencedDeclaration": 4040,
+                    "src": "368:15:65",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_RolDeAccesoEnum_$3862",
+                      "typeIdentifier": "t_enum$_RolDeAccesoEnum_$4040",
                       "typeString": "enum RolDeAccesoEnum"
                     }
                   },
@@ -450,98 +450,98 @@
                 },
                 {
                   "constant": false,
-                  "id": 10857,
+                  "id": 11035,
                   "mutability": "mutable",
                   "name": "paciente",
-                  "nameLocation": "395:8:64",
+                  "nameLocation": "395:8:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10860,
-                  "src": "389:14:64",
+                  "scope": 11038,
+                  "src": "389:14:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_RolVO_$3021",
+                    "typeIdentifier": "t_contract$_RolVO_$3199",
                     "typeString": "contract RolVO"
                   },
                   "typeName": {
-                    "id": 10856,
+                    "id": 11034,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 10855,
+                      "id": 11033,
                       "name": "RolVO",
                       "nameLocations": [
-                        "389:5:64"
+                        "389:5:65"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3021,
-                      "src": "389:5:64"
+                      "referencedDeclaration": 3199,
+                      "src": "389:5:65"
                     },
-                    "referencedDeclaration": 3021,
-                    "src": "389:5:64",
+                    "referencedDeclaration": 3199,
+                    "src": "389:5:65",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_RolVO_$3021",
+                      "typeIdentifier": "t_contract$_RolVO_$3199",
                       "typeString": "contract RolVO"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "367:37:64"
+              "src": "367:37:65"
             },
             "returnParameters": {
-              "id": 10859,
+              "id": 11037,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "413:0:64"
+              "src": "413:0:65"
             },
-            "scope": 10864,
-            "src": "348:66:64",
+            "scope": 11042,
+            "src": "348:66:65",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9cb8a26a",
-            "id": 10863,
+            "id": 11041,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "selfDestruct",
-            "nameLocation": "429:12:64",
+            "nameLocation": "429:12:65",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10861,
+              "id": 11039,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "441:2:64"
+              "src": "441:2:65"
             },
             "returnParameters": {
-              "id": 10862,
+              "id": 11040,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "452:0:64"
+              "src": "452:0:65"
             },
-            "scope": 10864,
-            "src": "420:33:64",
+            "scope": 11042,
+            "src": "420:33:65",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 10865,
-        "src": "147:308:64",
+        "scope": 11043,
+        "src": "147:308:65",
         "usedErrors": []
       }
     ],
-    "src": "32:424:64"
+    "src": "32:424:65"
   },
   "compiler": {
     "name": "solc",
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.11",
-  "updatedAt": "2023-05-03T04:13:43.863Z",
+  "schemaVersion": "3.4.13",
+  "updatedAt": "2023-05-03T22:18:41.037Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
