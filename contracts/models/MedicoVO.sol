@@ -44,7 +44,7 @@ contract MedicoVO is Persona {
         estado = _estadoVO;
         usuario = _usuario;
         contrasena = _contrasena;
-        especialidadId = _medicoVOStruct.especialidadId;
+        especialidadId = _medicoVOStruct.especialidadId;        
     }
 
     function getEstado() public view returns (EstadoVO) {
