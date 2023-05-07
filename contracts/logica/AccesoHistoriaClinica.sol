@@ -9,7 +9,7 @@ contract AccesoHistoriaClinica is Modifiers {
 AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
 MedicoMapperInterface private medicoMapper;
 
-    event Log(string data);
+    event Log(string data, address indexed notificado);
     event Notification(string data, address indexed notificado);
 
     constructor() {
@@ -29,7 +29,7 @@ MedicoMapperInterface private medicoMapper;
         for (uint256 i = permisos.length; i > 0; i--) {
             permiso = permisos[i - 1];
             if (!permiso.getFueRespondido()) {
-                emit Log("La solicitud fue respondida");
+                emit Log("La solicitud fue respondida", direccionMedico);
                 if (acepta) {
                     permiso.setFueRespondido(true);
                     permiso.setFechaSolicitud(fechaActual);
