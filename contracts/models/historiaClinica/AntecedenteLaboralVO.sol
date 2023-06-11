@@ -7,6 +7,7 @@ import "./RegistroMedico.sol";
 
 contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTELABORALVO){
     struct AntecedenteLaboralStruct {
+        RegistroMedicoStruct registroMedico;
         string descripcionLabor;
         string actividadRealizada;
         int256 fechaInicio;
@@ -14,6 +15,12 @@ contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTEL
     }
 
     AntecedenteLaboralStruct private antecedenteLaboralStruct;
+
+    constructor() {
+        creador = msg.sender;
+        antecedenteLaboralStruct.registroMedico = getRegistroMedico();
+    }
+
 
     function getDescripcionLabor() public view returns (string memory) {
         return antecedenteLaboralStruct.descripcionLabor;
@@ -42,6 +49,7 @@ contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTEL
     function setAntecedenteLaboralStruct(
         AntecedenteLaboralStruct memory _antecedenteLaboralStruct
     ) public {
+        _antecedenteLaboralStruct.registroMedico = antecedenteLaboralStruct.registroMedico;
         antecedenteLaboralStruct = _antecedenteLaboralStruct;
     }
 

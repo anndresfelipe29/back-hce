@@ -6,6 +6,7 @@ import "../structsGenerales/SexoStruct.sol";
 
 contract PartoVO is RegistroMedico (TipoRegistroMedico.PARTOVO) {
     struct PartoStruct {
+        RegistroMedicoStruct registroMedico;
         uint256 periodoGestacion;
         bool controlPrenatal;
         string causaMuerteMadre;
@@ -36,6 +37,11 @@ contract PartoVO is RegistroMedico (TipoRegistroMedico.PARTOVO) {
     }
 
     PartoStruct private partoStruct;
+
+    constructor() {
+        creador = msg.sender;
+        partoStruct.registroMedico = getRegistroMedico();
+    }
 
     function getPeriodoGestacion() public view returns (uint256) {
         return partoStruct.periodoGestacion;
@@ -70,6 +76,7 @@ contract PartoVO is RegistroMedico (TipoRegistroMedico.PARTOVO) {
     }
 
     function setPartoStruct(PartoStruct memory _partoStruct) public {
+        _partoStruct.registroMedico = partoStruct.registroMedico;
         partoStruct = _partoStruct;
     }
 

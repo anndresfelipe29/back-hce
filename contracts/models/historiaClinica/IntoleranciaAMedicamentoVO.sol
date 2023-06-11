@@ -6,11 +6,17 @@ import "./RegistroMedico.sol";
 
 contract IntoleranciaAMedicamentoVO is RegistroMedico (TipoRegistroMedico.INTOLERACIAAMEDICAMENTOVO) {
     struct IntoleranciaAMedicamentoStruct {
+        RegistroMedicoStruct registroMedico;
         string descripcionMedicamento; // Quizá deba existir una lista de enfermedades en una nueva tabla
         string comentarios;        
     }
 
     IntoleranciaAMedicamentoStruct private intoleranciaAMedicamentoStruct;
+
+    constructor() {
+        creador = msg.sender;
+        intoleranciaAMedicamentoStruct.registroMedico = getRegistroMedico();
+    }
 
     function getDescripcionMedicamento() public view returns (string memory) {
         return intoleranciaAMedicamentoStruct.descripcionMedicamento;
@@ -32,6 +38,7 @@ contract IntoleranciaAMedicamentoVO is RegistroMedico (TipoRegistroMedico.INTOLE
     function setIntoleranciaAMedicamentoStruct(
         IntoleranciaAMedicamentoStruct memory _intoleranciaAMedicamentoStruct
     ) public {
+        _intoleranciaAMedicamentoStruct.registroMedico = intoleranciaAMedicamentoStruct.registroMedico;
         intoleranciaAMedicamentoStruct = _intoleranciaAMedicamentoStruct;
     }
 

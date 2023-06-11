@@ -6,6 +6,7 @@ import "./RegistroMedico.sol";
 
 contract InmunizacionVO is RegistroMedico (TipoRegistroMedico.INMUNIZACIONVO) {
     struct InmunizacionStruct {
+        RegistroMedicoStruct registroMedico;
         VacunaStruct inmunizacion;
         int256 fechaAplicacion;
     }
@@ -16,6 +17,11 @@ contract InmunizacionVO is RegistroMedico (TipoRegistroMedico.INMUNIZACIONVO) {
     }
 
     InmunizacionStruct private inmunizacionStruct;
+
+    constructor() {
+        creador = msg.sender;
+        inmunizacionStruct.registroMedico = getRegistroMedico();
+    }
 
     function getInmunizacion() public view returns (VacunaStruct memory) {
         return inmunizacionStruct.inmunizacion;
@@ -36,6 +42,7 @@ contract InmunizacionVO is RegistroMedico (TipoRegistroMedico.INMUNIZACIONVO) {
     function setInmunizacionStruct(
         InmunizacionStruct memory _inmunizacionStruct
     ) public {
+        _inmunizacionStruct.registroMedico = inmunizacionStruct.registroMedico;
         inmunizacionStruct = _inmunizacionStruct;
     }
 

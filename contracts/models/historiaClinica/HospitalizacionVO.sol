@@ -6,6 +6,7 @@ import "../structsGenerales/IncapacidadStruct.sol";
 
 contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACIONVO) {
     struct HospitalizacionStruct {
+        RegistroMedicoStruct registroMedico;
         uint256 causaExterna;
         string diagnosticoIngreso;
         uint256 viaDeIngreso;
@@ -18,6 +19,11 @@ contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACION
     }
 
     HospitalizacionStruct private hospitalizacionStruct;
+
+    constructor() {
+        creador = msg.sender;
+        hospitalizacionStruct.registroMedico = getRegistroMedico();
+    }
 
     function getCausaExterna() public view returns (uint256) {
         return hospitalizacionStruct.causaExterna;
@@ -66,6 +72,7 @@ contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACION
     function setHospitalizacionStruct(
         HospitalizacionStruct memory _hospitalizacionStruct
     ) public {
+        _hospitalizacionStruct.registroMedico = hospitalizacionStruct.registroMedico;
         hospitalizacionStruct = _hospitalizacionStruct;
     }
 

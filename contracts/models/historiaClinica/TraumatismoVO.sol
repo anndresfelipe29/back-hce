@@ -5,11 +5,17 @@ import "./RegistroMedico.sol";
 
 contract TraumatismoVO is RegistroMedico (TipoRegistroMedico.TRAUMATISMOVO) {
     struct TraumatismoStruct {
+        RegistroMedicoStruct registroMedico;
         string descripcion;
         int256 fechaAproximada;
     }
 
     TraumatismoStruct private traumatismoStruct;
+
+    constructor() {
+        creador = msg.sender;
+        traumatismoStruct.registroMedico = getRegistroMedico();
+    }
 
     function getDescripcion() public view returns (string memory) {
         return traumatismoStruct.descripcion;
@@ -30,6 +36,7 @@ contract TraumatismoVO is RegistroMedico (TipoRegistroMedico.TRAUMATISMOVO) {
     function setTraumatismoStruct(
         TraumatismoStruct memory _traumatismoStruct
     ) public {
+        _traumatismoStruct.registroMedico = traumatismoStruct.registroMedico;
         traumatismoStruct = _traumatismoStruct;
     }
 

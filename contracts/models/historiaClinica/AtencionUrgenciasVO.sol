@@ -6,6 +6,7 @@ import "../structsGenerales/IncapacidadStruct.sol";
 
 contract AtencionUrgenciasVO is RegistroMedico(TipoRegistroMedico.ATENCIONURGENCIASVO) {
     struct AtencionUrgenciasStruct {
+        RegistroMedicoStruct registroMedico;
         int256 fechaIngreso;
         int256 fechaSalida;
         string condicion;
@@ -18,6 +19,11 @@ contract AtencionUrgenciasVO is RegistroMedico(TipoRegistroMedico.ATENCIONURGENC
     }
 
     AtencionUrgenciasStruct private atencionUrgenciasStruct;
+
+    constructor() {
+        creador = msg.sender;
+        atencionUrgenciasStruct.registroMedico = getRegistroMedico();
+    }
 
     function getFechaIngreso() public view returns (int256) {
         return atencionUrgenciasStruct.fechaIngreso;
@@ -66,6 +72,7 @@ contract AtencionUrgenciasVO is RegistroMedico(TipoRegistroMedico.ATENCIONURGENC
     function setAtencionUrgenciasStruct(
         AtencionUrgenciasStruct memory _atencionUrgenciasStruct
     ) public {
+        _atencionUrgenciasStruct.registroMedico = atencionUrgenciasStruct.registroMedico;
         atencionUrgenciasStruct = _atencionUrgenciasStruct;
     }
 

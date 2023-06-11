@@ -6,6 +6,7 @@ import "../structsGenerales/ProcedimientosStruct.sol";
 
 contract ProcedimientoQuirurgicoVO is RegistroMedico (TipoRegistroMedico.PROCEDIMIENTOQUIRURGICOVO) {
     struct ProcedimientoQuirurgicoStruct {
+        RegistroMedicoStruct registroMedico;
         uint ambitoProcedimiento;
         string complicacion;
         ClaseProcedimientoStruct procedimiento;
@@ -17,6 +18,11 @@ contract ProcedimientoQuirurgicoVO is RegistroMedico (TipoRegistroMedico.PROCEDI
     }
 
     ProcedimientoQuirurgicoStruct private procedimientoQuirurgicoStruct;
+
+    constructor() {
+        creador = msg.sender;
+        procedimientoQuirurgicoStruct.registroMedico = getRegistroMedico();
+    }
 
     function getAmbitoProcedimiento() public view returns (uint256) {
         return procedimientoQuirurgicoStruct.ambitoProcedimiento;
@@ -61,6 +67,7 @@ contract ProcedimientoQuirurgicoVO is RegistroMedico (TipoRegistroMedico.PROCEDI
     function setProcedimientoQuirurgicoStruct(
         ProcedimientoQuirurgicoStruct memory _procedimientoQuirurgicoStruct
     ) public {
+        _procedimientoQuirurgicoStruct.registroMedico = procedimientoQuirurgicoStruct.registroMedico;
         procedimientoQuirurgicoStruct = _procedimientoQuirurgicoStruct;
     }
 
