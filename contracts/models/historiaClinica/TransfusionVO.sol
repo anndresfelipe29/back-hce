@@ -6,7 +6,6 @@ import "./RegistroMedico.sol";
 
 contract TransfusionVO is RegistroMedico (TipoRegistroMedico.TRANSFUSIONVO) {
     struct TransfusionStruct {
-        RegistroMedicoStruct registroMedico;
         uint cantidad;
         string reacciones;
         int256 fechaTransfusion;        
@@ -16,7 +15,6 @@ contract TransfusionVO is RegistroMedico (TipoRegistroMedico.TRANSFUSIONVO) {
 
     constructor() {
         creador = msg.sender;
-        transfusionStruct.registroMedico = getRegistroMedico();
     }
 
     function getCantidad() public view returns (uint256) {
@@ -42,7 +40,6 @@ contract TransfusionVO is RegistroMedico (TipoRegistroMedico.TRANSFUSIONVO) {
     function setTransfusionStruct(
         TransfusionStruct memory _transfusionStruct
     ) public {
-        _transfusionStruct.registroMedico = transfusionStruct.registroMedico;
         transfusionStruct = _transfusionStruct;
     }
 

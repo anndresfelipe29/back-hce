@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
-// import "../logica/Persona.sol";
 import "../models/historiaClinica/HistoriaClinicaVO.sol";
 import "./HistoriaClinicaMapperInterface.sol";
 
@@ -30,9 +29,6 @@ contract HistoriaClinicaMapper is HistoriaClinicaMapperInterface {
         public
     {
         if (address(historiasClinicas[direccion]) != address(0)) {
-            emit Log(
-                "Ya existe una historia clinica registrada con ese address"
-            );
             revert("Ya existe una historia clinica registrada con ese address");
         }
         historiasClinicas[direccion] = _historiaClinicaVO;

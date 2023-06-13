@@ -27,7 +27,6 @@ contract RolMapper is RolMapperInterface {
     function guardar(RolVO _rol) external returns (uint256){
         address direccion = address(_rol);
         if (address(roles[direccion]) != address(0)) {
-            emit Log("Ya existe un rol registrado con ese address");
             revert("Ya existe un rol registrado con ese address");
         }
         uint256 id = rolAddressList.length;

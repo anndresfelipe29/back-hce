@@ -16,7 +16,6 @@ contract RolVO {
         string descripcion;
     }
 
-    event Log(string data);
 
     uint256 private id;
     string private nombre;

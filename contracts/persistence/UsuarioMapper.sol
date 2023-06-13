@@ -14,19 +14,16 @@ contract UsuarioMapper is UsuarioMapperInterface {
     }
 
     function consultar(address direccion) external view returns (UsuarioVO) {
-        //emit Log("entro a consultar");
         UsuarioVO usuario = usuarios[direccion];
         if (address(usuario) == address(0)) {
             revert("No existe ese usuario");
         }
-        // emit Log("usuario valido");
-        //emit Log(usuario);
+
         return usuario;
     }
 
     function guardar(address direccion, UsuarioVO _usuario) public {
         if (address(usuarios[direccion]) != address(0)) {
-            emit Log("Ya existe un usuario registrado con ese address");
             revert("Ya existe un usuario registrado con ese address");
         }
         usuarios[direccion] = _usuario;

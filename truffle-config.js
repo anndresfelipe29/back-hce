@@ -65,7 +65,20 @@ module.exports = {
       //port: 8545,
       network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
       // gasPrice: 20,
-      // gas: 90000000,   //limite de gas
+      //gas: 90000000,   //limite de gas
+      // from: "0xC2e5c0E064783e47D220142bd418857D7B01aFf3"
+    },
+
+    debug: {
+      // host: 'localhost',
+      timeout: 100000,
+      host: 'localhost',
+      port: 7545,
+      //gas: 90000000, 
+      //port: 8545,
+      network_id: '*',   // * para que se envie la petición a cualquier red en esa dirección
+      // gasPrice: 20,
+      //gas: 90000000,   //limite de gas
       // from: "0xC2e5c0E064783e47D220142bd418857D7B01aFf3"
     },
 

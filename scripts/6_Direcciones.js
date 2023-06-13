@@ -3,7 +3,7 @@ const { open } = require('fs/promises');
 
 const Oracle = artifacts.require('Oracle')
 const AccesoHistoriaClinica = artifacts.require('AccesoHistoriaClinica')
-
+const HistoriaClinica = artifacts.require('HistoriaClinica')
 
 module.exports = async function (callback) {
 
@@ -13,15 +13,20 @@ module.exports = async function (callback) {
 
         let oracle
         let accesoHistoriaClinica
+        let historiaClinica
 
         oracle = await Oracle.deployed()
         accesoHistoriaClinica = await AccesoHistoriaClinica.deployed()
+        historiaClinica = await HistoriaClinica.deployed()
                 
         direcciones.push({ contrato: 'oracle', direccion: oracle.address })
         direcciones.push({ contrato: 'accesoHistoriaClinica', direccion: accesoHistoriaClinica.address })
+        direcciones.push({ contrato: 'historiaClinica', direccion: historiaClinica.address })
         
+
         console.log("oracle: ", oracle.address)
         console.log("accesoHistoriaClinica: ", accesoHistoriaClinica.address)
+        console.log("historiaClinica: ", historiaClinica.address)
 
 
         await writeToFile('build/contracts/extras/direcciones.json', direcciones)

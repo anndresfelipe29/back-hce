@@ -34,7 +34,6 @@ contract PacienteMapper is PacienteMapperInterface {
 
     function guardar(address direccion, PacienteVO _paciente) public returns (uint256){
         if (address(pacientes[direccion]) != address(0)) {
-            emit Log("Ya existe un paciente registrado con ese address");
             revert("Ya existe un paciente registrado con ese address");
         }
         uint256 id = addressList.length;

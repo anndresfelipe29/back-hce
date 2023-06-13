@@ -4,7 +4,6 @@ pragma solidity ^0.8.17;
 import "./RolVO.sol";
 
 contract UsuarioVO {
-    event Log(string data);
 
     address private direccion;
     RolVO private rol; // TODO dejar esto como array para que un usuario pueda ser médico y paciente al tiempo

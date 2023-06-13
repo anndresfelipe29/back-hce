@@ -12,7 +12,6 @@ import "../utils/Modifiers.sol";
 
 // TODO
 contract Paciente is Modifiers {
-    event Log(string data);
     //address public creador;
 
     PacienteMapperInterface private pacienteMapper;
@@ -31,7 +30,6 @@ contract Paciente is Modifiers {
         tieneAcceso(1)
         returns (PacienteVO.PacienteVOStruct memory)
     {
-        emit Log("Entro a consultar Paciente");
         return pacienteMapper.consultar(direccion).getPacienteVOValue();
     }
 
@@ -42,7 +40,6 @@ contract Paciente is Modifiers {
         tieneAcceso(2)
         returns (PacienteVO.PacienteVOStruct memory)
     {
-        emit Log("Entro a consultar miInformacion paciente");
         return pacienteMapper.consultar(msg.sender).getPacienteVOValue();
     }
 
@@ -52,7 +49,6 @@ contract Paciente is Modifiers {
         tieneAcceso(3)
         returns (PacienteVO.PacienteVOStruct memory)
     {
-        emit Log("Entro a consultar paciente como medico");
         return pacienteMapper.consultarPorId(id).getPacienteVOValue();
     }
 

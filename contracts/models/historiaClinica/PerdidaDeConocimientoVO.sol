@@ -5,7 +5,6 @@ import "./RegistroMedico.sol";
 
 contract PerdidaDeConocimientoVO is RegistroMedico (TipoRegistroMedico.PERDIDADECONOCIMIENTOVO) {
     struct PerdidaDeConocimientoStruct {
-        RegistroMedicoStruct registroMedico;
         string descripcion;
         int256 fechaAproximada;
     }
@@ -14,7 +13,6 @@ contract PerdidaDeConocimientoVO is RegistroMedico (TipoRegistroMedico.PERDIDADE
 
     constructor() {
         creador = msg.sender;
-        perdidaDeConocimientoStruct.registroMedico = getRegistroMedico();
     }
 
     function getDescripcion() public view returns (string memory) {
@@ -36,7 +34,6 @@ contract PerdidaDeConocimientoVO is RegistroMedico (TipoRegistroMedico.PERDIDADE
     function setPerdidaDeConocimientoStruct(
         PerdidaDeConocimientoStruct memory _perdidaDeConocimientoStruct
     ) public {
-        _perdidaDeConocimientoStruct.registroMedico = perdidaDeConocimientoStruct.registroMedico;
         perdidaDeConocimientoStruct = _perdidaDeConocimientoStruct;
     }
 

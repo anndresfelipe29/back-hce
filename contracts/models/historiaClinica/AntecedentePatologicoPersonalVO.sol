@@ -7,7 +7,6 @@ import "./RegistroMedico.sol";
 
 contract AntecedentePatologicoPersonalVO is RegistroMedico(TipoRegistroMedico.ANTECEDENTEPATOLOGICOPERSONALVO) {
     struct AntecedentePatologicoPersonalStruct {
-        RegistroMedicoStruct registroMedico;
         string enfermedad; // Quizá deba existir una lista de enfermedades en una nueva tabla
         int256 fechaAproximada;
     }
@@ -17,7 +16,6 @@ contract AntecedentePatologicoPersonalVO is RegistroMedico(TipoRegistroMedico.AN
 
     constructor() {
         creador = msg.sender;
-        antecedentePatologicoPersonalStruct.registroMedico = getRegistroMedico();
     }
 
     function getEnfermedad() public view returns (string memory) {
@@ -39,8 +37,7 @@ contract AntecedentePatologicoPersonalVO is RegistroMedico(TipoRegistroMedico.AN
     function setAntecedentePatologicoPersonalStruct(
         AntecedentePatologicoPersonalStruct
             memory _antecedentePatologicoPersonalStruct
-    ) public {
-        _antecedentePatologicoPersonalStruct.registroMedico = antecedentePatologicoPersonalStruct.registroMedico;
+    ) public {    
         antecedentePatologicoPersonalStruct = _antecedentePatologicoPersonalStruct;
     }
 

@@ -5,7 +5,6 @@ import "./RegistroMedico.sol";
 
 contract HabitosPersonalesVO is RegistroMedico (TipoRegistroMedico.HABITOSPERSONALESVO) {
     struct HabitosPersonalesStruct {
-        RegistroMedicoStruct registroMedico;
         string toxicomanias;
         uint256 lavadoDientes;
         string defecacion;
@@ -24,7 +23,6 @@ contract HabitosPersonalesVO is RegistroMedico (TipoRegistroMedico.HABITOSPERSON
 
     constructor() {
         creador = msg.sender;
-        habitosPersonalesStruct.registroMedico = getRegistroMedico();
     }
 
     function getToxicomanias() public view returns (string memory) {
@@ -86,7 +84,6 @@ contract HabitosPersonalesVO is RegistroMedico (TipoRegistroMedico.HABITOSPERSON
     function setHabitosPersonalesStruct(
         HabitosPersonalesStruct memory _habitosPersonalesStruct
     ) public {
-        _habitosPersonalesStruct.registroMedico = habitosPersonalesStruct.registroMedico;
         habitosPersonalesStruct = _habitosPersonalesStruct;
     }
 

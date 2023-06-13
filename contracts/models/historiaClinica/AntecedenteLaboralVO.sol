@@ -7,18 +7,17 @@ import "./RegistroMedico.sol";
 
 contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTELABORALVO){
     struct AntecedenteLaboralStruct {
-        RegistroMedicoStruct registroMedico;
         string descripcionLabor;
         string actividadRealizada;
         int256 fechaInicio;
         int256 fechaRetiro;
+        bool esActividadActual;
     }
 
     AntecedenteLaboralStruct private antecedenteLaboralStruct;
 
     constructor() {
         creador = msg.sender;
-        antecedenteLaboralStruct.registroMedico = getRegistroMedico();
     }
 
 
@@ -38,6 +37,10 @@ contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTEL
         return antecedenteLaboralStruct.fechaRetiro;
     }
 
+    function getEsActividadActual() public view returns (bool) {
+        return antecedenteLaboralStruct.esActividadActual;
+    }
+
     function getAntecedenteLaboralStruct()
         public
         view
@@ -49,7 +52,6 @@ contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTEL
     function setAntecedenteLaboralStruct(
         AntecedenteLaboralStruct memory _antecedenteLaboralStruct
     ) public {
-        _antecedenteLaboralStruct.registroMedico = antecedenteLaboralStruct.registroMedico;
         antecedenteLaboralStruct = _antecedenteLaboralStruct;
     }
 
@@ -67,5 +69,9 @@ contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTEL
 
     function setFechaRetiro(int256 _fechaRetiro) public {
         antecedenteLaboralStruct.fechaRetiro = _fechaRetiro;
+    }
+
+    function setEsActividadActual(bool _esActividadActual) public {
+        antecedenteLaboralStruct.esActividadActual = _esActividadActual;
     }
 }

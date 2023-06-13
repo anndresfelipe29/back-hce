@@ -15,7 +15,6 @@ contract PermisoMapper is PermisoMapperInterface {
     }
 
     function consultar(uint256 _id) external view returns (PermisoVO) {
-        //emit Log("entro a consultar");
         PermisoVO permisoVO = permisos[_id];
         if (address(permisoVO) == address(0)) {
             revert("No existe ese permiso");
@@ -38,7 +37,6 @@ contract PermisoMapper is PermisoMapperInterface {
     // TODO: Revisar
     function guardar(uint256 _id, PermisoVO _permiso) public {
         if (address(permisos[_id]) != address(0)) {
-            emit Log("Ya existe un permiso registrado con ese address");
             revert("Ya existe un permiso registrado con ese address");
         }
         permisos[_id] = _permiso;

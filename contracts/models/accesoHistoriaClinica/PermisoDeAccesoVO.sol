@@ -12,6 +12,7 @@ contract PermisoDeAccesoVO {
         address paciente;
         address solicitante;
         bool fueRespondido;
+        bool fueAceptado;
         int256 fechaSolicitud;
         int256 fechaExpiracion;
     }
@@ -22,6 +23,7 @@ contract PermisoDeAccesoVO {
     address private paciente;
     address private solicitante;
     bool private fueRespondido;
+    bool private fueAceptado;
     int256 private fechaSolicitud;
     int256 private fechaExpiracion;
 
@@ -41,6 +43,7 @@ contract PermisoDeAccesoVO {
                 paciente,
                 solicitante,
                 fueRespondido,
+                fueAceptado,
                 fechaSolicitud,
                 fechaExpiracion
             );
@@ -52,6 +55,7 @@ contract PermisoDeAccesoVO {
         id = _permisoDeAccesoStruct.id;
         llave = _permisoDeAccesoStruct.llave;
         fueRespondido = _permisoDeAccesoStruct.fueRespondido;
+        fueAceptado = _permisoDeAccesoStruct.fueAceptado;
         fechaSolicitud = _permisoDeAccesoStruct.fechaSolicitud;
         fechaExpiracion = _permisoDeAccesoStruct.fechaExpiracion;
     }
@@ -74,6 +78,10 @@ contract PermisoDeAccesoVO {
 
     function getFueRespondido() public view returns (bool) {
         return fueRespondido;
+    }
+
+    function getFueAceptado() public view returns (bool) {
+        return fueAceptado;
     }
 
     function getFechaSolicitud() public view returns (int256) {
@@ -102,6 +110,10 @@ contract PermisoDeAccesoVO {
 
     function setFueRespondido(bool _fueRespondido) public {
         fueRespondido = _fueRespondido;
+    }
+
+    function setFueAceptado(bool _fueAceptado) public {
+        fueAceptado = _fueAceptado;
     }
 
     function setFechaSolicitud(int256 _fechaSolicitud) public {

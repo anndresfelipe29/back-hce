@@ -10,7 +10,6 @@ import "../structsGenerales/ExploracionPorSistemasStruct.sol";
 
 contract AnticonceptivoVO is RegistroMedico (TipoRegistroMedico.ANTICONCEPTIVO) {
     struct AnticonceptivoStruct {
-        RegistroMedicoStruct registroMedico;
         string descripcion;
         string efectividad;
         string nombre;
@@ -20,7 +19,6 @@ contract AnticonceptivoVO is RegistroMedico (TipoRegistroMedico.ANTICONCEPTIVO) 
 
     constructor() {
         creador = msg.sender;
-        anticonceptivoStruct.registroMedico = getRegistroMedico();
     }
 
     function getAnticonceptivoStruct()
@@ -34,7 +32,6 @@ contract AnticonceptivoVO is RegistroMedico (TipoRegistroMedico.ANTICONCEPTIVO) 
     function setAnticonceptivoStruct(
         AnticonceptivoStruct memory _anticonceptivoStruct
     ) public {
-        _anticonceptivoStruct.registroMedico = anticonceptivoStruct.registroMedico;
         anticonceptivoStruct = _anticonceptivoStruct;
     }
 

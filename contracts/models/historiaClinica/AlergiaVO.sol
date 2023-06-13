@@ -7,7 +7,6 @@ import "./RegistroMedico.sol";
 
 contract AlergiaVO is RegistroMedico (TipoRegistroMedico.ALERGIAVO) {
     struct AlergiaStruct {
-        RegistroMedicoStruct registroMedico;
         string descripcionSustancia;
     }
 
@@ -15,7 +14,6 @@ contract AlergiaVO is RegistroMedico (TipoRegistroMedico.ALERGIAVO) {
 
     constructor() {
         creador = msg.sender;
-        alergiaStruct.registroMedico = getRegistroMedico();
     }
 
     function getDescripcionSustancia() public view returns (string memory) {
@@ -26,8 +24,7 @@ contract AlergiaVO is RegistroMedico (TipoRegistroMedico.ALERGIAVO) {
         return alergiaStruct;
     }
 
-    function setAlergiaStruct(AlergiaStruct memory _alergiaStruct) public {
-        _alergiaStruct.registroMedico = alergiaStruct.registroMedico;
+    function setAlergiaStruct(AlergiaStruct memory _alergiaStruct) public {        
         alergiaStruct = _alergiaStruct;
     }
 

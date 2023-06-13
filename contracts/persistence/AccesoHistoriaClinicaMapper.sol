@@ -78,8 +78,6 @@ contract AccesoHistoriaClinicaMapper is AccesoHistoriaClinicaMapperInterface {
         
         permiso.setId(id);
         permiso.setLlave(llave);
-
-        emit Log("Se solicito un acceso");
         return id;
     }
 

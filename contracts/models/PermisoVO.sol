@@ -2,7 +2,6 @@
 pragma solidity ^0.8.17;
 
 contract PermisoVO {
-    event Log(string data);
     uint256 id;
     string private nombre;
     string private descripcion;

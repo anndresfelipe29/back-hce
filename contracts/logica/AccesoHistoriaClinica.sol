@@ -6,14 +6,16 @@ import "../utils/Modifiers.sol";
 
 contract AccesoHistoriaClinica is Modifiers {
 
-AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
-MedicoMapperInterface private medicoMapper;
+    AccesoHistoriaClinicaMapperInterface private accesoHistoriaClinicaMapper;
+    MedicoMapperInterface private medicoMapper;
+    int256 private tiempoPermisoEnMinutos;
 
-    event Log(string data, address indexed notificado);
-    event Notification(string data, address indexed notificado);
+    event Respuesta(string data, address indexed generador, address indexed notificado);
+    event Solicitud(string data, address indexed generador, address indexed notificado);
 
     constructor() {
         creador = msg.sender;
+        tiempoPermisoEnMinutos = 30;
     }
 
     // TODO: Actualizar en enterprise
@@ -28,21 +30,23 @@ MedicoMapperInterface private medicoMapper;
         int256 fechaActual = int256(block.timestamp);
         for (uint256 i = permisos.length; i > 0; i--) {
             permiso = permisos[i - 1];
-            if (!permiso.getFueRespondido()) {
-                emit Log("La solicitud fue respondida", direccionMedico);
+            if (!permiso.getFueRespondido()) {  
+                permiso.setFueRespondido(true);              
                 if (acepta) {
-                    permiso.setFueRespondido(true);
+                    permiso.setFueAceptado(true);
                     permiso.setFechaSolicitud(fechaActual);
                     // TODO Descomentar
                     // permiso.setFechaExpiracion(fechaActual + 3 hours);
-                    permiso.setFechaExpiracion(fechaActual + 30 minutes);
+                    int256 duracionPermiso = tiempoPermisoEnMinutos * 1 minutes;
+                    permiso.setFechaExpiracion(fechaActual + duracionPermiso);
                     return;
                 } else {
-                    permiso.setFueRespondido(true);
+                    permiso.setFueAceptado(false);
                     permiso.setFechaSolicitud(fechaActual);
                     permiso.setFechaExpiracion(0);
                     return;
                 }
+                emit Respuesta("La solicitud fue respondida", msg.sender, direccionMedico);
             }
         }
         revert("No existe una solicitud de permiso en proceso");
@@ -61,7 +65,7 @@ MedicoMapperInterface private medicoMapper;
         }
         PermisoDeAccesoVO permiso = new PermisoDeAccesoVO();
         permiso.setFueRespondido(false); // TODO: agregar aqui fecha de daolicitud en permiso
-        emit Notification("Se solicito un acceso", direccionPaciente);
+        emit Solicitud("Se solicito un acceso", msg.sender, direccionPaciente);
         return
             accesoHistoriaClinicaMapper.setPermiso(
                 direccionPaciente,
@@ -79,6 +83,17 @@ MedicoMapperInterface private medicoMapper;
             return true;
         }
         return false;
+    }
+
+    function setTiempoPermisoEnMinutos(int256 _tiempoPermisoEnMinutos) public {
+        if(_tiempoPermisoEnMinutos <= 0) {
+            revert("El tiempo debe ser mayor a cero");
+        }
+        tiempoPermisoEnMinutos = _tiempoPermisoEnMinutos;
+    }
+
+    function getTiempoPermisoEnMinutos() public view returns (int256){
+        return tiempoPermisoEnMinutos;
     }
 
     // TODO: hacer función que traiga permisos por aprobar

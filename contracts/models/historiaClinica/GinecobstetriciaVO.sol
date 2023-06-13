@@ -10,7 +10,6 @@ import "../structsGenerales/ExploracionPorSistemasStruct.sol";
 
 contract GinecobstetriciaVO is RegistroMedico (TipoRegistroMedico.GINECOBSTETRICIA) {
     struct GinecobstetriciaStruct {
-        RegistroMedicoStruct registroMedico;
         uint256 cantidadAbortos;
         uint256 cantidadPartos;
         bool cesareas;
@@ -28,7 +27,6 @@ contract GinecobstetriciaVO is RegistroMedico (TipoRegistroMedico.GINECOBSTETRIC
 
     constructor() {
         creador = msg.sender;
-        ginecobstetriciaStruct.registroMedico = getRegistroMedico();
     }
 
     function getGinecobstetriciaStruct()
@@ -42,7 +40,6 @@ contract GinecobstetriciaVO is RegistroMedico (TipoRegistroMedico.GINECOBSTETRIC
     function setGinecobstetriciaStruct(
         GinecobstetriciaStruct memory _ginecobstetriciaStruct
     ) public {
-        _ginecobstetriciaStruct.registroMedico = ginecobstetriciaStruct.registroMedico;
         ginecobstetriciaStruct = _ginecobstetriciaStruct;
     }
 

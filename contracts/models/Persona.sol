@@ -5,7 +5,6 @@ import "./VOGenerales/TipoIdentificacionVO.sol";
 
 // NOTE: se deja el abstrac contract justo con sus hijos por cuestiones de ordenamiento de código solidity, antes decia "Definition of base has to precede definition of derived contract"
 abstract contract Persona {
-    event Log(string data);
 
     address private direccion;
     uint256 private id;

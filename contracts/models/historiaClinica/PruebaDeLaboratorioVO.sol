@@ -6,7 +6,6 @@ import "../structsGenerales/ProcedimientosStruct.sol";
 
 contract PruebaDeLaboratorioVO is RegistroMedico (TipoRegistroMedico.PRUEBADELABORATORIOVO) {
     struct PruebaDeLaboratorioStruct {
-        RegistroMedicoStruct registroMedico;
         uint256 ambitoProcedimiento;
         int256 fecha;
         ClaseProcedimientoStruct procedimiento;
@@ -17,7 +16,6 @@ contract PruebaDeLaboratorioVO is RegistroMedico (TipoRegistroMedico.PRUEBADELAB
 
     constructor() {
         creador = msg.sender;
-        pruebaDeLaboratorioStruct.registroMedico = getRegistroMedico();
     }
 
     function getAmbitoProcedimiento() public view returns (uint256) {
@@ -51,7 +49,6 @@ contract PruebaDeLaboratorioVO is RegistroMedico (TipoRegistroMedico.PRUEBADELAB
     function setPruebaDeLaboratorioStruct(
         PruebaDeLaboratorioStruct memory _pruebaDeLaboratorioStruct
     ) public {
-        _pruebaDeLaboratorioStruct.registroMedico = pruebaDeLaboratorioStruct.registroMedico;
         pruebaDeLaboratorioStruct = _pruebaDeLaboratorioStruct;
     }
 
