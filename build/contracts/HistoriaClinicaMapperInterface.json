@@ -2,19 +2,6 @@
   "contractName": "HistoriaClinicaMapperInterface",
   "abi": [
     {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "string",
-          "name": "data",
-          "type": "string"
-        }
-      ],
-      "name": "Log",
-      "type": "event"
-    },
-    {
       "inputs": [
         {
           "internalType": "address",
@@ -115,7 +102,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"name\":\"Log\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"},{\"internalType\":\"contract HistoriaClinicaVO\",\"name\":\"historiaClinicaVO\",\"type\":\"address\"}],\"name\":\"actualizar\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"}],\"name\":\"consultar\",\"outputs\":[{\"internalType\":\"contract HistoriaClinicaVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"}],\"name\":\"getHistoriaClinicaId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"getPropietarioHistoriaClinica\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"},{\"internalType\":\"contract HistoriaClinicaVO\",\"name\":\"historiaClinicaVO\",\"type\":\"address\"}],\"name\":\"guardar\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"selfDestruct\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/persistence/HistoriaClinicaMapperInterface.sol\":\"HistoriaClinicaMapperInterface\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"project:/contracts/models/VOGenerales/EstadoHCEVO.sol\":{\"keccak256\":\"0x2bca165cd631450804bbd8f9a15ae7341c7aa4466752da2c1d8464999c614a38\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://02f2b1985728db17b76bfc4865eb5c3edfa7ed9addecdcd4ec48d35c890ed5dc\",\"dweb:/ipfs/QmQoABjYyvmTHevPMgL5i91pWPppJpEt2biAVZteEkdmN5\"]},\"project:/contracts/models/historiaClinica/HistoriaClinicaVO.sol\":{\"keccak256\":\"0xb0b216c4b18c80ee8bae9d7f806a55bec05c98fac7e0780016b54df200eab162\",\"urls\":[\"bzz-raw://9f41da0ac8634c1de6e9423a2a6ddedb6b988c5da849a00a37d1bd871b9a2ce8\",\"dweb:/ipfs/QmWcGqtKBvwnNa9AJg26xgz3D778GCwFQDkgnzQmhX1TNM\"]},\"project:/contracts/models/historiaClinica/RegistroMedico.sol\":{\"keccak256\":\"0x2cc9d1363ba4efbb2c2b9bd7928f732d0077684e081efc207ec6ad49afcdd338\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d6f966fa86bc6864d87156fdbdb29f65c10b91f1103ec3d943a077490f70fa05\",\"dweb:/ipfs/Qmb1JLBoNc6B6PMXdhNBgWUALYZdMv26nCd1MHA7Sf49nW\"]},\"project:/contracts/models/historiaClinica/enums/TipoRegistroEnum.sol\":{\"keccak256\":\"0xe6f23b637cbd5cbce20f3ea543ee8a37f3ea82d98571a6c8c37d26f1e06c4cae\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9264aa0027f55aecb01e65d4605e4effed5c62cba0e66a7a9769cb3a96a4725f\",\"dweb:/ipfs/QmTZnC48NnjQhSvm6MueFYmJBs3wX2QfYCNXL2ZFGitgU2\"]},\"project:/contracts/persistence/HistoriaClinicaMapperInterface.sol\":{\"keccak256\":\"0xd785e45dfee745a72bce8446fc935f7930bc30c519fd68605660b27fed78da0b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://66d7406aa0c8820087fe6f431125622e035b57362ffbd33c1a4c96ff9bf18c31\",\"dweb:/ipfs/QmRDuQU7PbTgpvRrNaEQkWd6PFeernLjJiqQAKwPxToxxP\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"},{\"internalType\":\"contract HistoriaClinicaVO\",\"name\":\"historiaClinicaVO\",\"type\":\"address\"}],\"name\":\"actualizar\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"}],\"name\":\"consultar\",\"outputs\":[{\"internalType\":\"contract HistoriaClinicaVO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"}],\"name\":\"getHistoriaClinicaId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"getPropietarioHistoriaClinica\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"direccion\",\"type\":\"address\"},{\"internalType\":\"contract HistoriaClinicaVO\",\"name\":\"historiaClinicaVO\",\"type\":\"address\"}],\"name\":\"guardar\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"selfDestruct\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/persistence/HistoriaClinicaMapperInterface.sol\":\"HistoriaClinicaMapperInterface\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"project:/contracts/models/VOGenerales/EstadoHCEVO.sol\":{\"keccak256\":\"0x2bca165cd631450804bbd8f9a15ae7341c7aa4466752da2c1d8464999c614a38\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://02f2b1985728db17b76bfc4865eb5c3edfa7ed9addecdcd4ec48d35c890ed5dc\",\"dweb:/ipfs/QmQoABjYyvmTHevPMgL5i91pWPppJpEt2biAVZteEkdmN5\"]},\"project:/contracts/models/historiaClinica/HistoriaClinicaVO.sol\":{\"keccak256\":\"0x5401d1bfa1b625fa39439f85f0a16a9001ae5d7154aba9adf1b80282ad5470b2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cc52b6f979c62c57de854924f7fdbc1412fb51504716072c82e2cc27f7086235\",\"dweb:/ipfs/QmRt3NXvmRyc8aWLjQ4XACR5qVHUgjgvPaEjV1QaXJaywz\"]},\"project:/contracts/models/historiaClinica/RegistroMedico.sol\":{\"keccak256\":\"0x2cc9d1363ba4efbb2c2b9bd7928f732d0077684e081efc207ec6ad49afcdd338\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d6f966fa86bc6864d87156fdbdb29f65c10b91f1103ec3d943a077490f70fa05\",\"dweb:/ipfs/Qmb1JLBoNc6B6PMXdhNBgWUALYZdMv26nCd1MHA7Sf49nW\"]},\"project:/contracts/models/historiaClinica/enums/TipoRegistroEnum.sol\":{\"keccak256\":\"0xe6f23b637cbd5cbce20f3ea543ee8a37f3ea82d98571a6c8c37d26f1e06c4cae\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9264aa0027f55aecb01e65d4605e4effed5c62cba0e66a7a9769cb3a96a4725f\",\"dweb:/ipfs/QmTZnC48NnjQhSvm6MueFYmJBs3wX2QfYCNXL2ZFGitgU2\"]},\"project:/contracts/persistence/HistoriaClinicaMapperInterface.sol\":{\"keccak256\":\"0x1c5a325a7cb267b1aa4b7114a89b8cea6b8a5ba1fe2f3d2bdd757fc72b190d63\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c7710443d62fde4a579c164a30532b8cfadce72d5f1d6171d101cdeb4eee7ef6\",\"dweb:/ipfs/QmRowoRHUoh2nnZts3ssDAXnVTCR54ziMWoNrUxjAyiHA6\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -123,33 +110,33 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\nimport \"../models/historiaClinica/HistoriaClinicaVO.sol\";\n\ninterface HistoriaClinicaMapperInterface {\n    event Log(string data);\n\n    function consultar(address direccion) external returns (HistoriaClinicaVO);\n\n    function guardar(address direccion, HistoriaClinicaVO historiaClinicaVO) external;\n\n    function actualizar(address direccion, HistoriaClinicaVO historiaClinicaVO) external;\n\n    // TODO: Actualizar en diagrama de clases\n    function getPropietarioHistoriaClinica(uint256 id)\n        external\n        returns (address);\n\n    function getHistoriaClinicaId(address direccion) external returns (uint256);\n    \n    function selfDestruct() external;\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\nimport \"../models/historiaClinica/HistoriaClinicaVO.sol\";\n\ninterface HistoriaClinicaMapperInterface {\n\n    function consultar(address direccion) external returns (HistoriaClinicaVO);\n\n    function guardar(address direccion, HistoriaClinicaVO historiaClinicaVO) external;\n\n    function actualizar(address direccion, HistoriaClinicaVO historiaClinicaVO) external;\n\n    // TODO: Actualizar en diagrama de clases\n    function getPropietarioHistoriaClinica(uint256 id)\n        external\n        returns (address);\n\n    function getHistoriaClinicaId(address direccion) external returns (uint256);\n    \n    function selfDestruct() external;\n}\n",
   "sourcePath": "/back/contracts/persistence/HistoriaClinicaMapperInterface.sol",
   "ast": {
     "absolutePath": "project:/contracts/persistence/HistoriaClinicaMapperInterface.sol",
     "exportedSymbols": {
       "EstadoHCEVO": [
-        3636
+        3629
       ],
       "HistoriaClinicaMapperInterface": [
-        10332
+        10500
       ],
       "HistoriaClinicaVO": [
-        6068
+        6184
       ],
       "RegistroMedico": [
-        7275
+        7454
       ],
       "TipoRegistroMedico": [
-        7476
+        7673
       ]
     },
-    "id": 10333,
+    "id": 10501,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 10285,
+        "id": 10457,
         "literals": [
           "solidity",
           "^",
@@ -157,17 +144,17 @@
           ".17"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:59"
+        "src": "32:24:57"
       },
       {
         "absolutePath": "project:/contracts/models/historiaClinica/HistoriaClinicaVO.sol",
         "file": "../models/historiaClinica/HistoriaClinicaVO.sol",
-        "id": 10286,
+        "id": 10458,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 10333,
-        "sourceUnit": 6069,
-        "src": "58:57:59",
+        "scope": 10501,
+        "sourceUnit": 6185,
+        "src": "58:57:57",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -178,80 +165,36 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 10332,
+        "id": 10500,
         "linearizedBaseContracts": [
-          10332
+          10500
         ],
         "name": "HistoriaClinicaMapperInterface",
-        "nameLocation": "127:30:59",
+        "nameLocation": "127:30:57",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "anonymous": false,
-            "eventSelector": "cf34ef537ac33ee1ac626ca1587a0a7e8e51561e5514f8cb36afa1c5102b3bab",
-            "id": 10290,
-            "name": "Log",
-            "nameLocation": "170:3:59",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 10289,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 10288,
-                  "indexed": false,
-                  "mutability": "mutable",
-                  "name": "data",
-                  "nameLocation": "181:4:59",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 10290,
-                  "src": "174:11:59",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_memory_ptr",
-                    "typeString": "string"
-                  },
-                  "typeName": {
-                    "id": 10287,
-                    "name": "string",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "174:6:59",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_string_storage_ptr",
-                      "typeString": "string"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "173:13:59"
-            },
-            "src": "164:23:59"
-          },
-          {
             "functionSelector": "7da8f6a5",
-            "id": 10298,
+            "id": 10466,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "consultar",
-            "nameLocation": "202:9:59",
+            "nameLocation": "174:9:57",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10293,
+              "id": 10461,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10292,
+                  "id": 10460,
                   "mutability": "mutable",
                   "name": "direccion",
-                  "nameLocation": "220:9:59",
+                  "nameLocation": "192:9:57",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10298,
-                  "src": "212:17:59",
+                  "scope": 10466,
+                  "src": "184:17:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -259,10 +202,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 10291,
+                    "id": 10459,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "212:7:59",
+                    "src": "184:7:57",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -272,80 +215,80 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "211:19:59"
+              "src": "183:19:57"
             },
             "returnParameters": {
-              "id": 10297,
+              "id": 10465,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10296,
+                  "id": 10464,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10298,
-                  "src": "249:17:59",
+                  "scope": 10466,
+                  "src": "221:17:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6068",
+                    "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6184",
                     "typeString": "contract HistoriaClinicaVO"
                   },
                   "typeName": {
-                    "id": 10295,
+                    "id": 10463,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 10294,
+                      "id": 10462,
                       "name": "HistoriaClinicaVO",
                       "nameLocations": [
-                        "249:17:59"
+                        "221:17:57"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 6068,
-                      "src": "249:17:59"
+                      "referencedDeclaration": 6184,
+                      "src": "221:17:57"
                     },
-                    "referencedDeclaration": 6068,
-                    "src": "249:17:59",
+                    "referencedDeclaration": 6184,
+                    "src": "221:17:57",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6068",
+                      "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6184",
                       "typeString": "contract HistoriaClinicaVO"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "248:19:59"
+              "src": "220:19:57"
             },
-            "scope": 10332,
-            "src": "193:75:59",
+            "scope": 10500,
+            "src": "165:75:57",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "be381c59",
-            "id": 10306,
+            "id": 10474,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "guardar",
-            "nameLocation": "283:7:59",
+            "nameLocation": "255:7:57",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10304,
+              "id": 10472,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10300,
+                  "id": 10468,
                   "mutability": "mutable",
                   "name": "direccion",
-                  "nameLocation": "299:9:59",
+                  "nameLocation": "271:9:57",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10306,
-                  "src": "291:17:59",
+                  "scope": 10474,
+                  "src": "263:17:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -353,10 +296,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 10299,
+                    "id": 10467,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "291:7:59",
+                    "src": "263:7:57",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -367,78 +310,78 @@
                 },
                 {
                   "constant": false,
-                  "id": 10303,
+                  "id": 10471,
                   "mutability": "mutable",
                   "name": "historiaClinicaVO",
-                  "nameLocation": "328:17:59",
+                  "nameLocation": "300:17:57",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10306,
-                  "src": "310:35:59",
+                  "scope": 10474,
+                  "src": "282:35:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6068",
+                    "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6184",
                     "typeString": "contract HistoriaClinicaVO"
                   },
                   "typeName": {
-                    "id": 10302,
+                    "id": 10470,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 10301,
+                      "id": 10469,
                       "name": "HistoriaClinicaVO",
                       "nameLocations": [
-                        "310:17:59"
+                        "282:17:57"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 6068,
-                      "src": "310:17:59"
+                      "referencedDeclaration": 6184,
+                      "src": "282:17:57"
                     },
-                    "referencedDeclaration": 6068,
-                    "src": "310:17:59",
+                    "referencedDeclaration": 6184,
+                    "src": "282:17:57",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6068",
+                      "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6184",
                       "typeString": "contract HistoriaClinicaVO"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "290:56:59"
+              "src": "262:56:57"
             },
             "returnParameters": {
-              "id": 10305,
+              "id": 10473,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "355:0:59"
+              "src": "327:0:57"
             },
-            "scope": 10332,
-            "src": "274:82:59",
+            "scope": 10500,
+            "src": "246:82:57",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "0da7d7a5",
-            "id": 10314,
+            "id": 10482,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "actualizar",
-            "nameLocation": "371:10:59",
+            "nameLocation": "343:10:57",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10312,
+              "id": 10480,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10308,
+                  "id": 10476,
                   "mutability": "mutable",
                   "name": "direccion",
-                  "nameLocation": "390:9:59",
+                  "nameLocation": "362:9:57",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10314,
-                  "src": "382:17:59",
+                  "scope": 10482,
+                  "src": "354:17:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -446,10 +389,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 10307,
+                    "id": 10475,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "382:7:59",
+                    "src": "354:7:57",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -460,78 +403,78 @@
                 },
                 {
                   "constant": false,
-                  "id": 10311,
+                  "id": 10479,
                   "mutability": "mutable",
                   "name": "historiaClinicaVO",
-                  "nameLocation": "419:17:59",
+                  "nameLocation": "391:17:57",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10314,
-                  "src": "401:35:59",
+                  "scope": 10482,
+                  "src": "373:35:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6068",
+                    "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6184",
                     "typeString": "contract HistoriaClinicaVO"
                   },
                   "typeName": {
-                    "id": 10310,
+                    "id": 10478,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 10309,
+                      "id": 10477,
                       "name": "HistoriaClinicaVO",
                       "nameLocations": [
-                        "401:17:59"
+                        "373:17:57"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 6068,
-                      "src": "401:17:59"
+                      "referencedDeclaration": 6184,
+                      "src": "373:17:57"
                     },
-                    "referencedDeclaration": 6068,
-                    "src": "401:17:59",
+                    "referencedDeclaration": 6184,
+                    "src": "373:17:57",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6068",
+                      "typeIdentifier": "t_contract$_HistoriaClinicaVO_$6184",
                       "typeString": "contract HistoriaClinicaVO"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "381:56:59"
+              "src": "353:56:57"
             },
             "returnParameters": {
-              "id": 10313,
+              "id": 10481,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "446:0:59"
+              "src": "418:0:57"
             },
-            "scope": 10332,
-            "src": "362:85:59",
+            "scope": 10500,
+            "src": "334:85:57",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "f08d543e",
-            "id": 10321,
+            "id": 10489,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getPropietarioHistoriaClinica",
-            "nameLocation": "508:29:59",
+            "nameLocation": "480:29:57",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10317,
+              "id": 10485,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10316,
+                  "id": 10484,
                   "mutability": "mutable",
                   "name": "id",
-                  "nameLocation": "546:2:59",
+                  "nameLocation": "518:2:57",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10321,
-                  "src": "538:10:59",
+                  "scope": 10489,
+                  "src": "510:10:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -539,10 +482,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 10315,
+                    "id": 10483,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "538:7:59",
+                    "src": "510:7:57",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -551,21 +494,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "537:12:59"
+              "src": "509:12:57"
             },
             "returnParameters": {
-              "id": 10320,
+              "id": 10488,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10319,
+                  "id": 10487,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10321,
-                  "src": "584:7:59",
+                  "scope": 10489,
+                  "src": "556:7:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -573,10 +516,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 10318,
+                    "id": 10486,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "584:7:59",
+                    "src": "556:7:57",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -586,36 +529,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "583:9:59"
+              "src": "555:9:57"
             },
-            "scope": 10332,
-            "src": "499:94:59",
+            "scope": 10500,
+            "src": "471:94:57",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "f98a5c90",
-            "id": 10328,
+            "id": 10496,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getHistoriaClinicaId",
-            "nameLocation": "608:20:59",
+            "nameLocation": "580:20:57",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10324,
+              "id": 10492,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10323,
+                  "id": 10491,
                   "mutability": "mutable",
                   "name": "direccion",
-                  "nameLocation": "637:9:59",
+                  "nameLocation": "609:9:57",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10328,
-                  "src": "629:17:59",
+                  "scope": 10496,
+                  "src": "601:17:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -623,10 +566,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 10322,
+                    "id": 10490,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "629:7:59",
+                    "src": "601:7:57",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -636,21 +579,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "628:19:59"
+              "src": "600:19:57"
             },
             "returnParameters": {
-              "id": 10327,
+              "id": 10495,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10326,
+                  "id": 10494,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 10328,
-                  "src": "666:7:59",
+                  "scope": 10496,
+                  "src": "638:7:57",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -658,10 +601,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 10325,
+                    "id": 10493,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "666:7:59",
+                    "src": "638:7:57",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -670,56 +613,56 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "665:9:59"
+              "src": "637:9:57"
             },
-            "scope": 10332,
-            "src": "599:76:59",
+            "scope": 10500,
+            "src": "571:76:57",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9cb8a26a",
-            "id": 10331,
+            "id": 10499,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "selfDestruct",
-            "nameLocation": "694:12:59",
+            "nameLocation": "666:12:57",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 10329,
+              "id": 10497,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "706:2:59"
+              "src": "678:2:57"
             },
             "returnParameters": {
-              "id": 10330,
+              "id": 10498,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "717:0:59"
+              "src": "689:0:57"
             },
-            "scope": 10332,
-            "src": "685:33:59",
+            "scope": 10500,
+            "src": "657:33:57",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 10333,
-        "src": "117:603:59",
+        "scope": 10501,
+        "src": "117:575:57",
         "usedErrors": []
       }
     ],
-    "src": "32:689:59"
+    "src": "32:661:57"
   },
   "compiler": {
     "name": "solc",
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.13",
-  "updatedAt": "2023-05-03T22:18:41.025Z",
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-06-25T00:22:45.029Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

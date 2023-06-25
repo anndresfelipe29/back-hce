@@ -104,6 +104,7 @@ paciente.consultar(accounts[0], { from: accounts[2] })
 - Medico.deployed().then(c => medico=c)
 - medico.consultar(accounts[9], { from: accounts[8] })
 - medico.registrarConStruct(accounts[9], [[accounts[9], 0, "Andres","medico", "Gomas", "test", "111111",0, "true"], 1,0], "usuario", "contrasena", { from: accounts[9] })
+
     
 
 ### RolMapper
@@ -135,7 +136,11 @@ const accounts = await web3.eth.getAccounts()
 ## EstadoVO
 
 EstadoVO.new().then(c => estadoVO=c)
-EstadoVO
+EstadoVO.at("0x47fE2e4C66B235b523f17D2da214EA536Fd6B584").then(c=> estadoVO=c)
+estadoVO.getNombre()
+estadoVO.getId()
+estadoVO.getNombre()
+estadoVO.getNombre()
 
 # DatosParametricosMapper
 
@@ -162,7 +167,8 @@ datosParametricosMapper.consultarTipoIdentificacionVO(0)
 
 - historiaClinica.setHistoriaClinicaMapper(historiaClinicaMapper.address)
 - historiaClinica.setDatosParametricosMapper(datosParametricosMapper.address)
-- historiaClinica.inicializarHCE(accounts[0])
+- historiaClinica.inicializarHCE(accounts[8], {from: accounts[9]})
+- historiaClinica.getHistoriaClinica.call(accounts[8], {from: accounts[9]})
 - historiaClinica.registrosFiltradosPorFecha(accounts[0], 1)
 - historiaClinica.agregarRegistro(accounts[8], alergia.address, {from: accounts[9]})
 - historiaClinica.registrosFiltradosPorTipo(accounts[8], 0, {from: accounts[9]})

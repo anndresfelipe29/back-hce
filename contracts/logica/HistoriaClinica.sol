@@ -14,6 +14,7 @@ contract HistoriaClinica is Modifiers {
     DatosParametricosMapperInterface private datosParametricosMapper;
 
     event ActivacionHCE(string data, address indexed generador, address indexed notificado);
+    event NuevoRegistro(string data, address indexed generador, address indexed notificado);
 
     constructor() {
         creador = msg.sender;
@@ -54,6 +55,7 @@ contract HistoriaClinica is Modifiers {
             direccionPaciente
         );
         historiaClinica.agregarRegistroMedico(registroMedico);
+        emit NuevoRegistro("Nuevo registro agregado", msg.sender, direccionPaciente);
     }
 
     // TODO: Agregar validador de permiso por tiempo

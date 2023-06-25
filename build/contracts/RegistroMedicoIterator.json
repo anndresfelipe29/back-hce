@@ -42,20 +42,20 @@
     "absolutePath": "project:/contracts/logica/IteradorHCE/RegistroMedicoIterator.sol",
     "exportedSymbols": {
       "RegistroMedico": [
-        7275
+        7454
       ],
       "RegistroMedicoIterator": [
-        1379
+        1585
       ],
       "TipoRegistroMedico": [
-        7476
+        7673
       ]
     },
-    "id": 1380,
+    "id": 1586,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1366,
+        "id": 1572,
         "literals": [
           "solidity",
           "^",
@@ -68,11 +68,11 @@
       {
         "absolutePath": "project:/contracts/models/historiaClinica/RegistroMedico.sol",
         "file": "../../models/historiaClinica/RegistroMedico.sol",
-        "id": 1367,
+        "id": 1573,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 1380,
-        "sourceUnit": 7276,
+        "scope": 1586,
+        "sourceUnit": 7455,
         "src": "26:57:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -84,9 +84,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": false,
-        "id": 1379,
+        "id": 1585,
         "linearizedBaseContracts": [
-          1379
+          1585
         ],
         "name": "RegistroMedicoIterator",
         "nameLocation": "102:22:6",
@@ -94,7 +94,7 @@
         "nodes": [
           {
             "functionSelector": "f3638f78",
-            "id": 1373,
+            "id": 1579,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -102,47 +102,47 @@
             "nameLocation": "140:7:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1368,
+              "id": 1574,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "147:2:6"
             },
             "returnParameters": {
-              "id": 1372,
+              "id": 1578,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1371,
+                  "id": 1577,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1373,
+                  "scope": 1579,
                   "src": "173:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_RegistroMedico_$7275",
+                    "typeIdentifier": "t_contract$_RegistroMedico_$7454",
                     "typeString": "contract RegistroMedico"
                   },
                   "typeName": {
-                    "id": 1370,
+                    "id": 1576,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1369,
+                      "id": 1575,
                       "name": "RegistroMedico",
                       "nameLocations": [
                         "173:14:6"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 7275,
+                      "referencedDeclaration": 7454,
                       "src": "173:14:6"
                     },
-                    "referencedDeclaration": 7275,
+                    "referencedDeclaration": 7454,
                     "src": "173:14:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_RegistroMedico_$7275",
+                      "typeIdentifier": "t_contract$_RegistroMedico_$7454",
                       "typeString": "contract RegistroMedico"
                     }
                   },
@@ -151,7 +151,7 @@
               ],
               "src": "172:16:6"
             },
-            "scope": 1379,
+            "scope": 1585,
             "src": "131:58:6",
             "stateMutability": "nonpayable",
             "virtual": true,
@@ -159,7 +159,7 @@
           },
           {
             "functionSelector": "fb045cc9",
-            "id": 1378,
+            "id": 1584,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -167,23 +167,23 @@
             "nameLocation": "203:7:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1374,
+              "id": 1580,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "210:2:6"
             },
             "returnParameters": {
-              "id": 1377,
+              "id": 1583,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1376,
+                  "id": 1582,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1378,
+                  "scope": 1584,
                   "src": "236:4:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -192,7 +192,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1375,
+                    "id": 1581,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "236:4:6",
@@ -206,14 +206,14 @@
               ],
               "src": "235:6:6"
             },
-            "scope": 1379,
+            "scope": 1585,
             "src": "194:48:6",
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "public"
           }
         ],
-        "scope": 1380,
+        "scope": 1586,
         "src": "84:160:6",
         "usedErrors": []
       }
@@ -225,8 +225,8 @@
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.13",
-  "updatedAt": "2023-05-03T22:18:40.754Z",
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-06-25T00:22:43.196Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
