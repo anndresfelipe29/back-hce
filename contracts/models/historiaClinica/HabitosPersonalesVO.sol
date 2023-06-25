@@ -21,6 +21,10 @@ contract HabitosPersonalesVO is RegistroMedico (TipoRegistroMedico.HABITOSPERSON
 
     HabitosPersonalesStruct private habitosPersonalesStruct;
 
+    constructor() {
+        creador = msg.sender;
+    }
+
     function getToxicomanias() public view returns (string memory) {
         return habitosPersonalesStruct.toxicomanias;
     }

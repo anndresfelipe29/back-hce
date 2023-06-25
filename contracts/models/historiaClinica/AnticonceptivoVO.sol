@@ -17,6 +17,10 @@ contract AnticonceptivoVO is RegistroMedico (TipoRegistroMedico.ANTICONCEPTIVO) 
 
     AnticonceptivoStruct private anticonceptivoStruct;
 
+    constructor() {
+        creador = msg.sender;
+    }
+
     function getAnticonceptivoStruct()
         public
         view

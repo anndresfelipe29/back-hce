@@ -15,15 +15,19 @@ contract GinecobstetriciaVO is RegistroMedico (TipoRegistroMedico.GINECOBSTETRIC
         bool cesareas;
         bool climaterio;
         string desarrolloSexual;
-        uint256 fechaProbableParto;
+        int256 fechaProbableParto;
         string flujoPlasmaticoRenal;
-        uint256 menarca;
+        int256 menarca;
         bool menopausia;
         string ritmoMenstrual;
         string vidaSexual;
     }
 
     GinecobstetriciaStruct private ginecobstetriciaStruct;
+
+    constructor() {
+        creador = msg.sender;
+    }
 
     function getGinecobstetriciaStruct()
         public
@@ -55,7 +59,7 @@ contract GinecobstetriciaVO is RegistroMedico (TipoRegistroMedico.GINECOBSTETRIC
         return ginecobstetriciaStruct.desarrolloSexual;
     }
 
-    function getFechaProbableParto() public view returns (uint256) {
+    function getFechaProbableParto() public view returns (int256) {
         return ginecobstetriciaStruct.fechaProbableParto;
     }
 
@@ -63,7 +67,7 @@ contract GinecobstetriciaVO is RegistroMedico (TipoRegistroMedico.GINECOBSTETRIC
         return ginecobstetriciaStruct.flujoPlasmaticoRenal;
     }
 
-    function getMenarca() public view returns (uint256) {
+    function getMenarca() public view returns (int256) {
         return ginecobstetriciaStruct.menarca;
     }
 
@@ -103,7 +107,7 @@ contract GinecobstetriciaVO is RegistroMedico (TipoRegistroMedico.GINECOBSTETRIC
         ginecobstetriciaStruct.flujoPlasmaticoRenal = _flujoPlasmaticoRenal;
     }
 
-    function setMenarca(uint256 _menarca) public {
+    function setMenarca(int256 _menarca) public {
         ginecobstetriciaStruct.menarca = _menarca;
     }
 

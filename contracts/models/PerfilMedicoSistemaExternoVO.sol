@@ -4,6 +4,8 @@ pragma solidity ^0.8.17;
 import "./Persona.sol";
 import "./VOGenerales/EstadoVO.sol";
 
+// NOTE: Actualmente no se usa este contrato para nada en el proyecto
+
 // NOTE: se deja el abstrac contract justo con sus hijos por cuestiones de ordenamiento de código solidity, antes decia "Definition of base has to precede definition of derived contract"
 // TODO: verificar si se puede dejar como abstract
 contract PerfilMedicoSistemaExternoVO {

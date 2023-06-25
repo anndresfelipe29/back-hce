@@ -12,8 +12,9 @@ contract PermisoDeAccesoVO {
         address paciente;
         address solicitante;
         bool fueRespondido;
-        uint256 fechaSolicitud;
-        uint256 fechaExpiracion;
+        bool fueAceptado;
+        int256 fechaSolicitud;
+        int256 fechaExpiracion;
     }
 
     // TODO: Actualizar en diagrama
@@ -22,8 +23,9 @@ contract PermisoDeAccesoVO {
     address private paciente;
     address private solicitante;
     bool private fueRespondido;
-    uint256 private fechaSolicitud;
-    uint256 private fechaExpiracion;
+    bool private fueAceptado;
+    int256 private fechaSolicitud;
+    int256 private fechaExpiracion;
 
     constructor() {
         creador = msg.sender;
@@ -41,6 +43,7 @@ contract PermisoDeAccesoVO {
                 paciente,
                 solicitante,
                 fueRespondido,
+                fueAceptado,
                 fechaSolicitud,
                 fechaExpiracion
             );
@@ -52,6 +55,7 @@ contract PermisoDeAccesoVO {
         id = _permisoDeAccesoStruct.id;
         llave = _permisoDeAccesoStruct.llave;
         fueRespondido = _permisoDeAccesoStruct.fueRespondido;
+        fueAceptado = _permisoDeAccesoStruct.fueAceptado;
         fechaSolicitud = _permisoDeAccesoStruct.fechaSolicitud;
         fechaExpiracion = _permisoDeAccesoStruct.fechaExpiracion;
     }
@@ -76,11 +80,15 @@ contract PermisoDeAccesoVO {
         return fueRespondido;
     }
 
-    function getFechaSolicitud() public view returns (uint256) {
+    function getFueAceptado() public view returns (bool) {
+        return fueAceptado;
+    }
+
+    function getFechaSolicitud() public view returns (int256) {
         return fechaSolicitud;
     }
 
-    function getFechaExpiracion() public view returns (uint256) {
+    function getFechaExpiracion() public view returns (int256) {
         return fechaExpiracion;
     }
 
@@ -104,11 +112,15 @@ contract PermisoDeAccesoVO {
         fueRespondido = _fueRespondido;
     }
 
-    function setFechaSolicitud(uint256 _fechaSolicitud) public {
+    function setFueAceptado(bool _fueAceptado) public {
+        fueAceptado = _fueAceptado;
+    }
+
+    function setFechaSolicitud(int256 _fechaSolicitud) public {
         fechaSolicitud = _fechaSolicitud;
     }
 
-    function setFechaExpiracion(uint256 _fechaExpiracion) public {
+    function setFechaExpiracion(int256 _fechaExpiracion) public {
         fechaExpiracion = _fechaExpiracion;
     }
 }

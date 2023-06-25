@@ -5,7 +5,6 @@ import "../models/RolVO.sol";
 import "../models/VOGenerales/enums/RolDeAccesoEnum.sol";
 
 interface RolMapperInterface {
-    event Log(string data);
 
     function consultar(RolDeAccesoEnum _id) external returns (RolVO);
 

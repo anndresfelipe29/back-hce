@@ -12,6 +12,10 @@ contract IntoleranciaAMedicamentoVO is RegistroMedico (TipoRegistroMedico.INTOLE
 
     IntoleranciaAMedicamentoStruct private intoleranciaAMedicamentoStruct;
 
+    constructor() {
+        creador = msg.sender;
+    }
+
     function getDescripcionMedicamento() public view returns (string memory) {
         return intoleranciaAMedicamentoStruct.descripcionMedicamento;
     }

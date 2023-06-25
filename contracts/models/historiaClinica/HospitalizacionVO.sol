@@ -9,15 +9,19 @@ contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACION
         uint256 causaExterna;
         string diagnosticoIngreso;
         uint256 viaDeIngreso;
-        uint256 fechaIngreso;
+        int256 fechaIngreso;
         bool salidaVivo; 
         string diagnosticoEgreso; // TODO quizá deba ser diagnostico salida
-        uint256 fechaEgreso;
+        int256 fechaEgreso;
         string complicacion;
         IncapacidadStruct incapacidad;
     }
 
     HospitalizacionStruct private hospitalizacionStruct;
+
+    constructor() {
+        creador = msg.sender;
+    }
 
     function getCausaExterna() public view returns (uint256) {
         return hospitalizacionStruct.causaExterna;
@@ -31,7 +35,7 @@ contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACION
         return hospitalizacionStruct.viaDeIngreso;
     }
 
-    function getFechaIngreso() public view returns (uint256) {
+    function getFechaIngreso() public view returns (int256) {
         return hospitalizacionStruct.fechaIngreso;
     }
 
@@ -43,7 +47,7 @@ contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACION
         return hospitalizacionStruct.diagnosticoEgreso;
     }
 
-    function getFechaEgreso() public view returns (uint256) {
+    function getFechaEgreso() public view returns (int256) {
         return hospitalizacionStruct.fechaEgreso;
     }
 
@@ -81,7 +85,7 @@ contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACION
         hospitalizacionStruct.viaDeIngreso = _viaDeIngreso;
     }
 
-    function setFechaIngreso(uint256 _fechaIngreso) public {
+    function setFechaIngreso(int256 _fechaIngreso) public {
         hospitalizacionStruct.fechaIngreso = _fechaIngreso;
     }
 
@@ -93,7 +97,7 @@ contract HospitalizacionVO is RegistroMedico (TipoRegistroMedico.HOSPITALIZACION
         hospitalizacionStruct.diagnosticoEgreso = _diagnosticoEgreso;
     }
 
-    function setFechaEgreso(uint256 _fechaEgreso) public {
+    function setFechaEgreso(int256 _fechaEgreso) public {
         hospitalizacionStruct.fechaEgreso = _fechaEgreso;
     }
 

@@ -4,7 +4,6 @@ pragma solidity ^0.8.17;
 import "../models/accesoHistoriaClinica/PermisoDeAccesoVO.sol";
 
 interface AccesoHistoriaClinicaMapperInterface {
-    event Log(string data);
 
     // TODO: Actualizar clase en enterprise architect
 

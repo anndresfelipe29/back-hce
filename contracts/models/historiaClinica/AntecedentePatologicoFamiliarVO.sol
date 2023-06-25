@@ -9,10 +9,14 @@ contract AntecedentePatologicoFamiliarVO is RegistroMedico(TipoRegistroMedico.AN
     struct AntecedentePatologicoFamiliarStruct {
         string parentesco;
         string enfermedad; // Quizá deba existir una lista de enfermedades en una nueva tabla
-        uint256 fechaAproximada;        
+        int256 fechaAproximada;        
     }
 
     AntecedentePatologicoFamiliarStruct private antecedentePatologicoFamiliarStruct;
+
+    constructor() {
+        creador = msg.sender;
+    }
 
     function getParentesco() public view returns (string memory) {
         return antecedentePatologicoFamiliarStruct.parentesco;
@@ -22,7 +26,7 @@ contract AntecedentePatologicoFamiliarVO is RegistroMedico(TipoRegistroMedico.AN
         return antecedentePatologicoFamiliarStruct.enfermedad;
     }
 
-    function getFechaAproximada() public view returns (uint256) {
+    function getFechaAproximada() public view returns (int256) {
         return antecedentePatologicoFamiliarStruct.fechaAproximada;
     }
 
@@ -48,7 +52,7 @@ contract AntecedentePatologicoFamiliarVO is RegistroMedico(TipoRegistroMedico.AN
         antecedentePatologicoFamiliarStruct.enfermedad = _enfermedad;
     }
 
-    function setFechaAproximada(uint256 _fechaAproximada) public {
+    function setFechaAproximada(int256 _fechaAproximada) public {
         antecedentePatologicoFamiliarStruct.fechaAproximada = _fechaAproximada;
     }
 }

@@ -9,22 +9,22 @@ contract PartoVO is RegistroMedico (TipoRegistroMedico.PARTOVO) {
         uint256 periodoGestacion;
         bool controlPrenatal;
         string causaMuerteMadre;
-        uint256 fechaMuerteMadre;
+        int256 fechaMuerteMadre;
         ActaNacimientoStruct actaNacimiento;
         string tipoParto;
     }
 
     struct ActaNacimientoStruct {
-        uint256 fechaNacimiento;
+        int256 fechaNacimiento;
         SexoStruct sexo;
         uint256 peso;
         uint256 talla;
         string diagnosticoRecienNacido;
         ApgarStruct apgar5Min;
         string causaMuerte;
-        uint256 fechaMuerte;
+        int256 fechaMuerte;
         uint256 codPrestadorServicioDeSalud;
-        uint256 fechaRegistro;
+        int256 fechaRegistro;
     }
 
     struct ApgarStruct {
@@ -36,6 +36,10 @@ contract PartoVO is RegistroMedico (TipoRegistroMedico.PARTOVO) {
     }
 
     PartoStruct private partoStruct;
+
+    constructor() {
+        creador = msg.sender;
+    }
 
     function getPeriodoGestacion() public view returns (uint256) {
         return partoStruct.periodoGestacion;
@@ -49,7 +53,7 @@ contract PartoVO is RegistroMedico (TipoRegistroMedico.PARTOVO) {
         return partoStruct.causaMuerteMadre;
     }
 
-    function getFechaMuerteMadre() public view returns (uint256) {
+    function getFechaMuerteMadre() public view returns (int256) {
         return partoStruct.fechaMuerteMadre;
     }
 
@@ -85,7 +89,7 @@ contract PartoVO is RegistroMedico (TipoRegistroMedico.PARTOVO) {
         partoStruct.causaMuerteMadre = _causaMuerteMadre;
     }
 
-    function setFechaMuerteMadre(uint256 _fechaMuerteMadre) public {
+    function setFechaMuerteMadre(int256 _fechaMuerteMadre) public {
         partoStruct.fechaMuerteMadre = _fechaMuerteMadre;
     }
 

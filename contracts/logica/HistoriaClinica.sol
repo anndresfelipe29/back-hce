@@ -13,6 +13,9 @@ contract HistoriaClinica is Modifiers {
     HistoriaClinicaMapperInterface private historiaClinicaMapper;
     DatosParametricosMapperInterface private datosParametricosMapper;
 
+    event ActivacionHCE(string data, address indexed generador, address indexed notificado);
+    event NuevoRegistro(string data, address indexed generador, address indexed notificado);
+
     constructor() {
         creador = msg.sender;
     }
@@ -36,6 +39,7 @@ contract HistoriaClinica is Modifiers {
         EstadoHCEVO estadoHCE = datosParametricosMapper.consultarEstadoHCEVO(0);
         nuevaHistoriaClinica.setEstado(estadoHCE);
         historiaClinicaMapper.guardar(direccionPaciente, nuevaHistoriaClinica);
+        emit ActivacionHCE("Historia clinica activada", msg.sender, direccionPaciente);
     }
 
     function agregarRegistro(
@@ -43,13 +47,15 @@ contract HistoriaClinica is Modifiers {
         RegistroMedico registroMedico
     ) public tieneAcceso(14) tienePermisoDeAccesoTemporal(direccionPaciente) {
         registroMedico.setCodPrestadorServicioDeSalud(msg.sender);
-        registroMedico.setFechaRegistro(block.timestamp);
-        // TODO: Setear el tipo de registro médico desde el front
-        // TODO: Falta definir el id
+        registroMedico.setFechaRegistro(int256(block.timestamp));
+        uint256 id = cantidadregistrosPorTipo(direccionPaciente,registroMedico.getTipoRegistroMedico());
+        registroMedico.setId(id+1);
+
         HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
             direccionPaciente
         );
         historiaClinica.agregarRegistroMedico(registroMedico);
+        emit NuevoRegistro("Nuevo registro agregado", msg.sender, direccionPaciente);
     }
 
     // TODO: Agregar validador de permiso por tiempo
@@ -122,6 +128,39 @@ contract HistoriaClinica is Modifiers {
         }
         filtro.selfDestruct();
         return listaDeRegistrosFiltrados;
+    }
+
+    function cantidadregistrosPorTipo(
+        address direccionPaciente,
+        TipoRegistroMedico tipoRegistroMedico
+    ) public tieneAcceso(18) tienePermisoDeAccesoTemporal(direccionPaciente) returns (uint256) {
+        HistoriaClinicaVO historiaClinica = historiaClinicaMapper.consultar(
+            direccionPaciente
+        );
+        RegistroMedico[] memory listaDeRegistros = historiaClinica
+            .getListaRegistros();
+
+        FiltroTipoRegistroMedicoIterator filtro = new FiltroTipoRegistroMedicoIterator(
+                listaDeRegistros,
+                tipoRegistroMedico
+            );
+
+        bool hayMasRegistros = true;
+        uint256 posicion = 0;
+        while (hayMasRegistros) {
+            try filtro.getNext() returns (RegistroMedico registro) {
+                if (address(registro) == address(0)) {
+                    hayMasRegistros = false;
+                } else {
+                    
+                    posicion = posicion + 1;
+                }
+            } catch Error(string memory e) {
+                hayMasRegistros = false;
+            }
+        }
+        filtro.selfDestruct();
+        return posicion;
     }
 
     function setHistoriaClinicaMapper(

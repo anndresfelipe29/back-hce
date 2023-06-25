@@ -10,7 +10,7 @@ import "../structsGenerales/ExploracionPorSistemasStruct.sol";
 
 contract ConsultaIndividualVO is RegistroMedico (TipoRegistroMedico.CONSULTAINDIVIDUALVO) {
     struct ConsultaIndividualStruct {
-        uint256 fechaAtencion;
+        int256 fechaAtencion;
         bool consultaPrioritaria;
         uint256 especialidadId;
         string padecimiento;
@@ -26,6 +26,10 @@ contract ConsultaIndividualVO is RegistroMedico (TipoRegistroMedico.CONSULTAINDI
     }
 
     ConsultaIndividualStruct private consultaIndividualStruct;
+
+    constructor() {
+        creador = msg.sender;
+    }
 
     function getConsultaIndividualStruct()
         public
@@ -43,7 +47,7 @@ contract ConsultaIndividualVO is RegistroMedico (TipoRegistroMedico.CONSULTAINDI
 
 
 
-    function getFechaAtencion() public view returns (uint256) {
+    function getFechaAtencion() public view returns (int256) {
         return consultaIndividualStruct.fechaAtencion;
     }
 
@@ -104,7 +108,7 @@ contract ConsultaIndividualVO is RegistroMedico (TipoRegistroMedico.CONSULTAINDI
     }
 
 
-    function setFechaAtencion(uint256 _fechaAtencion) public {
+    function setFechaAtencion(int256 _fechaAtencion) public {
         consultaIndividualStruct.fechaAtencion = _fechaAtencion;
     }
 

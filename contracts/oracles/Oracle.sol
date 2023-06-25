@@ -166,6 +166,7 @@ contract Oracle is Modifiers {
         }
     }
 
+    // TODO: Eliminar, al parecer no sé usa
     function updateRequestMedico(
         uint256 _id,
         // string memory _valueRetrieved

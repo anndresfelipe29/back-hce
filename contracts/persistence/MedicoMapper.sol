@@ -19,7 +19,6 @@ contract MedicoMapper is MedicoMapperInterface {
         if (address(medico) == address(0)) {
             revert("No existe ese medico");
         }
-        emit Log("Medico valido");
         return medico;
     }
 

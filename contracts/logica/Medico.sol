@@ -11,8 +11,6 @@ import "../oracles/Oracle.sol";
 import "../models/oracles/PeticionExternaEnum.sol";
 
 contract Medico is Modifiers {
-    // TODO: consumir este evento desde una clase heredada o algo así
-    event Log(string data);
     //address public creador;
 
     MedicoMapperInterface private medicoMapper;
@@ -31,7 +29,6 @@ contract Medico is Modifiers {
         tieneAcceso(7)
         returns (MedicoVO.MedicoVOStruct memory)
     {
-        emit Log("entro a consultar");
         return medicoMapper.consultar(direccion).getMedicoVOValue();
     }
 

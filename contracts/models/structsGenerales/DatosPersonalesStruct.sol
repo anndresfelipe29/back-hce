@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 struct DatosPersonalesStruct {
     uint256 sexoId;
     uint256 estadoCivilId;
-    uint256 fechaNacimiento;
+    int256 fechaNacimiento;
     uint256 edad;
     string ciudadResidencia;
     string ocupacion;

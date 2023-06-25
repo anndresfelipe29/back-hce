@@ -24,7 +24,7 @@ contract AlergiaVO is RegistroMedico (TipoRegistroMedico.ALERGIAVO) {
         return alergiaStruct;
     }
 
-    function setAlergiaStruct(AlergiaStruct memory _alergiaStruct) public {
+    function setAlergiaStruct(AlergiaStruct memory _alergiaStruct) public {        
         alergiaStruct = _alergiaStruct;
     }
 

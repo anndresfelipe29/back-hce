@@ -4,7 +4,6 @@ pragma solidity ^0.8.17;
 import "../models/PacienteVO.sol";
 
 interface PacienteMapperInterface {
-    event Log(string data);
 
     function consultar(address direccion) external returns (PacienteVO);
 

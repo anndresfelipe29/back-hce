@@ -7,18 +7,22 @@ import "../structsGenerales/ProcedimientosStruct.sol";
 contract PruebaDeLaboratorioVO is RegistroMedico (TipoRegistroMedico.PRUEBADELABORATORIOVO) {
     struct PruebaDeLaboratorioStruct {
         uint256 ambitoProcedimiento;
-        uint256 fecha;
+        int256 fecha;
         ClaseProcedimientoStruct procedimiento;
         string anexo;
     }
 
     PruebaDeLaboratorioStruct private pruebaDeLaboratorioStruct;
 
+    constructor() {
+        creador = msg.sender;
+    }
+
     function getAmbitoProcedimiento() public view returns (uint256) {
         return pruebaDeLaboratorioStruct.ambitoProcedimiento;
     }
 
-    function getFecha() public view returns (uint256) {
+    function getFecha() public view returns (int256) {
         return pruebaDeLaboratorioStruct.fecha;
     }
 
@@ -52,7 +56,7 @@ contract PruebaDeLaboratorioVO is RegistroMedico (TipoRegistroMedico.PRUEBADELAB
         pruebaDeLaboratorioStruct.ambitoProcedimiento = _ambitoProcedimiento;
     }
 
-    function setFecha(uint256 _fecha) public {
+    function setFecha(int256 _fecha) public {
         pruebaDeLaboratorioStruct.fecha = _fecha;
     }
 

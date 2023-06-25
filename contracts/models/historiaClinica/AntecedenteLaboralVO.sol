@@ -9,11 +9,17 @@ contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTEL
     struct AntecedenteLaboralStruct {
         string descripcionLabor;
         string actividadRealizada;
-        uint256 fechaInicio;
-        uint256 fechaRetiro;
+        int256 fechaInicio;
+        int256 fechaRetiro;
+        bool esActividadActual;
     }
 
     AntecedenteLaboralStruct private antecedenteLaboralStruct;
+
+    constructor() {
+        creador = msg.sender;
+    }
+
 
     function getDescripcionLabor() public view returns (string memory) {
         return antecedenteLaboralStruct.descripcionLabor;
@@ -23,12 +29,16 @@ contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTEL
         return antecedenteLaboralStruct.actividadRealizada;
     }
 
-    function getFechaInicio() public view returns (uint256) {
+    function getFechaInicio() public view returns (int256) {
         return antecedenteLaboralStruct.fechaInicio;
     }
 
-    function getFechaRetiro() public view returns (uint256) {
+    function getFechaRetiro() public view returns (int256) {
         return antecedenteLaboralStruct.fechaRetiro;
+    }
+
+    function getEsActividadActual() public view returns (bool) {
+        return antecedenteLaboralStruct.esActividadActual;
     }
 
     function getAntecedenteLaboralStruct()
@@ -53,11 +63,15 @@ contract AntecedenteLaboralVO is RegistroMedico (TipoRegistroMedico.ANTECEDENTEL
         antecedenteLaboralStruct.actividadRealizada = _actividadRealizada;
     }
 
-    function setFechaInicio(uint256 _fechaInicio) public {
+    function setFechaInicio(int256 _fechaInicio) public {
         antecedenteLaboralStruct.fechaInicio = _fechaInicio;
     }
 
-    function setFechaRetiro(uint256 _fechaRetiro) public {
+    function setFechaRetiro(int256 _fechaRetiro) public {
         antecedenteLaboralStruct.fechaRetiro = _fechaRetiro;
+    }
+
+    function setEsActividadActual(bool _esActividadActual) public {
+        antecedenteLaboralStruct.esActividadActual = _esActividadActual;
     }
 }

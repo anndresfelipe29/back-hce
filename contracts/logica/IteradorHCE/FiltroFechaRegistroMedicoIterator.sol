@@ -24,7 +24,7 @@ contract FiltroFechaRegistroMedicoIterator is RegistroMedicoIterator {
     }
 
     function getNext() public override returns (RegistroMedico) {
-        uint256 fechaActual = block.timestamp;
+        int256 fechaActual = int256(block.timestamp);
         if (hasMore()) {
             posicionActual = posicionActual + 1;
             RegistroMedico regMedico = todosLosRegistros[posicionActual];
