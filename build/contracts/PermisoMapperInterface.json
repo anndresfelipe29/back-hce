@@ -91,21 +91,21 @@
     "absolutePath": "project:/contracts/persistence/PermisoMapperInterface.sol",
     "exportedSymbols": {
       "PermisoMapperInterface": [
-        11387
+        11391
       ],
       "PermisoVO": [
-        2828
+        2809
       ],
       "RolVO": [
-        3392
+        3373
       ]
     },
-    "id": 11388,
+    "id": 11392,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 11354,
+        "id": 11358,
         "literals": [
           "solidity",
           "^",
@@ -113,17 +113,17 @@
           ".17"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:65"
+        "src": "32:24:64"
       },
       {
         "absolutePath": "project:/contracts/models/RolVO.sol",
         "file": "../models/RolVO.sol",
-        "id": 11355,
+        "id": 11359,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 11388,
-        "sourceUnit": 3393,
-        "src": "58:29:65",
+        "scope": 11392,
+        "sourceUnit": 3374,
+        "src": "58:29:64",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -134,35 +134,35 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 11387,
+        "id": 11391,
         "linearizedBaseContracts": [
-          11387
+          11391
         ],
         "name": "PermisoMapperInterface",
-        "nameLocation": "99:22:65",
+        "nameLocation": "99:22:64",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "anonymous": false,
             "eventSelector": "cf34ef537ac33ee1ac626ca1587a0a7e8e51561e5514f8cb36afa1c5102b3bab",
-            "id": 11359,
+            "id": 11363,
             "name": "Log",
-            "nameLocation": "134:3:65",
+            "nameLocation": "134:3:64",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 11358,
+              "id": 11362,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11357,
+                  "id": 11361,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "data",
-                  "nameLocation": "145:4:65",
+                  "nameLocation": "145:4:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11359,
-                  "src": "138:11:65",
+                  "scope": 11363,
+                  "src": "138:11:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -170,10 +170,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 11356,
+                    "id": 11360,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "138:6:65",
+                    "src": "138:6:64",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -182,54 +182,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "137:13:65"
+              "src": "137:13:64"
             },
-            "src": "128:23:65"
+            "src": "128:23:64"
           },
           {
             "functionSelector": "b10b65ce",
-            "id": 11367,
+            "id": 11371,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "consultar",
-            "nameLocation": "166:9:65",
+            "nameLocation": "166:9:64",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11362,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 11361,
-                  "mutability": "mutable",
-                  "name": "_id",
-                  "nameLocation": "184:3:65",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 11367,
-                  "src": "176:11:65",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 11360,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "176:7:65",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "175:13:65"
-            },
-            "returnParameters": {
               "id": 11366,
               "nodeType": "ParameterList",
               "parameters": [
@@ -237,70 +203,104 @@
                   "constant": false,
                   "id": 11365,
                   "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
+                  "name": "_id",
+                  "nameLocation": "184:3:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11367,
-                  "src": "207:9:65",
+                  "scope": 11371,
+                  "src": "176:11:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_PermisoVO_$2828",
-                    "typeString": "contract PermisoVO"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
                     "id": 11364,
-                    "nodeType": "UserDefinedTypeName",
-                    "pathNode": {
-                      "id": 11363,
-                      "name": "PermisoVO",
-                      "nameLocations": [
-                        "207:9:65"
-                      ],
-                      "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2828,
-                      "src": "207:9:65"
-                    },
-                    "referencedDeclaration": 2828,
-                    "src": "207:9:65",
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "176:7:64",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_PermisoVO_$2828",
-                      "typeString": "contract PermisoVO"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "206:11:65"
+              "src": "175:13:64"
             },
-            "scope": 11387,
-            "src": "157:61:65",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "d058e437",
-            "id": 11375,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "guardar",
-            "nameLocation": "233:7:65",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 11373,
+            "returnParameters": {
+              "id": 11370,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
                   "id": 11369,
                   "mutability": "mutable",
-                  "name": "_id",
-                  "nameLocation": "249:3:65",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11375,
-                  "src": "241:11:65",
+                  "scope": 11371,
+                  "src": "207:9:64",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_PermisoVO_$2809",
+                    "typeString": "contract PermisoVO"
+                  },
+                  "typeName": {
+                    "id": 11368,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 11367,
+                      "name": "PermisoVO",
+                      "nameLocations": [
+                        "207:9:64"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2809,
+                      "src": "207:9:64"
+                    },
+                    "referencedDeclaration": 2809,
+                    "src": "207:9:64",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_PermisoVO_$2809",
+                      "typeString": "contract PermisoVO"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "206:11:64"
+            },
+            "scope": 11391,
+            "src": "157:61:64",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "d058e437",
+            "id": 11379,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "guardar",
+            "nameLocation": "233:7:64",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 11377,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11373,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "249:3:64",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 11379,
+                  "src": "241:11:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -308,10 +308,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 11368,
+                    "id": 11372,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "241:7:65",
+                    "src": "241:7:64",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -321,78 +321,78 @@
                 },
                 {
                   "constant": false,
-                  "id": 11372,
+                  "id": 11376,
                   "mutability": "mutable",
                   "name": "paciente",
-                  "nameLocation": "264:8:65",
+                  "nameLocation": "264:8:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11375,
-                  "src": "254:18:65",
+                  "scope": 11379,
+                  "src": "254:18:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_PermisoVO_$2828",
+                    "typeIdentifier": "t_contract$_PermisoVO_$2809",
                     "typeString": "contract PermisoVO"
                   },
                   "typeName": {
-                    "id": 11371,
+                    "id": 11375,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 11370,
+                      "id": 11374,
                       "name": "PermisoVO",
                       "nameLocations": [
-                        "254:9:65"
+                        "254:9:64"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2828,
-                      "src": "254:9:65"
+                      "referencedDeclaration": 2809,
+                      "src": "254:9:64"
                     },
-                    "referencedDeclaration": 2828,
-                    "src": "254:9:65",
+                    "referencedDeclaration": 2809,
+                    "src": "254:9:64",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_PermisoVO_$2828",
+                      "typeIdentifier": "t_contract$_PermisoVO_$2809",
                       "typeString": "contract PermisoVO"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "240:33:65"
+              "src": "240:33:64"
             },
             "returnParameters": {
-              "id": 11374,
+              "id": 11378,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "282:0:65"
+              "src": "282:0:64"
             },
-            "scope": 11387,
-            "src": "224:59:65",
+            "scope": 11391,
+            "src": "224:59:64",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "27fcdf2b",
-            "id": 11383,
+            "id": 11387,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "actualizar",
-            "nameLocation": "298:10:65",
+            "nameLocation": "298:10:64",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11381,
+              "id": 11385,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11377,
+                  "id": 11381,
                   "mutability": "mutable",
                   "name": "_id",
-                  "nameLocation": "317:3:65",
+                  "nameLocation": "317:3:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11383,
-                  "src": "309:11:65",
+                  "scope": 11387,
+                  "src": "309:11:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -400,10 +400,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 11376,
+                    "id": 11380,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "309:7:65",
+                    "src": "309:7:64",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -413,90 +413,90 @@
                 },
                 {
                   "constant": false,
-                  "id": 11380,
+                  "id": 11384,
                   "mutability": "mutable",
                   "name": "paciente",
-                  "nameLocation": "332:8:65",
+                  "nameLocation": "332:8:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11383,
-                  "src": "322:18:65",
+                  "scope": 11387,
+                  "src": "322:18:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_PermisoVO_$2828",
+                    "typeIdentifier": "t_contract$_PermisoVO_$2809",
                     "typeString": "contract PermisoVO"
                   },
                   "typeName": {
-                    "id": 11379,
+                    "id": 11383,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 11378,
+                      "id": 11382,
                       "name": "PermisoVO",
                       "nameLocations": [
-                        "322:9:65"
+                        "322:9:64"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2828,
-                      "src": "322:9:65"
+                      "referencedDeclaration": 2809,
+                      "src": "322:9:64"
                     },
-                    "referencedDeclaration": 2828,
-                    "src": "322:9:65",
+                    "referencedDeclaration": 2809,
+                    "src": "322:9:64",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_PermisoVO_$2828",
+                      "typeIdentifier": "t_contract$_PermisoVO_$2809",
                       "typeString": "contract PermisoVO"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "308:33:65"
+              "src": "308:33:64"
             },
             "returnParameters": {
-              "id": 11382,
+              "id": 11386,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "350:0:65"
+              "src": "350:0:64"
             },
-            "scope": 11387,
-            "src": "289:62:65",
+            "scope": 11391,
+            "src": "289:62:64",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9cb8a26a",
-            "id": 11386,
+            "id": 11390,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "selfDestruct",
-            "nameLocation": "366:12:65",
+            "nameLocation": "366:12:64",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11384,
+              "id": 11388,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "378:2:65"
+              "src": "378:2:64"
             },
             "returnParameters": {
-              "id": 11385,
+              "id": 11389,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "389:0:65"
+              "src": "389:0:64"
             },
-            "scope": 11387,
-            "src": "357:33:65",
+            "scope": 11391,
+            "src": "357:33:64",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 11388,
-        "src": "89:303:65",
+        "scope": 11392,
+        "src": "89:303:64",
         "usedErrors": []
       }
     ],
-    "src": "32:361:65"
+    "src": "32:361:64"
   },
   "compiler": {
     "name": "solc",
@@ -504,7 +504,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-06-12T22:38:52.192Z",
+  "updatedAt": "2023-06-26T00:47:43.796Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -176,18 +176,18 @@
     "absolutePath": "project:/contracts/persistence/AccesoHistoriaClinicaMapperInterface.sol",
     "exportedSymbols": {
       "AccesoHistoriaClinicaMapperInterface": [
-        9393
+        9397
       ],
       "PermisoDeAccesoVO": [
-        4475
+        4456
       ]
     },
-    "id": 9394,
+    "id": 9398,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 9320,
+        "id": 9324,
         "literals": [
           "solidity",
           "^",
@@ -195,17 +195,17 @@
           ".17"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:55"
+        "src": "32:24:54"
       },
       {
         "absolutePath": "project:/contracts/models/accesoHistoriaClinica/PermisoDeAccesoVO.sol",
         "file": "../models/accesoHistoriaClinica/PermisoDeAccesoVO.sol",
-        "id": 9321,
+        "id": 9325,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 9394,
-        "sourceUnit": 4476,
-        "src": "58:63:55",
+        "scope": 9398,
+        "sourceUnit": 4457,
+        "src": "58:63:54",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -216,36 +216,36 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 9393,
+        "id": 9397,
         "linearizedBaseContracts": [
-          9393
+          9397
         ],
         "name": "AccesoHistoriaClinicaMapperInterface",
-        "nameLocation": "133:36:55",
+        "nameLocation": "133:36:54",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "6ff30e69",
-            "id": 9330,
+            "id": 9334,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getPermisosDeAccesoActivosPorHistoriaClinica",
-            "nameLocation": "241:44:55",
+            "nameLocation": "241:44:54",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9324,
+              "id": 9328,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9323,
+                  "id": 9327,
                   "mutability": "mutable",
                   "name": "direccion",
-                  "nameLocation": "294:9:55",
+                  "nameLocation": "294:9:54",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9330,
-                  "src": "286:17:55",
+                  "scope": 9334,
+                  "src": "286:17:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -253,10 +253,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9322,
+                    "id": 9326,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "286:7:55",
+                    "src": "286:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -266,77 +266,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "285:19:55"
+              "src": "285:19:54"
             },
             "returnParameters": {
-              "id": 9329,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 9328,
-                  "mutability": "mutable",
-                  "name": "response",
-                  "nameLocation": "379:8:55",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 9330,
-                  "src": "352:35:55",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_memory_ptr",
-                    "typeString": "contract PermisoDeAccesoVO[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 9326,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 9325,
-                        "name": "PermisoDeAccesoVO",
-                        "nameLocations": [
-                          "352:17:55"
-                        ],
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 4475,
-                        "src": "352:17:55"
-                      },
-                      "referencedDeclaration": 4475,
-                      "src": "352:17:55",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4475",
-                        "typeString": "contract PermisoDeAccesoVO"
-                      }
-                    },
-                    "id": 9327,
-                    "nodeType": "ArrayTypeName",
-                    "src": "352:19:55",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_storage_ptr",
-                      "typeString": "contract PermisoDeAccesoVO[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "351:37:55"
-            },
-            "scope": 9393,
-            "src": "232:157:55",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "dd563d53",
-            "id": 9339,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getPermisosDeAccesoPorHistoriaClinica",
-            "nameLocation": "404:37:55",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
               "id": 9333,
               "nodeType": "ParameterList",
               "parameters": [
@@ -344,11 +276,79 @@
                   "constant": false,
                   "id": 9332,
                   "mutability": "mutable",
-                  "name": "direccion",
-                  "nameLocation": "450:9:55",
+                  "name": "response",
+                  "nameLocation": "379:8:54",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9339,
-                  "src": "442:17:55",
+                  "scope": 9334,
+                  "src": "352:35:54",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_memory_ptr",
+                    "typeString": "contract PermisoDeAccesoVO[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 9330,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 9329,
+                        "name": "PermisoDeAccesoVO",
+                        "nameLocations": [
+                          "352:17:54"
+                        ],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 4456,
+                        "src": "352:17:54"
+                      },
+                      "referencedDeclaration": 4456,
+                      "src": "352:17:54",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4456",
+                        "typeString": "contract PermisoDeAccesoVO"
+                      }
+                    },
+                    "id": 9331,
+                    "nodeType": "ArrayTypeName",
+                    "src": "352:19:54",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_storage_ptr",
+                      "typeString": "contract PermisoDeAccesoVO[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "351:37:54"
+            },
+            "scope": 9397,
+            "src": "232:157:54",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "dd563d53",
+            "id": 9343,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPermisosDeAccesoPorHistoriaClinica",
+            "nameLocation": "404:37:54",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9337,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9336,
+                  "mutability": "mutable",
+                  "name": "direccion",
+                  "nameLocation": "450:9:54",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9343,
+                  "src": "442:17:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -356,10 +356,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9331,
+                    "id": 9335,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "442:7:55",
+                    "src": "442:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -369,77 +369,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "441:19:55"
+              "src": "441:19:54"
             },
             "returnParameters": {
-              "id": 9338,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 9337,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 9339,
-                  "src": "508:26:55",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_memory_ptr",
-                    "typeString": "contract PermisoDeAccesoVO[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 9335,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 9334,
-                        "name": "PermisoDeAccesoVO",
-                        "nameLocations": [
-                          "508:17:55"
-                        ],
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 4475,
-                        "src": "508:17:55"
-                      },
-                      "referencedDeclaration": 4475,
-                      "src": "508:17:55",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4475",
-                        "typeString": "contract PermisoDeAccesoVO"
-                      }
-                    },
-                    "id": 9336,
-                    "nodeType": "ArrayTypeName",
-                    "src": "508:19:55",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_storage_ptr",
-                      "typeString": "contract PermisoDeAccesoVO[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "507:28:55"
-            },
-            "scope": 9393,
-            "src": "395:141:55",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "4dfc9b4c",
-            "id": 9348,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getPermisosDeAccesoActivosPorMedico",
-            "nameLocation": "551:35:55",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
               "id": 9342,
               "nodeType": "ParameterList",
               "parameters": [
@@ -447,11 +379,79 @@
                   "constant": false,
                   "id": 9341,
                   "mutability": "mutable",
-                  "name": "direccion",
-                  "nameLocation": "595:9:55",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9348,
-                  "src": "587:17:55",
+                  "scope": 9343,
+                  "src": "508:26:54",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_memory_ptr",
+                    "typeString": "contract PermisoDeAccesoVO[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 9339,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 9338,
+                        "name": "PermisoDeAccesoVO",
+                        "nameLocations": [
+                          "508:17:54"
+                        ],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 4456,
+                        "src": "508:17:54"
+                      },
+                      "referencedDeclaration": 4456,
+                      "src": "508:17:54",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4456",
+                        "typeString": "contract PermisoDeAccesoVO"
+                      }
+                    },
+                    "id": 9340,
+                    "nodeType": "ArrayTypeName",
+                    "src": "508:19:54",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_storage_ptr",
+                      "typeString": "contract PermisoDeAccesoVO[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "507:28:54"
+            },
+            "scope": 9397,
+            "src": "395:141:54",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "4dfc9b4c",
+            "id": 9352,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPermisosDeAccesoActivosPorMedico",
+            "nameLocation": "551:35:54",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9346,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9345,
+                  "mutability": "mutable",
+                  "name": "direccion",
+                  "nameLocation": "595:9:54",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9352,
+                  "src": "587:17:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -459,10 +459,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9340,
+                    "id": 9344,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "587:7:55",
+                    "src": "587:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -472,77 +472,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "586:19:55"
+              "src": "586:19:54"
             },
             "returnParameters": {
-              "id": 9347,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 9346,
-                  "mutability": "mutable",
-                  "name": "response",
-                  "nameLocation": "680:8:55",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 9348,
-                  "src": "653:35:55",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_memory_ptr",
-                    "typeString": "contract PermisoDeAccesoVO[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 9344,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 9343,
-                        "name": "PermisoDeAccesoVO",
-                        "nameLocations": [
-                          "653:17:55"
-                        ],
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 4475,
-                        "src": "653:17:55"
-                      },
-                      "referencedDeclaration": 4475,
-                      "src": "653:17:55",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4475",
-                        "typeString": "contract PermisoDeAccesoVO"
-                      }
-                    },
-                    "id": 9345,
-                    "nodeType": "ArrayTypeName",
-                    "src": "653:19:55",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_storage_ptr",
-                      "typeString": "contract PermisoDeAccesoVO[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "652:37:55"
-            },
-            "scope": 9393,
-            "src": "542:148:55",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "dd2861b7",
-            "id": 9357,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getPermisosDeAccesoPorMedico",
-            "nameLocation": "705:28:55",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
               "id": 9351,
               "nodeType": "ParameterList",
               "parameters": [
@@ -550,11 +482,79 @@
                   "constant": false,
                   "id": 9350,
                   "mutability": "mutable",
-                  "name": "direccion",
-                  "nameLocation": "742:9:55",
+                  "name": "response",
+                  "nameLocation": "680:8:54",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9357,
-                  "src": "734:17:55",
+                  "scope": 9352,
+                  "src": "653:35:54",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_memory_ptr",
+                    "typeString": "contract PermisoDeAccesoVO[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 9348,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 9347,
+                        "name": "PermisoDeAccesoVO",
+                        "nameLocations": [
+                          "653:17:54"
+                        ],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 4456,
+                        "src": "653:17:54"
+                      },
+                      "referencedDeclaration": 4456,
+                      "src": "653:17:54",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4456",
+                        "typeString": "contract PermisoDeAccesoVO"
+                      }
+                    },
+                    "id": 9349,
+                    "nodeType": "ArrayTypeName",
+                    "src": "653:19:54",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_storage_ptr",
+                      "typeString": "contract PermisoDeAccesoVO[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "652:37:54"
+            },
+            "scope": 9397,
+            "src": "542:148:54",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "dd2861b7",
+            "id": 9361,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPermisosDeAccesoPorMedico",
+            "nameLocation": "705:28:54",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9355,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9354,
+                  "mutability": "mutable",
+                  "name": "direccion",
+                  "nameLocation": "742:9:54",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9361,
+                  "src": "734:17:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -562,10 +562,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9349,
+                    "id": 9353,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "734:7:55",
+                    "src": "734:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -575,89 +575,89 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "733:19:55"
+              "src": "733:19:54"
             },
             "returnParameters": {
-              "id": 9356,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 9355,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 9357,
-                  "src": "800:26:55",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_memory_ptr",
-                    "typeString": "contract PermisoDeAccesoVO[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 9353,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 9352,
-                        "name": "PermisoDeAccesoVO",
-                        "nameLocations": [
-                          "800:17:55"
-                        ],
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 4475,
-                        "src": "800:17:55"
-                      },
-                      "referencedDeclaration": 4475,
-                      "src": "800:17:55",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4475",
-                        "typeString": "contract PermisoDeAccesoVO"
-                      }
-                    },
-                    "id": 9354,
-                    "nodeType": "ArrayTypeName",
-                    "src": "800:19:55",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_storage_ptr",
-                      "typeString": "contract PermisoDeAccesoVO[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "799:28:55"
-            },
-            "scope": 9393,
-            "src": "696:132:55",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "da2f4261",
-            "id": 9366,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "esPermisoVigente",
-            "nameLocation": "843:16:55",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 9362,
+              "id": 9360,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
                   "id": 9359,
                   "mutability": "mutable",
-                  "name": "direccionPaciente",
-                  "nameLocation": "877:17:55",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9366,
-                  "src": "869:25:55",
+                  "scope": 9361,
+                  "src": "800:26:54",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_memory_ptr",
+                    "typeString": "contract PermisoDeAccesoVO[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 9357,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 9356,
+                        "name": "PermisoDeAccesoVO",
+                        "nameLocations": [
+                          "800:17:54"
+                        ],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 4456,
+                        "src": "800:17:54"
+                      },
+                      "referencedDeclaration": 4456,
+                      "src": "800:17:54",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4456",
+                        "typeString": "contract PermisoDeAccesoVO"
+                      }
+                    },
+                    "id": 9358,
+                    "nodeType": "ArrayTypeName",
+                    "src": "800:19:54",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_storage_ptr",
+                      "typeString": "contract PermisoDeAccesoVO[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "799:28:54"
+            },
+            "scope": 9397,
+            "src": "696:132:54",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "da2f4261",
+            "id": 9370,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "esPermisoVigente",
+            "nameLocation": "843:16:54",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9366,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9363,
+                  "mutability": "mutable",
+                  "name": "direccionPaciente",
+                  "nameLocation": "877:17:54",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9370,
+                  "src": "869:25:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -665,10 +665,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9358,
+                    "id": 9362,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "869:7:55",
+                    "src": "869:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -679,13 +679,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 9361,
+                  "id": 9365,
                   "mutability": "mutable",
                   "name": "direccionMedico",
-                  "nameLocation": "912:15:55",
+                  "nameLocation": "912:15:54",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9366,
-                  "src": "904:23:55",
+                  "scope": 9370,
+                  "src": "904:23:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -693,10 +693,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9360,
+                    "id": 9364,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "904:7:55",
+                    "src": "904:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -706,21 +706,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "859:74:55"
+              "src": "859:74:54"
             },
             "returnParameters": {
-              "id": 9365,
+              "id": 9369,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9364,
+                  "id": 9368,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9366,
-                  "src": "957:4:55",
+                  "scope": 9370,
+                  "src": "957:4:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -728,10 +728,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 9363,
+                    "id": 9367,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "957:4:55",
+                    "src": "957:4:54",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -740,36 +740,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "956:6:55"
+              "src": "956:6:54"
             },
-            "scope": 9393,
-            "src": "834:129:55",
+            "scope": 9397,
+            "src": "834:129:54",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "53d9c209",
-            "id": 9377,
+            "id": 9381,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getPermisos",
-            "nameLocation": "978:11:55",
+            "nameLocation": "978:11:54",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9371,
+              "id": 9375,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9368,
+                  "id": 9372,
                   "mutability": "mutable",
                   "name": "direccionPaciente",
-                  "nameLocation": "998:17:55",
+                  "nameLocation": "998:17:54",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9377,
-                  "src": "990:25:55",
+                  "scope": 9381,
+                  "src": "990:25:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -777,10 +777,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9367,
+                    "id": 9371,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "990:7:55",
+                    "src": "990:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -791,13 +791,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 9370,
+                  "id": 9374,
                   "mutability": "mutable",
                   "name": "direccionMedico",
-                  "nameLocation": "1025:15:55",
+                  "nameLocation": "1025:15:54",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9377,
-                  "src": "1017:23:55",
+                  "scope": 9381,
+                  "src": "1017:23:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -805,10 +805,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9369,
+                    "id": 9373,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1017:7:55",
+                    "src": "1017:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -818,89 +818,89 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "989:52:55"
+              "src": "989:52:54"
             },
             "returnParameters": {
-              "id": 9376,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 9375,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 9377,
-                  "src": "1089:26:55",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_memory_ptr",
-                    "typeString": "contract PermisoDeAccesoVO[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 9373,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 9372,
-                        "name": "PermisoDeAccesoVO",
-                        "nameLocations": [
-                          "1089:17:55"
-                        ],
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 4475,
-                        "src": "1089:17:55"
-                      },
-                      "referencedDeclaration": 4475,
-                      "src": "1089:17:55",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4475",
-                        "typeString": "contract PermisoDeAccesoVO"
-                      }
-                    },
-                    "id": 9374,
-                    "nodeType": "ArrayTypeName",
-                    "src": "1089:19:55",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4475_$dyn_storage_ptr",
-                      "typeString": "contract PermisoDeAccesoVO[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "1088:28:55"
-            },
-            "scope": 9393,
-            "src": "969:148:55",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "4bfb14c5",
-            "id": 9389,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "setPermiso",
-            "nameLocation": "1132:10:55",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 9385,
+              "id": 9380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
                   "id": 9379,
                   "mutability": "mutable",
-                  "name": "direccionPaciente",
-                  "nameLocation": "1160:17:55",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9389,
-                  "src": "1152:25:55",
+                  "scope": 9381,
+                  "src": "1089:26:54",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_memory_ptr",
+                    "typeString": "contract PermisoDeAccesoVO[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 9377,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 9376,
+                        "name": "PermisoDeAccesoVO",
+                        "nameLocations": [
+                          "1089:17:54"
+                        ],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 4456,
+                        "src": "1089:17:54"
+                      },
+                      "referencedDeclaration": 4456,
+                      "src": "1089:17:54",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4456",
+                        "typeString": "contract PermisoDeAccesoVO"
+                      }
+                    },
+                    "id": 9378,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1089:19:54",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_PermisoDeAccesoVO_$4456_$dyn_storage_ptr",
+                      "typeString": "contract PermisoDeAccesoVO[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1088:28:54"
+            },
+            "scope": 9397,
+            "src": "969:148:54",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "4bfb14c5",
+            "id": 9393,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setPermiso",
+            "nameLocation": "1132:10:54",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9389,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9383,
+                  "mutability": "mutable",
+                  "name": "direccionPaciente",
+                  "nameLocation": "1160:17:54",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9393,
+                  "src": "1152:25:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -908,10 +908,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9378,
+                    "id": 9382,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1152:7:55",
+                    "src": "1152:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -922,13 +922,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 9381,
+                  "id": 9385,
                   "mutability": "mutable",
                   "name": "direccionMedico",
-                  "nameLocation": "1195:15:55",
+                  "nameLocation": "1195:15:54",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9389,
-                  "src": "1187:23:55",
+                  "scope": 9393,
+                  "src": "1187:23:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -936,10 +936,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9380,
+                    "id": 9384,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1187:7:55",
+                    "src": "1187:7:54",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -950,57 +950,57 @@
                 },
                 {
                   "constant": false,
-                  "id": 9384,
+                  "id": 9388,
                   "mutability": "mutable",
                   "name": "permiso",
-                  "nameLocation": "1238:7:55",
+                  "nameLocation": "1238:7:54",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9389,
-                  "src": "1220:25:55",
+                  "scope": 9393,
+                  "src": "1220:25:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4475",
+                    "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4456",
                     "typeString": "contract PermisoDeAccesoVO"
                   },
                   "typeName": {
-                    "id": 9383,
+                    "id": 9387,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 9382,
+                      "id": 9386,
                       "name": "PermisoDeAccesoVO",
                       "nameLocations": [
-                        "1220:17:55"
+                        "1220:17:54"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 4475,
-                      "src": "1220:17:55"
+                      "referencedDeclaration": 4456,
+                      "src": "1220:17:54"
                     },
-                    "referencedDeclaration": 4475,
-                    "src": "1220:17:55",
+                    "referencedDeclaration": 4456,
+                    "src": "1220:17:54",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4475",
+                      "typeIdentifier": "t_contract$_PermisoDeAccesoVO_$4456",
                       "typeString": "contract PermisoDeAccesoVO"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1142:109:55"
+              "src": "1142:109:54"
             },
             "returnParameters": {
-              "id": 9388,
+              "id": 9392,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9387,
+                  "id": 9391,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9389,
-                  "src": "1270:7:55",
+                  "scope": 9393,
+                  "src": "1270:7:54",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1008,10 +1008,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 9386,
+                    "id": 9390,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1270:7:55",
+                    "src": "1270:7:54",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1020,48 +1020,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1269:9:55"
+              "src": "1269:9:54"
             },
-            "scope": 9393,
-            "src": "1123:156:55",
+            "scope": 9397,
+            "src": "1123:156:54",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9cb8a26a",
-            "id": 9392,
+            "id": 9396,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "selfDestruct",
-            "nameLocation": "1294:12:55",
+            "nameLocation": "1294:12:54",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9390,
+              "id": 9394,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1306:2:55"
+              "src": "1306:2:54"
             },
             "returnParameters": {
-              "id": 9391,
+              "id": 9395,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1317:0:55"
+              "src": "1317:0:54"
             },
-            "scope": 9393,
-            "src": "1285:33:55",
+            "scope": 9397,
+            "src": "1285:33:54",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 9394,
-        "src": "123:1197:55",
+        "scope": 9398,
+        "src": "123:1197:54",
         "usedErrors": []
       }
     ],
-    "src": "32:1289:55"
+    "src": "32:1289:54"
   },
   "compiler": {
     "name": "solc",
@@ -1069,7 +1069,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-06-12T22:38:52.150Z",
+  "updatedAt": "2023-06-26T00:47:43.700Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
