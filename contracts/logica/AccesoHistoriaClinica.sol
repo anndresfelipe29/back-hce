@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
 import "../persistence/AccesoHistoriaClinicaMapper.sol";
@@ -38,15 +39,14 @@ contract AccesoHistoriaClinica is Modifiers {
                     // TODO Descomentar
                     // permiso.setFechaExpiracion(fechaActual + 3 hours);
                     int256 duracionPermiso = tiempoPermisoEnMinutos * 1 minutes;
-                    permiso.setFechaExpiracion(fechaActual + duracionPermiso);
-                    return;
+                    permiso.setFechaExpiracion(fechaActual + duracionPermiso);                    
                 } else {
                     permiso.setFueAceptado(false);
                     permiso.setFechaSolicitud(fechaActual);
-                    permiso.setFechaExpiracion(0);
-                    return;
+                    permiso.setFechaExpiracion(0);                    
                 }
                 emit Respuesta("La solicitud fue respondida", msg.sender, direccionMedico);
+                return;
             }
         }
         revert("No existe una solicitud de permiso en proceso");
